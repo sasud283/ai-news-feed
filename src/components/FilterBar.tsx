@@ -49,7 +49,7 @@ export function FilterBar({
     filters.q !== "";
 
   return (
-    <section className="border-y border-border bg-card/45 py-7">
+    <section className="bg-background/85 py-7 backdrop-blur-xl">
       <div className="mx-auto max-w-3xl space-y-5 px-4">
         <div className="relative">
           <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
