@@ -190,6 +190,28 @@ function FeedPage() {
 
       <div className="mx-auto grid max-w-6xl items-start gap-12 px-4 py-10 lg:grid-cols-[minmax(0,1fr)_280px]">
         <div className="min-w-0">
+        <div className="mb-8 flex items-center gap-1 border-b border-border" role="tablist" aria-label="Filter stories by recency">
+          {[{ value: null, label: "Latest" }, ...TIME_RANGES].map(({ value, label }) => {
+            const active = filters.timeRange === value;
+            return (
+              <button
+                key={value ?? "latest"}
+                type="button"
+                role="tab"
+                aria-selected={active}
+                onClick={() => update({ timeRange: value as TimeRange | null })}
+                className={`-mb-px border-b-2 px-4 pb-3 text-sm font-medium transition-colors ${
+                  active
+                    ? "border-brand-accent text-foreground"
+                    : "border-transparent text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {label}
+              </button>
+            );
+          })}
+        </div>
+
         {isLoading && <p className="text-muted-foreground">Loading stories…</p>}
         {error && <p className="text-destructive">Stories could not be loaded right now.</p>}
         {!isLoading && !error && visible.length === 0 && (
