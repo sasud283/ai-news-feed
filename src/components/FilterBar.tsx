@@ -48,6 +48,7 @@ export function FilterBar({
     filters.tone !== null ||
     filters.access !== null ||
     filters.geography !== null ||
+    filters.timeRange !== null ||
     filters.q !== "";
 
   return (
