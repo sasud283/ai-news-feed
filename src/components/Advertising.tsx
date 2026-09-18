@@ -27,7 +27,7 @@ export function AdSlot({ format }: AdSlotProps) {
 
   if (format === "leaderboard") {
     return (
-      <aside aria-label="Advertisement" className="border-y border-ad-border/70 bg-card/35">
+      <aside aria-label="Advertisement" className="border-y border-ad-border/70 bg-background/55 backdrop-blur-md">
         <div className="mx-auto flex min-h-24 max-w-6xl items-center justify-between gap-5 px-4 py-5">
           <div>
             <p className="text-[0.65rem] font-semibold tracking-widest text-ad-foreground uppercase">

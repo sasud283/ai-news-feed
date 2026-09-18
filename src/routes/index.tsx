@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
+import editorialHero from "@/assets/editorial-hero.jpg";
 import { FilterBar } from "@/components/FilterBar";
 import { DigestSignup } from "@/components/DigestSignup";
 import { StoryCard } from "@/components/StoryCard";
@@ -144,26 +145,39 @@ function FeedPage() {
 
   return (
     <main>
-      <header className="mx-auto max-w-6xl px-4 pt-14 pb-10 sm:pt-16">
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-brand-accent">Today’s full picture</p>
-        <h1 className="max-w-3xl font-serif text-4xl leading-[1.08] font-semibold tracking-normal sm:text-5xl">
-          AI news, one story at a time
-        </h1>
-        <p className="mt-4 max-w-2xl font-serif text-lg leading-relaxed text-muted-foreground sm:text-xl">
-          Every development grouped into a single card, summarised by AI, with every source linked.
-        </p>
-      </header>
+      <section className="relative isolate overflow-hidden border-b border-border">
+        <img
+          src={editorialHero}
+          alt=""
+          aria-hidden="true"
+          width={1920}
+          height={960}
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 -z-10 bg-background/50" aria-hidden="true" />
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-2/3 bg-gradient-to-b from-background/20 to-background" aria-hidden="true" />
 
-      <AdSlot format="leaderboard" />
+        <header className="mx-auto max-w-6xl px-4 pt-16 pb-12 sm:pt-24 sm:pb-16">
+          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-brand-accent">Today’s full picture</p>
+          <h1 className="max-w-3xl font-serif text-4xl leading-[1.08] font-semibold tracking-normal text-foreground sm:text-6xl">
+            AI news, one story at a time
+          </h1>
+          <p className="mt-5 max-w-2xl font-serif text-lg leading-relaxed text-foreground/75 sm:text-xl">
+            Every development grouped into a single card, summarised by AI, with every source linked.
+          </p>
+        </header>
 
-      <FilterBar
-        filters={filters}
-        onChange={update}
-        onReset={reset}
-        onSaveDefault={saveDefault}
-        canSaveDefault={Boolean(user)}
-        saving={savingDefault}
-      />
+        <AdSlot format="leaderboard" />
+
+        <FilterBar
+          filters={filters}
+          onChange={update}
+          onReset={reset}
+          onSaveDefault={saveDefault}
+          canSaveDefault={Boolean(user)}
+          saving={savingDefault}
+        />
+      </section>
 
       <div className="mx-auto grid max-w-6xl items-start gap-12 px-4 py-10 lg:grid-cols-[minmax(0,1fr)_280px]">
         <div className="min-w-0">
