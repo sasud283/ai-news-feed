@@ -6,3 +6,9 @@ pnpm-lock.yaml
 package-lock.json
 bun.lock
 routeTree.gen.ts
+
+# Python environment and local working files
+.venv
+.cache
+.tmp
+__pycache__

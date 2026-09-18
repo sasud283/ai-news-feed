@@ -1,0 +1,353 @@
+[
+  {
+    "name": "Algorithmic Justice League",
+    "url": "https://www.ajl.org/",
+    "feed_url": "",
+    "category": "Ethics & Responsible AI",
+    "region": "Global",
+    "connection_type": "scrape",
+    "notes": "Content type: article. Coverage: Ethics & Responsible AI; AI Equity & Representation. Ethics & Responsible AI: Bias/fairness research; no public RSS — scraping permitted (robots.txt empty) AI Equity & Representation: Bias research; no public RSS — scraping permitted (robots.txt empty); monitor manually or scrape /media and /news pages Popularity supplied by user (not independently verified): Niche. PENDING: No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
+  },
+  {
+    "name": "AI Ethics Brief (Montreal AI Ethics)",
+    "url": "https://montrealethics.ai/",
+    "feed_url": "",
+    "category": "Ethics & Responsible AI",
+    "region": "Canada",
+    "connection_type": "email",
+    "notes": "Content type: article. Coverage: Ethics & Responsible AI. Ethics & Responsible AI: Bi-weekly; contact publisher for feed Popularity supplied by user (not independently verified): Niche. PENDING: No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
+  },
+  {
+    "name": "Center for AI Safety (CAIS)",
+    "url": "https://www.safe.ai/",
+    "feed_url": "https://www.safe.ai/feed",
+    "category": "Ethics & Responsible AI",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Ethics & Responsible AI. Ethics & Responsible AI: Safety research and policy statements Popularity supplied by user (not independently verified): Niche. PENDING: Redirect response '301 Moved Permanently' for url 'https://www.safe.ai/robots.txt'"
+  },
+  {
+    "name": "Redwood Research",
+    "url": "https://www.redwoodresearch.org/",
+    "feed_url": "https://www.redwoodresearch.org/blog-feed",
+    "category": "Ethics & Responsible AI",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Ethics & Responsible AI. Ethics & Responsible AI: Interpretability and robustness research Popularity supplied by user (not independently verified): Niche. PENDING: Client error '404 Not Found' for url 'https://www.redwoodresearch.org/blog-feed'"
+  },
+  {
+    "name": "Tech Policy Press",
+    "url": "https://techpolicy.press/",
+    "feed_url": "https://techpolicy.press/feed/",
+    "category": "Policy & Regulation",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Policy & Regulation; Geopolitics of AI. Policy & Regulation: Regulatory deep dives, global AI governance Geopolitics of AI: Export control, AI governance, international competition Popularity supplied by user (not independently verified): Niche. PENDING: Redirect response '301 Moved Permanently' for url 'https://techpolicy.press/robots.txt'"
+  },
+  {
+    "name": "Law firm trackers (White & Case, DLA Piper)",
+    "url": "",
+    "feed_url": "",
+    "category": "Policy & Regulation",
+    "region": "Global",
+    "connection_type": "scrape",
+    "notes": "Content type: article. Coverage: Policy & Regulation. Policy & Regulation: Regulatory-risk angle; check ToS per firm Popularity supplied by user (not independently verified): Niche. PENDING: No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
+  },
+  {
+    "name": "Reuters Technology",
+    "url": "https://www.reuters.com/technology/",
+    "feed_url": "https://feeds.reuters.com/reuters/technologyNews",
+    "category": "Policy & Regulation",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Policy & Regulation; Geopolitics of AI; Mainstream / General Press. Policy & Regulation: Filter by policy/regulation keywords post-ingestion Geopolitics of AI: Breaking geopolitical AI stories; filter by China/EU/US Mainstream / General Press: General press; classify AI-related stories after ingestion. Popularity supplied by user (not independently verified): High. PENDING: [Errno 8] nodename nor servname provided, or not known"
+  },
+  {
+    "name": "Euractiv AI (EU)",
+    "url": "https://www.euractiv.com/",
+    "feed_url": "https://www.euractiv.com/sections/digital/feed/",
+    "category": "Policy & Regulation",
+    "region": "Europe",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Policy & Regulation; Geopolitics of AI. Policy & Regulation: Brussels specialist press; EU AI Act, DSA, Digital Markets Act — primary EU policy source Geopolitics of AI: EU AI governance from Brussels; third-country AI regulation responses Popularity supplied by user (not independently verified): Medium. PENDING: Client error '404 Not Found' for url 'https://www.euractiv.com/sections/digital/feed/'"
+  },
+  {
+    "name": "The Median (DataCamp)",
+    "url": "https://www.datacamp.com/blog",
+    "feed_url": "",
+    "category": "Future of Work & Daily Life",
+    "region": "Global",
+    "connection_type": "scrape",
+    "notes": "Content type: article. Coverage: Future of Work & Daily Life. Future of Work & Daily Life: AI/data skills + upskilling; no public RSS — scraping datacamp.com/blog permitted (robots.txt allows general crawlers) Popularity supplied by user (not independently verified): Medium. PENDING: No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
+  },
+  {
+    "name": "Chain of Thought",
+    "url": "",
+    "feed_url": "",
+    "category": "Future of Work & Daily Life",
+    "region": "Global",
+    "connection_type": "pending",
+    "notes": "Content type: article. Coverage: Future of Work & Daily Life. Future of Work & Daily Life: AI creativity and agentic AI reshaping work norms Popularity supplied by user (not independently verified): Niche. PENDING: No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
+  },
+  {
+    "name": "SHRM (HR)",
+    "url": "https://www.shrm.org/",
+    "feed_url": "https://www.shrm.org/ResourcesAndTools/hr-topics/technology/rss/Pages/rss.aspx",
+    "category": "Future of Work & Daily Life",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Future of Work & Daily Life. Future of Work & Daily Life: Workforce policy, HR technology Popularity supplied by user (not independently verified): Medium. PENDING: Client error '404 Not Found' for url 'https://www.shrm.org/resourcesandtools/hr-topics/technology/rss/pages/rss.aspx'"
+  },
+  {
+    "name": "WEF Future of Jobs",
+    "url": "https://www.weforum.org/",
+    "feed_url": "https://www.weforum.org/rss.xml",
+    "category": "Future of Work & Daily Life",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Future of Work & Daily Life. Future of Work & Daily Life: Filter by jobs/skills/automation; annual flagship reports Popularity supplied by user (not independently verified): High (institutional). PENDING: Client error '403 Forbidden' for url 'https://www.weforum.org/rss.xml'"
+  },
+  {
+    "name": "McKinsey Global Institute",
+    "url": "https://www.mckinsey.com/",
+    "feed_url": "https://www.mckinsey.com/rss/insights/article-feed/all.xml",
+    "category": "Future of Work & Daily Life",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Future of Work & Daily Life. Future of Work & Daily Life: Workforce trends; filter by automation/AI topics Popularity supplied by user (not independently verified): High. PENDING: Client error '404 Not Found' for url 'https://www.mckinsey.com/rss/insights/article-feed/all.xml'"
+  },
+  {
+    "name": "Work of the Future (MIT)",
+    "url": "https://workofthefuture.mit.edu/",
+    "feed_url": "https://workofthefuture.mit.edu/feed/",
+    "category": "Future of Work & Daily Life",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Future of Work & Daily Life. Future of Work & Daily Life: Academic research on labour market impact Popularity supplied by user (not independently verified): Niche. PENDING: Redirect response '301 Moved Permanently' for url 'https://workofthefuture.mit.edu/robots.txt'"
+  },
+  {
+    "name": "Fortune (Future of Work)",
+    "url": "https://fortune.com/",
+    "feed_url": "https://fortune.com/tag/the-future-of-work/feed/",
+    "category": "Future of Work & Daily Life",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Future of Work & Daily Life. Future of Work & Daily Life: Mainstream coverage with management/exec angle Popularity supplied by user (not independently verified): High. PENDING: Client error '404 Not Found' for url 'https://fortune.com/tag/the-future-of-work/feed/'"
+  },
+  {
+    "name": "LinkedIn Work Change Report",
+    "url": "https://www.linkedin.com/",
+    "feed_url": "",
+    "category": "Future of Work & Daily Life",
+    "region": "Global",
+    "connection_type": "manual",
+    "notes": "Content type: article. Coverage: Future of Work & Daily Life. Future of Work & Daily Life: Annual data release; operator adds manually Popularity supplied by user (not independently verified): Niche. PENDING: No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
+  },
+  {
+    "name": "There's An AI For That (TAAFT)",
+    "url": "https://theresanaiforthat.com/",
+    "feed_url": "",
+    "category": "Tools & Products",
+    "region": "Global",
+    "connection_type": "scrape",
+    "notes": "Content type: article. Coverage: Tools & Products. Tools & Products: Largest AI tools directory; no official feed — scraping public /new-tools listing permitted (blocks SEO bots only); contact for API Popularity supplied by user (not independently verified): High (2.5M). PENDING: No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
+  },
+  {
+    "name": "VentureBeat AI",
+    "url": "https://venturebeat.com/",
+    "feed_url": "https://venturebeat.com/category/ai/feed/",
+    "category": "Business & Industry",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Business & Industry. Business & Industry: Enterprise AI adoption, funding, M&A Popularity supplied by user (not independently verified): High (437 K). PENDING: Client error '429 Too Many Requests' for url 'https://venturebeat.com/category/ai/feed/'"
+  },
+  {
+    "name": "a16z Blog",
+    "url": "https://a16z.com/",
+    "feed_url": "https://a16z.com/feed/",
+    "category": "Business & Industry",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Business & Industry. Business & Industry: VC perspective; AI portfolio and market analysis — declared bias: surfaces what capital is betting on, not neutral journalism Popularity supplied by user (not independently verified): Medium. PENDING: Client error '404 Not Found' for url 'https://a16z.com/feed/'"
+  },
+  {
+    "name": "South China Morning Post (Tech)",
+    "url": "https://www.scmp.com/",
+    "feed_url": "https://www.scmp.com/rss/2/feed",
+    "category": "Geopolitics of AI",
+    "region": "China",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Geopolitics of AI. Geopolitics of AI: Direct China regional coverage Popularity supplied by user (not independently verified): High (4.2M). PENDING: Redirect response '301 Moved Permanently' for url 'http://www.scmp.com/robots.txt'"
+  },
+  {
+    "name": "Nikkei Asia (Tech)",
+    "url": "https://asia.nikkei.com/",
+    "feed_url": "https://asia.nikkei.com/rss/feed/tnews",
+    "category": "Geopolitics of AI",
+    "region": "Asia",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Geopolitics of AI. Geopolitics of AI: Japan/Asia AI and semiconductor supply chain Popularity supplied by user (not independently verified): Medium. PENDING: Client error '404 Not Found' for url 'https://asia.nikkei.com/rss/feed/tnews'"
+  },
+  {
+    "name": "Analytics India Magazine (India)",
+    "url": "https://analyticsindiamag.com/",
+    "feed_url": "https://analyticsindiamag.com/feed/",
+    "category": "Geopolitics of AI",
+    "region": "India",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Geopolitics of AI. Geopolitics of AI: Indian ML/AI research, interviews with Indian AI leaders, MeitY policy coverage; primary voice on India's AI regulatory stance Popularity supplied by user (not independently verified): Niche. PENDING: not_feed"
+  },
+  {
+    "name": "Harvard Berkman Klein (AI)",
+    "url": "https://cyber.harvard.edu/",
+    "feed_url": "https://cyber.harvard.edu/rss.xml",
+    "category": "AI Equity & Representation",
+    "region": "US",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: AI Equity & Representation. AI Equity & Representation: Justice/equity/inclusion in AI systems Popularity supplied by user (not independently verified): Niche. PENDING: not_feed"
+  },
+  {
+    "name": "AP Technology",
+    "url": "https://apnews.com/hub/technology",
+    "feed_url": "https://rsshub.app/apnews/topics/technology",
+    "category": "Mainstream / General Press",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Mainstream / General Press. Mainstream / General Press: General press; classify AI-related stories after ingestion. Popularity supplied by user (not independently verified): High. Third-party RSS mirror, not publisher-operated; availability and completeness may vary. PENDING: Client error '403 Forbidden' for url 'https://rsshub.app/robots.txt'"
+  },
+  {
+    "name": "Bloomberg Technology",
+    "url": "https://www.bloomberg.com/technology",
+    "feed_url": "",
+    "category": "Mainstream / General Press",
+    "region": "Global",
+    "connection_type": "excluded",
+    "notes": "Content type: article. Coverage: Mainstream / General Press. Mainstream / General Press: General press; classify AI-related stories after ingestion. Popularity supplied by user (not independently verified): High. PENDING: No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
+  },
+  {
+    "name": "GovAI (Centre for the Governance of AI)",
+    "url": "https://www.governance.ai/",
+    "feed_url": "https://www.governance.ai/feed",
+    "category": "AI for Good / Tech for Good",
+    "region": "UK",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: AI for Good / Tech for Good. AI for Good / Tech for Good: Oxford-based; long-read policy research on AI governance, safety and beneficial AI; essential non-corporate voice Popularity supplied by user (not independently verified): Niche. PENDING: Client error '404 Not Found' for url 'https://www.governance.ai/feed'"
+  },
+  {
+    "name": "Alan Turing Institute",
+    "url": "https://www.turing.ac.uk/",
+    "feed_url": "https://www.turing.ac.uk/news/rss.xml",
+    "category": "AI for Good / Tech for Good",
+    "region": "UK",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: AI for Good / Tech for Good. AI for Good / Tech for Good: UK national AI institute; public-interest research, data ethics, trustworthy AI Popularity supplied by user (not independently verified): Niche. PENDING: Client error '404 Not Found' for url 'https://www.turing.ac.uk/news/rss.xml'"
+  },
+  {
+    "name": "AI4D Africa",
+    "url": "https://ai4d.ai/",
+    "feed_url": "https://ai4d.ai/feed/",
+    "category": "AI for Good / Tech for Good",
+    "region": "Africa",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: AI for Good / Tech for Good. AI for Good / Tech for Good: African AI research and development — rare Global South primary source on inclusive AI Popularity supplied by user (not independently verified): Niche. PENDING: Redirect response '301 Moved Permanently' for url 'https://ai4d.ai/robots.txt'"
+  },
+  {
+    "name": "UNDP Digital",
+    "url": "https://www.undp.org/",
+    "feed_url": "https://www.undp.org/rss/digital",
+    "category": "AI for Good / Tech for Good",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: AI for Good / Tech for Good. AI for Good / Tech for Good: UN development programme; digital governance, AI and sustainable development; global-south coverage Popularity supplied by user (not independently verified): Niche. PENDING: Client error '404 Not Found' for url 'https://www.undp.org/rss/digital'"
+  },
+  {
+    "name": "Apolitical (AI in government)",
+    "url": "https://apolitical.co/",
+    "feed_url": "https://apolitical.co/rss",
+    "category": "AI for Good / Tech for Good",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: AI for Good / Tech for Good. AI for Good / Tech for Good: Public-sector digital transformation; AI in government worldwide; good cross-geography signal Popularity supplied by user (not independently verified): Niche. PENDING: Client error '404 Not Found' for url 'https://apolitical.co/en/rss'"
+  },
+  {
+    "name": "The AI Daily Brief",
+    "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614?uo=4",
+    "feed_url": "https://anchor.fm/s/f7cac464/podcast/rss",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Episode titles and show notes only; no audio download or transcription. Content type: podcast. Coverage: Cross-Topic AI Specialist Sources. Cross-topic intake; classify individual items after ingestion. PENDING: Redirect response '302 ' for url 'https://anchor.fm/robots.txt'"
+  },
+  {
+    "name": "Machine Learning Street Talk",
+    "url": "https://podcasts.apple.com/us/podcast/machine-learning-street-talk-mlst/id1510472996?uo=4",
+    "feed_url": "https://anchor.fm/s/1e4a0eac/podcast/rss",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Episode titles and show notes only; no audio download or transcription. Content type: podcast. Coverage: Cross-Topic AI Specialist Sources. Cross-topic intake; classify individual items after ingestion. PENDING: Redirect response '302 ' for url 'https://anchor.fm/robots.txt'"
+  },
+  {
+    "name": "Two Minute Papers",
+    "url": "https://www.youtube.com/@TwoMinutePapers",
+    "feed_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg",
+    "category": "Models & Research",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Recent video titles and descriptions only; no video download or transcription. Content type: video. Coverage: Models & Research. PENDING: YouTube /feeds/videos.xml is disallowed by robots.txt for the current poller. Channel ID resolved from channelMetadataRenderer.externalId; feed not fetched."
+  },
+  {
+    "name": "AI Explained",
+    "url": "https://www.youtube.com/@aiexplained-official",
+    "feed_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNJ1Ymd5yFuUPtn21xtRbbw",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Recent video titles and descriptions only; no video download or transcription. Content type: video. Coverage: Cross-Topic AI Specialist Sources. Cross-topic intake; classify individual items after ingestion. PENDING: YouTube /feeds/videos.xml is disallowed by robots.txt for the current poller. Channel ID resolved from channelMetadataRenderer.externalId; feed not fetched."
+  },
+  {
+    "name": "Matt Wolfe",
+    "url": "https://www.youtube.com/@mreflow",
+    "feed_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UChpleBmo18P08aKCIgti38g",
+    "category": "Tools & Products",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Recent video titles and descriptions only; no video download or transcription. Content type: video. Coverage: Tools & Products. PENDING: YouTube /feeds/videos.xml is disallowed by robots.txt for the current poller. Channel ID resolved from channelMetadataRenderer.externalId; feed not fetched."
+  },
+  {
+    "name": "Wes Roth",
+    "url": "https://www.youtube.com/@WesRoth",
+    "feed_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCqcbQf6yw5KzRoDDcZ_wBSw",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Recent video titles and descriptions only; no video download or transcription. Content type: video. Coverage: Cross-Topic AI Specialist Sources. Cross-topic intake; classify individual items after ingestion. PENDING: YouTube /feeds/videos.xml is disallowed by robots.txt for the current poller. Channel ID resolved from channelMetadataRenderer.externalId; feed not fetched."
+  },
+  {
+    "name": "Fireship",
+    "url": "https://www.youtube.com/@Fireship",
+    "feed_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA",
+    "category": "Tools & Products",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Recent video titles and descriptions only; no video download or transcription. Content type: video. Coverage: Tools & Products. PENDING: YouTube /feeds/videos.xml is disallowed by robots.txt for the current poller. Channel ID resolved from channelMetadataRenderer.externalId; feed not fetched."
+  },
+  {
+    "name": "Yannic Kilcher",
+    "url": "https://www.youtube.com/@YannicKilcher",
+    "feed_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZHmQk67mSJgfCCTn7xBfew",
+    "category": "Models & Research",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Recent video titles and descriptions only; no video download or transcription. Content type: video. Coverage: Models & Research. PENDING: YouTube /feeds/videos.xml is disallowed by robots.txt for the current poller. Channel ID resolved from channelMetadataRenderer.externalId; feed not fetched."
+  },
+  {
+    "name": "One-off documentaries",
+    "url": "",
+    "feed_url": "",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "manual",
+    "notes": "Operator-curated documentaries; monitor Netflix, Bloomberg Originals, PBS Frontline, BBC, and long-form YouTube investigations. Monthly or less; no scheduled feed. Spotify-exclusive shows without open RSS remain outside MVP. Content type: video. Coverage: Cross-Topic AI Specialist Sources. Cross-topic intake; classify individual items after ingestion. PENDING: Manual curation, as requested."
+  }
+]

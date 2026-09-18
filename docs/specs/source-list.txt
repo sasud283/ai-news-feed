@@ -1,0 +1,656 @@
+Cross-Topic AI Specialist Sources
+These sources publish across multiple topics and feed the ingestion pipeline as a whole. They are ingested first; topic-specific sources below supplement them for depth.
+Source
+RSS Feed URL
+Popularity
+Connection
+Topics covered
+The Rundown AI
+https://rss.beehiiv.com/feeds/2R3C6Bt5wj.xml
+High (2M+)
+RSS
+All topics
+MIT Technology Review (AI)
+https://www.technologyreview.com/topic/artificial-intelligence/feed/
+High
+RSS
+Models, Ethics, Policy, Future of Work
+TechCrunch AI
+https://techcrunch.com/category/artificial-intelligence/feed/
+High (3M)
+RSS
+Business, Tools, Models
+Ars Technica AI
+https://arstechnica.com/ai/feed/
+High (409 K)
+RSS
+Models, Safety, Ethics
+The Verge AI
+https://www.theverge.com/rss/ai-artificial-intelligence/index.xml
+High (3.5M)
+RSS
+Tools, Business, Policy
+WIRED AI
+https://www.wired.com/feed/tag/ai/latest/rss
+High (3.8M)
+RSS
+All topics
+OpenAI News
+https://openai.com/news/rss.xml
+High (5M)
+RSS
+Models & Research
+Google DeepMind Blog
+https://deepmind.google/blog/feed/basic/
+High
+RSS
+Models & Research
+Hugging Face Blog
+https://huggingface.co/blog/feed.xml
+High
+RSS
+Models & Research, Tools
+The Gradient
+https://thegradient.pub/rss/
+Niche (21 K)
+RSS
+Models, Safety, Ethics
+Import AI (Jack Clark)
+https://importai.substack.com/feed
+Medium (136 K)
+RSS
+Policy, Models, Safety
+Simon Willison's Weblog
+https://simonwillison.net/atom/everything/
+Medium (646 K Twitter)
+RSS
+Tools & Products
+One Useful Thing (E. Mollick)
+https://oneusefulthing.org/feed
+Medium (367 K)
+RSS
+Future of Work, Ethics
+Topic: Models & Research
+Source
+RSS Feed URL
+Popularity
+Connection
+Notes
+arXiv cs.AI
+https://rss.arxiv.org/rss/cs.AI
+High (33 K papers/yr)
+RSS
+Primary research; very high volume — use keyword filter
+arXiv cs.LG
+https://rss.arxiv.org/rss/cs.LG
+High
+RSS
+Machine learning papers; filter with classifier
+Hugging Face Blog
+https://huggingface.co/blog/feed.xml
+High
+RSS
+Model releases, open-source ecosystem
+OpenAI News
+https://openai.com/news/rss.xml
+High
+RSS
+Official GPT/o-series announcements
+Google DeepMind Blog
+https://deepmind.google/blog/feed/basic/
+High
+RSS
+Gemini, AlphaFold, frontier research
+Anthropic News
+https://rsshub.bestblogs.dev/anthropic/news
+High
+RSS (unofficial mirror)
+Claude releases; official feed discontinued
+BAIR Blog
+https://bair.berkeley.edu/blog/feed.xml
+Medium (244 K Twitter)
+RSS
+Academic deep dives, Berkeley AI
+Ahead of AI (S. Raschka)
+https://magazine.sebastianraschka.com/feed
+Medium (199 K)
+RSS
+LLM architecture, hands-on research
+The Gradient
+https://thegradient.pub/rss/
+Niche
+RSS
+Long-form research essays
+Interconnects (N. Lambert)
+https://www.interconnects.ai/feed
+Medium (70 K)
+RSS
+Post-training, open models, RLHF
+Topic: Ethics & Responsible AI
+Source
+RSS Feed URL
+Popularity
+Connection
+Notes
+AI Now Institute
+https://ainowinstitute.org/feed
+Medium
+Scrape ✓
+Annual reports + news; no confirmed RSS — scraping permitted with 3 s crawl-delay
+The Conversation (AI)
+https://theconversation.com/topics/artificial-intelligence-ai-90/articles.atom
+High (64 K Twitter)
+RSS
+Academic perspective, peer-reviewed angle
+Algorithmic Justice League
+https://www.ajl.org/
+Niche
+Scrape ✓
+Bias/fairness research; no public RSS — scraping permitted (robots.txt empty)
+The Gradient
+https://thegradient.pub/rss/
+Niche
+RSS
+Ethics essays, alignment overlap
+Mozilla Foundation AI
+https://foundation.mozilla.org/en/blog/rss/
+Medium
+RSS
+Trustworthy AI, privacy, open-source
+AI Ethics Brief (Montreal AI Ethics)
+Email newsletter
+Niche
+Email-only
+Bi-weekly; contact publisher for feed
+Wired AI (ethics filter)
+https://www.wired.com/feed/tag/ai/latest/rss
+High
+RSS
+Filter by ethics/bias keywords after ingestion
+The Guardian (AI/Society)
+https://www.theguardian.com/technology/artificialintelligenceai/rss
+High (9.5M Facebook)
+RSS
+Society/ethics framing from non-tech desk
+AlgorithmWatch (EU)
+https://algorithmwatch.org/en/feed/
+Niche
+RSS
+Berlin-based; EU algorithmic accountability, automated decision-making — essential non-US ethics voice
+Ada Lovelace Institute (UK)
+https://www.adalovelaceinstitute.org/feed/
+Niche
+RSS
+UK think tank; data rights, AI fairness, public interest research
+Topic: Safety & Alignment (sub-category of Ethics; routed to Ethics & Responsible AI)
+Source
+RSS Feed URL
+Popularity
+Connection
+Notes
+LessWrong (curated)
+https://www.lesswrong.com/feed.xml?view=curated-rss
+Niche
+RSS
+Alignment theory and safety research, high-quality filter
+AI Alignment Forum
+https://www.alignmentforum.org/feed.xml
+Niche
+RSS
+Technical alignment research; overlaps LessWrong
+Center for AI Safety (CAIS)
+https://www.safe.ai/feed
+Niche
+RSS (check)
+Safety research and policy statements
+Future of Life Institute
+https://futureoflife.org/feed/
+Medium
+RSS
+AI existential risk, international AI safety treaties
+Anthropic Safety Blog
+https://rsshub.bestblogs.dev/anthropic/news
+High
+RSS (unofficial)
+Constitutional AI, interpretability, safety papers
+MIRI (Machine Intelligence)
+https://intelligence.org/feed/
+Niche (40 K Twitter)
+RSS
+Technical AI safety; lower cadence
+80,000 Hours
+https://80000hours.org/feed/
+Niche
+RSS
+Safety career paths, risk landscape
+Redwood Research
+https://www.redwoodresearch.org/blog-feed
+Niche
+RSS (check)
+Interpretability and robustness research
+Topic: Policy & Regulation
+Source
+RSS Feed URL
+Popularity
+Connection
+Notes
+Future of Life Institute
+https://futureoflife.org/feed/
+Medium
+RSS
+EU AI Act tracker, bi-weekly
+Georgetown CSET
+https://cset.georgetown.edu/feed/
+Niche
+RSS
+US/China policy, technical capability analysis
+Tech Policy Press
+https://techpolicy.press/feed/
+Niche
+RSS
+Regulatory deep dives, global AI governance
+European Commission Digital
+https://digital-strategy.ec.europa.eu/en/rss.xml
+High
+RSS
+Primary: EU AI Act implementation notices
+NIST AI (US standards)
+https://www.nist.gov/blogs/cybersecurity-insights/rss.xml
+Medium
+RSS
+US standards body, AI RMF updates
+Import AI (J. Clark)
+https://importai.substack.com/feed
+Medium (136 K)
+RSS
+Policy + frontier research weekly synthesis
+Law firm trackers (White & Case, DLA Piper)
+Firm blogs (various)
+Niche
+Scrape
+Regulatory-risk angle; check ToS per firm
+Reuters Technology
+https://feeds.reuters.com/reuters/technologyNews
+High
+RSS
+Filter by policy/regulation keywords post-ingestion
+AI in Europe (Substack)
+https://europeanai.substack.com/feed
+Niche
+RSS
+EU AI Act, policy briefings; free Substack RSS
+Euractiv AI (EU)
+https://www.euractiv.com/sections/digital/feed/
+Medium
+RSS
+Brussels specialist press; EU AI Act, DSA, Digital Markets Act — primary EU policy source
+Politico EU Tech (EU)
+https://www.politico.eu/feed/
+High
+RSS
+EU AI Act politics, Commission dynamics; filter by tech/AI tag post-ingestion
+Topic: Future of Work & Daily Life
+Source
+RSS Feed URL
+Popularity
+Connection
+Notes
+One Useful Thing (E. Mollick)
+https://oneusefulthing.org/feed
+Medium (367 K)
+RSS
+Closest analog to this vertical; AI + work, school, life
+The Median (DataCamp)
+Site: datacamp.com/blog
+Medium
+Scrape ✓
+AI/data skills + upskilling; no public RSS — scraping datacamp.com/blog permitted (robots.txt allows general crawlers)
+Chain of Thought
+Newsletter (Substack)
+Niche
+RSS
+AI creativity and agentic AI reshaping work norms
+SHRM (HR)
+https://www.shrm.org/ResourcesAndTools/hr-topics/technology/rss/Pages/rss.aspx
+Medium
+RSS
+Workforce policy, HR technology
+WEF Future of Jobs
+https://www.weforum.org/rss.xml
+High (institutional)
+RSS
+Filter by jobs/skills/automation; annual flagship reports
+McKinsey Global Institute
+https://www.mckinsey.com/rss/insights/article-feed/all.xml
+High
+RSS
+Workforce trends; filter by automation/AI topics
+Work of the Future (MIT)
+https://workofthefuture.mit.edu/feed/
+Niche
+RSS (check)
+Academic research on labour market impact
+Fortune (Future of Work)
+https://fortune.com/tag/the-future-of-work/feed/
+High
+RSS
+Mainstream coverage with management/exec angle
+LinkedIn Work Change Report
+Annual PDF
+Niche
+Scrape/Manual
+Annual data release; operator adds manually
+Topic: Tools & Products
+Source
+RSS Feed URL
+Popularity
+Connection
+Notes
+Ben's Bites
+https://bensbites.beehiiv.com/feed
+Medium (120 K)
+RSS
+Daily AI tool launches and integrations
+Product Hunt (all)
+https://www.producthunt.com/feed
+High
+RSS
+Daily product rankings; filter by AI category
+TLDR AI
+https://tldr.tech/api/rss/ai
+High (1.1M+)
+RSS
+Tool/product releases alongside research
+Simon Willison's Weblog
+https://simonwillison.net/atom/everything/
+Medium
+RSS
+Applied AI tools, LLM experiments, hands-on reviews
+There's An AI For That (TAAFT)
+No public RSS
+High (2.5M)
+Scrape ✓
+Largest AI tools directory; no official feed — scraping public /new-tools listing permitted (blocks SEO bots only); contact for API
+Topic: Business & Industry
+Source
+RSS Feed URL
+Popularity
+Connection
+Notes
+VentureBeat AI
+https://venturebeat.com/category/ai/feed/
+High (437 K)
+RSS
+Enterprise AI adoption, funding, M&A
+TechCrunch AI
+https://techcrunch.com/category/artificial-intelligence/feed/
+High (3M)
+RSS
+Startup funding rounds, enterprise deals
+Crunchbase News (AI)
+https://news.crunchbase.com/sections/ai/feed/
+High
+RSS
+Investment tracking, fundraising rounds
+Financial Times (AI)
+https://www.ft.com/artificial-intelligence?format=rss
+High (6.4M Twitter)
+RSS
+Business/finance angle on AI; partial paywall
+a16z Blog
+https://a16z.com/feed/
+Medium
+RSS
+VC perspective; AI portfolio and market analysis — declared bias: surfaces what capital is betting on, not neutral journalism
+The Economist (AI filter)
+https://www.economist.com/science-and-technology/rss.xml
+High
+RSS
+Policy + economics framing; paywall
+Stratechery
+https://stratechery.com/feed/
+Medium
+RSS
+Tech business strategy; subscription but high-value
+Topic: Geopolitics of AI
+Source
+RSS Feed URL
+Popularity
+Connection
+Notes
+Georgetown CSET
+https://cset.georgetown.edu/feed/
+Niche
+RSS
+US–China tech competition, export controls, compute policy
+AI Weekly (China tracker)
+https://aiweekly.co/issues.rss
+Medium
+RSS
+Aggregates FT, Bloomberg, Reuters, TechCrunch on Chinese labs
+South China Morning Post (Tech)
+https://www.scmp.com/rss/2/feed
+High (4.2M)
+RSS
+Direct China regional coverage
+Reuters Technology
+https://feeds.reuters.com/reuters/technologyNews
+High
+RSS
+Breaking geopolitical AI stories; filter by China/EU/US
+Financial Times (AI)
+https://www.ft.com/artificial-intelligence?format=rss
+High
+RSS
+Geopolitical angle: chip controls, AI sovereignty
+Tech Policy Press
+https://techpolicy.press/feed/
+Niche
+RSS
+Export control, AI governance, international competition
+Nikkei Asia (Tech)
+https://asia.nikkei.com/rss/feed/tnews
+Medium
+RSS
+Japan/Asia AI and semiconductor supply chain
+Rest of World
+https://restofworld.org/feed/latest/
+Medium
+RSS
+Non-US-centric; AI in LatAm, Africa, SE Asia
+Synced / 机器之心 (China)
+https://syncedreview.com/feed/
+Medium
+RSS
+English-language Chinese AI research coverage; primary source on Baidu, Alibaba DAMO, Tencent AI Lab output
+The China AI Report (CSET)
+https://cset.georgetown.edu/feed/
+Niche
+RSS
+Already in Policy table — cross-listed here for geopolitical framing of Chinese AI capabilities
+Euractiv AI (EU)
+https://www.euractiv.com/sections/digital/feed/
+Medium
+RSS
+EU AI governance from Brussels; third-country AI regulation responses
+Inc42 Tech (India)
+https://inc42.com/feed/
+Medium
+RSS
+India's leading tech/startup media; covers Indian AI policy, NASSCOM, and domestic AI ecosystem — world's largest AI talent pool
+Analytics India Magazine (India)
+https://analyticsindiamag.com/feed/
+Niche
+RSS
+Indian ML/AI research, interviews with Indian AI leaders, MeitY policy coverage; primary voice on India's AI regulatory stance
+Topic: AI Equity & Representation (thinner source base at MVP — may update weekly)
+Source
+RSS Feed URL
+Popularity
+Connection
+Notes
+Rest of World
+https://restofworld.org/feed/latest/
+Medium
+RSS
+AI impact in Global South; best existing coverage of this topic
+The Guardian (AI/Society)
+https://www.theguardian.com/technology/artificialintelligenceai/rss
+High
+RSS
+Equity/diversity angle from non-tech desk
+MIT Technology Review (AI)
+https://www.technologyreview.com/topic/artificial-intelligence/feed/
+High
+RSS
+Periodic equity/access pieces; filter by keyword
+Algorithmic Justice League
+https://www.ajl.org/
+Niche
+Scrape ✓
+Bias research; no public RSS — scraping permitted (robots.txt empty); monitor manually or scrape /media and /news pages
+AI Now Institute
+https://ainowinstitute.org/news
+Niche
+Scrape ✓
+Annual reports + news pages; scraping permitted with 3 s crawl-delay (robots.txt); no public RSS feed
+Harvard Berkman Klein (AI)
+https://cyber.harvard.edu/rss.xml
+Niche
+RSS
+Justice/equity/inclusion in AI systems
+TechCabal
+https://techcabal.com/feed/
+Niche
+RSS
+Africa tech and AI; supplements Rest of World
+AI for Good (ITU)
+https://aiforgood.itu.int/feed/
+Medium (18 K Twitter)
+RSS
+Social impact AI; UN-backed, global perspective
+Mainstream / General Press (cross-topic supplement)
+These outlets don't specialise in AI but break major stories first and provide non-tech-press framing (labour, politics, education, culture desks). Ingest via RSS; the classifier routes each article to the correct topic.
+Source
+RSS Feed URL
+Popularity
+Connection
+Reuters Technology
+https://feeds.reuters.com/reuters/technologyNews
+High
+RSS
+AP Technology
+https://rsshub.app/apnews/topics/technology
+High
+RSS
+The Guardian (Technology)
+https://www.theguardian.com/uk/technology/rss
+High
+RSS
+NYT Technology
+https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml
+High
+RSS
+The Economist (S&T)
+https://www.economist.com/science-and-technology/rss.xml
+High
+RSS
+Bloomberg Technology
+No public RSS; paywall
+High
+Excluded — MVP
+Financial Times (AI)
+https://www.ft.com/artificial-intelligence?format=rss
+High
+RSS (partial)
+BBC Technology (UK)
+https://feeds.bbci.co.uk/news/technology/rss.xml
+High (global)
+RSS
+Topic: AI for Good / Tech for Good
+Sources covering public-interest AI, responsible deployment, digital equity, and social-impact technology. Global-first — by design less US-heavy than other categories.
+Source
+RSS / Feed URL
+Popularity
+Connection
+Notes
+ITU AI for Good
+https://www.itu.int/en/ITU-T/AI/Pages/default.aspx (scrape)
+Niche
+Scrape ✅
+UN agency; AI for Good global summit, policy briefings; no public RSS — scrape permitted (robots.txt allows general crawlers)
+GovAI (Centre for the Governance of AI)
+https://www.governance.ai/feed
+Niche
+RSS
+Oxford-based; long-read policy research on AI governance, safety and beneficial AI; essential non-corporate voice
+Alan Turing Institute
+https://www.turing.ac.uk/news/rss.xml
+Niche
+RSS
+UK national AI institute; public-interest research, data ethics, trustworthy AI
+AI4D Africa
+https://ai4d.ai/feed/
+Niche
+RSS
+African AI research and development — rare Global South primary source on inclusive AI
+UNDP Digital
+https://www.undp.org/rss/digital
+Niche
+RSS
+UN development programme; digital governance, AI and sustainable development; global-south coverage
+Apolitical (AI in government)
+https://apolitical.co/rss
+Niche
+RSS
+Public-sector digital transformation; AI in government worldwide; good cross-geography signal
+Connection Type Legend
+Type
+Ingestion approach
+RSS
+Direct feed pull on schedule (Feedly/custom poller); lowest friction
+API
+Platform API (e.g. Product Hunt API, arXiv API); structured data, often rate-limited
+Scrape
+HTML extraction; ToS must be confirmed; fragile to layout changes
+Email-only
+Operator receives newsletter; manually pastes to CMS or uses email-to-RSS bridge (e.g. Kill the Newsletter)
+Podcast Sources
+Source
+Notes
+Dwarkesh Podcast
+Long-form frontier-lab interviews
+Latent Space
+AI engineering-focused, weekly
+The Cognitive Revolution
+Strategy-oriented, long-form
+No Priors
+Founder/investor perspective
+The AI Daily Brief
+Daily news-briefing format — closest analog to the article sources above
+Machine Learning Street Talk
+Technical depth
+The TWIML AI Podcast
+Broad ML/AI research and industry coverage
+NVIDIA's The AI Podcast
+Applied AI across industries, biweekly
+All have public RSS feeds with episode titles, show notes, and descriptions — sufficient for classification without needing full audio transcription. Transcription (e.g. via a speech-to-text API) would allow deeper summarization but is a meaningfully bigger cost and complexity addition, and is treated as a future enhancement rather than an MVP requirement.
+Note on Spotify specifically: most shows above are also distributed on Spotify, but that's irrelevant to ingestion — what matters is whether a show has an open RSS feed, which most independent podcasts do regardless of where they're also listened to. Spotify-exclusive shows with no public RSS are a genuine gap: reaching those would need Spotify's own API, which is built for personalized playback rather than full-catalog indexing and would likely require partner-level access rather than a simple feed pull. Not worth building around at MVP — flag it as a known gap rather than a blocker.
+YouTube AI Channels
+Source
+Notes
+Two Minute Papers
+Short, frequent research-paper breakdowns
+AI Explained
+Frontier AI developments and analysis
+Matt Wolfe
+Weekly AI news and tool coverage
+Wes Roth
+AI news and breakthroughs
+Fireship
+Fast-paced tech/AI explainers
+Yannic Kilcher
+ML paper reviews
+Every YouTube channel exposes a free public RSS feed of its recent uploads (no API key required), so these are ingested on the same schedule and classified from title/description the same way as the podcast sources above — genuinely different from the one-off documentaries below, which have no feed to poll.
+One-off Documentaries
+AI-focused documentaries and investigative long-form video are released rarely and irregularly — there's no equivalent to an RSS feed producing a steady stream of these. This category is realistically a manually curated addition: the operator adds a documentary or long-form piece to the site directly (through the same interface as the spot-check queue) when one is released, rather than the automated pipeline discovering it. Likely sources to monitor periodically: major streaming documentary units (Netflix, Bloomberg Originals), broadcast investigative strands (PBS Frontline, BBC), and long-form YouTube channels doing AI explainers or investigations. Given the low volume, this content type should be expected to update monthly or less, not daily.

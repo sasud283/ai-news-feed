@@ -1,0 +1,2667 @@
+{
+  "checked_at": "2026-09-18T18:46:08.841081+00:00",
+  "method": "HTTPX requests through the existing robots-aware poller; feedparser parsing, without article or audio/video downloads. Status is a point-in-time check, not an uptime guarantee.",
+  "sources": [
+    {
+      "name": "The Rundown AI",
+      "registry": "sources.json",
+      "feed_url": "https://rss.beehiiv.com/feeds/2R3C6Bt5wj.xml",
+      "content_type": "article",
+      "topics": [
+        "Cross-Topic AI Specialist Sources"
+      ],
+      "verification": {
+        "supplied_url": "https://rss.beehiiv.com/feeds/2R3C6Bt5wj.xml",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://rss.beehiiv.com/feeds/2R3C6Bt5wj.xml",
+        "title": "The Rundown AI",
+        "items": 20
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "The Rundown AI",
+          "supplied_url": "https://rss.beehiiv.com/feeds/2R3C6Bt5wj.xml",
+          "popularity": "High (2M+)",
+          "connection": "RSS",
+          "notes": "All topics",
+          "category": "Cross-Topic AI Specialist Sources"
+        }
+      ]
+    },
+    {
+      "name": "MIT Technology Review (AI)",
+      "registry": "sources.json",
+      "feed_url": "https://www.technologyreview.com/topic/artificial-intelligence/feed/",
+      "content_type": "article",
+      "topics": [
+        "Cross-Topic AI Specialist Sources",
+        "AI Equity & Representation"
+      ],
+      "verification": {
+        "supplied_url": "https://www.technologyreview.com/topic/artificial-intelligence/feed/",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://www.technologyreview.com/topic/artificial-intelligence/feed/",
+        "title": "Artificial intelligence – MIT Technology Review",
+        "items": 10
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "MIT Technology Review (AI)",
+          "supplied_url": "https://www.technologyreview.com/topic/artificial-intelligence/feed/",
+          "popularity": "High",
+          "connection": "RSS",
+          "notes": "Models, Ethics, Policy, Future of Work",
+          "category": "Cross-Topic AI Specialist Sources"
+        },
+        {
+          "name": "MIT Technology Review (AI)",
+          "supplied_url": "https://www.technologyreview.com/topic/artificial-intelligence/feed/",
+          "popularity": "High",
+          "connection": "RSS",
+          "notes": "Periodic equity/access pieces; filter by keyword",
+          "category": "AI Equity & Representation"
+        }
+      ]
+    },
+    {
+      "name": "TechCrunch AI",
+      "registry": "sources.json",
+      "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+      "content_type": "article",
+      "topics": [
+        "Cross-Topic AI Specialist Sources",
+        "Business & Industry"
+      ],
+      "verification": {
+        "supplied_url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+        "title": "AI News & Artificial Intelligence | TechCrunch",
+        "items": 20
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "TechCrunch AI",
+          "supplied_url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+          "popularity": "High (3M)",
+          "connection": "RSS",
+          "notes": "Business, Tools, Models",
+          "category": "Cross-Topic AI Specialist Sources"
+        },
+        {
+          "name": "TechCrunch AI",
+          "supplied_url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+          "popularity": "High (3M)",
+          "connection": "RSS",
+          "notes": "Startup funding rounds, enterprise deals",
+          "category": "Business & Industry"
+        }
+      ]
+    },
+    {
+      "name": "Ars Technica AI",
+      "registry": "sources.json",
+      "feed_url": "https://arstechnica.com/ai/feed/",
+      "content_type": "article",
+      "topics": [
+        "Cross-Topic AI Specialist Sources"
+      ],
+      "verification": {
+        "supplied_url": "https://arstechnica.com/ai/feed/",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://arstechnica.com/ai/feed/",
+        "title": "AI - Ars Technica",
+        "items": 20
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Ars Technica AI",
+          "supplied_url": "https://arstechnica.com/ai/feed/",
+          "popularity": "High (409 K)",
+          "connection": "RSS",
+          "notes": "Models, Safety, Ethics",
+          "category": "Cross-Topic AI Specialist Sources"
+        }
+      ]
+    },
+    {
+      "name": "The Verge AI",
+      "registry": "sources.json",
+      "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+      "content_type": "article",
+      "topics": [
+        "Cross-Topic AI Specialist Sources"
+      ],
+      "verification": {
+        "supplied_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+        "title": "AI | The Verge",
+        "items": 10
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "The Verge AI",
+          "supplied_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+          "popularity": "High (3.5M)",
+          "connection": "RSS",
+          "notes": "Tools, Business, Policy",
+          "category": "Cross-Topic AI Specialist Sources"
+        }
+      ]
+    },
+    {
+      "name": "WIRED AI",
+      "registry": "sources.json",
+      "feed_url": "https://www.wired.com/feed/tag/ai/latest/rss",
+      "content_type": "article",
+      "topics": [
+        "Cross-Topic AI Specialist Sources",
+        "Ethics & Responsible AI"
+      ],
+      "verification": {
+        "supplied_url": "https://www.wired.com/feed/tag/ai/latest/rss",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://www.wired.com/feed/tag/ai/latest/rss",
+        "title": "Feed: Artificial Intelligence Latest",
+        "items": 10
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "WIRED AI",
+          "supplied_url": "https://www.wired.com/feed/tag/ai/latest/rss",
+          "popularity": "High (3.8M)",
+          "connection": "RSS",
+          "notes": "All topics",
+          "category": "Cross-Topic AI Specialist Sources"
+        },
+        {
+          "name": "Wired AI (ethics filter)",
+          "supplied_url": "https://www.wired.com/feed/tag/ai/latest/rss",
+          "popularity": "High",
+          "connection": "RSS",
+          "notes": "Filter by ethics/bias keywords after ingestion",
+          "category": "Ethics & Responsible AI"
+        }
+      ]
+    },
+    {
+      "name": "OpenAI News",
+      "registry": "sources.json",
+      "feed_url": "https://openai.com/news/rss.xml",
+      "content_type": "article",
+      "topics": [
+        "Cross-Topic AI Specialist Sources",
+        "Models & Research"
+      ],
+      "verification": {
+        "supplied_url": "https://openai.com/news/rss.xml",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://openai.com/news/rss.xml",
+        "title": "OpenAI News",
+        "items": 1208
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "OpenAI News",
+          "supplied_url": "https://openai.com/news/rss.xml",
+          "popularity": "High (5M)",
+          "connection": "RSS",
+          "notes": "Models & Research",
+          "category": "Cross-Topic AI Specialist Sources"
+        },
+        {
+          "name": "OpenAI News",
+          "supplied_url": "https://openai.com/news/rss.xml",
+          "popularity": "High",
+          "connection": "RSS",
+          "notes": "Official GPT/o-series announcements",
+          "category": "Models & Research"
+        }
+      ]
+    },
+    {
+      "name": "Google DeepMind Blog",
+      "registry": "sources.json",
+      "feed_url": "https://deepmind.google/blog/rss.xml",
+      "content_type": "article",
+      "topics": [
+        "Cross-Topic AI Specialist Sources",
+        "Models & Research"
+      ],
+      "verification": {
+        "supplied_url": "https://deepmind.google/blog/feed/basic/",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://deepmind.google/blog/rss.xml",
+        "title": "Google DeepMind News",
+        "items": 100
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Google DeepMind Blog",
+          "supplied_url": "https://deepmind.google/blog/feed/basic/",
+          "popularity": "High",
+          "connection": "RSS",
+          "notes": "Models & Research",
+          "category": "Cross-Topic AI Specialist Sources"
+        },
+        {
+          "name": "Google DeepMind Blog",
+          "supplied_url": "https://deepmind.google/blog/feed/basic/",
+          "popularity": "High",
+          "connection": "RSS",
+          "notes": "Gemini, AlphaFold, frontier research",
+          "category": "Models & Research"
+        }
+      ]
+    },
+    {
+      "name": "Hugging Face Blog",
+      "registry": "sources.json",
+      "feed_url": "https://huggingface.co/blog/feed.xml",
+      "content_type": "article",
+      "topics": [
+        "Cross-Topic AI Specialist Sources",
+        "Models & Research"
+      ],
+      "verification": {
+        "supplied_url": "https://huggingface.co/blog/feed.xml",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://huggingface.co/blog/feed.xml",
+        "title": "Hugging Face - Blog",
+        "items": 862
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Hugging Face Blog",
+          "supplied_url": "https://huggingface.co/blog/feed.xml",
+          "popularity": "High",
+          "connection": "RSS",
+          "notes": "Models & Research, Tools",
+          "category": "Cross-Topic AI Specialist Sources"
+        },
+        {
+          "name": "Hugging Face Blog",
+          "supplied_url": "https://huggingface.co/blog/feed.xml",
+          "popularity": "High",
+          "connection": "RSS",
+          "notes": "Model releases, open-source ecosystem",
+          "category": "Models & Research"
+        }
+      ]
+    },
+    {
+      "name": "The Gradient",
+      "registry": "sources.json",
+      "feed_url": "https://thegradient.pub/rss/",
+      "content_type": "article",
+      "topics": [
+        "Cross-Topic AI Specialist Sources",
+        "Models & Research",
+        "Ethics & Responsible AI"
+      ],
+      "verification": {
+        "supplied_url": "https://thegradient.pub/rss/",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://thegradient.pub/rss/",
+        "title": "The Gradient",
+        "items": 15
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "The Gradient",
+          "supplied_url": "https://thegradient.pub/rss/",
+          "popularity": "Niche (21 K)",
+          "connection": "RSS",
+          "notes": "Models, Safety, Ethics",
+          "category": "Cross-Topic AI Specialist Sources"
+        },
+        {
+          "name": "The Gradient",
+          "supplied_url": "https://thegradient.pub/rss/",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "Long-form research essays",
+          "category": "Models & Research"
+        },
+        {
+          "name": "The Gradient",
+          "supplied_url": "https://thegradient.pub/rss/",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "Ethics essays, alignment overlap",
+          "category": "Ethics & Responsible AI"
+        }
+      ]
+    },
+    {
+      "name": "Import AI (Jack Clark)",
+      "registry": "sources.json",
+      "feed_url": "https://importai.substack.com/feed",
+      "content_type": "article",
+      "topics": [
+        "Cross-Topic AI Specialist Sources",
+        "Policy & Regulation"
+      ],
+      "verification": {
+        "supplied_url": "https://importai.substack.com/feed",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://importai.substack.com/feed",
+        "title": "Import AI",
+        "items": 20
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Import AI (Jack Clark)",
+          "supplied_url": "https://importai.substack.com/feed",
+          "popularity": "Medium (136 K)",
+          "connection": "RSS",
+          "notes": "Policy, Models, Safety",
+          "category": "Cross-Topic AI Specialist Sources"
+        },
+        {
+          "name": "Import AI (J. Clark)",
+          "supplied_url": "https://importai.substack.com/feed",
+          "popularity": "Medium (136 K)",
+          "connection": "RSS",
+          "notes": "Policy + frontier research weekly synthesis",
+          "category": "Policy & Regulation"
+        }
+      ]
+    },
+    {
+      "name": "Simon Willison's Weblog",
+      "registry": "sources.json",
+      "feed_url": "https://simonwillison.net/atom/everything/",
+      "content_type": "article",
+      "topics": [
+        "Cross-Topic AI Specialist Sources",
+        "Tools & Products"
+      ],
+      "verification": {
+        "supplied_url": "https://simonwillison.net/atom/everything/",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://simonwillison.net/atom/everything/",
+        "title": "Simon Willison's Weblog",
+        "items": 30
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Simon Willison's Weblog",
+          "supplied_url": "https://simonwillison.net/atom/everything/",
+          "popularity": "Medium (646 K Twitter)",
+          "connection": "RSS",
+          "notes": "Tools & Products",
+          "category": "Cross-Topic AI Specialist Sources"
+        },
+        {
+          "name": "Simon Willison's Weblog",
+          "supplied_url": "https://simonwillison.net/atom/everything/",
+          "popularity": "Medium",
+          "connection": "RSS",
+          "notes": "Applied AI tools, LLM experiments, hands-on reviews",
+          "category": "Tools & Products"
+        }
+      ]
+    },
+    {
+      "name": "One Useful Thing (E. Mollick)",
+      "registry": "sources.json",
+      "feed_url": "https://www.oneusefulthing.org/feed",
+      "content_type": "article",
+      "topics": [
+        "Cross-Topic AI Specialist Sources",
+        "Future of Work & Daily Life"
+      ],
+      "verification": {
+        "supplied_url": "https://www.oneusefulthing.org/feed",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://www.oneusefulthing.org/feed",
+        "title": "One Useful Thing",
+        "items": 20
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "One Useful Thing (E. Mollick)",
+          "supplied_url": "https://oneusefulthing.org/feed",
+          "popularity": "Medium (367 K)",
+          "connection": "RSS",
+          "notes": "Future of Work, Ethics",
+          "category": "Cross-Topic AI Specialist Sources"
+        },
+        {
+          "name": "One Useful Thing (E. Mollick)",
+          "supplied_url": "https://oneusefulthing.org/feed",
+          "popularity": "Medium (367 K)",
+          "connection": "RSS",
+          "notes": "Closest analog to this vertical; AI + work, school, life",
+          "category": "Future of Work & Daily Life"
+        }
+      ]
+    },
+    {
+      "name": "arXiv cs.AI",
+      "registry": "sources.json",
+      "feed_url": "https://rss.arxiv.org/rss/cs.AI",
+      "content_type": "article",
+      "topics": [
+        "Models & Research"
+      ],
+      "verification": {
+        "supplied_url": "https://rss.arxiv.org/rss/cs.AI",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://rss.arxiv.org/rss/cs.AI",
+        "title": "cs.AI updates on arXiv.org",
+        "items": 329
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "arXiv cs.AI",
+          "supplied_url": "https://rss.arxiv.org/rss/cs.AI",
+          "popularity": "High (33 K papers/yr)",
+          "connection": "RSS",
+          "notes": "Primary research; very high volume — use keyword filter",
+          "category": "Models & Research"
+        }
+      ]
+    },
+    {
+      "name": "arXiv cs.LG",
+      "registry": "sources.json",
+      "feed_url": "https://rss.arxiv.org/rss/cs.LG",
+      "content_type": "article",
+      "topics": [
+        "Models & Research"
+      ],
+      "verification": {
+        "supplied_url": "https://rss.arxiv.org/rss/cs.LG",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://rss.arxiv.org/rss/cs.LG",
+        "title": "cs.LG updates on arXiv.org",
+        "items": 304
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "arXiv cs.LG",
+          "supplied_url": "https://rss.arxiv.org/rss/cs.LG",
+          "popularity": "High",
+          "connection": "RSS",
+          "notes": "Machine learning papers; filter with classifier",
+          "category": "Models & Research"
+        }
+      ]
+    },
+    {
+      "name": "Anthropic News",
+      "registry": "sources.json",
+      "feed_url": "https://rsshub.bestblogs.dev/anthropic/news",
+      "content_type": "article",
+      "topics": [
+        "Models & Research",
+        "Ethics & Responsible AI"
+      ],
+      "verification": {
+        "supplied_url": "https://rsshub.bestblogs.dev/anthropic/news",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://rsshub.bestblogs.dev/anthropic/news",
+        "title": "Anthropic News",
+        "items": 10
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Anthropic News",
+          "supplied_url": "https://rsshub.bestblogs.dev/anthropic/news",
+          "popularity": "High",
+          "connection": "RSS (unofficial mirror)",
+          "notes": "Claude releases; official feed discontinued",
+          "category": "Models & Research"
+        },
+        {
+          "name": "Anthropic Safety Blog",
+          "supplied_url": "https://rsshub.bestblogs.dev/anthropic/news",
+          "popularity": "High",
+          "connection": "RSS (unofficial)",
+          "notes": "Constitutional AI, interpretability, safety papers",
+          "category": "Ethics & Responsible AI"
+        }
+      ]
+    },
+    {
+      "name": "BAIR Blog",
+      "registry": "sources.json",
+      "feed_url": "https://bair.berkeley.edu/blog/feed.xml",
+      "content_type": "article",
+      "topics": [
+        "Models & Research"
+      ],
+      "verification": {
+        "supplied_url": "https://bair.berkeley.edu/blog/feed.xml",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://bair.berkeley.edu/blog/feed.xml",
+        "title": "The Berkeley Artificial Intelligence Research Blog",
+        "items": 10
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "BAIR Blog",
+          "supplied_url": "https://bair.berkeley.edu/blog/feed.xml",
+          "popularity": "Medium (244 K Twitter)",
+          "connection": "RSS",
+          "notes": "Academic deep dives, Berkeley AI",
+          "category": "Models & Research"
+        }
+      ]
+    },
+    {
+      "name": "Ahead of AI (S. Raschka)",
+      "registry": "sources.json",
+      "feed_url": "https://magazine.sebastianraschka.com/feed",
+      "content_type": "article",
+      "topics": [
+        "Models & Research"
+      ],
+      "verification": {
+        "supplied_url": "https://magazine.sebastianraschka.com/feed",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://magazine.sebastianraschka.com/feed",
+        "title": "Ahead of AI",
+        "items": 20
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Ahead of AI (S. Raschka)",
+          "supplied_url": "https://magazine.sebastianraschka.com/feed",
+          "popularity": "Medium (199 K)",
+          "connection": "RSS",
+          "notes": "LLM architecture, hands-on research",
+          "category": "Models & Research"
+        }
+      ]
+    },
+    {
+      "name": "Interconnects (N. Lambert)",
+      "registry": "sources.json",
+      "feed_url": "https://www.interconnects.ai/feed",
+      "content_type": "article",
+      "topics": [
+        "Models & Research"
+      ],
+      "verification": {
+        "supplied_url": "https://www.interconnects.ai/feed",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://www.interconnects.ai/feed",
+        "title": "Interconnects AI",
+        "items": 20
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Interconnects (N. Lambert)",
+          "supplied_url": "https://www.interconnects.ai/feed",
+          "popularity": "Medium (70 K)",
+          "connection": "RSS",
+          "notes": "Post-training, open models, RLHF",
+          "category": "Models & Research"
+        }
+      ]
+    },
+    {
+      "name": "AI Now Institute",
+      "registry": "sources.json",
+      "feed_url": "https://ainowinstitute.org/feed",
+      "content_type": "article",
+      "topics": [
+        "Ethics & Responsible AI",
+        "AI Equity & Representation"
+      ],
+      "verification": {
+        "supplied_url": "https://ainowinstitute.org/feed",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://ainowinstitute.org/feed",
+        "title": "AI Now Institute",
+        "items": 10
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "AI Now Institute",
+          "supplied_url": "https://ainowinstitute.org/feed",
+          "popularity": "Medium",
+          "connection": "Scrape ✓",
+          "notes": "Annual reports + news; no confirmed RSS — scraping permitted with 3 s crawl-delay",
+          "category": "Ethics & Responsible AI"
+        },
+        {
+          "name": "AI Now Institute",
+          "supplied_url": "https://ainowinstitute.org/news",
+          "popularity": "Niche",
+          "connection": "Scrape ✓",
+          "notes": "Annual reports + news pages; scraping permitted with 3 s crawl-delay (robots.txt); no public RSS feed",
+          "category": "AI Equity & Representation"
+        }
+      ]
+    },
+    {
+      "name": "The Conversation (AI)",
+      "registry": "sources.json",
+      "feed_url": "https://theconversation.com/topics/artificial-intelligence-ai-90/articles.atom",
+      "content_type": "article",
+      "topics": [
+        "Ethics & Responsible AI"
+      ],
+      "verification": {
+        "supplied_url": "https://theconversation.com/topics/artificial-intelligence-ai-90/articles.atom",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://theconversation.com/topics/artificial-intelligence-ai-90/articles.atom",
+        "title": "Artificial intelligence (AI) – The Conversation",
+        "items": 25
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "The Conversation (AI)",
+          "supplied_url": "https://theconversation.com/topics/artificial-intelligence-ai-90/articles.atom",
+          "popularity": "High (64 K Twitter)",
+          "connection": "RSS",
+          "notes": "Academic perspective, peer-reviewed angle",
+          "category": "Ethics & Responsible AI"
+        }
+      ]
+    },
+    {
+      "name": "Algorithmic Justice League",
+      "registry": "sources-pending.json",
+      "feed_url": "",
+      "content_type": "article",
+      "topics": [
+        "Ethics & Responsible AI",
+        "AI Equity & Representation"
+      ],
+      "verification": {
+        "status": "manual",
+        "error": "No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Algorithmic Justice League",
+          "supplied_url": "https://www.ajl.org/",
+          "popularity": "Niche",
+          "connection": "Scrape ✓",
+          "notes": "Bias/fairness research; no public RSS — scraping permitted (robots.txt empty)",
+          "category": "Ethics & Responsible AI"
+        },
+        {
+          "name": "Algorithmic Justice League",
+          "supplied_url": "https://www.ajl.org/",
+          "popularity": "Niche",
+          "connection": "Scrape ✓",
+          "notes": "Bias research; no public RSS — scraping permitted (robots.txt empty); monitor manually or scrape /media and /news pages",
+          "category": "AI Equity & Representation"
+        }
+      ]
+    },
+    {
+      "name": "Mozilla Foundation AI",
+      "registry": "sources.json",
+      "feed_url": "https://www.mozillafoundation.org/en/blog/rss/",
+      "content_type": "article",
+      "topics": [
+        "Ethics & Responsible AI"
+      ],
+      "verification": {
+        "supplied_url": "https://foundation.mozilla.org/en/blog/rss/",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://www.mozillafoundation.org/en/blog/rss/",
+        "title": "Mozilla Foundation Blog",
+        "items": 10
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Mozilla Foundation AI",
+          "supplied_url": "https://foundation.mozilla.org/en/blog/rss/",
+          "popularity": "Medium",
+          "connection": "RSS",
+          "notes": "Trustworthy AI, privacy, open-source",
+          "category": "Ethics & Responsible AI"
+        }
+      ]
+    },
+    {
+      "name": "AI Ethics Brief (Montreal AI Ethics)",
+      "registry": "sources-pending.json",
+      "feed_url": "",
+      "content_type": "article",
+      "topics": [
+        "Ethics & Responsible AI"
+      ],
+      "verification": {
+        "status": "manual",
+        "error": "No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "AI Ethics Brief (Montreal AI Ethics)",
+          "supplied_url": "Email newsletter",
+          "popularity": "Niche",
+          "connection": "Email-only",
+          "notes": "Bi-weekly; contact publisher for feed",
+          "category": "Ethics & Responsible AI"
+        }
+      ]
+    },
+    {
+      "name": "The Guardian (AI/Society)",
+      "registry": "sources.json",
+      "feed_url": "https://www.theguardian.com/technology/artificialintelligenceai/rss",
+      "content_type": "article",
+      "topics": [
+        "Ethics & Responsible AI",
+        "AI Equity & Representation"
+      ],
+      "verification": {
+        "supplied_url": "https://www.theguardian.com/technology/artificialintelligenceai/rss",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://www.theguardian.com/technology/artificialintelligenceai/rss",
+        "title": "AI (artificial intelligence) | The Guardian",
+        "items": 20
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "The Guardian (AI/Society)",
+          "supplied_url": "https://www.theguardian.com/technology/artificialintelligenceai/rss",
+          "popularity": "High (9.5M Facebook)",
+          "connection": "RSS",
+          "notes": "Society/ethics framing from non-tech desk",
+          "category": "Ethics & Responsible AI"
+        },
+        {
+          "name": "The Guardian (AI/Society)",
+          "supplied_url": "https://www.theguardian.com/technology/artificialintelligenceai/rss",
+          "popularity": "High",
+          "connection": "RSS",
+          "notes": "Equity/diversity angle from non-tech desk",
+          "category": "AI Equity & Representation"
+        }
+      ]
+    },
+    {
+      "name": "AlgorithmWatch (EU)",
+      "registry": "sources.json",
+      "feed_url": "https://algorithmwatch.org/en/feed/",
+      "content_type": "article",
+      "topics": [
+        "Ethics & Responsible AI"
+      ],
+      "verification": {
+        "supplied_url": "https://algorithmwatch.org/en/feed/",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://algorithmwatch.org/en/feed/",
+        "title": "AlgorithmWatch",
+        "items": 10
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "AlgorithmWatch (EU)",
+          "supplied_url": "https://algorithmwatch.org/en/feed/",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "Berlin-based; EU algorithmic accountability, automated decision-making — essential non-US ethics voice",
+          "category": "Ethics & Responsible AI"
+        }
+      ]
+    },
+    {
+      "name": "Ada Lovelace Institute (UK)",
+      "registry": "sources.json",
+      "feed_url": "https://www.adalovelaceinstitute.org/feed/",
+      "content_type": "article",
+      "topics": [
+        "Ethics & Responsible AI"
+      ],
+      "verification": {
+        "supplied_url": "https://www.adalovelaceinstitute.org/feed/",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://www.adalovelaceinstitute.org/feed/",
+        "title": "Ada Lovelace Institute",
+        "items": 0
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Ada Lovelace Institute (UK)",
+          "supplied_url": "https://www.adalovelaceinstitute.org/feed/",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "UK think tank; data rights, AI fairness, public interest research",
+          "category": "Ethics & Responsible AI"
+        }
+      ]
+    },
+    {
+      "name": "LessWrong (curated)",
+      "registry": "sources.json",
+      "feed_url": "https://www.lesswrong.com/feed.xml?view=curated-rss",
+      "content_type": "article",
+      "topics": [
+        "Ethics & Responsible AI"
+      ],
+      "verification": {
+        "supplied_url": "https://www.lesswrong.com/feed.xml?view=curated-rss",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://www.lesswrong.com/feed.xml?view=curated-rss",
+        "title": "LessWrong",
+        "items": 10
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "LessWrong (curated)",
+          "supplied_url": "https://www.lesswrong.com/feed.xml?view=curated-rss",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "Alignment theory and safety research, high-quality filter",
+          "category": "Ethics & Responsible AI"
+        }
+      ]
+    },
+    {
+      "name": "AI Alignment Forum",
+      "registry": "sources.json",
+      "feed_url": "https://www.alignmentforum.org/feed.xml",
+      "content_type": "article",
+      "topics": [
+        "Ethics & Responsible AI"
+      ],
+      "verification": {
+        "supplied_url": "https://www.alignmentforum.org/feed.xml",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://www.alignmentforum.org/feed.xml",
+        "title": "AI Alignment Forum",
+        "items": 10
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "AI Alignment Forum",
+          "supplied_url": "https://www.alignmentforum.org/feed.xml",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "Technical alignment research; overlaps LessWrong",
+          "category": "Ethics & Responsible AI"
+        }
+      ]
+    },
+    {
+      "name": "Center for AI Safety (CAIS)",
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.safe.ai/feed",
+      "content_type": "article",
+      "topics": [
+        "Ethics & Responsible AI"
+      ],
+      "verification": {
+        "supplied_url": "https://www.safe.ai/feed",
+        "status": "unverified",
+        "error": "Redirect response '301 Moved Permanently' for url 'https://www.safe.ai/robots.txt'"
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Center for AI Safety (CAIS)",
+          "supplied_url": "https://www.safe.ai/feed",
+          "popularity": "Niche",
+          "connection": "RSS (check)",
+          "notes": "Safety research and policy statements",
+          "category": "Ethics & Responsible AI"
+        }
+      ]
+    },
+    {
+      "name": "Future of Life Institute",
+      "registry": "sources.json",
+      "feed_url": "https://futureoflife.org/feed/",
+      "content_type": "article",
+      "topics": [
+        "Ethics & Responsible AI",
+        "Policy & Regulation"
+      ],
+      "verification": {
+        "supplied_url": "https://futureoflife.org/feed/",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://futureoflife.org/feed/",
+        "title": "Future of Life Institute",
+        "items": 20
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Future of Life Institute",
+          "supplied_url": "https://futureoflife.org/feed/",
+          "popularity": "Medium",
+          "connection": "RSS",
+          "notes": "AI existential risk, international AI safety treaties",
+          "category": "Ethics & Responsible AI"
+        },
+        {
+          "name": "Future of Life Institute",
+          "supplied_url": "https://futureoflife.org/feed/",
+          "popularity": "Medium",
+          "connection": "RSS",
+          "notes": "EU AI Act tracker, bi-weekly",
+          "category": "Policy & Regulation"
+        }
+      ]
+    },
+    {
+      "name": "MIRI (Machine Intelligence)",
+      "registry": "sources.json",
+      "feed_url": "https://intelligence.org/feed/",
+      "content_type": "article",
+      "topics": [
+        "Ethics & Responsible AI"
+      ],
+      "verification": {
+        "supplied_url": "https://intelligence.org/feed/",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://intelligence.org/feed/",
+        "title": "Machine Intelligence Research Institute",
+        "items": 6
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "MIRI (Machine Intelligence)",
+          "supplied_url": "https://intelligence.org/feed/",
+          "popularity": "Niche (40 K Twitter)",
+          "connection": "RSS",
+          "notes": "Technical AI safety; lower cadence",
+          "category": "Ethics & Responsible AI"
+        }
+      ]
+    },
+    {
+      "name": "80,000 Hours",
+      "registry": "sources.json",
+      "feed_url": "https://80000hours.org/feed/",
+      "content_type": "article",
+      "topics": [
+        "Ethics & Responsible AI"
+      ],
+      "verification": {
+        "supplied_url": "https://80000hours.org/feed/",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://80000hours.org/feed/",
+        "title": "80,000 Hours",
+        "items": 10
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "80,000 Hours",
+          "supplied_url": "https://80000hours.org/feed/",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "Safety career paths, risk landscape",
+          "category": "Ethics & Responsible AI"
+        }
+      ]
+    },
+    {
+      "name": "Redwood Research",
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.redwoodresearch.org/blog-feed",
+      "content_type": "article",
+      "topics": [
+        "Ethics & Responsible AI"
+      ],
+      "verification": {
+        "supplied_url": "https://www.redwoodresearch.org/blog-feed",
+        "status": "unverified",
+        "error": "Client error '404 Not Found' for url 'https://www.redwoodresearch.org/blog-feed'"
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Redwood Research",
+          "supplied_url": "https://www.redwoodresearch.org/blog-feed",
+          "popularity": "Niche",
+          "connection": "RSS (check)",
+          "notes": "Interpretability and robustness research",
+          "category": "Ethics & Responsible AI"
+        }
+      ]
+    },
+    {
+      "name": "Georgetown CSET",
+      "registry": "sources.json",
+      "feed_url": "https://cset.georgetown.edu/feed/",
+      "content_type": "article",
+      "topics": [
+        "Policy & Regulation",
+        "Geopolitics of AI"
+      ],
+      "verification": {
+        "supplied_url": "https://cset.georgetown.edu/feed/",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://cset.georgetown.edu/feed/",
+        "title": "Center for Security and Emerging Technology",
+        "items": 10
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Georgetown CSET",
+          "supplied_url": "https://cset.georgetown.edu/feed/",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "US/China policy, technical capability analysis",
+          "category": "Policy & Regulation"
+        },
+        {
+          "name": "Georgetown CSET",
+          "supplied_url": "https://cset.georgetown.edu/feed/",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "US–China tech competition, export controls, compute policy",
+          "category": "Geopolitics of AI"
+        },
+        {
+          "name": "The China AI Report (CSET)",
+          "supplied_url": "https://cset.georgetown.edu/feed/",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "Already in Policy table — cross-listed here for geopolitical framing of Chinese AI capabilities",
+          "category": "Geopolitics of AI"
+        }
+      ]
+    },
+    {
+      "name": "Tech Policy Press",
+      "registry": "sources-pending.json",
+      "feed_url": "https://techpolicy.press/feed/",
+      "content_type": "article",
+      "topics": [
+        "Policy & Regulation",
+        "Geopolitics of AI"
+      ],
+      "verification": {
+        "supplied_url": "https://techpolicy.press/feed/",
+        "status": "unverified",
+        "error": "Redirect response '301 Moved Permanently' for url 'https://techpolicy.press/robots.txt'"
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Tech Policy Press",
+          "supplied_url": "https://techpolicy.press/feed/",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "Regulatory deep dives, global AI governance",
+          "category": "Policy & Regulation"
+        },
+        {
+          "name": "Tech Policy Press",
+          "supplied_url": "https://techpolicy.press/feed/",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "Export control, AI governance, international competition",
+          "category": "Geopolitics of AI"
+        }
+      ]
+    },
+    {
+      "name": "European Commission Digital",
+      "registry": "sources.json",
+      "feed_url": "https://digital-strategy.ec.europa.eu/en/rss.xml",
+      "content_type": "article",
+      "topics": [
+        "Policy & Regulation"
+      ],
+      "verification": {
+        "supplied_url": "https://digital-strategy.ec.europa.eu/en/rss.xml",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://digital-strategy.ec.europa.eu/en/rss.xml",
+        "title": "Shaping Europe’s digital future",
+        "items": 10
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "European Commission Digital",
+          "supplied_url": "https://digital-strategy.ec.europa.eu/en/rss.xml",
+          "popularity": "High",
+          "connection": "RSS",
+          "notes": "Primary: EU AI Act implementation notices",
+          "category": "Policy & Regulation"
+        }
+      ]
+    },
+    {
+      "name": "NIST AI (US standards)",
+      "registry": "sources.json",
+      "feed_url": "https://www.nist.gov/blogs/cybersecurity-insights/rss.xml",
+      "content_type": "article",
+      "topics": [
+        "Policy & Regulation"
+      ],
+      "verification": {
+        "supplied_url": "https://www.nist.gov/blogs/cybersecurity-insights/rss.xml",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://www.nist.gov/blogs/cybersecurity-insights/rss.xml",
+        "title": "Cybersecurity Insights",
+        "items": 40
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "NIST AI (US standards)",
+          "supplied_url": "https://www.nist.gov/blogs/cybersecurity-insights/rss.xml",
+          "popularity": "Medium",
+          "connection": "RSS",
+          "notes": "US standards body, AI RMF updates",
+          "category": "Policy & Regulation"
+        }
+      ]
+    },
+    {
+      "name": "Law firm trackers (White & Case, DLA Piper)",
+      "registry": "sources-pending.json",
+      "feed_url": "",
+      "content_type": "article",
+      "topics": [
+        "Policy & Regulation"
+      ],
+      "verification": {
+        "status": "manual",
+        "error": "No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Law firm trackers (White & Case, DLA Piper)",
+          "supplied_url": "Firm blogs (various)",
+          "popularity": "Niche",
+          "connection": "Scrape",
+          "notes": "Regulatory-risk angle; check ToS per firm",
+          "category": "Policy & Regulation"
+        }
+      ]
+    },
+    {
+      "name": "Reuters Technology",
+      "registry": "sources-pending.json",
+      "feed_url": "https://feeds.reuters.com/reuters/technologyNews",
+      "content_type": "article",
+      "topics": [
+        "Policy & Regulation",
+        "Geopolitics of AI",
+        "Mainstream / General Press"
+      ],
+      "verification": {
+        "supplied_url": "https://feeds.reuters.com/reuters/technologyNews",
+        "status": "unverified",
+        "error": "[Errno 8] nodename nor servname provided, or not known"
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Reuters Technology",
+          "supplied_url": "https://feeds.reuters.com/reuters/technologyNews",
+          "popularity": "High",
+          "connection": "RSS",
+          "notes": "Filter by policy/regulation keywords post-ingestion",
+          "category": "Policy & Regulation"
+        },
+        {
+          "name": "Reuters Technology",
+          "supplied_url": "https://feeds.reuters.com/reuters/technologyNews",
+          "popularity": "High",
+          "connection": "RSS",
+          "notes": "Breaking geopolitical AI stories; filter by China/EU/US",
+          "category": "Geopolitics of AI"
+        },
+        {
+          "name": "Reuters Technology",
+          "supplied_url": "https://feeds.reuters.com/reuters/technologyNews",
+          "popularity": "High",
+          "connection": "RSS",
+          "category": "Mainstream / General Press"
+        }
+      ]
+    },
+    {
+      "name": "AI in Europe (Substack)",
+      "registry": "sources.json",
+      "feed_url": "https://europeanai.substack.com/feed",
+      "content_type": "article",
+      "topics": [
+        "Policy & Regulation"
+      ],
+      "verification": {
+        "supplied_url": "https://europeanai.substack.com/feed",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://europeanai.substack.com/feed",
+        "title": "The European AI Newsletter",
+        "items": 20
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "AI in Europe (Substack)",
+          "supplied_url": "https://europeanai.substack.com/feed",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "EU AI Act, policy briefings; free Substack RSS",
+          "category": "Policy & Regulation"
+        }
+      ]
+    },
+    {
+      "name": "Euractiv AI (EU)",
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.euractiv.com/sections/digital/feed/",
+      "content_type": "article",
+      "topics": [
+        "Policy & Regulation",
+        "Geopolitics of AI"
+      ],
+      "verification": {
+        "supplied_url": "https://www.euractiv.com/sections/digital/feed/",
+        "status": "unverified",
+        "error": "Client error '404 Not Found' for url 'https://www.euractiv.com/sections/digital/feed/'"
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Euractiv AI (EU)",
+          "supplied_url": "https://www.euractiv.com/sections/digital/feed/",
+          "popularity": "Medium",
+          "connection": "RSS",
+          "notes": "Brussels specialist press; EU AI Act, DSA, Digital Markets Act — primary EU policy source",
+          "category": "Policy & Regulation"
+        },
+        {
+          "name": "Euractiv AI (EU)",
+          "supplied_url": "https://www.euractiv.com/sections/digital/feed/",
+          "popularity": "Medium",
+          "connection": "RSS",
+          "notes": "EU AI governance from Brussels; third-country AI regulation responses",
+          "category": "Geopolitics of AI"
+        }
+      ]
+    },
+    {
+      "name": "Politico EU Tech (EU)",
+      "registry": "sources.json",
+      "feed_url": "https://www.politico.eu/feed/",
+      "content_type": "article",
+      "topics": [
+        "Policy & Regulation"
+      ],
+      "verification": {
+        "supplied_url": "https://www.politico.eu/feed/",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://www.politico.eu/feed/",
+        "title": "POLITICO",
+        "items": 10
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Politico EU Tech (EU)",
+          "supplied_url": "https://www.politico.eu/feed/",
+          "popularity": "High",
+          "connection": "RSS",
+          "notes": "EU AI Act politics, Commission dynamics; filter by tech/AI tag post-ingestion",
+          "category": "Policy & Regulation"
+        }
+      ]
+    },
+    {
+      "name": "The Median (DataCamp)",
+      "registry": "sources-pending.json",
+      "feed_url": "",
+      "content_type": "article",
+      "topics": [
+        "Future of Work & Daily Life"
+      ],
+      "verification": {
+        "status": "manual",
+        "error": "No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "The Median (DataCamp)",
+          "supplied_url": "Site: datacamp.com/blog",
+          "popularity": "Medium",
+          "connection": "Scrape ✓",
+          "notes": "AI/data skills + upskilling; no public RSS — scraping datacamp.com/blog permitted (robots.txt allows general crawlers)",
+          "category": "Future of Work & Daily Life"
+        }
+      ]
+    },
+    {
+      "name": "Chain of Thought",
+      "registry": "sources-pending.json",
+      "feed_url": "",
+      "content_type": "article",
+      "topics": [
+        "Future of Work & Daily Life"
+      ],
+      "verification": {
+        "status": "manual",
+        "error": "No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Chain of Thought",
+          "supplied_url": "Newsletter (Substack)",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "AI creativity and agentic AI reshaping work norms",
+          "category": "Future of Work & Daily Life"
+        }
+      ]
+    },
+    {
+      "name": "SHRM (HR)",
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.shrm.org/ResourcesAndTools/hr-topics/technology/rss/Pages/rss.aspx",
+      "content_type": "article",
+      "topics": [
+        "Future of Work & Daily Life"
+      ],
+      "verification": {
+        "supplied_url": "https://www.shrm.org/ResourcesAndTools/hr-topics/technology/rss/Pages/rss.aspx",
+        "status": "unverified",
+        "error": "Client error '404 Not Found' for url 'https://www.shrm.org/resourcesandtools/hr-topics/technology/rss/pages/rss.aspx'"
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "SHRM (HR)",
+          "supplied_url": "https://www.shrm.org/ResourcesAndTools/hr-topics/technology/rss/Pages/rss.aspx",
+          "popularity": "Medium",
+          "connection": "RSS",
+          "notes": "Workforce policy, HR technology",
+          "category": "Future of Work & Daily Life"
+        }
+      ]
+    },
+    {
+      "name": "WEF Future of Jobs",
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.weforum.org/rss.xml",
+      "content_type": "article",
+      "topics": [
+        "Future of Work & Daily Life"
+      ],
+      "verification": {
+        "supplied_url": "https://www.weforum.org/rss.xml",
+        "status": "unverified",
+        "error": "Client error '403 Forbidden' for url 'https://www.weforum.org/rss.xml'"
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "WEF Future of Jobs",
+          "supplied_url": "https://www.weforum.org/rss.xml",
+          "popularity": "High (institutional)",
+          "connection": "RSS",
+          "notes": "Filter by jobs/skills/automation; annual flagship reports",
+          "category": "Future of Work & Daily Life"
+        }
+      ]
+    },
+    {
+      "name": "McKinsey Global Institute",
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.mckinsey.com/rss/insights/article-feed/all.xml",
+      "content_type": "article",
+      "topics": [
+        "Future of Work & Daily Life"
+      ],
+      "verification": {
+        "supplied_url": "https://www.mckinsey.com/rss/insights/article-feed/all.xml",
+        "status": "unverified",
+        "error": "Client error '404 Not Found' for url 'https://www.mckinsey.com/rss/insights/article-feed/all.xml'"
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "McKinsey Global Institute",
+          "supplied_url": "https://www.mckinsey.com/rss/insights/article-feed/all.xml",
+          "popularity": "High",
+          "connection": "RSS",
+          "notes": "Workforce trends; filter by automation/AI topics",
+          "category": "Future of Work & Daily Life"
+        }
+      ]
+    },
+    {
+      "name": "Work of the Future (MIT)",
+      "registry": "sources-pending.json",
+      "feed_url": "https://workofthefuture.mit.edu/feed/",
+      "content_type": "article",
+      "topics": [
+        "Future of Work & Daily Life"
+      ],
+      "verification": {
+        "supplied_url": "https://workofthefuture.mit.edu/feed/",
+        "status": "unverified",
+        "error": "Redirect response '301 Moved Permanently' for url 'https://workofthefuture.mit.edu/robots.txt'"
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Work of the Future (MIT)",
+          "supplied_url": "https://workofthefuture.mit.edu/feed/",
+          "popularity": "Niche",
+          "connection": "RSS (check)",
+          "notes": "Academic research on labour market impact",
+          "category": "Future of Work & Daily Life"
+        }
+      ]
+    },
+    {
+      "name": "Fortune (Future of Work)",
+      "registry": "sources-pending.json",
+      "feed_url": "https://fortune.com/tag/the-future-of-work/feed/",
+      "content_type": "article",
+      "topics": [
+        "Future of Work & Daily Life"
+      ],
+      "verification": {
+        "supplied_url": "https://fortune.com/tag/the-future-of-work/feed/",
+        "status": "unverified",
+        "error": "Client error '404 Not Found' for url 'https://fortune.com/tag/the-future-of-work/feed/'"
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Fortune (Future of Work)",
+          "supplied_url": "https://fortune.com/tag/the-future-of-work/feed/",
+          "popularity": "High",
+          "connection": "RSS",
+          "notes": "Mainstream coverage with management/exec angle",
+          "category": "Future of Work & Daily Life"
+        }
+      ]
+    },
+    {
+      "name": "LinkedIn Work Change Report",
+      "registry": "sources-pending.json",
+      "feed_url": "",
+      "content_type": "article",
+      "topics": [
+        "Future of Work & Daily Life"
+      ],
+      "verification": {
+        "status": "manual",
+        "error": "No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "LinkedIn Work Change Report",
+          "supplied_url": "Annual PDF",
+          "popularity": "Niche",
+          "connection": "Scrape/Manual",
+          "notes": "Annual data release; operator adds manually",
+          "category": "Future of Work & Daily Life"
+        }
+      ]
+    },
+    {
+      "name": "Ben's Bites",
+      "registry": "sources.json",
+      "feed_url": "https://www.bensbites.com/feed",
+      "content_type": "article",
+      "topics": [
+        "Tools & Products"
+      ],
+      "verification": {
+        "supplied_url": "https://www.bensbites.com/feed",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://www.bensbites.com/feed",
+        "title": "Ben's Bites",
+        "items": 20
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Ben's Bites",
+          "supplied_url": "https://bensbites.beehiiv.com/feed",
+          "popularity": "Medium (120 K)",
+          "connection": "RSS",
+          "notes": "Daily AI tool launches and integrations",
+          "category": "Tools & Products"
+        }
+      ]
+    },
+    {
+      "name": "Product Hunt (all)",
+      "registry": "sources.json",
+      "feed_url": "https://www.producthunt.com/feed",
+      "content_type": "article",
+      "topics": [
+        "Tools & Products"
+      ],
+      "verification": {
+        "supplied_url": "https://www.producthunt.com/feed",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://www.producthunt.com/feed",
+        "title": "Product Hunt — The best new products, every day",
+        "items": 50
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Product Hunt (all)",
+          "supplied_url": "https://www.producthunt.com/feed",
+          "popularity": "High",
+          "connection": "RSS",
+          "notes": "Daily product rankings; filter by AI category",
+          "category": "Tools & Products"
+        }
+      ]
+    },
+    {
+      "name": "TLDR AI",
+      "registry": "sources.json",
+      "feed_url": "https://tldr.tech/api/rss/ai",
+      "content_type": "article",
+      "topics": [
+        "Tools & Products"
+      ],
+      "verification": {
+        "supplied_url": "https://tldr.tech/api/rss/ai",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://tldr.tech/api/rss/ai",
+        "title": "TLDR AI RSS Feed",
+        "items": 20
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "TLDR AI",
+          "supplied_url": "https://tldr.tech/api/rss/ai",
+          "popularity": "High (1.1M+)",
+          "connection": "RSS",
+          "notes": "Tool/product releases alongside research",
+          "category": "Tools & Products"
+        }
+      ]
+    },
+    {
+      "name": "There's An AI For That (TAAFT)",
+      "registry": "sources-pending.json",
+      "feed_url": "",
+      "content_type": "article",
+      "topics": [
+        "Tools & Products"
+      ],
+      "verification": {
+        "status": "manual",
+        "error": "No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "There's An AI For That (TAAFT)",
+          "supplied_url": "No public RSS",
+          "popularity": "High (2.5M)",
+          "connection": "Scrape ✓",
+          "notes": "Largest AI tools directory; no official feed — scraping public /new-tools listing permitted (blocks SEO bots only); contact for API",
+          "category": "Tools & Products"
+        }
+      ]
+    },
+    {
+      "name": "VentureBeat AI",
+      "registry": "sources-pending.json",
+      "feed_url": "https://venturebeat.com/category/ai/feed/",
+      "content_type": "article",
+      "topics": [
+        "Business & Industry"
+      ],
+      "verification": {
+        "supplied_url": "https://venturebeat.com/category/ai/feed/",
+        "status": "unverified",
+        "error": "Client error '429 Too Many Requests' for url 'https://venturebeat.com/category/ai/feed/'"
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "VentureBeat AI",
+          "supplied_url": "https://venturebeat.com/category/ai/feed/",
+          "popularity": "High (437 K)",
+          "connection": "RSS",
+          "notes": "Enterprise AI adoption, funding, M&A",
+          "category": "Business & Industry"
+        }
+      ]
+    },
+    {
+      "name": "Crunchbase News (AI)",
+      "registry": "sources.json",
+      "feed_url": "https://news.crunchbase.com/sections/ai/feed/",
+      "content_type": "article",
+      "topics": [
+        "Business & Industry"
+      ],
+      "verification": {
+        "supplied_url": "https://news.crunchbase.com/sections/ai/feed/",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://news.crunchbase.com/sections/ai/feed/",
+        "title": "Artificial intelligence - Crunchbase News",
+        "items": 10
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Crunchbase News (AI)",
+          "supplied_url": "https://news.crunchbase.com/sections/ai/feed/",
+          "popularity": "High",
+          "connection": "RSS",
+          "notes": "Investment tracking, fundraising rounds",
+          "category": "Business & Industry"
+        }
+      ]
+    },
+    {
+      "name": "Financial Times (AI)",
+      "registry": "sources.json",
+      "feed_url": "https://www.ft.com/artificial-intelligence?format=rss",
+      "content_type": "article",
+      "topics": [
+        "Business & Industry",
+        "Geopolitics of AI",
+        "Mainstream / General Press"
+      ],
+      "verification": {
+        "supplied_url": "https://www.ft.com/artificial-intelligence?format=rss",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://www.ft.com/artificial-intelligence?format=rss",
+        "title": "Artificial intelligence",
+        "items": 25
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Financial Times (AI)",
+          "supplied_url": "https://www.ft.com/artificial-intelligence?format=rss",
+          "popularity": "High (6.4M Twitter)",
+          "connection": "RSS",
+          "notes": "Business/finance angle on AI; partial paywall",
+          "category": "Business & Industry"
+        },
+        {
+          "name": "Financial Times (AI)",
+          "supplied_url": "https://www.ft.com/artificial-intelligence?format=rss",
+          "popularity": "High",
+          "connection": "RSS",
+          "notes": "Geopolitical angle: chip controls, AI sovereignty",
+          "category": "Geopolitics of AI"
+        },
+        {
+          "name": "Financial Times (AI)",
+          "supplied_url": "https://www.ft.com/artificial-intelligence?format=rss",
+          "popularity": "High",
+          "connection": "RSS (partial)",
+          "category": "Mainstream / General Press"
+        }
+      ]
+    },
+    {
+      "name": "a16z Blog",
+      "registry": "sources-pending.json",
+      "feed_url": "https://a16z.com/feed/",
+      "content_type": "article",
+      "topics": [
+        "Business & Industry"
+      ],
+      "verification": {
+        "supplied_url": "https://a16z.com/feed/",
+        "status": "unverified",
+        "error": "Client error '404 Not Found' for url 'https://a16z.com/feed/'"
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "a16z Blog",
+          "supplied_url": "https://a16z.com/feed/",
+          "popularity": "Medium",
+          "connection": "RSS",
+          "notes": "VC perspective; AI portfolio and market analysis — declared bias: surfaces what capital is betting on, not neutral journalism",
+          "category": "Business & Industry"
+        }
+      ]
+    },
+    {
+      "name": "The Economist (AI filter)",
+      "registry": "sources.json",
+      "feed_url": "https://www.economist.com/science-and-technology/rss.xml",
+      "content_type": "article",
+      "topics": [
+        "Business & Industry",
+        "Mainstream / General Press"
+      ],
+      "verification": {
+        "supplied_url": "https://www.economist.com/science-and-technology/rss.xml",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://www.economist.com/science-and-technology/rss.xml",
+        "title": "Science & technology",
+        "items": 300
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "The Economist (AI filter)",
+          "supplied_url": "https://www.economist.com/science-and-technology/rss.xml",
+          "popularity": "High",
+          "connection": "RSS",
+          "notes": "Policy + economics framing; paywall",
+          "category": "Business & Industry"
+        },
+        {
+          "name": "The Economist (S&T)",
+          "supplied_url": "https://www.economist.com/science-and-technology/rss.xml",
+          "popularity": "High",
+          "connection": "RSS",
+          "category": "Mainstream / General Press"
+        }
+      ]
+    },
+    {
+      "name": "Stratechery",
+      "registry": "sources.json",
+      "feed_url": "https://stratechery.com/feed/",
+      "content_type": "article",
+      "topics": [
+        "Business & Industry"
+      ],
+      "verification": {
+        "supplied_url": "https://stratechery.com/feed/",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://stratechery.com/feed/",
+        "title": "Stratechery by Ben Thompson",
+        "items": 10
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Stratechery",
+          "supplied_url": "https://stratechery.com/feed/",
+          "popularity": "Medium",
+          "connection": "RSS",
+          "notes": "Tech business strategy; subscription but high-value",
+          "category": "Business & Industry"
+        }
+      ]
+    },
+    {
+      "name": "AI Weekly (China tracker)",
+      "registry": "sources.json",
+      "feed_url": "https://aiweekly.co/issues.rss",
+      "content_type": "article",
+      "topics": [
+        "Geopolitics of AI"
+      ],
+      "verification": {
+        "supplied_url": "https://aiweekly.co/issues.rss",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://aiweekly.co/issues.rss",
+        "title": "AI Weekly — AI News & Updates",
+        "items": 20
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "AI Weekly (China tracker)",
+          "supplied_url": "https://aiweekly.co/issues.rss",
+          "popularity": "Medium",
+          "connection": "RSS",
+          "notes": "Aggregates FT, Bloomberg, Reuters, TechCrunch on Chinese labs",
+          "category": "Geopolitics of AI"
+        }
+      ]
+    },
+    {
+      "name": "South China Morning Post (Tech)",
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.scmp.com/rss/2/feed",
+      "content_type": "article",
+      "topics": [
+        "Geopolitics of AI"
+      ],
+      "verification": {
+        "supplied_url": "https://www.scmp.com/rss/2/feed",
+        "status": "unverified",
+        "error": "Redirect response '301 Moved Permanently' for url 'http://www.scmp.com/robots.txt'"
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "South China Morning Post (Tech)",
+          "supplied_url": "https://www.scmp.com/rss/2/feed",
+          "popularity": "High (4.2M)",
+          "connection": "RSS",
+          "notes": "Direct China regional coverage",
+          "category": "Geopolitics of AI"
+        }
+      ]
+    },
+    {
+      "name": "Nikkei Asia (Tech)",
+      "registry": "sources-pending.json",
+      "feed_url": "https://asia.nikkei.com/rss/feed/tnews",
+      "content_type": "article",
+      "topics": [
+        "Geopolitics of AI"
+      ],
+      "verification": {
+        "supplied_url": "https://asia.nikkei.com/rss/feed/tnews",
+        "status": "unverified",
+        "error": "Client error '404 Not Found' for url 'https://asia.nikkei.com/rss/feed/tnews'"
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Nikkei Asia (Tech)",
+          "supplied_url": "https://asia.nikkei.com/rss/feed/tnews",
+          "popularity": "Medium",
+          "connection": "RSS",
+          "notes": "Japan/Asia AI and semiconductor supply chain",
+          "category": "Geopolitics of AI"
+        }
+      ]
+    },
+    {
+      "name": "Rest of World",
+      "registry": "sources.json",
+      "feed_url": "https://restofworld.org/feed/latest/",
+      "content_type": "article",
+      "topics": [
+        "Geopolitics of AI",
+        "AI Equity & Representation"
+      ],
+      "verification": {
+        "supplied_url": "https://restofworld.org/feed/latest/",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://restofworld.org/feed/latest/",
+        "title": "Rest of World -",
+        "items": 12
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Rest of World",
+          "supplied_url": "https://restofworld.org/feed/latest/",
+          "popularity": "Medium",
+          "connection": "RSS",
+          "notes": "Non-US-centric; AI in LatAm, Africa, SE Asia",
+          "category": "Geopolitics of AI"
+        },
+        {
+          "name": "Rest of World",
+          "supplied_url": "https://restofworld.org/feed/latest/",
+          "popularity": "Medium",
+          "connection": "RSS",
+          "notes": "AI impact in Global South; best existing coverage of this topic",
+          "category": "AI Equity & Representation"
+        }
+      ]
+    },
+    {
+      "name": "Synced / 机器之心 (China)",
+      "registry": "sources.json",
+      "feed_url": "https://syncedreview.com/feed/",
+      "content_type": "article",
+      "topics": [
+        "Geopolitics of AI"
+      ],
+      "verification": {
+        "supplied_url": "https://syncedreview.com/feed/",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://syncedreview.com/feed/",
+        "title": "Synced",
+        "items": 10
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Synced / 机器之心 (China)",
+          "supplied_url": "https://syncedreview.com/feed/",
+          "popularity": "Medium",
+          "connection": "RSS",
+          "notes": "English-language Chinese AI research coverage; primary source on Baidu, Alibaba DAMO, Tencent AI Lab output",
+          "category": "Geopolitics of AI"
+        }
+      ]
+    },
+    {
+      "name": "Inc42 Tech (India)",
+      "registry": "sources.json",
+      "feed_url": "https://inc42.com/feed/",
+      "content_type": "article",
+      "topics": [
+        "Geopolitics of AI"
+      ],
+      "verification": {
+        "supplied_url": "https://inc42.com/feed/",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://inc42.com/feed/",
+        "title": "Inc42 Media",
+        "items": 24
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Inc42 Tech (India)",
+          "supplied_url": "https://inc42.com/feed/",
+          "popularity": "Medium",
+          "connection": "RSS",
+          "notes": "India's leading tech/startup media; covers Indian AI policy, NASSCOM, and domestic AI ecosystem — world's largest AI talent pool",
+          "category": "Geopolitics of AI"
+        }
+      ]
+    },
+    {
+      "name": "Analytics India Magazine (India)",
+      "registry": "sources-pending.json",
+      "feed_url": "https://analyticsindiamag.com/feed/",
+      "content_type": "article",
+      "topics": [
+        "Geopolitics of AI"
+      ],
+      "verification": {
+        "supplied_url": "https://analyticsindiamag.com/feed/",
+        "status": "not_feed",
+        "http_status": 200,
+        "feed_url": "https://analyticsindiamag.com/feed",
+        "title": "",
+        "items": 0
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Analytics India Magazine (India)",
+          "supplied_url": "https://analyticsindiamag.com/feed/",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "Indian ML/AI research, interviews with Indian AI leaders, MeitY policy coverage; primary voice on India's AI regulatory stance",
+          "category": "Geopolitics of AI"
+        }
+      ]
+    },
+    {
+      "name": "Harvard Berkman Klein (AI)",
+      "registry": "sources-pending.json",
+      "feed_url": "https://cyber.harvard.edu/rss.xml",
+      "content_type": "article",
+      "topics": [
+        "AI Equity & Representation"
+      ],
+      "verification": {
+        "supplied_url": "https://cyber.harvard.edu/rss.xml",
+        "status": "not_feed",
+        "http_status": 200,
+        "feed_url": "https://cyber.harvard.edu/404",
+        "title": "",
+        "items": 0
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Harvard Berkman Klein (AI)",
+          "supplied_url": "https://cyber.harvard.edu/rss.xml",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "Justice/equity/inclusion in AI systems",
+          "category": "AI Equity & Representation"
+        }
+      ]
+    },
+    {
+      "name": "TechCabal",
+      "registry": "sources.json",
+      "feed_url": "https://techcabal.com/feed/",
+      "content_type": "article",
+      "topics": [
+        "AI Equity & Representation"
+      ],
+      "verification": {
+        "supplied_url": "https://techcabal.com/feed/",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://techcabal.com/feed/",
+        "title": "TechCabal",
+        "items": 10
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "TechCabal",
+          "supplied_url": "https://techcabal.com/feed/",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "Africa tech and AI; supplements Rest of World",
+          "category": "AI Equity & Representation"
+        }
+      ]
+    },
+    {
+      "name": "ITU AI for Good",
+      "registry": "sources.json",
+      "feed_url": "https://aiforgood.itu.int/feed/",
+      "content_type": "article",
+      "topics": [
+        "AI Equity & Representation",
+        "AI for Good / Tech for Good"
+      ],
+      "verification": {
+        "supplied_url": "https://aiforgood.itu.int/feed/",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://aiforgood.itu.int/feed/",
+        "title": "AI for Good",
+        "items": 500
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "AI for Good (ITU)",
+          "supplied_url": "https://aiforgood.itu.int/feed/",
+          "popularity": "Medium (18 K Twitter)",
+          "connection": "RSS",
+          "notes": "Social impact AI; UN-backed, global perspective",
+          "category": "AI Equity & Representation"
+        },
+        {
+          "name": "ITU AI for Good",
+          "supplied_url": "https://www.itu.int/en/ITU-T/AI/Pages/default.aspx (scrape)",
+          "popularity": "Niche",
+          "connection": "Scrape ✅",
+          "notes": "UN agency; AI for Good global summit, policy briefings; no public RSS — scrape permitted (robots.txt allows general crawlers)",
+          "category": "AI for Good / Tech for Good"
+        }
+      ]
+    },
+    {
+      "name": "AP Technology",
+      "registry": "sources-pending.json",
+      "feed_url": "https://rsshub.app/apnews/topics/technology",
+      "content_type": "article",
+      "topics": [
+        "Mainstream / General Press"
+      ],
+      "verification": {
+        "supplied_url": "https://rsshub.app/apnews/topics/technology",
+        "status": "unverified",
+        "error": "Client error '403 Forbidden' for url 'https://rsshub.app/robots.txt'"
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "AP Technology",
+          "supplied_url": "https://rsshub.app/apnews/topics/technology",
+          "popularity": "High",
+          "connection": "RSS",
+          "category": "Mainstream / General Press"
+        }
+      ]
+    },
+    {
+      "name": "The Guardian (Technology)",
+      "registry": "sources.json",
+      "feed_url": "https://www.theguardian.com/uk/technology/rss",
+      "content_type": "article",
+      "topics": [
+        "Mainstream / General Press"
+      ],
+      "verification": {
+        "supplied_url": "https://www.theguardian.com/uk/technology/rss",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://www.theguardian.com/uk/technology/rss",
+        "title": "Technology | The Guardian",
+        "items": 32
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "The Guardian (Technology)",
+          "supplied_url": "https://www.theguardian.com/uk/technology/rss",
+          "popularity": "High",
+          "connection": "RSS",
+          "category": "Mainstream / General Press"
+        }
+      ]
+    },
+    {
+      "name": "NYT Technology",
+      "registry": "sources.json",
+      "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
+      "content_type": "article",
+      "topics": [
+        "Mainstream / General Press"
+      ],
+      "verification": {
+        "supplied_url": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
+        "title": "NYT > Technology",
+        "items": 29
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "NYT Technology",
+          "supplied_url": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
+          "popularity": "High",
+          "connection": "RSS",
+          "category": "Mainstream / General Press"
+        }
+      ]
+    },
+    {
+      "name": "Bloomberg Technology",
+      "registry": "sources-pending.json",
+      "feed_url": "",
+      "content_type": "article",
+      "topics": [
+        "Mainstream / General Press"
+      ],
+      "verification": {
+        "status": "manual",
+        "error": "No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Bloomberg Technology",
+          "supplied_url": "No public RSS; paywall",
+          "popularity": "High",
+          "connection": "Excluded — MVP",
+          "category": "Mainstream / General Press"
+        }
+      ]
+    },
+    {
+      "name": "BBC Technology (UK)",
+      "registry": "sources.json",
+      "feed_url": "https://feeds.bbci.co.uk/news/technology/rss.xml",
+      "content_type": "article",
+      "topics": [
+        "Mainstream / General Press"
+      ],
+      "verification": {
+        "supplied_url": "https://feeds.bbci.co.uk/news/technology/rss.xml",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://feeds.bbci.co.uk/news/technology/rss.xml",
+        "title": "BBC News",
+        "items": 21
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "BBC Technology (UK)",
+          "supplied_url": "https://feeds.bbci.co.uk/news/technology/rss.xml",
+          "popularity": "High (global)",
+          "connection": "RSS",
+          "category": "Mainstream / General Press"
+        }
+      ]
+    },
+    {
+      "name": "GovAI (Centre for the Governance of AI)",
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.governance.ai/feed",
+      "content_type": "article",
+      "topics": [
+        "AI for Good / Tech for Good"
+      ],
+      "verification": {
+        "supplied_url": "https://www.governance.ai/feed",
+        "status": "unverified",
+        "error": "Client error '404 Not Found' for url 'https://www.governance.ai/feed'"
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "GovAI (Centre for the Governance of AI)",
+          "supplied_url": "https://www.governance.ai/feed",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "Oxford-based; long-read policy research on AI governance, safety and beneficial AI; essential non-corporate voice",
+          "category": "AI for Good / Tech for Good"
+        }
+      ]
+    },
+    {
+      "name": "Alan Turing Institute",
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.turing.ac.uk/news/rss.xml",
+      "content_type": "article",
+      "topics": [
+        "AI for Good / Tech for Good"
+      ],
+      "verification": {
+        "supplied_url": "https://www.turing.ac.uk/news/rss.xml",
+        "status": "unverified",
+        "error": "Client error '404 Not Found' for url 'https://www.turing.ac.uk/news/rss.xml'"
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Alan Turing Institute",
+          "supplied_url": "https://www.turing.ac.uk/news/rss.xml",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "UK national AI institute; public-interest research, data ethics, trustworthy AI",
+          "category": "AI for Good / Tech for Good"
+        }
+      ]
+    },
+    {
+      "name": "AI4D Africa",
+      "registry": "sources-pending.json",
+      "feed_url": "https://ai4d.ai/feed/",
+      "content_type": "article",
+      "topics": [
+        "AI for Good / Tech for Good"
+      ],
+      "verification": {
+        "supplied_url": "https://ai4d.ai/feed/",
+        "status": "unverified",
+        "error": "Redirect response '301 Moved Permanently' for url 'https://ai4d.ai/robots.txt'"
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "AI4D Africa",
+          "supplied_url": "https://ai4d.ai/feed/",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "African AI research and development — rare Global South primary source on inclusive AI",
+          "category": "AI for Good / Tech for Good"
+        }
+      ]
+    },
+    {
+      "name": "UNDP Digital",
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.undp.org/rss/digital",
+      "content_type": "article",
+      "topics": [
+        "AI for Good / Tech for Good"
+      ],
+      "verification": {
+        "supplied_url": "https://www.undp.org/rss/digital",
+        "status": "unverified",
+        "error": "Client error '404 Not Found' for url 'https://www.undp.org/rss/digital'"
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "UNDP Digital",
+          "supplied_url": "https://www.undp.org/rss/digital",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "UN development programme; digital governance, AI and sustainable development; global-south coverage",
+          "category": "AI for Good / Tech for Good"
+        }
+      ]
+    },
+    {
+      "name": "Apolitical (AI in government)",
+      "registry": "sources-pending.json",
+      "feed_url": "https://apolitical.co/rss",
+      "content_type": "article",
+      "topics": [
+        "AI for Good / Tech for Good"
+      ],
+      "verification": {
+        "supplied_url": "https://apolitical.co/rss",
+        "status": "unverified",
+        "error": "Client error '404 Not Found' for url 'https://apolitical.co/en/rss'"
+      },
+      "discovery_url": null,
+      "supplied_entries": [
+        {
+          "name": "Apolitical (AI in government)",
+          "supplied_url": "https://apolitical.co/rss",
+          "popularity": "Niche",
+          "connection": "RSS",
+          "notes": "Public-sector digital transformation; AI in government worldwide; good cross-geography signal",
+          "category": "AI for Good / Tech for Good"
+        }
+      ]
+    },
+    {
+      "name": "Dwarkesh Podcast",
+      "registry": "sources.json",
+      "feed_url": "https://apple.dwarkesh-podcast.workers.dev/feed.rss",
+      "content_type": "podcast",
+      "topics": [
+        "Cross-Topic AI Specialist Sources"
+      ],
+      "verification": {
+        "supplied_url": "https://apple.dwarkesh-podcast.workers.dev/feed.rss",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://apple.dwarkesh-podcast.workers.dev/feed.rss",
+        "title": "Dwarkesh Podcast",
+        "items": 141
+      },
+      "discovery_url": "https://podcasts.apple.com/us/podcast/dwarkesh-podcast/id1516093381?uo=4",
+      "supplied_entries": []
+    },
+    {
+      "name": "Latent Space",
+      "registry": "sources.json",
+      "feed_url": "https://api.substack.com/feed/podcast/1084089.rss",
+      "content_type": "podcast",
+      "topics": [
+        "Cross-Topic AI Specialist Sources"
+      ],
+      "verification": {
+        "supplied_url": "https://api.substack.com/feed/podcast/1084089.rss",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://api.substack.com/feed/podcast/1084089.rss",
+        "title": "Latent Space: The AI Engineer Podcast",
+        "items": 223
+      },
+      "discovery_url": "https://podcasts.apple.com/us/podcast/latent-space-the-ai-engineer-podcast/id1674008350?uo=4",
+      "supplied_entries": []
+    },
+    {
+      "name": "The Cognitive Revolution",
+      "registry": "sources.json",
+      "feed_url": "https://feeds.megaphone.fm/RINTP3108857801",
+      "content_type": "podcast",
+      "topics": [
+        "Cross-Topic AI Specialist Sources"
+      ],
+      "verification": {
+        "supplied_url": "https://feeds.megaphone.fm/RINTP3108857801",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://feeds.megaphone.fm/RINTP3108857801",
+        "title": "\"The Cognitive Revolution\"",
+        "items": 375
+      },
+      "discovery_url": "https://podcasts.apple.com/us/podcast/the-cognitive-revolution/id1669813431?uo=4",
+      "supplied_entries": []
+    },
+    {
+      "name": "No Priors",
+      "registry": "sources.json",
+      "feed_url": "https://feeds.megaphone.fm/nopriors",
+      "content_type": "podcast",
+      "topics": [
+        "Cross-Topic AI Specialist Sources"
+      ],
+      "verification": {
+        "supplied_url": "https://feeds.megaphone.fm/nopriors",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://feeds.megaphone.fm/nopriors",
+        "title": "No Priors: Artificial Intelligence | Technology | Startups",
+        "items": 179
+      },
+      "discovery_url": "https://podcasts.apple.com/us/podcast/no-priors-artificial-intelligence-technology-startups/id1668002688?uo=4",
+      "supplied_entries": []
+    },
+    {
+      "name": "The AI Daily Brief",
+      "registry": "sources-pending.json",
+      "feed_url": "https://anchor.fm/s/f7cac464/podcast/rss",
+      "content_type": "podcast",
+      "topics": [
+        "Cross-Topic AI Specialist Sources"
+      ],
+      "verification": {
+        "supplied_url": "https://anchor.fm/s/f7cac464/podcast/rss",
+        "status": "unverified",
+        "error": "Redirect response '302 ' for url 'https://anchor.fm/robots.txt'"
+      },
+      "discovery_url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614?uo=4",
+      "supplied_entries": []
+    },
+    {
+      "name": "Machine Learning Street Talk",
+      "registry": "sources-pending.json",
+      "feed_url": "https://anchor.fm/s/1e4a0eac/podcast/rss",
+      "content_type": "podcast",
+      "topics": [
+        "Cross-Topic AI Specialist Sources"
+      ],
+      "verification": {
+        "supplied_url": "https://anchor.fm/s/1e4a0eac/podcast/rss",
+        "status": "unverified",
+        "error": "Redirect response '302 ' for url 'https://anchor.fm/robots.txt'"
+      },
+      "discovery_url": "https://podcasts.apple.com/us/podcast/machine-learning-street-talk-mlst/id1510472996?uo=4",
+      "supplied_entries": []
+    },
+    {
+      "name": "The TWIML AI Podcast",
+      "registry": "sources.json",
+      "feed_url": "https://feeds.megaphone.fm/MLN2155636147",
+      "content_type": "podcast",
+      "topics": [
+        "Cross-Topic AI Specialist Sources"
+      ],
+      "verification": {
+        "supplied_url": "https://feeds.megaphone.fm/MLN2155636147",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://feeds.megaphone.fm/MLN2155636147",
+        "title": "The TWIML AI Podcast (formerly This Week in Machine Learning & Artificial Intelligence)",
+        "items": 795
+      },
+      "discovery_url": "https://podcasts.apple.com/us/podcast/the-twiml-ai-podcast-formerly-this-week-in-machine/id1116303051?uo=4",
+      "supplied_entries": []
+    },
+    {
+      "name": "NVIDIA AI Podcast",
+      "registry": "sources.json",
+      "feed_url": "https://feeds.megaphone.fm/nvidiaaipodcast",
+      "content_type": "podcast",
+      "topics": [
+        "Cross-Topic AI Specialist Sources"
+      ],
+      "verification": {
+        "supplied_url": "https://feeds.megaphone.fm/nvidiaaipodcast",
+        "status": "verified",
+        "http_status": 200,
+        "feed_url": "https://feeds.megaphone.fm/nvidiaaipodcast",
+        "title": "NVIDIA AI Podcast",
+        "items": 306
+      },
+      "discovery_url": "https://podcasts.apple.com/us/podcast/nvidia-ai-podcast/id1186480811?uo=4",
+      "supplied_entries": []
+    },
+    {
+      "name": "Two Minute Papers",
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg",
+      "content_type": "video",
+      "topics": [
+        "Models & Research"
+      ],
+      "verification": {
+        "status": "unverified",
+        "error": "YouTube /feeds/videos.xml is disallowed by robots.txt for the current poller. Channel ID resolved from channelMetadataRenderer.externalId; feed not fetched."
+      },
+      "discovery_url": "https://www.youtube.com/@TwoMinutePapers",
+      "supplied_entries": []
+    },
+    {
+      "name": "AI Explained",
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNJ1Ymd5yFuUPtn21xtRbbw",
+      "content_type": "video",
+      "topics": [
+        "Cross-Topic AI Specialist Sources"
+      ],
+      "verification": {
+        "status": "unverified",
+        "error": "YouTube /feeds/videos.xml is disallowed by robots.txt for the current poller. Channel ID resolved from channelMetadataRenderer.externalId; feed not fetched."
+      },
+      "discovery_url": "https://www.youtube.com/@aiexplained-official",
+      "supplied_entries": []
+    },
+    {
+      "name": "Matt Wolfe",
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UChpleBmo18P08aKCIgti38g",
+      "content_type": "video",
+      "topics": [
+        "Tools & Products"
+      ],
+      "verification": {
+        "status": "unverified",
+        "error": "YouTube /feeds/videos.xml is disallowed by robots.txt for the current poller. Channel ID resolved from channelMetadataRenderer.externalId; feed not fetched."
+      },
+      "discovery_url": "https://www.youtube.com/@mreflow",
+      "supplied_entries": []
+    },
+    {
+      "name": "Wes Roth",
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCqcbQf6yw5KzRoDDcZ_wBSw",
+      "content_type": "video",
+      "topics": [
+        "Cross-Topic AI Specialist Sources"
+      ],
+      "verification": {
+        "status": "unverified",
+        "error": "YouTube /feeds/videos.xml is disallowed by robots.txt for the current poller. Channel ID resolved from channelMetadataRenderer.externalId; feed not fetched."
+      },
+      "discovery_url": "https://www.youtube.com/@WesRoth",
+      "supplied_entries": []
+    },
+    {
+      "name": "Fireship",
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA",
+      "content_type": "video",
+      "topics": [
+        "Tools & Products"
+      ],
+      "verification": {
+        "status": "unverified",
+        "error": "YouTube /feeds/videos.xml is disallowed by robots.txt for the current poller. Channel ID resolved from channelMetadataRenderer.externalId; feed not fetched."
+      },
+      "discovery_url": "https://www.youtube.com/@Fireship",
+      "supplied_entries": []
+    },
+    {
+      "name": "Yannic Kilcher",
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZHmQk67mSJgfCCTn7xBfew",
+      "content_type": "video",
+      "topics": [
+        "Models & Research"
+      ],
+      "verification": {
+        "status": "unverified",
+        "error": "YouTube /feeds/videos.xml is disallowed by robots.txt for the current poller. Channel ID resolved from channelMetadataRenderer.externalId; feed not fetched."
+      },
+      "discovery_url": "https://www.youtube.com/@YannicKilcher",
+      "supplied_entries": []
+    },
+    {
+      "name": "One-off documentaries",
+      "registry": "sources-pending.json",
+      "feed_url": "",
+      "content_type": "video",
+      "topics": [
+        "Cross-Topic AI Specialist Sources"
+      ],
+      "verification": {
+        "status": "manual",
+        "error": "Manual curation, as requested."
+      },
+      "discovery_url": null,
+      "supplied_entries": []
+    }
+  ]
+}

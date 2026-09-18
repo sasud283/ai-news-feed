@@ -1,0 +1,515 @@
+[
+  {
+    "name": "The Rundown AI",
+    "url": "https://www.therundown.ai/",
+    "feed_url": "https://rss.beehiiv.com/feeds/2R3C6Bt5wj.xml",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Cross-Topic AI Specialist Sources. Cross-topic intake; classify individual items after ingestion. Cross-Topic AI Specialist Sources: All topics Popularity supplied by user (not independently verified): High (2M+). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "MIT Technology Review (AI)",
+    "url": "https://www.technologyreview.com/",
+    "feed_url": "https://www.technologyreview.com/topic/artificial-intelligence/feed/",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Cross-Topic AI Specialist Sources; AI Equity & Representation. Cross-topic intake; classify individual items after ingestion. Cross-Topic AI Specialist Sources: Models, Ethics, Policy, Future of Work AI Equity & Representation: Periodic equity/access pieces; filter by keyword Popularity supplied by user (not independently verified): High. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "TechCrunch AI",
+    "url": "https://techcrunch.com/",
+    "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Cross-Topic AI Specialist Sources; Business & Industry. Cross-topic intake; classify individual items after ingestion. Cross-Topic AI Specialist Sources: Business, Tools, Models Business & Industry: Startup funding rounds, enterprise deals Popularity supplied by user (not independently verified): High (3M). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Ars Technica AI",
+    "url": "https://arstechnica.com/",
+    "feed_url": "https://arstechnica.com/ai/feed/",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Cross-Topic AI Specialist Sources. Cross-topic intake; classify individual items after ingestion. Cross-Topic AI Specialist Sources: Models, Safety, Ethics Popularity supplied by user (not independently verified): High (409 K). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "The Verge AI",
+    "url": "https://www.theverge.com/",
+    "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Cross-Topic AI Specialist Sources. Cross-topic intake; classify individual items after ingestion. Cross-Topic AI Specialist Sources: Tools, Business, Policy Popularity supplied by user (not independently verified): High (3.5M). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "WIRED AI",
+    "url": "https://www.wired.com/",
+    "feed_url": "https://www.wired.com/feed/tag/ai/latest/rss",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Cross-Topic AI Specialist Sources; Ethics & Responsible AI. Cross-topic intake; classify individual items after ingestion. Cross-Topic AI Specialist Sources: All topics Ethics & Responsible AI: Filter by ethics/bias keywords after ingestion Popularity supplied by user (not independently verified): High (3.8M); High. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "OpenAI News",
+    "url": "https://openai.com/",
+    "feed_url": "https://openai.com/news/rss.xml",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Cross-Topic AI Specialist Sources; Models & Research. Cross-topic intake; classify individual items after ingestion. Cross-Topic AI Specialist Sources: Models & Research Models & Research: Official GPT/o-series announcements Popularity supplied by user (not independently verified): High (5M); High. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Google DeepMind Blog",
+    "url": "https://deepmind.google/",
+    "feed_url": "https://deepmind.google/blog/rss.xml",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Cross-Topic AI Specialist Sources; Models & Research. Cross-topic intake; classify individual items after ingestion. Cross-Topic AI Specialist Sources: Models & Research Models & Research: Gemini, AlphaFold, frontier research Popularity supplied by user (not independently verified): High. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Hugging Face Blog",
+    "url": "https://huggingface.co/",
+    "feed_url": "https://huggingface.co/blog/feed.xml",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Cross-Topic AI Specialist Sources; Models & Research. Cross-topic intake; classify individual items after ingestion. Cross-Topic AI Specialist Sources: Models & Research, Tools Models & Research: Model releases, open-source ecosystem Popularity supplied by user (not independently verified): High. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "The Gradient",
+    "url": "https://thegradient.pub/",
+    "feed_url": "https://thegradient.pub/rss/",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Cross-Topic AI Specialist Sources; Models & Research; Ethics & Responsible AI. Cross-topic intake; classify individual items after ingestion. Cross-Topic AI Specialist Sources: Models, Safety, Ethics Models & Research: Long-form research essays Ethics & Responsible AI: Ethics essays, alignment overlap Popularity supplied by user (not independently verified): Niche (21 K); Niche. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Import AI (Jack Clark)",
+    "url": "https://importai.substack.com/",
+    "feed_url": "https://importai.substack.com/feed",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Cross-Topic AI Specialist Sources; Policy & Regulation. Cross-topic intake; classify individual items after ingestion. Cross-Topic AI Specialist Sources: Policy, Models, Safety Policy & Regulation: Policy + frontier research weekly synthesis Popularity supplied by user (not independently verified): Medium (136 K). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Simon Willison's Weblog",
+    "url": "https://simonwillison.net/",
+    "feed_url": "https://simonwillison.net/atom/everything/",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Cross-Topic AI Specialist Sources; Tools & Products. Cross-topic intake; classify individual items after ingestion. Cross-Topic AI Specialist Sources: Tools & Products Tools & Products: Applied AI tools, LLM experiments, hands-on reviews Popularity supplied by user (not independently verified): Medium (646 K Twitter); Medium. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "One Useful Thing (E. Mollick)",
+    "url": "https://oneusefulthing.org/",
+    "feed_url": "https://www.oneusefulthing.org/feed",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Cross-Topic AI Specialist Sources; Future of Work & Daily Life. Cross-topic intake; classify individual items after ingestion. Cross-Topic AI Specialist Sources: Future of Work, Ethics Future of Work & Daily Life: Closest analog to this vertical; AI + work, school, life Popularity supplied by user (not independently verified): Medium (367 K). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "arXiv cs.AI",
+    "url": "https://arxiv.org/list/cs.AI/recent",
+    "feed_url": "https://rss.arxiv.org/rss/cs.AI",
+    "category": "Models & Research",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Models & Research. Models & Research: Primary research; very high volume — use keyword filter Popularity supplied by user (not independently verified): High (33 K papers/yr). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "arXiv cs.LG",
+    "url": "https://arxiv.org/list/cs.LG/recent",
+    "feed_url": "https://rss.arxiv.org/rss/cs.LG",
+    "category": "Models & Research",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Models & Research. Models & Research: Machine learning papers; filter with classifier Popularity supplied by user (not independently verified): High. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Anthropic News",
+    "url": "https://www.anthropic.com/news",
+    "feed_url": "https://rsshub.bestblogs.dev/anthropic/news",
+    "category": "Models & Research",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Models & Research; Ethics & Responsible AI. Models & Research: Claude releases; official feed discontinued Ethics & Responsible AI: Constitutional AI, interpretability, safety papers Popularity supplied by user (not independently verified): High. Third-party RSS mirror, not publisher-operated; availability and completeness may vary. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "BAIR Blog",
+    "url": "https://bair.berkeley.edu/",
+    "feed_url": "https://bair.berkeley.edu/blog/feed.xml",
+    "category": "Models & Research",
+    "region": "US",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Models & Research. Models & Research: Academic deep dives, Berkeley AI Popularity supplied by user (not independently verified): Medium (244 K Twitter). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Ahead of AI (S. Raschka)",
+    "url": "https://magazine.sebastianraschka.com/",
+    "feed_url": "https://magazine.sebastianraschka.com/feed",
+    "category": "Models & Research",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Models & Research. Models & Research: LLM architecture, hands-on research Popularity supplied by user (not independently verified): Medium (199 K). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Interconnects (N. Lambert)",
+    "url": "https://www.interconnects.ai/",
+    "feed_url": "https://www.interconnects.ai/feed",
+    "category": "Models & Research",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Models & Research. Models & Research: Post-training, open models, RLHF Popularity supplied by user (not independently verified): Medium (70 K). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "AI Now Institute",
+    "url": "https://ainowinstitute.org/",
+    "feed_url": "https://ainowinstitute.org/feed",
+    "category": "Ethics & Responsible AI",
+    "region": "US",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Ethics & Responsible AI; AI Equity & Representation. Ethics & Responsible AI: Annual reports + news; no confirmed RSS — scraping permitted with 3 s crawl-delay AI Equity & Representation: Annual reports + news pages; scraping permitted with 3 s crawl-delay (robots.txt); no public RSS feed Popularity supplied by user (not independently verified): Medium; Niche. Correction to supplied scrape claim: public RSS was verified; prefer RSS. Supplied scraping-permission statements have not been independently revalidated. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "The Conversation (AI)",
+    "url": "https://theconversation.com/",
+    "feed_url": "https://theconversation.com/topics/artificial-intelligence-ai-90/articles.atom",
+    "category": "Ethics & Responsible AI",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Ethics & Responsible AI. Ethics & Responsible AI: Academic perspective, peer-reviewed angle Popularity supplied by user (not independently verified): High (64 K Twitter). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Mozilla Foundation AI",
+    "url": "https://foundation.mozilla.org/",
+    "feed_url": "https://www.mozillafoundation.org/en/blog/rss/",
+    "category": "Ethics & Responsible AI",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Ethics & Responsible AI. Ethics & Responsible AI: Trustworthy AI, privacy, open-source Popularity supplied by user (not independently verified): Medium. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "The Guardian (AI/Society)",
+    "url": "https://www.theguardian.com/",
+    "feed_url": "https://www.theguardian.com/technology/artificialintelligenceai/rss",
+    "category": "Ethics & Responsible AI",
+    "region": "UK",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Ethics & Responsible AI; AI Equity & Representation. Ethics & Responsible AI: Society/ethics framing from non-tech desk AI Equity & Representation: Equity/diversity angle from non-tech desk Popularity supplied by user (not independently verified): High (9.5M Facebook); High. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "AlgorithmWatch (EU)",
+    "url": "https://algorithmwatch.org/",
+    "feed_url": "https://algorithmwatch.org/en/feed/",
+    "category": "Ethics & Responsible AI",
+    "region": "Europe",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Ethics & Responsible AI. Ethics & Responsible AI: Berlin-based; EU algorithmic accountability, automated decision-making — essential non-US ethics voice Popularity supplied by user (not independently verified): Niche. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Ada Lovelace Institute (UK)",
+    "url": "https://www.adalovelaceinstitute.org/",
+    "feed_url": "https://www.adalovelaceinstitute.org/feed/",
+    "category": "Ethics & Responsible AI",
+    "region": "UK",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Ethics & Responsible AI. Ethics & Responsible AI: UK think tank; data rights, AI fairness, public interest research Popularity supplied by user (not independently verified): Niche. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "LessWrong (curated)",
+    "url": "https://www.lesswrong.com/",
+    "feed_url": "https://www.lesswrong.com/feed.xml?view=curated-rss",
+    "category": "Ethics & Responsible AI",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Ethics & Responsible AI. Ethics & Responsible AI: Alignment theory and safety research, high-quality filter Popularity supplied by user (not independently verified): Niche. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "AI Alignment Forum",
+    "url": "https://www.alignmentforum.org/",
+    "feed_url": "https://www.alignmentforum.org/feed.xml",
+    "category": "Ethics & Responsible AI",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Ethics & Responsible AI. Ethics & Responsible AI: Technical alignment research; overlaps LessWrong Popularity supplied by user (not independently verified): Niche. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Future of Life Institute",
+    "url": "https://futureoflife.org/",
+    "feed_url": "https://futureoflife.org/feed/",
+    "category": "Ethics & Responsible AI",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Ethics & Responsible AI; Policy & Regulation. Ethics & Responsible AI: AI existential risk, international AI safety treaties Policy & Regulation: EU AI Act tracker, bi-weekly Popularity supplied by user (not independently verified): Medium. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "MIRI (Machine Intelligence)",
+    "url": "https://intelligence.org/",
+    "feed_url": "https://intelligence.org/feed/",
+    "category": "Ethics & Responsible AI",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Ethics & Responsible AI. Ethics & Responsible AI: Technical AI safety; lower cadence Popularity supplied by user (not independently verified): Niche (40 K Twitter). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "80,000 Hours",
+    "url": "https://80000hours.org/",
+    "feed_url": "https://80000hours.org/feed/",
+    "category": "Ethics & Responsible AI",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Ethics & Responsible AI. Ethics & Responsible AI: Safety career paths, risk landscape Popularity supplied by user (not independently verified): Niche. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Georgetown CSET",
+    "url": "https://cset.georgetown.edu/",
+    "feed_url": "https://cset.georgetown.edu/feed/",
+    "category": "Policy & Regulation",
+    "region": "US",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Policy & Regulation; Geopolitics of AI. Policy & Regulation: US/China policy, technical capability analysis Geopolitics of AI: US–China tech competition, export controls, compute policy Geopolitics of AI: Already in Policy table — cross-listed here for geopolitical framing of Chinese AI capabilities Popularity supplied by user (not independently verified): Niche. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "European Commission Digital",
+    "url": "https://digital-strategy.ec.europa.eu/",
+    "feed_url": "https://digital-strategy.ec.europa.eu/en/rss.xml",
+    "category": "Policy & Regulation",
+    "region": "Europe",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Policy & Regulation. Policy & Regulation: Primary: EU AI Act implementation notices Popularity supplied by user (not independently verified): High. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "NIST AI (US standards)",
+    "url": "https://www.nist.gov/",
+    "feed_url": "https://www.nist.gov/blogs/cybersecurity-insights/rss.xml",
+    "category": "Policy & Regulation",
+    "region": "US",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Policy & Regulation. Policy & Regulation: US standards body, AI RMF updates Popularity supplied by user (not independently verified): Medium. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "AI in Europe (Substack)",
+    "url": "https://europeanai.substack.com/",
+    "feed_url": "https://europeanai.substack.com/feed",
+    "category": "Policy & Regulation",
+    "region": "Europe",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Policy & Regulation. Policy & Regulation: EU AI Act, policy briefings; free Substack RSS Popularity supplied by user (not independently verified): Niche. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Politico EU Tech (EU)",
+    "url": "https://www.politico.eu/",
+    "feed_url": "https://www.politico.eu/feed/",
+    "category": "Policy & Regulation",
+    "region": "Europe",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Policy & Regulation. Policy & Regulation: EU AI Act politics, Commission dynamics; filter by tech/AI tag post-ingestion Popularity supplied by user (not independently verified): High. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Ben's Bites",
+    "url": "https://bensbites.beehiiv.com/",
+    "feed_url": "https://www.bensbites.com/feed",
+    "category": "Tools & Products",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Tools & Products. Tools & Products: Daily AI tool launches and integrations Popularity supplied by user (not independently verified): Medium (120 K). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Product Hunt (all)",
+    "url": "https://www.producthunt.com/",
+    "feed_url": "https://www.producthunt.com/feed",
+    "category": "Tools & Products",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Tools & Products. Tools & Products: Daily product rankings; filter by AI category Popularity supplied by user (not independently verified): High. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "TLDR AI",
+    "url": "https://tldr.tech/",
+    "feed_url": "https://tldr.tech/api/rss/ai",
+    "category": "Tools & Products",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Tools & Products. Tools & Products: Tool/product releases alongside research Popularity supplied by user (not independently verified): High (1.1M+). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Crunchbase News (AI)",
+    "url": "https://news.crunchbase.com/",
+    "feed_url": "https://news.crunchbase.com/sections/ai/feed/",
+    "category": "Business & Industry",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Business & Industry. Business & Industry: Investment tracking, fundraising rounds Popularity supplied by user (not independently verified): High. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Financial Times (AI)",
+    "url": "https://www.ft.com/",
+    "feed_url": "https://www.ft.com/artificial-intelligence?format=rss",
+    "category": "Business & Industry",
+    "region": "UK",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Business & Industry; Geopolitics of AI; Mainstream / General Press. Business & Industry: Business/finance angle on AI; partial paywall Geopolitics of AI: Geopolitical angle: chip controls, AI sovereignty Mainstream / General Press: General press; classify AI-related stories after ingestion. Popularity supplied by user (not independently verified): High (6.4M Twitter); High. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "The Economist (AI filter)",
+    "url": "https://www.economist.com/",
+    "feed_url": "https://www.economist.com/science-and-technology/rss.xml",
+    "category": "Business & Industry",
+    "region": "UK",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Business & Industry; Mainstream / General Press. Business & Industry: Policy + economics framing; paywall Mainstream / General Press: General press; classify AI-related stories after ingestion. Popularity supplied by user (not independently verified): High. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Stratechery",
+    "url": "https://stratechery.com/",
+    "feed_url": "https://stratechery.com/feed/",
+    "category": "Business & Industry",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Business & Industry. Business & Industry: Tech business strategy; subscription but high-value Popularity supplied by user (not independently verified): Medium. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "AI Weekly (China tracker)",
+    "url": "https://aiweekly.co/",
+    "feed_url": "https://aiweekly.co/issues.rss",
+    "category": "Geopolitics of AI",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Geopolitics of AI. Geopolitics of AI: Aggregates FT, Bloomberg, Reuters, TechCrunch on Chinese labs Popularity supplied by user (not independently verified): Medium. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Rest of World",
+    "url": "https://restofworld.org/",
+    "feed_url": "https://restofworld.org/feed/latest/",
+    "category": "Geopolitics of AI",
+    "region": "Global South",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Geopolitics of AI; AI Equity & Representation. Geopolitics of AI: Non-US-centric; AI in LatAm, Africa, SE Asia AI Equity & Representation: AI impact in Global South; best existing coverage of this topic Popularity supplied by user (not independently verified): Medium. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Synced / 机器之心 (China)",
+    "url": "https://syncedreview.com/",
+    "feed_url": "https://syncedreview.com/feed/",
+    "category": "Geopolitics of AI",
+    "region": "China",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Geopolitics of AI. Geopolitics of AI: English-language Chinese AI research coverage; primary source on Baidu, Alibaba DAMO, Tencent AI Lab output Popularity supplied by user (not independently verified): Medium. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Inc42 Tech (India)",
+    "url": "https://inc42.com/",
+    "feed_url": "https://inc42.com/feed/",
+    "category": "Geopolitics of AI",
+    "region": "India",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Geopolitics of AI. Geopolitics of AI: India's leading tech/startup media; covers Indian AI policy, NASSCOM, and domestic AI ecosystem — world's largest AI talent pool Popularity supplied by user (not independently verified): Medium. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "TechCabal",
+    "url": "https://techcabal.com/",
+    "feed_url": "https://techcabal.com/feed/",
+    "category": "AI Equity & Representation",
+    "region": "Africa",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: AI Equity & Representation. AI Equity & Representation: Africa tech and AI; supplements Rest of World Popularity supplied by user (not independently verified): Niche. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "ITU AI for Good",
+    "url": "https://aiforgood.itu.int/",
+    "feed_url": "https://aiforgood.itu.int/feed/",
+    "category": "AI Equity & Representation",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: AI Equity & Representation; AI for Good / Tech for Good. AI Equity & Representation: Social impact AI; UN-backed, global perspective AI for Good / Tech for Good: UN agency; AI for Good global summit, policy briefings; no public RSS — scrape permitted (robots.txt allows general crawlers) Popularity supplied by user (not independently verified): Medium (18 K Twitter); Niche. Correction to supplied scrape claim: public RSS was verified; prefer RSS. Supplied scraping-permission statements have not been independently revalidated. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "The Guardian (Technology)",
+    "url": "https://www.theguardian.com/",
+    "feed_url": "https://www.theguardian.com/uk/technology/rss",
+    "category": "Mainstream / General Press",
+    "region": "UK",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Mainstream / General Press. Mainstream / General Press: General press; classify AI-related stories after ingestion. Popularity supplied by user (not independently verified): High. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "NYT Technology",
+    "url": "https://www.nytimes.com/section/technology",
+    "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
+    "category": "Mainstream / General Press",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Mainstream / General Press. Mainstream / General Press: General press; classify AI-related stories after ingestion. Popularity supplied by user (not independently verified): High. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "BBC Technology (UK)",
+    "url": "https://www.bbc.com/news/technology",
+    "feed_url": "https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "category": "Mainstream / General Press",
+    "region": "UK",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Mainstream / General Press. Mainstream / General Press: General press; classify AI-related stories after ingestion. Popularity supplied by user (not independently verified): High (global). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Dwarkesh Podcast",
+    "url": "https://www.dwarkesh.com/",
+    "feed_url": "https://apple.dwarkesh-podcast.workers.dev/feed.rss",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Episode titles and show notes only; no audio download or transcription. Content type: podcast. Coverage: Cross-Topic AI Specialist Sources. Cross-topic intake; classify individual items after ingestion. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "Latent Space",
+    "url": "https://www.latent.space/",
+    "feed_url": "https://api.substack.com/feed/podcast/1084089.rss",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Episode titles and show notes only; no audio download or transcription. Content type: podcast. Coverage: Cross-Topic AI Specialist Sources. Cross-topic intake; classify individual items after ingestion. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "The Cognitive Revolution",
+    "url": "https://www.cognitiverevolution.ai/",
+    "feed_url": "https://feeds.megaphone.fm/RINTP3108857801",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Episode titles and show notes only; no audio download or transcription. Content type: podcast. Coverage: Cross-Topic AI Specialist Sources. Cross-topic intake; classify individual items after ingestion. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "No Priors",
+    "url": "https://www.nopriors.com/",
+    "feed_url": "https://feeds.megaphone.fm/nopriors",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Episode titles and show notes only; no audio download or transcription. Content type: podcast. Coverage: Cross-Topic AI Specialist Sources. Cross-topic intake; classify individual items after ingestion. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "The TWIML AI Podcast",
+    "url": "https://twimlai.com/",
+    "feed_url": "https://feeds.megaphone.fm/MLN2155636147",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Episode titles and show notes only; no audio download or transcription. Content type: podcast. Coverage: Cross-Topic AI Specialist Sources. Cross-topic intake; classify individual items after ingestion. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "NVIDIA AI Podcast",
+    "url": "https://ai-podcast.nvidia.com/",
+    "feed_url": "https://feeds.megaphone.fm/nvidiaaipodcast",
+    "category": "Cross-Topic AI Specialist Sources",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Episode titles and show notes only; no audio download or transcription. Content type: podcast. Coverage: Cross-Topic AI Specialist Sources. Cross-topic intake; classify individual items after ingestion. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  }
+]

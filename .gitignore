@@ -30,3 +30,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Python ingestion and local environment
+.venv/
+.cache/
+.tmp/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.env
+
+# Local R session history
+.Rhistory

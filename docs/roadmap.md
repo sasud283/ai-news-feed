@@ -20,3 +20,10 @@
 - [x] Add a shareable Content Type filter to the filter bar
 - [x] Verify all three card variants on desktop and mobile
 
+
+## Python backend
+
+- [x] Phase 1: RSS ingestion and expanded source registry
+- [x] Phase 2: local deduplication, GPT-4o-mini classification/summaries, review flags
+- [ ] Evaluate model quality against representative editorial examples
+- [ ] Phase 3: persistent state, Supabase mapping, review/publishing handoff

@@ -1,0 +1,18 @@
+[project]
+name = "thefullpictureai"
+version = "0.1.0"
+requires-python = ">=3.11"
+
+[tool.ruff]
+cache-dir = ".cache/ruff"
+target-version = "py311"
+line-length = 88
+
+[tool.black]
+target-version = ["py311"]
+line-length = 88
+
+[tool.pytest.ini_options]
+cache_dir = ".cache/pytest"
+asyncio_mode = "auto"
+testpaths = ["tests"]
