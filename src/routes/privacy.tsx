@@ -3,13 +3,13 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/privacy")({
   head: () => ({
     meta: [
-      { title: "Privacy policy — The AI Brief" },
+      { title: "Privacy policy — TheFullPicture.ai" },
       {
         name: "description",
         content:
-          "How The AI Brief handles email addresses, digest consent and filter preferences.",
+          "How TheFullPicture.ai handles email addresses, digest consent and filter preferences.",
       },
-      { property: "og:title", content: "Privacy policy — The AI Brief" },
+      { property: "og:title", content: "Privacy policy — TheFullPicture.ai" },
       {
         property: "og:description",
         content: "How we handle your email address, consent and digest preferences.",
@@ -29,7 +29,7 @@ function PrivacyPage() {
         <section>
           <h2 className="font-serif text-xl font-semibold text-foreground">What we collect</h2>
           <p className="mt-2">
-            If you sign up for the email digest, we store your email address, the date and time you
+            If you subscribe to TheFullPicture.ai's paid email digest, we store your email address, the date and time you
             gave consent, the subscription plan, and the filter combination that was active when you signed up. Payment details are handled by the payment provider and are not stored here. If you
             create a reader account, we also store your account email and any saved default filter
             view.
@@ -61,7 +61,7 @@ function PrivacyPage() {
         <section>
           <h2 className="font-serif text-xl font-semibold text-foreground">Contact</h2>
           <p className="mt-2">
-            Questions or deletion requests: privacy@ai-digest.example. This is a demonstration
+            Questions or deletion requests: privacy@thefullpicture.ai. This is a demonstration
             contact address.
           </p>
         </section>

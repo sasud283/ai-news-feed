@@ -7,6 +7,8 @@ import {
   TONES,
   TOPICS,
   toneClass,
+  topicClass,
+  topicOutlineClass,
   type Filters,
   type Topic,
 } from "@/lib/news";
@@ -20,11 +22,15 @@ type Props = {
   saving?: boolean;
 };
 
-function chip(active: boolean) {
+function chip(active: boolean, kind: "access" | "geography") {
   return `rounded-full border px-3 py-1 text-sm transition-colors ${
     active
-      ? "border-topic-foreground bg-topic-foreground text-primary-foreground"
-      : "border-border bg-background text-muted-foreground hover:border-foreground/40 hover:text-foreground"
+      ? kind === "access"
+        ? "border-access-foreground bg-access-foreground text-tone-contrast"
+        : "border-geo-foreground bg-geo-foreground text-tone-contrast"
+      : kind === "access"
+        ? "border-access-foreground text-access-foreground hover:bg-access-foreground hover:text-tone-contrast"
+        : "border-geo-foreground text-geo-foreground hover:bg-geo-foreground hover:text-tone-contrast"
   }`;
 }
 
@@ -51,7 +57,7 @@ export function FilterBar({
     filters.q !== "";
 
   return (
-    <section className="border-y border-filter-border bg-filter-surface py-5">
+    <section className="border-y border-border bg-background py-5">
       <div className="mx-auto max-w-3xl space-y-4 px-4">
         <div className="relative">
           <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -74,7 +80,11 @@ export function FilterBar({
                 key={t}
                 type="button"
                 onClick={() => toggleTopic(t)}
-                className={chip(filters.topics.includes(t))}
+                className={`rounded-full border px-3 py-1 text-sm transition-colors ${
+                  filters.topics.includes(t)
+                    ? topicClass[t]
+                    : `bg-background hover:brightness-95 ${topicOutlineClass[t]}`
+                }`}
               >
                 {t}
               </button>
@@ -96,7 +106,7 @@ export function FilterBar({
                   className={`rounded-full border px-3 py-1 text-sm font-medium transition-colors ${
                     filters.tone === tone
                       ? toneClass[tone]
-                      : "border-border bg-background text-muted-foreground hover:text-foreground"
+                      : `bg-background hover:brightness-95 ${toneClass[tone].replace("bg-tone-", "border-tone-").replace(/ text-tone-contrast border-tone-[^ ]+/, "")}`
                   }`}
                 >
                   {tone}
@@ -115,7 +125,7 @@ export function FilterBar({
                   key={a}
                   type="button"
                   onClick={() => onChange({ access: filters.access === a ? null : a })}
-                  className={chip(filters.access === a)}
+                  className={chip(filters.access === a, "access")}
                 >
                   {a}
                 </button>
@@ -134,7 +144,7 @@ export function FilterBar({
                 key={g}
                 type="button"
                 onClick={() => onChange({ geography: filters.geography === g ? null : g })}
-                className={chip(filters.geography === g)}
+                className={chip(filters.geography === g, "geography")}
               >
                 {g}
               </button>

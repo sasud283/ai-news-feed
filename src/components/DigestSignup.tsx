@@ -29,31 +29,31 @@ export function DigestSignup({ filters }: { filters: Filters }) {
   };
 
   return (
-    <section className="overflow-hidden border border-digest-border bg-digest-surface">
-      <div className="border-b border-digest-border bg-digest-highlight px-6 py-5 sm:px-8">
-        <p className="text-xs font-semibold tracking-widest text-digest-foreground uppercase">Paid digest</p>
+    <section className="overflow-hidden border border-border bg-background">
+      <div className="border-b border-border bg-background px-6 py-5 sm:px-8">
+        <p className="text-xs font-semibold tracking-widest text-digest-foreground uppercase">TheFullPicture.ai paid digest</p>
         <h2 className="mt-2 font-serif text-3xl font-semibold text-foreground">The brief, in your inbox</h2>
         <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
-          A focused digest matching the filters you selected, with every source linked.
+          A focused TheFullPicture.ai digest matching the filters you selected, with every source linked.
         </p>
       </div>
       <form onSubmit={submit} className="space-y-6 p-6 sm:p-8">
           <fieldset>
             <legend className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">Choose a plan</legend>
             <RadioGroup value={plan} onValueChange={(value) => setPlan(value as "yearly" | "monthly")} className="mt-3 grid gap-3 sm:grid-cols-2">
-              <label className={`relative flex cursor-pointer items-center gap-3 border p-4 transition-colors ${plan === "yearly" ? "border-digest-foreground bg-background" : "border-border bg-background/60"}`}>
+              <label className={`relative flex cursor-pointer items-center gap-3 border p-4 transition-colors ${plan === "yearly" ? "border-plan-yearly bg-plan-yearly text-tone-contrast" : "border-border bg-background"}`}>
                 <RadioGroupItem value="yearly" />
                 <span className="flex-1">
-                  <span className="block font-semibold text-foreground">Yearly</span>
-                  <span className="block text-sm text-muted-foreground">€25 per year</span>
+                  <span className={`block font-semibold ${plan === "yearly" ? "text-tone-contrast" : "text-foreground"}`}>Yearly</span>
+                  <span className={`block text-sm ${plan === "yearly" ? "text-tone-contrast/80" : "text-muted-foreground"}`}>€25 per year</span>
                 </span>
-                <span className="bg-digest-foreground px-2 py-1 text-[0.65rem] font-semibold tracking-wide text-primary-foreground uppercase">Best value</span>
+                <span className="bg-background px-2 py-1 text-[0.65rem] font-semibold tracking-wide text-plan-yearly uppercase">Best value</span>
               </label>
-              <label className={`flex cursor-pointer items-center gap-3 border p-4 transition-colors ${plan === "monthly" ? "border-digest-foreground bg-background" : "border-border bg-background/60"}`}>
+              <label className={`flex cursor-pointer items-center gap-3 border p-4 transition-colors ${plan === "monthly" ? "border-plan-monthly bg-plan-monthly text-tone-contrast" : "border-border bg-background"}`}>
                 <RadioGroupItem value="monthly" />
                 <span>
-                  <span className="block font-semibold text-foreground">Monthly</span>
-                  <span className="block text-sm text-muted-foreground">€3 per month</span>
+                  <span className={`block font-semibold ${plan === "monthly" ? "text-tone-contrast" : "text-foreground"}`}>Monthly</span>
+                  <span className={`block text-sm ${plan === "monthly" ? "text-tone-contrast/80" : "text-muted-foreground"}`}>€3 per month</span>
                 </span>
               </label>
             </RadioGroup>
@@ -77,12 +77,12 @@ export function DigestSignup({ filters }: { filters: Filters }) {
             <legend className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">Payment method</legend>
             <RadioGroup value={paymentMethod} onValueChange={(value) => setPaymentMethod(value as "paypal" | "revolut")} className="mt-3 grid gap-3 sm:grid-cols-2">
               {(["paypal", "revolut"] as const).map((method) => (
-                <label key={method} className={`flex cursor-pointer items-center gap-3 border bg-background p-4 font-semibold transition-colors ${paymentMethod === method ? "border-digest-foreground" : "border-border"}`}>
+                <label key={method} className={`flex cursor-pointer items-center gap-3 border p-4 font-semibold transition-colors ${paymentMethod === method ? (method === "paypal" ? "border-payment-paypal bg-payment-paypal text-tone-contrast" : "border-payment-revolut bg-payment-revolut text-tone-contrast") : "border-border bg-background"}`}>
                   <RadioGroupItem value={method} />
-                  <span className={method === "paypal" ? "text-payment-paypal" : "text-payment-revolut"}>
+                  <span className={paymentMethod === method ? "text-tone-contrast" : method === "paypal" ? "text-payment-paypal" : "text-payment-revolut"}>
                     {method === "paypal" ? "PayPal" : "Revolut Pay"}
                   </span>
-                  {paymentMethod === method && <Check className="ml-auto h-4 w-4 text-digest-foreground" />}
+                  {paymentMethod === method && <Check className="ml-auto h-4 w-4 text-tone-contrast" />}
                 </label>
               ))}
             </RadioGroup>
@@ -95,7 +95,7 @@ export function DigestSignup({ filters }: { filters: Filters }) {
               className="mt-0.5"
             />
             <span>
-              I agree to receive the email digest and to the{" "}
+              I agree to receive the paid TheFullPicture.ai digest and to the{" "}
               <Link to="/privacy" className="underline underline-offset-4">
                 privacy policy
               </Link>

@@ -32,10 +32,34 @@ export const GEOGRAPHIES: Geography[] = [
 ];
 
 export const toneClass: Record<Tone, string> = {
-  Good: "bg-tone-good/15 text-tone-good border-tone-good/30",
-  Useful: "bg-tone-useful/15 text-tone-useful border-tone-useful/30",
-  Bad: "bg-tone-bad/15 text-tone-bad border-tone-bad/30",
-  Ugly: "bg-tone-ugly/15 text-tone-ugly border-tone-ugly/30",
+  Good: "bg-tone-good text-tone-contrast border-tone-good",
+  Useful: "bg-tone-useful text-tone-contrast border-tone-useful",
+  Bad: "bg-tone-bad text-tone-contrast border-tone-bad",
+  Ugly: "bg-tone-ugly text-tone-contrast border-tone-ugly",
+};
+
+export const topicClass: Record<Topic, string> = {
+  "Models & Research": "bg-topic-blue text-tone-contrast border-topic-blue",
+  "Business & Funding": "bg-topic-teal text-tone-contrast border-topic-teal",
+  "Policy & Regulation": "bg-topic-violet text-tone-contrast border-topic-violet",
+  "National Initiatives": "bg-topic-coral text-tone-contrast border-topic-coral",
+  Ethics: "bg-topic-rose text-tone-contrast border-topic-rose",
+  "Future of Work": "bg-topic-amber text-topic-dark border-topic-amber",
+  "Future of Daily Life": "bg-topic-green text-tone-contrast border-topic-green",
+  "AI Equity & Representation": "bg-topic-magenta text-tone-contrast border-topic-magenta",
+  "Tools & Products": "bg-topic-cyan text-topic-dark border-topic-cyan",
+};
+
+export const topicOutlineClass: Record<Topic, string> = {
+  "Models & Research": "border-topic-blue text-topic-blue",
+  "Business & Funding": "border-topic-teal text-topic-teal",
+  "Policy & Regulation": "border-topic-violet text-topic-violet",
+  "National Initiatives": "border-topic-coral text-topic-coral",
+  Ethics: "border-topic-rose text-topic-rose",
+  "Future of Work": "border-topic-amber text-topic-dark",
+  "Future of Daily Life": "border-topic-green text-topic-green",
+  "AI Equity & Representation": "border-topic-magenta text-topic-magenta",
+  "Tools & Products": "border-topic-cyan text-topic-dark",
 };
 
 export type StorySource = {

@@ -22,9 +22,9 @@ import {
 export const Route = createFileRoute("/_authenticated/review")({
   head: () => ({
     meta: [
-      { title: "Spot-check queue — The AI Brief" },
+      { title: "Spot-check queue — TheFullPicture.ai" },
       { name: "description", content: "Editor review queue for flagged AI-generated summaries." },
-      { property: "og:title", content: "Spot-check queue — The AI Brief" },
+      { property: "og:title", content: "Spot-check queue — TheFullPicture.ai" },
       { property: "og:description", content: "Editor review queue for flagged summaries." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

@@ -1,0 +1,3 @@
+- [x] Move color from section backgrounds into tags, options, selections, and buttons
+- [x] Rebrand all visible site copy and metadata to TheFullPicture.ai
+- [x] Verify desktop and mobile presentation

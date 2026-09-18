@@ -1,5 +1,5 @@
 import { ExternalLink, Flag, Lock, Sparkles, ArrowUpRight } from "lucide-react";
-import { formatDate, toneClass, type Story } from "@/lib/news";
+import { formatDate, toneClass, topicClass, type Story } from "@/lib/news";
 
 function Tag({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
@@ -17,15 +17,15 @@ export function StoryCard({ story }: { story: Story }) {
       <div className="flex flex-wrap items-center gap-2">
         {story.tone && <Tag className={toneClass[story.tone]}>{story.tone}</Tag>}
         {story.topics.map((t) => (
-          <Tag key={t} className="border-topic-border bg-topic-surface text-topic-foreground">
+          <Tag key={t} className={topicClass[t]}>
             {t}
           </Tag>
         ))}
         {story.geography && (
-          <Tag className="border-geo-border bg-geo-surface text-geo-foreground">{story.geography}</Tag>
+          <Tag className="border-geo-foreground bg-geo-foreground text-tone-contrast">{story.geography}</Tag>
         )}
         {story.access && (
-          <Tag className="border-access-border bg-access-surface text-access-foreground">
+          <Tag className="border-access-foreground bg-access-foreground text-tone-contrast">
             {story.access === "Paid" ? <Lock className="mr-1 h-3 w-3" /> : null}
             {story.access}
           </Tag>
@@ -75,7 +75,7 @@ export function StoryCard({ story }: { story: Story }) {
           </a>
         ))}
         <a
-          href={`mailto:corrections@ai-digest.example?subject=${encodeURIComponent(`Issue with story: ${story.headline}`)}`}
+          href={`mailto:corrections@thefullpicture.ai?subject=${encodeURIComponent(`Issue with story: ${story.headline}`)}`}
           className="inline-flex items-center gap-1 text-muted-foreground underline decoration-border underline-offset-4 hover:text-foreground"
         >
           <Flag className="h-3 w-3" />
