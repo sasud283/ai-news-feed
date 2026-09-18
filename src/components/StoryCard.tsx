@@ -75,7 +75,7 @@ export function StoryCard({ story }: { story: Story }) {
           </a>
         ))}
         <a
-          href={`mailto:corrections@ai-digest.example?subject=${encodeURIComponent(`Issue with story: ${story.headline}`)}`}
+          href={`mailto:corrections@thefullpicture.ai?subject=${encodeURIComponent(`Issue with story: ${story.headline}`)}`}
           className="inline-flex items-center gap-1 text-muted-foreground underline decoration-border underline-offset-4 hover:text-foreground"
         >
           <Flag className="h-3 w-3" />

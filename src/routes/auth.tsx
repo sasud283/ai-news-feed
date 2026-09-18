@@ -10,12 +10,12 @@ import { lovable } from "@/integrations/lovable/index";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Sign in — The AI Brief" },
+      { title: "Sign in — TheFullPicture.ai" },
       {
         name: "description",
         content: "Sign in to save a default filter view or review the spot-check queue.",
       },
-      { property: "og:title", content: "Sign in — The AI Brief" },
+      { property: "og:title", content: "Sign in — TheFullPicture.ai" },
       {
         property: "og:description",
         content: "Sign in to save a default filter view or review flagged stories.",

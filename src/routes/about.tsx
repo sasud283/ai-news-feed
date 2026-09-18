@@ -3,13 +3,13 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "How this works — The AI Brief" },
+      { title: "How this works — TheFullPicture.ai" },
       {
         name: "description",
         content:
-          "How The AI Brief groups AI news into single stories, writes AI summaries, and tags tone, access and geography.",
+          "How TheFullPicture.ai groups AI news into single stories, writes AI summaries, and tags tone, access and geography.",
       },
-      { property: "og:title", content: "How this works — The AI Brief" },
+      { property: "og:title", content: "How this works — TheFullPicture.ai" },
       {
         property: "og:description",
         content: "AI-written summaries, human spot checks, and how our filters work.",
@@ -24,7 +24,7 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="font-serif text-4xl font-semibold">About / How this works</h1>
+      <h1 className="font-serif text-4xl font-semibold">About TheFullPicture.ai</h1>
       <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground">
         <section>
           <h2 className="font-serif text-xl font-semibold text-foreground">One story, many sources</h2>
@@ -78,7 +78,7 @@ function AboutPage() {
           <p className="mt-2">
             Filters combine, and the page address updates as you change them, so any filtered view
             can be shared or bookmarked. Signed-in readers can save a combination as their default
-            view, and readers can subscribe to a paid email digest built from the filters they have
+            view, and readers can subscribe to TheFullPicture.ai's paid email digest built from the filters they have
             selected, for €25 per year or €3 per month. See the{" "}
             <Link to="/privacy" className="underline underline-offset-4">
               privacy policy

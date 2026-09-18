@@ -50,6 +50,18 @@ export const topicClass: Record<Topic, string> = {
   "Tools & Products": "bg-topic-cyan text-topic-dark border-topic-cyan",
 };
 
+export const topicOutlineClass: Record<Topic, string> = {
+  "Models & Research": "border-topic-blue text-topic-blue",
+  "Business & Funding": "border-topic-teal text-topic-teal",
+  "Policy & Regulation": "border-topic-violet text-topic-violet",
+  "National Initiatives": "border-topic-coral text-topic-coral",
+  Ethics: "border-topic-rose text-topic-rose",
+  "Future of Work": "border-topic-amber text-topic-dark",
+  "Future of Daily Life": "border-topic-green text-topic-green",
+  "AI Equity & Representation": "border-topic-magenta text-topic-magenta",
+  "Tools & Products": "border-topic-cyan text-topic-dark",
+};
+
 export type StorySource = {
   id: string;
   source_name: string;

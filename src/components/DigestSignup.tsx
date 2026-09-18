@@ -31,10 +31,10 @@ export function DigestSignup({ filters }: { filters: Filters }) {
   return (
     <section className="overflow-hidden border border-border bg-background">
       <div className="border-b border-border bg-background px-6 py-5 sm:px-8">
-        <p className="text-xs font-semibold tracking-widest text-digest-foreground uppercase">Paid digest</p>
+        <p className="text-xs font-semibold tracking-widest text-digest-foreground uppercase">TheFullPicture.ai paid digest</p>
         <h2 className="mt-2 font-serif text-3xl font-semibold text-foreground">The brief, in your inbox</h2>
         <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
-          A focused digest matching the filters you selected, with every source linked.
+          A focused TheFullPicture.ai digest matching the filters you selected, with every source linked.
         </p>
       </div>
       <form onSubmit={submit} className="space-y-6 p-6 sm:p-8">
@@ -95,7 +95,7 @@ export function DigestSignup({ filters }: { filters: Filters }) {
               className="mt-0.5"
             />
             <span>
-              I agree to receive the email digest and to the{" "}
+              I agree to receive the paid TheFullPicture.ai digest and to the{" "}
               <Link to="/privacy" className="underline underline-offset-4">
                 privacy policy
               </Link>

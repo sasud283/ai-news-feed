@@ -41,13 +41,13 @@ export const Route = createFileRoute("/")({
   }),
   head: () => ({
     meta: [
-      { title: "The AI Brief — AI news, one story at a time" },
+      { title: "TheFullPicture.ai — AI news, one story at a time" },
       {
         name: "description",
         content:
           "A reverse-chronological feed of AI news with AI-written summaries, source links, and filters for topic, tone, access and geography.",
       },
-      { property: "og:title", content: "The AI Brief — AI news, one story at a time" },
+      { property: "og:title", content: "TheFullPicture.ai — AI news, one story at a time" },
       {
         property: "og:description",
         content:

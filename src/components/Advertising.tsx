@@ -54,7 +54,7 @@ export function AdSlot({ format }: AdSlotProps) {
       </p>
       <p className="mt-2 text-sm text-muted-foreground">{content.detail}</p>
       <a
-        href="mailto:advertise@ai-digest.example"
+        href="mailto:advertise@thefullpicture.ai"
         className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-ad-foreground underline decoration-ad-border underline-offset-4"
       >
         Advertise with us <ArrowUpRight className="h-4 w-4" />
