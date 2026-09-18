@@ -100,25 +100,31 @@ export type Database = {
       stories: {
         Row: {
           ai_generated_summary: string
+          content_type: string
           headline: string
           id: string
           is_correction_of: string | null
+          media_url: string | null
           published_at: string
           updated_at: string
         }
         Insert: {
           ai_generated_summary: string
+          content_type?: string
           headline: string
           id?: string
           is_correction_of?: string | null
+          media_url?: string | null
           published_at?: string
           updated_at?: string
         }
         Update: {
           ai_generated_summary?: string
+          content_type?: string
           headline?: string
           id?: string
           is_correction_of?: string | null
+          media_url?: string | null
           published_at?: string
           updated_at?: string
         }

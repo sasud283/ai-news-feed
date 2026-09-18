@@ -1,8 +1,9 @@
-import { Search, X, BookmarkCheck, Check } from "lucide-react";
+import { Search, X, BookmarkCheck, Check, FileText, Headphones, PlaySquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
   ACCESS_OPTIONS,
+  CONTENT_TYPES,
   GEOGRAPHIES,
   TONES,
   TOPICS,
@@ -46,6 +47,7 @@ export function FilterBar({
     filters.tone !== null ||
     filters.access !== null ||
     filters.geography !== null ||
+    filters.contentType !== null ||
     filters.timeRange !== null ||
     filters.q !== "";
 
@@ -86,7 +88,7 @@ export function FilterBar({
           </div>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-3">
           <div>
             <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
               Tone
@@ -126,6 +128,30 @@ export function FilterBar({
                   {a}
                 </Button>
               ))}
+            </div>
+          </div>
+
+          <div>
+            <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+              Content type
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {CONTENT_TYPES.map((contentType) => {
+                const Icon = contentType === "Podcast" ? Headphones : contentType === "Video" ? PlaySquare : FileText;
+                return (
+                  <Button
+                    key={contentType}
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    onClick={() => onChange({ contentType: filters.contentType === contentType ? null : contentType })}
+                    className={outlineChip(filters.contentType === contentType)}
+                  >
+                    {filters.contentType === contentType ? <Check /> : <Icon />}
+                    {contentType}
+                  </Button>
+                );
+              })}
             </div>
           </div>
 

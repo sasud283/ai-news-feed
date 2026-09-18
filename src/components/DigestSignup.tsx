@@ -55,6 +55,7 @@ export function DigestSignup({ filters }: { filters: Filters }) {
         tone: filters.tone,
         access: filters.access,
         geography: filters.geography,
+        content_type: filters.contentType,
         tier,
         cadence: tier === "free-weekly" ? "weekly" : "daily",
         plan: tier === "free-weekly" ? "free" : plan,
