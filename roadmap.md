@@ -12,3 +12,7 @@
 - [x] Remove public header navigation and account controls while keeping /review directly accessible
 - [x] Transform the opening, leaderboard advert, and filters into one editorial hero banner
 - [x] Verify the new hero on desktop and mobile
+
+## Current
+- [x] Feed recency tabs (Latest / This week / This month / Older) on the feed itself; switching re-filters the list via the range URL param (verified below)
+
