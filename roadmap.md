@@ -15,4 +15,7 @@
 
 ## Current
 - [x] Feed recency tabs (Latest / This week / This month / Older) on the feed itself; switching re-filters the list via the range URL param (verified below)
+- [ ] Add Article / Podcast / Video content types to stories and cards
+- [ ] Add podcast and video media displays with safe source-link fallbacks
+- [ ] Verify all three card variants on desktop and mobile
 
