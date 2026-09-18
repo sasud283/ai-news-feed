@@ -8,5 +8,5 @@
 - [x] Verify the updated subscription flow on desktop and mobile
 - [x] Make filter topics solid-colored and tone/access/geography neutral outlined
 - [x] Restyle TheFullPicture.ai with a thoughtful newsletter aesthetic
-- [ ] Verify the refreshed header, filters, cards, and mobile layout
-- [ ] Remove public header navigation and account controls while keeping /review directly accessible
+- [x] Verify the refreshed header, filters, cards, and mobile layout
+- [x] Remove public header navigation and account controls while keeping /review directly accessible
