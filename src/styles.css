@@ -19,6 +19,12 @@
  */
 
 @theme inline {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --color-tone-good: var(--tone-good);
+  --color-tone-useful: var(--tone-useful);
+  --color-tone-bad: var(--tone-bad);
+  --color-tone-ugly: var(--tone-ugly);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
