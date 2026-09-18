@@ -129,12 +129,17 @@ function RootShell({ children }: { children: ReactNode }) {
 function SiteHeader() {
   const { user, isAdmin, signOut } = useAuth();
   return (
-    <header className="border-b border-border">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-4">
-        <Link to="/" className="font-serif text-xl font-bold tracking-tight">
-          <span className="text-brand-accent">TheFullPicture</span>.ai
+    <header className="border-b border-border bg-card/60">
+      <div className="mx-auto max-w-6xl px-4">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border/70 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+          <span>Independent AI news briefing</span>
+          <span>Sources linked · Context included</span>
+        </div>
+        <div className="flex flex-wrap items-center justify-between gap-4 py-5">
+        <Link to="/" className="font-serif text-2xl font-semibold tracking-normal text-foreground sm:text-3xl">
+          TheFullPicture<span className="text-brand-accent">.ai</span>
         </Link>
-        <nav className="flex flex-wrap items-center gap-4 text-sm">
+        <nav className="flex flex-wrap items-center gap-5 text-sm">
           <Link to="/" className="text-muted-foreground hover:text-foreground">
             Feed
           </Link>
@@ -158,11 +163,12 @@ function SiteHeader() {
               Sign out
             </button>
           ) : (
-            <Link to="/auth" className="font-medium text-foreground underline underline-offset-4">
+            <Link to="/auth" className="rounded-full border border-foreground/30 px-3 py-1.5 font-medium text-foreground transition-colors hover:border-brand-accent hover:text-brand-accent">
               Sign in
             </Link>
           )}
         </nav>
+        </div>
       </div>
     </header>
   );

@@ -21,8 +21,8 @@ type Props = {
 };
 
 function outlineChip(active: boolean) {
-  return `rounded-full border bg-background px-3 py-1 text-sm text-foreground transition-colors hover:bg-muted ${
-    active ? "border-foreground ring-1 ring-foreground font-semibold" : "border-muted-foreground/60"
+  return `rounded-full border bg-background px-3 py-1 text-sm text-foreground shadow-none transition-colors hover:border-brand-accent hover:text-brand-accent ${
+    active ? "border-brand-accent bg-accent font-semibold text-accent-foreground ring-1 ring-brand-accent" : "border-border"
   }`;
 }
 
@@ -49,15 +49,15 @@ export function FilterBar({
     filters.q !== "";
 
   return (
-    <section className="border-y border-border bg-background py-5">
-      <div className="mx-auto max-w-3xl space-y-4 px-4">
+    <section className="border-y border-border bg-card/45 py-7">
+      <div className="mx-auto max-w-3xl space-y-5 px-4">
         <div className="relative">
           <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <Input
             value={filters.q}
             onChange={(e) => onChange({ q: e.target.value })}
             placeholder="Search headlines and summaries"
-            className="bg-background pl-9"
+            className="h-11 border-border bg-background pl-9 shadow-none focus-visible:border-brand-accent focus-visible:ring-brand-accent/20"
             aria-label="Search stories"
           />
         </div>
@@ -74,8 +74,8 @@ export function FilterBar({
                 size="sm"
                 variant="outline"
                 onClick={() => toggleTopic(t)}
-                className={`rounded-full shadow-none hover:brightness-95 ${topicClass[t]} ${
-                  filters.topics.includes(t) ? "ring-2 ring-foreground ring-offset-2" : ""
+                 className={`rounded-full border-transparent px-3 shadow-none opacity-85 hover:opacity-100 ${topicClass[t]} ${
+                   filters.topics.includes(t) ? "ring-2 ring-brand-accent ring-offset-2" : ""
                 }`}
               >
                 {filters.topics.includes(t) && <Check />}
