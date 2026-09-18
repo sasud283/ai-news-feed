@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { useAuth } from "@/hooks/useAuth";
-import { supabase } from "@/integrations/supabase/client";
+import {
+  approveSpotCheck,
+  correctSpotCheck,
+  fetchSpotCheckQueue,
+} from "@/lib/review.functions";
 import {
   ACCESS_OPTIONS,
   GEOGRAPHIES,
@@ -19,7 +23,8 @@ import {
   type Topic,
 } from "@/lib/news";
 
-export const Route = createFileRoute("/_authenticated/review")({
+export const Route = createFileRoute("/review")({
+  ssr: false,
   head: () => ({
     meta: [
       { title: "Spot-check queue — TheFullPicture.ai" },
@@ -50,47 +55,30 @@ type QueueItem = {
   };
 };
 
-async function fetchQueue(): Promise<QueueItem[]> {
-  const { data, error } = await supabase
-    .from("spot_check_queue")
-    .select(
-      "id, reason, status, created_at, story_id, stories(id, headline, ai_generated_summary, published_at, story_topics(topic), story_tags(tone, access, geography))",
-    )
-    .eq("status", "pending")
-    .order("created_at", { ascending: true });
-  if (error) throw error;
-  return (data ?? []) as unknown as QueueItem[];
-}
-
 function ReviewPage() {
-  const { isAdmin, loading } = useAuth();
   const queryClient = useQueryClient();
-  const { data, isLoading } = useQuery({ queryKey: ["spot-check-queue"], queryFn: fetchQueue });
-
-  if (loading) return <main className="mx-auto max-w-3xl px-4 py-16">Checking access…</main>;
-
-  if (!isAdmin) {
-    return (
-      <main className="mx-auto max-w-3xl px-4 py-16">
-        <h1 className="font-serif text-3xl font-semibold">Editors only</h1>
-        <p className="mt-2 text-muted-foreground">
-          Your account does not have reviewer access to the spot-check queue.
-        </p>
-      </main>
-    );
-  }
+  const loadQueue = useServerFn(fetchSpotCheckQueue);
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["spot-check-queue"],
+    queryFn: async () => (await loadQueue()) as unknown as QueueItem[],
+  });
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="font-serif text-4xl font-semibold">Spot-check queue</h1>
+      <div className="rounded-lg border border-border bg-secondary/40 px-4 py-3 text-sm text-muted-foreground">
+        Preview mode — this page is not password protected yet.
+      </div>
+
+      <h1 className="mt-6 font-serif text-4xl font-semibold">Spot-check queue</h1>
       <p className="mt-2 text-muted-foreground">
         Approve a flagged story as-is, or correct its summary and tags before approving.
       </p>
 
       <div className="mt-8 space-y-6">
         {isLoading && <p className="text-muted-foreground">Loading queue…</p>}
-        {!isLoading && (data ?? []).length === 0 && (
-          <p className="text-muted-foreground">Nothing waiting for review. 🎉</p>
+        {error && <p className="text-destructive">Could not load the queue.</p>}
+        {!isLoading && !error && (data ?? []).length === 0 && (
+          <p className="text-muted-foreground">Nothing waiting for review.</p>
         )}
         {(data ?? []).map((item) => (
           <QueueCard
@@ -117,55 +105,43 @@ function QueueCard({ item, onDone }: { item: QueueItem; onDone: () => void }) {
   const [access, setAccess] = useState<Access>(tags?.access ?? "Free");
   const [geography, setGeography] = useState<Geography>(tags?.geography ?? "Worldwide");
 
+  const runApprove = useServerFn(approveSpotCheck);
+  const runCorrect = useServerFn(correctSpotCheck);
+
   const approve = async () => {
     setBusy(true);
-    const { error } = await supabase
-      .from("spot_check_queue")
-      .update({ status: "approved", reviewed_at: new Date().toISOString() })
-      .eq("id", item.id);
-    setBusy(false);
-    if (error) {
+    try {
+      await runApprove({ data: { queueId: item.id } });
+      toast.success("Approved.");
+      onDone();
+    } catch {
       toast.error("Could not approve this story.");
-      return;
+    } finally {
+      setBusy(false);
     }
-    toast.success("Approved.");
-    onDone();
   };
 
   const correctAndApprove = async () => {
     setBusy(true);
-    const storyId = item.stories.id;
-
-    const { error: storyError } = await supabase
-      .from("stories")
-      .update({ ai_generated_summary: summary, updated_at: new Date().toISOString() })
-      .eq("id", storyId);
-
-    const { error: tagError } = await supabase
-      .from("story_tags")
-      .upsert({ story_id: storyId, tone, access, geography }, { onConflict: "story_id" });
-
-    const { error: deleteError } = await supabase
-      .from("story_topics")
-      .delete()
-      .eq("story_id", storyId);
-
-    const { error: insertError } = topics.length
-      ? await supabase.from("story_topics").insert(topics.map((topic) => ({ story_id: storyId, topic })))
-      : { error: null };
-
-    const { error: queueError } = await supabase
-      .from("spot_check_queue")
-      .update({ status: "corrected", reviewed_at: new Date().toISOString() })
-      .eq("id", item.id);
-
-    setBusy(false);
-    if (storyError || tagError || deleteError || insertError || queueError) {
+    try {
+      await runCorrect({
+        data: {
+          queueId: item.id,
+          storyId: item.stories.id,
+          summary,
+          topics,
+          tone,
+          access,
+          geography,
+        },
+      });
+      toast.success("Corrected and approved.");
+      onDone();
+    } catch {
       toast.error("Could not save the correction.");
-      return;
+    } finally {
+      setBusy(false);
     }
-    toast.success("Corrected and approved.");
-    onDone();
   };
 
   const chip = (active: boolean) =>
