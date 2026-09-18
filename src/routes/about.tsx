@@ -78,8 +78,8 @@ function AboutPage() {
           <p className="mt-2">
             Filters combine, and the page address updates as you change them, so any filtered view
             can be shared or bookmarked. Signed-in readers can save a combination as their default
-            view, and anyone can sign up for an email digest built from the filters they have
-            selected. See the{" "}
+            view, and readers can subscribe to a paid email digest built from the filters they have
+            selected, for €25 per year or €3 per month. See the{" "}
             <Link to="/privacy" className="underline underline-offset-4">
               privacy policy
             </Link>{" "}

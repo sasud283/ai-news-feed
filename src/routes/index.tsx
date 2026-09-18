@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { FilterBar } from "@/components/FilterBar";
 import { DigestSignup } from "@/components/DigestSignup";
 import { StoryCard } from "@/components/StoryCard";
+import { AdSlot } from "@/components/Advertising";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import {
@@ -143,14 +144,16 @@ function FeedPage() {
 
   return (
     <main>
-      <header className="mx-auto max-w-3xl px-4 pt-12 pb-6">
+      <header className="mx-auto max-w-6xl px-4 pt-12 pb-8">
         <h1 className="font-serif text-4xl leading-tight font-semibold sm:text-5xl">
           AI news, one story at a time
         </h1>
-        <p className="mt-3 text-lg text-muted-foreground">
+        <p className="mt-3 max-w-3xl text-lg text-muted-foreground">
           Every development grouped into a single card, summarised by AI, with every source linked.
         </p>
       </header>
+
+      <AdSlot format="leaderboard" />
 
       <FilterBar
         filters={filters}
@@ -161,7 +164,8 @@ function FeedPage() {
         saving={savingDefault}
       />
 
-      <div className="mx-auto max-w-3xl px-4 py-8">
+      <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-8 lg:grid-cols-[minmax(0,1fr)_280px]">
+        <div className="min-w-0">
         {isLoading && <p className="text-muted-foreground">Loading stories…</p>}
         {error && <p className="text-destructive">Stories could not be loaded right now.</p>}
         {!isLoading && !error && visible.length === 0 && (
@@ -170,14 +174,21 @@ function FeedPage() {
           </p>
         )}
 
-        {visible.map((story) => (
-          <div key={story.id} id={`story-${story.id}`} className="scroll-mt-24">
-            <StoryCard story={story} />
+        {visible.map((story, index) => (
+          <div key={story.id}>
+            <div id={`story-${story.id}`} className="scroll-mt-24">
+              <StoryCard story={story} />
+            </div>
+            {index === 2 && <AdSlot format="in-feed" />}
           </div>
         ))}
 
         <div className="pt-10">
           <DigestSignup filters={filters} />
+        </div>
+        </div>
+        <div className="sticky top-6 hidden lg:block">
+          <AdSlot format="sidebar" />
         </div>
       </div>
     </main>
