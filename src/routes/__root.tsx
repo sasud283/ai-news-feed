@@ -131,7 +131,7 @@ function SiteHeader() {
     <header className="border-b border-border bg-card/60">
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border/70 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-          <span>Independent AI news briefing</span>
+          <span>AI news briefing</span>
           <span className="hidden sm:inline">Sources linked · Context included</span>
         </div>
         <div className="py-5">
