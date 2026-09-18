@@ -138,11 +138,20 @@ export async function fetchStories(): Promise<Story[]> {
   return stories;
 }
 
+export type TimeRange = "week" | "month" | "older";
+
+export const TIME_RANGES: { value: TimeRange; label: string }[] = [
+  { value: "week", label: "This week" },
+  { value: "month", label: "This month" },
+  { value: "older", label: "Older" },
+];
+
 export type Filters = {
   topics: Topic[];
   tone: Tone | null;
   access: Access | null;
   geography: Geography | null;
+  timeRange: TimeRange | null;
   q: string;
 };
 
@@ -151,6 +160,7 @@ export const emptyFilters: Filters = {
   tone: null,
   access: null,
   geography: null,
+  timeRange: null,
   q: "",
 };
 
@@ -161,6 +171,12 @@ export function filterStories(stories: Story[], filters: Filters): Story[] {
     if (filters.tone && s.tone !== filters.tone) return false;
     if (filters.access && s.access !== filters.access) return false;
     if (filters.geography && s.geography !== filters.geography) return false;
+    if (filters.timeRange) {
+      const ageDays = (Date.now() - new Date(s.published_at).getTime()) / 86_400_000;
+      if (filters.timeRange === "week" && ageDays > 7) return false;
+      if (filters.timeRange === "month" && ageDays > 30) return false;
+      if (filters.timeRange === "older" && ageDays <= 30) return false;
+    }
     if (
       q &&
       !s.headline.toLowerCase().includes(q) &&

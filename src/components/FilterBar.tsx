@@ -1,13 +1,15 @@
-import { Search, X, BookmarkCheck, Check } from "lucide-react";
+import { Search, X, BookmarkCheck, Check, CalendarDays } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
   ACCESS_OPTIONS,
   GEOGRAPHIES,
   TONES,
+  TIME_RANGES,
   TOPICS,
   topicClass,
   type Filters,
+  type TimeRange,
   type Topic,
 } from "@/lib/news";
 
@@ -46,6 +48,7 @@ export function FilterBar({
     filters.tone !== null ||
     filters.access !== null ||
     filters.geography !== null ||
+    filters.timeRange !== null ||
     filters.q !== "";
 
   return (
@@ -123,6 +126,30 @@ export function FilterBar({
                 >
                   {filters.access === a && <Check />}
                   {a}
+                </Button>
+              ))}
+            </div>
+          </div>
+
+          <div className="sm:col-span-2">
+            <p className="mb-2 flex items-center gap-1.5 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+              <CalendarDays className="h-3.5 w-3.5" />
+              Published
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {TIME_RANGES.map(({ value, label }) => (
+                <Button
+                  key={value}
+                  type="button"
+                  size="sm"
+                  variant="outline"
+                  onClick={() =>
+                    onChange({ timeRange: filters.timeRange === value ? null : (value as TimeRange) })
+                  }
+                  className={outlineChip(filters.timeRange === value)}
+                >
+                  {filters.timeRange === value && <Check />}
+                  {label}
                 </Button>
               ))}
             </div>

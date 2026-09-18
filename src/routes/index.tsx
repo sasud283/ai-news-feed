@@ -13,6 +13,7 @@ import {
   ACCESS_OPTIONS,
   GEOGRAPHIES,
   TONES,
+  TIME_RANGES,
   TOPICS,
   emptyFilters,
   fetchStories,
@@ -20,6 +21,7 @@ import {
   type Access,
   type Filters,
   type Geography,
+  type TimeRange,
   type Tone,
   type Topic,
 } from "@/lib/news";
@@ -29,6 +31,7 @@ type FeedSearch = {
   tone?: string | undefined;
   access?: string | undefined;
   geo?: string | undefined;
+  range?: string | undefined;
   q?: string | undefined;
 };
 
@@ -38,6 +41,7 @@ export const Route = createFileRoute("/")({
     tone: typeof search["tone"] === "string" ? search["tone"] : undefined,
     access: typeof search["access"] === "string" ? search["access"] : undefined,
     geo: typeof search["geo"] === "string" ? search["geo"] : undefined,
+    range: typeof search["range"] === "string" ? search["range"] : undefined,
     q: typeof search["q"] === "string" ? search["q"] : undefined,
   }),
   head: () => ({
@@ -66,11 +70,15 @@ function searchToFilters(search: FeedSearch): Filters {
     .split(",")
     .map((t) => t.trim())
     .filter((t): t is Topic => TOPICS.includes(t as Topic));
+  const timeRange = TIME_RANGES.some((r) => r.value === search.range)
+    ? (search.range as TimeRange)
+    : null;
   return {
     topics,
     tone: TONES.includes(search.tone as Tone) ? (search.tone as Tone) : null,
     access: ACCESS_OPTIONS.includes(search.access as Access) ? (search.access as Access) : null,
     geography: GEOGRAPHIES.includes(search.geo as Geography) ? (search.geo as Geography) : null,
+    timeRange,
     q: search.q ?? "",
   };
 }
@@ -81,6 +89,7 @@ function filtersToSearch(filters: Filters): FeedSearch {
   if (filters.tone) next.tone = filters.tone;
   if (filters.access) next.access = filters.access;
   if (filters.geography) next.geo = filters.geography;
+  if (filters.timeRange) next.range = filters.timeRange;
   if (filters.q.trim()) next.q = filters.q;
   return next;
 }
