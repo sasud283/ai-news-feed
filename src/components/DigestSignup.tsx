@@ -1,17 +1,19 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { toast } from "sonner";
+import { Check, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
-import { supabase } from "@/integrations/supabase/client";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import type { Filters } from "@/lib/news";
 
 export function DigestSignup({ filters }: { filters: Filters }) {
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [done, setDone] = useState(false);
+  const [plan, setPlan] = useState<"yearly" | "monthly">("yearly");
+  const [paymentMethod, setPaymentMethod] = useState<"paypal" | "revolut">("paypal");
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,48 +22,72 @@ export function DigestSignup({ filters }: { filters: Filters }) {
       return;
     }
     setSubmitting(true);
-    const { error } = await supabase.from("digest_subscribers").insert({
-      email: email.trim().toLowerCase(),
-      consented_at: new Date().toISOString(),
-      filter_preferences: JSON.parse(JSON.stringify(filters)),
-      unsubscribed: false,
-    });
-    setSubmitting(false);
-
-    if (error) {
-      toast.error(
-        error.code === "23505"
-          ? "That email is already signed up."
-          : "Sign-up failed. Please try again.",
-      );
-      return;
-    }
-    setDone(true);
-    toast.success("You're signed up for the digest.");
+    window.setTimeout(() => {
+      setSubmitting(false);
+      toast.info("Checkout preview only — payments are not active yet.");
+    }, 500);
   };
 
   return (
-    <section className="rounded-lg border border-border bg-secondary/50 p-6">
-      <h2 className="font-serif text-xl font-semibold text-foreground">Get this feed by email</h2>
-      <p className="mt-1 text-sm text-muted-foreground">
-        We'll send a digest matching the filters you have selected right now.
-      </p>
-
-      {done ? (
-        <p className="mt-4 text-sm font-medium text-foreground">
-          Thanks — your digest preferences have been saved.
+    <section className="overflow-hidden border border-digest-border bg-digest-surface">
+      <div className="border-b border-digest-border bg-digest-highlight px-6 py-5 sm:px-8">
+        <p className="text-xs font-semibold tracking-widest text-digest-foreground uppercase">Paid digest</p>
+        <h2 className="mt-2 font-serif text-3xl font-semibold text-foreground">The brief, in your inbox</h2>
+        <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
+          A focused digest matching the filters you selected, with every source linked.
         </p>
-      ) : (
-        <form onSubmit={submit} className="mt-4 space-y-3">
+      </div>
+      <form onSubmit={submit} className="space-y-6 p-6 sm:p-8">
+          <fieldset>
+            <legend className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">Choose a plan</legend>
+            <RadioGroup value={plan} onValueChange={(value) => setPlan(value as "yearly" | "monthly")} className="mt-3 grid gap-3 sm:grid-cols-2">
+              <label className={`relative flex cursor-pointer items-center gap-3 border p-4 transition-colors ${plan === "yearly" ? "border-digest-foreground bg-background" : "border-border bg-background/60"}`}>
+                <RadioGroupItem value="yearly" />
+                <span className="flex-1">
+                  <span className="block font-semibold text-foreground">Yearly</span>
+                  <span className="block text-sm text-muted-foreground">€25 per year</span>
+                </span>
+                <span className="bg-digest-foreground px-2 py-1 text-[0.65rem] font-semibold tracking-wide text-primary-foreground uppercase">Best value</span>
+              </label>
+              <label className={`flex cursor-pointer items-center gap-3 border p-4 transition-colors ${plan === "monthly" ? "border-digest-foreground bg-background" : "border-border bg-background/60"}`}>
+                <RadioGroupItem value="monthly" />
+                <span>
+                  <span className="block font-semibold text-foreground">Monthly</span>
+                  <span className="block text-sm text-muted-foreground">€3 per month</span>
+                </span>
+              </label>
+            </RadioGroup>
+          </fieldset>
+
+          <div>
+            <label htmlFor="digest-email" className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">Email address</label>
           <Input
+            id="digest-email"
             type="email"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@example.com"
-            className="bg-background"
+            className="mt-2 bg-background"
             aria-label="Email address"
           />
+          </div>
+
+          <fieldset>
+            <legend className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">Payment method</legend>
+            <RadioGroup value={paymentMethod} onValueChange={(value) => setPaymentMethod(value as "paypal" | "revolut")} className="mt-3 grid gap-3 sm:grid-cols-2">
+              {(["paypal", "revolut"] as const).map((method) => (
+                <label key={method} className={`flex cursor-pointer items-center gap-3 border bg-background p-4 font-semibold transition-colors ${paymentMethod === method ? "border-digest-foreground" : "border-border"}`}>
+                  <RadioGroupItem value={method} />
+                  <span className={method === "paypal" ? "text-payment-paypal" : "text-payment-revolut"}>
+                    {method === "paypal" ? "PayPal" : "Revolut Pay"}
+                  </span>
+                  {paymentMethod === method && <Check className="ml-auto h-4 w-4 text-digest-foreground" />}
+                </label>
+              ))}
+            </RadioGroup>
+          </fieldset>
+
           <label className="flex items-start gap-2 text-sm text-muted-foreground">
             <Checkbox
               checked={consent}
@@ -76,11 +102,12 @@ export function DigestSignup({ filters }: { filters: Filters }) {
               .
             </span>
           </label>
-          <Button type="submit" disabled={submitting}>
-            {submitting ? "Signing up…" : "Sign up for the digest"}
+          <Button type="submit" disabled={submitting} className="h-11 w-full bg-digest-foreground text-primary-foreground hover:bg-digest-foreground/90">
+            <CreditCard className="h-4 w-4" />
+            {submitting ? "Opening checkout…" : `Continue with ${paymentMethod === "paypal" ? "PayPal" : "Revolut Pay"} · ${plan === "yearly" ? "€25/year" : "€3/month"}`}
           </Button>
+          <p className="text-center text-xs text-muted-foreground">Checkout preview — no payment will be taken.</p>
         </form>
-      )}
     </section>
   );
 }

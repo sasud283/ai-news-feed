@@ -17,15 +17,15 @@ export function StoryCard({ story }: { story: Story }) {
       <div className="flex flex-wrap items-center gap-2">
         {story.tone && <Tag className={toneClass[story.tone]}>{story.tone}</Tag>}
         {story.topics.map((t) => (
-          <Tag key={t} className="border-border bg-secondary text-secondary-foreground">
+          <Tag key={t} className="border-topic-border bg-topic-surface text-topic-foreground">
             {t}
           </Tag>
         ))}
         {story.geography && (
-          <Tag className="border-border bg-background text-muted-foreground">{story.geography}</Tag>
+          <Tag className="border-geo-border bg-geo-surface text-geo-foreground">{story.geography}</Tag>
         )}
         {story.access && (
-          <Tag className="border-border bg-background text-muted-foreground">
+          <Tag className="border-access-border bg-access-surface text-access-foreground">
             {story.access === "Paid" ? <Lock className="mr-1 h-3 w-3" /> : null}
             {story.access}
           </Tag>

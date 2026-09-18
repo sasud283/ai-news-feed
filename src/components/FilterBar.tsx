@@ -23,7 +23,7 @@ type Props = {
 function chip(active: boolean) {
   return `rounded-full border px-3 py-1 text-sm transition-colors ${
     active
-      ? "border-foreground bg-foreground text-background"
+      ? "border-topic-foreground bg-topic-foreground text-primary-foreground"
       : "border-border bg-background text-muted-foreground hover:border-foreground/40 hover:text-foreground"
   }`;
 }
@@ -51,7 +51,7 @@ export function FilterBar({
     filters.q !== "";
 
   return (
-    <section className="border-y border-border bg-secondary/40 py-5">
+    <section className="border-y border-filter-border bg-filter-surface py-5">
       <div className="mx-auto max-w-3xl space-y-4 px-4">
         <div className="relative">
           <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
