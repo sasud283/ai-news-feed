@@ -10,3 +10,5 @@
 - [x] Restyle TheFullPicture.ai with a thoughtful newsletter aesthetic
 - [x] Verify the refreshed header, filters, cards, and mobile layout
 - [x] Remove public header navigation and account controls while keeping /review directly accessible
+- [x] Transform the opening, leaderboard advert, and filters into one editorial hero banner
+- [x] Verify the new hero on desktop and mobile
