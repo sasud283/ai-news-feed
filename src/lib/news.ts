@@ -5,6 +5,7 @@ export type Topic = Database["public"]["Enums"]["story_topic"];
 export type Tone = Database["public"]["Enums"]["story_tone"];
 export type Access = Database["public"]["Enums"]["story_access"];
 export type Geography = Database["public"]["Enums"]["story_geography"];
+export type ContentType = "Article" | "Podcast" | "Video";
 
 export const TOPICS: Topic[] = [
   "Models & Research",
@@ -20,6 +21,7 @@ export const TOPICS: Topic[] = [
 
 export const TONES: Tone[] = ["Good", "Useful", "Bad", "Ugly"];
 export const ACCESS_OPTIONS: Access[] = ["Free", "Paid"];
+export const CONTENT_TYPES: ContentType[] = ["Article", "Podcast", "Video"];
 export const GEOGRAPHIES: Geography[] = [
   "Worldwide",
   "US",
@@ -76,6 +78,8 @@ export type Story = {
   published_at: string;
   updated_at: string;
   is_correction_of: string | null;
+  content_type: ContentType;
+  media_url: string | null;
   topics: Topic[];
   tone: Tone | null;
   access: Access | null;
@@ -91,13 +95,15 @@ type RawStory = {
   published_at: string;
   updated_at: string;
   is_correction_of: string | null;
+  content_type: string;
+  media_url: string | null;
   story_topics: { topic: Topic }[];
   story_tags: { tone: Tone; access: Access; geography: Geography }[];
   story_sources: StorySource[];
 };
 
 const SELECT =
-  "id, headline, ai_generated_summary, published_at, updated_at, is_correction_of, story_topics(topic), story_tags(tone, access, geography), story_sources(id, source_name, source_url, is_paywalled)";
+  "id, headline, ai_generated_summary, published_at, updated_at, is_correction_of, content_type, media_url, story_topics(topic), story_tags(tone, access, geography), story_sources(id, source_name, source_url, is_paywalled)";
 
 export async function fetchStories(): Promise<Story[]> {
   const { data, error } = await supabase
@@ -118,6 +124,10 @@ export async function fetchStories(): Promise<Story[]> {
       published_at: s.published_at,
       updated_at: s.updated_at,
       is_correction_of: s.is_correction_of,
+      content_type: CONTENT_TYPES.includes(s.content_type as ContentType)
+        ? (s.content_type as ContentType)
+        : "Article",
+      media_url: s.media_url,
       topics: (s.story_topics ?? []).map((t) => t.topic),
       tone: tags?.tone ?? null,
       access: tags?.access ?? null,
@@ -151,6 +161,7 @@ export type Filters = {
   tone: Tone | null;
   access: Access | null;
   geography: Geography | null;
+  contentType: ContentType | null;
   timeRange: TimeRange | null;
   q: string;
 };
@@ -160,6 +171,7 @@ export const emptyFilters: Filters = {
   tone: null,
   access: null,
   geography: null,
+  contentType: null,
   timeRange: null,
   q: "",
 };
@@ -171,6 +183,7 @@ export function filterStories(stories: Story[], filters: Filters): Story[] {
     if (filters.tone && s.tone !== filters.tone) return false;
     if (filters.access && s.access !== filters.access) return false;
     if (filters.geography && s.geography !== filters.geography) return false;
+    if (filters.contentType && s.content_type !== filters.contentType) return false;
     if (filters.timeRange) {
       const ageDays = (Date.now() - new Date(s.published_at).getTime()) / 86_400_000;
       if (filters.timeRange === "week" && ageDays > 7) return false;

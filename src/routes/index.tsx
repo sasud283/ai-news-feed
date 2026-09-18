@@ -11,6 +11,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import {
   ACCESS_OPTIONS,
+  CONTENT_TYPES,
   GEOGRAPHIES,
   TONES,
   TIME_RANGES,
@@ -19,6 +20,7 @@ import {
   fetchStories,
   filterStories,
   type Access,
+  type ContentType,
   type Filters,
   type Geography,
   type TimeRange,
@@ -31,6 +33,7 @@ type FeedSearch = {
   tone?: string | undefined;
   access?: string | undefined;
   geo?: string | undefined;
+  type?: string | undefined;
   range?: string | undefined;
   q?: string | undefined;
 };
@@ -41,6 +44,7 @@ export const Route = createFileRoute("/")({
     tone: typeof search["tone"] === "string" ? search["tone"] : undefined,
     access: typeof search["access"] === "string" ? search["access"] : undefined,
     geo: typeof search["geo"] === "string" ? search["geo"] : undefined,
+    type: typeof search["type"] === "string" ? search["type"] : undefined,
     range: typeof search["range"] === "string" ? search["range"] : undefined,
     q: typeof search["q"] === "string" ? search["q"] : undefined,
   }),
@@ -78,6 +82,7 @@ function searchToFilters(search: FeedSearch): Filters {
     tone: TONES.includes(search.tone as Tone) ? (search.tone as Tone) : null,
     access: ACCESS_OPTIONS.includes(search.access as Access) ? (search.access as Access) : null,
     geography: GEOGRAPHIES.includes(search.geo as Geography) ? (search.geo as Geography) : null,
+    contentType: CONTENT_TYPES.includes(search.type as ContentType) ? (search.type as ContentType) : null,
     timeRange,
     q: search.q ?? "",
   };
@@ -89,6 +94,7 @@ function filtersToSearch(filters: Filters): FeedSearch {
   if (filters.tone) next.tone = filters.tone;
   if (filters.access) next.access = filters.access;
   if (filters.geography) next.geo = filters.geography;
+  if (filters.contentType) next.type = filters.contentType;
   if (filters.timeRange) next.range = filters.timeRange;
   if (filters.q.trim()) next.q = filters.q;
   return next;
