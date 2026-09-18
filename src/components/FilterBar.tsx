@@ -1,4 +1,4 @@
-import { Search, X, BookmarkCheck } from "lucide-react";
+import { Search, X, BookmarkCheck, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -6,9 +6,7 @@ import {
   GEOGRAPHIES,
   TONES,
   TOPICS,
-  toneClass,
   topicClass,
-  topicOutlineClass,
   type Filters,
   type Topic,
 } from "@/lib/news";
@@ -22,15 +20,9 @@ type Props = {
   saving?: boolean;
 };
 
-function chip(active: boolean, kind: "access" | "geography") {
-  return `rounded-full border px-3 py-1 text-sm transition-colors ${
-    active
-      ? kind === "access"
-        ? "border-access-foreground bg-access-foreground text-tone-contrast"
-        : "border-geo-foreground bg-geo-foreground text-tone-contrast"
-      : kind === "access"
-        ? "border-access-foreground text-access-foreground hover:bg-access-foreground hover:text-tone-contrast"
-        : "border-geo-foreground text-geo-foreground hover:bg-geo-foreground hover:text-tone-contrast"
+function outlineChip(active: boolean) {
+  return `rounded-full border bg-background px-3 py-1 text-sm text-foreground transition-colors hover:bg-muted ${
+    active ? "border-foreground ring-1 ring-foreground font-semibold" : "border-muted-foreground/60"
   }`;
 }
 
@@ -76,18 +68,19 @@ export function FilterBar({
           </p>
           <div className="flex flex-wrap gap-2">
             {TOPICS.map((t) => (
-              <button
+              <Button
                 key={t}
                 type="button"
+                size="sm"
+                variant="outline"
                 onClick={() => toggleTopic(t)}
-                className={`rounded-full border px-3 py-1 text-sm transition-colors ${
-                  filters.topics.includes(t)
-                    ? topicClass[t]
-                    : `bg-background hover:brightness-95 ${topicOutlineClass[t]}`
+                className={`rounded-full shadow-none hover:brightness-95 ${topicClass[t]} ${
+                  filters.topics.includes(t) ? "ring-2 ring-foreground ring-offset-2" : ""
                 }`}
               >
+                {filters.topics.includes(t) && <Check />}
                 {t}
-              </button>
+              </Button>
             ))}
           </div>
         </div>
@@ -99,18 +92,17 @@ export function FilterBar({
             </p>
             <div className="flex flex-wrap gap-2">
               {TONES.map((tone) => (
-                <button
+                <Button
                   key={tone}
                   type="button"
+                  size="sm"
+                  variant="outline"
                   onClick={() => onChange({ tone: filters.tone === tone ? null : tone })}
-                  className={`rounded-full border px-3 py-1 text-sm font-medium transition-colors ${
-                    filters.tone === tone
-                      ? toneClass[tone]
-                      : `bg-background hover:brightness-95 ${toneClass[tone].replace("bg-tone-", "border-tone-").replace(/ text-tone-contrast border-tone-[^ ]+/, "")}`
-                  }`}
+                  className={outlineChip(filters.tone === tone)}
                 >
+                  {filters.tone === tone && <Check />}
                   {tone}
-                </button>
+                </Button>
               ))}
             </div>
           </div>
@@ -121,14 +113,17 @@ export function FilterBar({
             </p>
             <div className="flex flex-wrap gap-2">
               {ACCESS_OPTIONS.map((a) => (
-                <button
+                <Button
                   key={a}
                   type="button"
+                  size="sm"
+                  variant="outline"
                   onClick={() => onChange({ access: filters.access === a ? null : a })}
-                  className={chip(filters.access === a, "access")}
+                  className={outlineChip(filters.access === a)}
                 >
+                  {filters.access === a && <Check />}
                   {a}
-                </button>
+                </Button>
               ))}
             </div>
           </div>
@@ -140,14 +135,17 @@ export function FilterBar({
           </p>
           <div className="flex flex-wrap gap-2">
             {GEOGRAPHIES.map((g) => (
-              <button
+              <Button
                 key={g}
                 type="button"
+                size="sm"
+                variant="outline"
                 onClick={() => onChange({ geography: filters.geography === g ? null : g })}
-                className={chip(filters.geography === g, "geography")}
+                className={outlineChip(filters.geography === g)}
               >
+                {filters.geography === g && <Check />}
                 {g}
-              </button>
+              </Button>
             ))}
           </div>
         </div>
