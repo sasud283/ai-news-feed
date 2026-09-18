@@ -44,10 +44,10 @@ export const topicClass: Record<Topic, string> = {
   "Policy & Regulation": "bg-topic-violet text-tone-contrast border-topic-violet",
   "National Initiatives": "bg-topic-coral text-tone-contrast border-topic-coral",
   Ethics: "bg-topic-rose text-tone-contrast border-topic-rose",
-  "Future of Work": "bg-topic-amber text-topic-dark border-topic-amber",
+  "Future of Work": "bg-topic-amber text-tone-contrast border-topic-amber",
   "Future of Daily Life": "bg-topic-green text-tone-contrast border-topic-green",
   "AI Equity & Representation": "bg-topic-magenta text-tone-contrast border-topic-magenta",
-  "Tools & Products": "bg-topic-cyan text-topic-dark border-topic-cyan",
+  "Tools & Products": "bg-topic-cyan text-tone-contrast border-topic-cyan",
 };
 
 export const topicOutlineClass: Record<Topic, string> = {
