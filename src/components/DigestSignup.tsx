@@ -86,8 +86,8 @@ export function DigestSignup({ filters }: { filters: Filters }) {
   };
 
   return (
-    <section className="overflow-hidden border border-border bg-background">
-      <div className="border-b border-border bg-background px-6 py-5 sm:px-8">
+    <section className="overflow-hidden rounded-md border border-border bg-card/60">
+      <div className="border-b border-border px-6 py-6 sm:px-8">
         <p className="text-xs font-semibold tracking-widest text-digest-foreground uppercase">
           TheFullPicture.ai paid digest
         </p>
@@ -158,7 +158,7 @@ export function DigestSignup({ filters }: { filters: Filters }) {
           </span>
         </label>
 
-        <Button type="submit" className="h-11 w-full bg-digest-foreground text-primary-foreground hover:bg-digest-foreground/90">
+        <Button type="submit" className="h-11 w-full bg-primary text-primary-foreground shadow-none hover:bg-brand-accent">
           Continue to Subscribe — €25/yr
         </Button>
       </form>

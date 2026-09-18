@@ -144,11 +144,12 @@ function FeedPage() {
 
   return (
     <main>
-      <header className="mx-auto max-w-6xl px-4 pt-12 pb-8">
-        <h1 className="font-serif text-4xl leading-tight font-semibold sm:text-5xl">
+      <header className="mx-auto max-w-6xl px-4 pt-14 pb-10 sm:pt-16">
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-brand-accent">Today’s full picture</p>
+        <h1 className="max-w-3xl font-serif text-4xl leading-[1.08] font-semibold tracking-normal sm:text-5xl">
           AI news, one story at a time
         </h1>
-        <p className="mt-3 max-w-3xl text-lg text-muted-foreground">
+        <p className="mt-4 max-w-2xl font-serif text-lg leading-relaxed text-muted-foreground sm:text-xl">
           Every development grouped into a single card, summarised by AI, with every source linked.
         </p>
       </header>
@@ -164,7 +165,7 @@ function FeedPage() {
         saving={savingDefault}
       />
 
-      <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-8 lg:grid-cols-[minmax(0,1fr)_280px]">
+      <div className="mx-auto grid max-w-6xl items-start gap-12 px-4 py-10 lg:grid-cols-[minmax(0,1fr)_280px]">
         <div className="min-w-0">
         {isLoading && <p className="text-muted-foreground">Loading stories…</p>}
         {error && <p className="text-destructive">Stories could not be loaded right now.</p>}
