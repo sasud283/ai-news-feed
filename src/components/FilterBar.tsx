@@ -36,6 +36,8 @@ export function FilterBar({
   onSaveDefault,
   canSaveDefault,
   saving,
+  onClearDefault,
+  hasSavedDefault,
 }: Props) {
   const toggleTopic = (topic: Topic) => {
     const next = filters.topics.includes(topic)
