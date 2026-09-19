@@ -1,4 +1,4 @@
-import { Search, X, BookmarkCheck, Check, FileText, Headphones, PlaySquare } from "lucide-react";
+import { Search, X, BookmarkCheck, Check, FileText, Headphones, PlaySquare, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -19,6 +19,8 @@ type Props = {
   onSaveDefault?: () => void;
   canSaveDefault?: boolean;
   saving?: boolean;
+  onClearDefault?: () => void;
+  hasSavedDefault?: boolean;
 };
 
 function outlineChip(active: boolean) {
@@ -34,6 +36,8 @@ export function FilterBar({
   onSaveDefault,
   canSaveDefault,
   saving,
+  onClearDefault,
+  hasSavedDefault,
 }: Props) {
   const toggleTopic = (topic: Topic) => {
     const next = filters.topics.includes(topic)
@@ -178,22 +182,33 @@ export function FilterBar({
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-3 pt-1">
-          {hasFilters && (
-            <Button variant="ghost" size="sm" onClick={onReset}>
-              <X className="mr-1 h-4 w-4" />
-              Clear filters
-            </Button>
-          )}
-          {canSaveDefault && onSaveDefault && (
-            <Button variant="outline" size="sm" onClick={onSaveDefault} disabled={saving}>
-              <BookmarkCheck className="mr-1 h-4 w-4" />
-              {saving ? "Saving…" : "Save as my default view"}
-            </Button>
-          )}
-          <span className="text-xs text-muted-foreground">
-            This view is shareable — the page address carries your filters.
-          </span>
+        <div className="space-y-2 pt-1">
+          <div className="flex flex-wrap items-center gap-3">
+            {hasFilters && (
+              <Button variant="ghost" size="sm" onClick={onReset}>
+                <X className="mr-1 h-4 w-4" />
+                Clear filters
+              </Button>
+            )}
+            {canSaveDefault && onSaveDefault && (
+              <Button variant="outline" size="sm" onClick={onSaveDefault} disabled={saving || !hasFilters}>
+                <BookmarkCheck className="mr-1 h-4 w-4" />
+                {saving ? "Saving…" : "Save as my default view"}
+              </Button>
+            )}
+            {hasSavedDefault && onClearDefault && (
+              <Button variant="ghost" size="sm" onClick={onClearDefault}>
+                <RotateCcw className="mr-1 h-4 w-4" />
+                Forget my default view
+              </Button>
+            )}
+          </div>
+          <p className="text-xs leading-relaxed text-muted-foreground">
+            This view is shareable — the page address carries your filters. Saving a default keeps it in
+            this browser only: no account needed, but it won&apos;t carry over to another device or browser,
+            and it is forgotten if you clear your browsing data or browse privately. To keep it for good,
+            bookmark the page address instead.
+          </p>
         </div>
       </div>
     </section>
