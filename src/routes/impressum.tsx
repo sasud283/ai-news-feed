@@ -61,7 +61,7 @@ const SECTIONS: { heading: string; paragraphs: React.ReactNode[] }[] = [
   {
     heading: "Copyright",
     paragraphs: [
-      "Original content on this site — including summaries, structure, and design — is © Sarah Suda. Source articles remain the property of their respective publishers.",
+      "The structure, design, and selection of content on this site are the work of The Full Picture. Article summaries are generated automatically from publicly available sources. Source articles remain the property of their respective publishers. Unauthorised reproduction of this site's structure or design is not permitted.",
     ],
   },
 ];
