@@ -14,6 +14,8 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ReviewRouteImport } from './routes/review'
+import { Route as SubscribeIndexRouteImport } from './routes/subscribe.index'
+import { Route as SubscribeConfirmedRouteImport } from './routes/subscribe.confirmed'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,6 +42,16 @@ const ReviewRoute = ReviewRouteImport.update({
   path: '/review',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SubscribeIndexRoute = SubscribeIndexRouteImport.update({
+  id: '/subscribe/',
+  path: '/subscribe/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubscribeConfirmedRoute = SubscribeConfirmedRouteImport.update({
+  id: '/subscribe/confirmed',
+  path: '/subscribe/confirmed',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,6 +59,8 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/privacy': typeof PrivacyRoute
   '/review': typeof ReviewRoute
+  '/subscribe/confirmed': typeof SubscribeConfirmedRoute
+  '/subscribe/': typeof SubscribeIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +68,8 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/privacy': typeof PrivacyRoute
   '/review': typeof ReviewRoute
+  '/subscribe/confirmed': typeof SubscribeConfirmedRoute
+  '/subscribe': typeof SubscribeIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +78,37 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/privacy': typeof PrivacyRoute
   '/review': typeof ReviewRoute
+  '/subscribe/confirmed': typeof SubscribeConfirmedRoute
+  '/subscribe/': typeof SubscribeIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/auth' | '/privacy' | '/review'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/auth'
+    | '/privacy'
+    | '/review'
+    | '/subscribe/confirmed'
+    | '/subscribe/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/auth' | '/privacy' | '/review'
-  id: '__root__' | '/' | '/about' | '/auth' | '/privacy' | '/review'
+  to:
+    | '/'
+    | '/about'
+    | '/auth'
+    | '/privacy'
+    | '/review'
+    | '/subscribe/confirmed'
+    | '/subscribe'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/auth'
+    | '/privacy'
+    | '/review'
+    | '/subscribe/confirmed'
+    | '/subscribe/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,6 +117,8 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   PrivacyRoute: typeof PrivacyRoute
   ReviewRoute: typeof ReviewRoute
+  SubscribeConfirmedRoute: typeof SubscribeConfirmedRoute
+  SubscribeIndexRoute: typeof SubscribeIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -116,6 +158,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReviewRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/subscribe/': {
+      id: '/subscribe/'
+      path: '/subscribe'
+      fullPath: '/subscribe/'
+      preLoaderRoute: typeof SubscribeIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/subscribe/confirmed': {
+      id: '/subscribe/confirmed'
+      path: '/subscribe/confirmed'
+      fullPath: '/subscribe/confirmed'
+      preLoaderRoute: typeof SubscribeConfirmedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -125,6 +181,8 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   PrivacyRoute: PrivacyRoute,
   ReviewRoute: ReviewRoute,
+  SubscribeConfirmedRoute: SubscribeConfirmedRoute,
+  SubscribeIndexRoute: SubscribeIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
