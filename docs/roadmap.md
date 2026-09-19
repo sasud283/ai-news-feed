@@ -19,6 +19,7 @@
 - [x] Add podcast and video media displays with safe source-link fallbacks
 - [x] Add a shareable Content Type filter to the filter bar
 - [x] Verify all three card variants on desktop and mobile
+- [x] Add "keeps the AI pipeline / site alive" copy plus coffee-price framing to newsletter CTAs
 
 
 ## Python backend
