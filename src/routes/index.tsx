@@ -7,8 +7,6 @@ import { FilterBar } from "@/components/FilterBar";
 import { DigestSignup } from "@/components/DigestSignup";
 import { StoryCard } from "@/components/StoryCard";
 import { AdSlot } from "@/components/Advertising";
-import { useAuth } from "@/hooks/useAuth";
-import { supabase } from "@/integrations/supabase/client";
 import {
   ACCESS_OPTIONS,
   CONTENT_TYPES,
