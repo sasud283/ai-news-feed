@@ -61,6 +61,11 @@ function ConfirmedPage() {
         </dl>
 
         <p className="mt-6 text-sm text-muted-foreground">
+          Your subscription doesn't just land the brief in your inbox — it keeps the AI pipeline running and
+          TheFullPicture.ai alive. Thank you for backing it.
+        </p>
+
+        <p className="mt-4 text-sm text-muted-foreground">
           A receipt from Stripe and a welcome email are on their way. If the welcome email hasn't landed within a
           few minutes, check your spam folder and add us to your contacts so future sends arrive cleanly. You can
           change cadence or cancel any time from the link at the foot of every email.

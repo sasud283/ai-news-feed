@@ -19,6 +19,11 @@ export function DigestSignup({ filters }: { filters: Filters }) {
           Reading the site is free. The newsletter is a paid product — no ads in it, no filler, every story
           with its sources linked.
         </p>
+        <p className="mt-3 max-w-xl text-sm leading-relaxed text-foreground/80">
+          More than a newsletter: your subscription is what keeps the whole operation running — fetching
+          sources, grouping stories, writing summaries and spot-checking them. Subscribers keep
+          TheFullPicture.ai alive.
+        </p>
       </div>
 
       <div className="space-y-6 p-6 sm:p-8">
