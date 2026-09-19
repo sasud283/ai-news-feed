@@ -100,12 +100,13 @@ function filtersToSearch(filters: Filters): FeedSearch {
   return next;
 }
 
+const DEFAULT_VIEW_KEY = "tfp:default-view";
+
 function FeedPage() {
   const search = Route.useSearch();
   const navigate = useNavigate({ from: "/" });
-  const { user } = useAuth();
-  const [savingDefault, setSavingDefault] = useState(false);
   const [appliedDefault, setAppliedDefault] = useState(false);
+  const [hasSavedDefault, setHasSavedDefault] = useState(false);
 
   const filters = searchToFilters(search);
   const hasUrlFilters = Object.keys(filtersToSearch(filters)).length > 0;
@@ -115,28 +116,24 @@ function FeedPage() {
     queryFn: fetchStories,
   });
 
-  // Apply the reader's saved default view when they arrive with no filters in the URL.
+  // Apply the reader's saved default view (kept in this browser) when they
+  // arrive with no filters in the address.
   useEffect(() => {
-    if (!user || appliedDefault || hasUrlFilters) return;
-    let active = true;
-    supabase
-      .from("profiles")
-      .select("default_filters")
-      .eq("id", user.id)
-      .maybeSingle()
-      .then(({ data }) => {
-        if (!active) return;
-        setAppliedDefault(true);
-        const saved = data?.default_filters as Partial<Filters> | null;
-        if (!saved) return;
-        const merged: Filters = { ...emptyFilters, ...saved };
-        const next = filtersToSearch(merged);
-        if (Object.keys(next).length) navigate({ search: next, replace: true });
-      });
-    return () => {
-      active = false;
-    };
-  }, [user, appliedDefault, hasUrlFilters, navigate]);
+    if (appliedDefault) return;
+    setAppliedDefault(true);
+    let saved: Partial<Filters> | null = null;
+    try {
+      const raw = window.localStorage.getItem(DEFAULT_VIEW_KEY);
+      saved = raw ? (JSON.parse(raw) as Partial<Filters>) : null;
+    } catch {
+      saved = null;
+    }
+    if (!saved) return;
+    setHasSavedDefault(true);
+    if (hasUrlFilters) return;
+    const next = filtersToSearch({ ...emptyFilters, ...saved });
+    if (Object.keys(next).length) navigate({ search: next, replace: true });
+  }, [appliedDefault, hasUrlFilters, navigate]);
 
   const update = (patch: Partial<Filters>) => {
     navigate({ search: filtersToSearch({ ...filters, ...patch }), replace: true });
@@ -144,16 +141,28 @@ function FeedPage() {
 
   const reset = () => navigate({ search: {}, replace: true });
 
-  const saveDefault = async () => {
-    if (!user) return;
-    setSavingDefault(true);
-    const { error: saveError } = await supabase
-      .from("profiles")
-      .update({ default_filters: JSON.parse(JSON.stringify(filters)) })
-      .eq("id", user.id);
-    setSavingDefault(false);
-    if (saveError) toast.error("Could not save your default view.");
-    else toast.success("Saved as your default view.");
+  const saveDefault = () => {
+    try {
+      window.localStorage.setItem(DEFAULT_VIEW_KEY, JSON.stringify(filters));
+      setHasSavedDefault(true);
+      toast.success("Saved on this device — this view will load next time.", {
+        description:
+          "It is stored in this browser only, so it won't follow you to another device and it disappears if you clear your browsing data or use private browsing.",
+      });
+    } catch {
+      toast.error("Your browser is blocking saved settings, so this view can't be remembered.");
+    }
+  };
+
+  const clearDefault = () => {
+    try {
+      window.localStorage.removeItem(DEFAULT_VIEW_KEY);
+    } catch {
+      /* ignore */
+    }
+    setHasSavedDefault(false);
+    toast.success("Your saved view has been removed from this browser.");
+    navigate({ search: {}, replace: true });
   };
 
   const visible = stories ? filterStories(stories, filters) : [];
