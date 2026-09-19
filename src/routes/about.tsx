@@ -103,6 +103,11 @@ function AboutPage() {
           </p>
         </section>
       </div>
+      <p className="mt-10 text-xs text-muted-foreground/70">
+        <Link to="/impressum" className="underline underline-offset-2 hover:text-foreground">
+          Legal notice (Impressum)
+        </Link>
+      </p>
     </main>
   );
 }

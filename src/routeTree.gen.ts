@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ReviewRouteImport } from './routes/review'
 import { Route as SubscribeIndexRouteImport } from './routes/subscribe.index'
@@ -30,6 +31,11 @@ const AboutRoute = AboutRouteImport.update({
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpressumRoute = ImpressumRouteImport.update({
+  id: '/impressum',
+  path: '/impressum',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -57,6 +63,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
+  '/impressum': typeof ImpressumRoute
   '/privacy': typeof PrivacyRoute
   '/review': typeof ReviewRoute
   '/subscribe/confirmed': typeof SubscribeConfirmedRoute
@@ -66,6 +73,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
+  '/impressum': typeof ImpressumRoute
   '/privacy': typeof PrivacyRoute
   '/review': typeof ReviewRoute
   '/subscribe/confirmed': typeof SubscribeConfirmedRoute
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
+  '/impressum': typeof ImpressumRoute
   '/privacy': typeof PrivacyRoute
   '/review': typeof ReviewRoute
   '/subscribe/confirmed': typeof SubscribeConfirmedRoute
@@ -87,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/auth'
+    | '/impressum'
     | '/privacy'
     | '/review'
     | '/subscribe/confirmed'
@@ -96,6 +106,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/auth'
+    | '/impressum'
     | '/privacy'
     | '/review'
     | '/subscribe/confirmed'
@@ -105,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/auth'
+    | '/impressum'
     | '/privacy'
     | '/review'
     | '/subscribe/confirmed'
@@ -115,6 +127,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AuthRoute: typeof AuthRoute
+  ImpressumRoute: typeof ImpressumRoute
   PrivacyRoute: typeof PrivacyRoute
   ReviewRoute: typeof ReviewRoute
   SubscribeConfirmedRoute: typeof SubscribeConfirmedRoute
@@ -142,6 +155,13 @@ declare module '@tanstack/react-router' {
       path: '/auth'
       fullPath: '/auth'
       preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impressum': {
+      id: '/impressum'
+      path: '/impressum'
+      fullPath: '/impressum'
+      preLoaderRoute: typeof ImpressumRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -179,6 +199,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AuthRoute: AuthRoute,
+  ImpressumRoute: ImpressumRoute,
   PrivacyRoute: PrivacyRoute,
   ReviewRoute: ReviewRoute,
   SubscribeConfirmedRoute: SubscribeConfirmedRoute,
