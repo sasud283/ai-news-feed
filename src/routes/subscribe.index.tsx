@@ -133,7 +133,8 @@ function SubscribePage() {
         <p className="mt-3 text-base leading-relaxed text-foreground/80">
           And it goes further than the brief in your inbox: your subscription is what keeps the AI pipeline
           running and the site alive — the polling of hundreds of sources, the story grouping, the summaries
-          and the human spot checks. Paid readers fund the whole picture.
+          and the human spot checks. Paid readers fund the whole picture — and at €3 a month, that's roughly
+          the price of a coffee.
         </p>
       </header>
 

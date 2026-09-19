@@ -56,7 +56,7 @@ export function DigestSignup({ filters }: { filters: Filters }) {
           <ArrowRight className="size-4" />
         </Link>
         <p className="text-center text-xs text-muted-foreground">
-          Choose weekly or daily at signup. Cancel any time.
+          From €3 a month — about the price of a coffee. Choose weekly or daily at signup. Cancel any time.
         </p>
       </div>
     </section>
