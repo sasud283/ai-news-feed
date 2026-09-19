@@ -27,17 +27,17 @@ function AboutPage() {
       <h1 className="font-serif text-4xl font-semibold">About TheFullPicture.ai</h1>
       <div className="mt-8 space-y-6 border-b border-border pb-8 text-base leading-relaxed text-muted-foreground">
         <p className="font-serif text-lg leading-relaxed text-foreground sm:text-xl">
-          Most AI news is either too technical, too narrowly focused on product launches, or heavily
-          skewed toward one region's perspective. If you work in policy, governance, HR, or
-          leadership, you're making decisions about AI without a reliable way to stay across the
-          whole picture. That's the gap The Full Picture fills.
+          Most AI news is either too narrowly focused on product launches, or heavily skewed toward
+          one region's perspective. If you work in policy, governance, HR, or leadership — or if you
+          simply want to stay across the full AI landscape without the noise — The Full Picture is
+          built for you.
         </p>
         <p className="font-serif text-lg leading-relaxed text-foreground sm:text-xl">
           Unlike the big AI newsletters that chase funding rounds and Silicon Valley news cycles,
-          The Full Picture covers the full spectrum — regulation, ethics, business impact, and the
-          future of work — with a genuinely global lens and a particular focus on what's happening
-          in Europe. No editorial team, no opinion, no noise. Just a clean, automated daily or
-          weekly briefing built for people who need to understand AI, not just follow it.
+          The Full Picture covers the full spectrum — research, regulation, ethics, business impact,
+          and the future of work — with a genuinely global lens and a particular focus on what's
+          happening in Europe. No editorial team, no opinion, no noise. Just a clean, automated
+          daily or weekly briefing built for people who need to understand AI, not just follow it.
         </p>
       </div>
       <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground">
