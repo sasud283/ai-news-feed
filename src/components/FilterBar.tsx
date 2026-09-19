@@ -19,6 +19,8 @@ type Props = {
   onSaveDefault?: () => void;
   canSaveDefault?: boolean;
   saving?: boolean;
+  onClearDefault?: () => void;
+  hasSavedDefault?: boolean;
 };
 
 function outlineChip(active: boolean) {

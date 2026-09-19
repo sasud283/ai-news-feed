@@ -198,8 +198,9 @@ function FeedPage() {
           onChange={update}
           onReset={reset}
           onSaveDefault={saveDefault}
-          canSaveDefault={Boolean(user)}
-          saving={savingDefault}
+          canSaveDefault
+          onClearDefault={clearDefault}
+          hasSavedDefault={hasSavedDefault}
         />
       </section>
 
