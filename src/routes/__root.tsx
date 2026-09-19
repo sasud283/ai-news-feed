@@ -132,9 +132,17 @@ function SiteHeader() {
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border/70 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
           <span>AI news briefing</span>
-          <Link to="/subscribe" className="text-brand-accent hover:underline">
-            Get it delivered — from €3/month
-          </Link>
+          <div className="flex flex-wrap items-center gap-4">
+            <Link to="/about" className="transition-colors hover:text-foreground">
+              About
+            </Link>
+            <Link to="/privacy" className="transition-colors hover:text-foreground">
+              Privacy
+            </Link>
+            <Link to="/subscribe" className="text-brand-accent hover:underline">
+              Get it delivered — from €3/month
+            </Link>
+          </div>
         </div>
         <div className="py-5">
         <Link to="/" className="font-serif text-2xl font-semibold tracking-normal text-foreground sm:text-3xl">
