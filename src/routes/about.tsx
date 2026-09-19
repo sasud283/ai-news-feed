@@ -35,9 +35,10 @@ function AboutPage() {
         <p className="font-serif text-lg leading-relaxed text-foreground sm:text-xl">
           Unlike the big AI newsletters that chase funding rounds and Silicon Valley news cycles,
           The Full Picture covers the full spectrum — research, regulation, ethics, business impact,
-          and the future of work — with a genuinely global lens and a particular focus on what's
-          happening in Europe. No editorial team, no opinion, no noise. Just a clean, automated
-          daily or weekly briefing built for people who need to understand AI, not just follow it.
+          and the future of work — with a genuinely global lens. Because AI doesn't just affect one
+          part of the world, and neither should the conversation about it. We pay particular
+          attention to Europe, where some of the most consequential AI regulation and governance
+          decisions are being made right now.
         </p>
       </div>
       <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground">
