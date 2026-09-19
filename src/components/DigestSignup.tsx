@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Check } from "lucide-react";
-import { TIERS, type Filters } from "@/lib/news-digest-cta";
+import type { Filters } from "@/lib/news";
+import { CADENCES, TIERS } from "@/lib/subscription";
 
 /**
  * Homepage call-to-action for the paid newsletter. The signup and payment flow
@@ -22,24 +23,27 @@ export function DigestSignup({ filters }: { filters: Filters }) {
 
       <div className="space-y-6 p-6 sm:p-8">
         <ul className="grid gap-3 sm:grid-cols-2">
-          {TIERS.map((tier) => (
-            <li key={tier.name} className="rounded-md border border-border p-4">
-              <strong className="font-serif text-lg text-foreground">{tier.name}</strong>
-              <span className="mt-1 block text-sm text-muted-foreground">{tier.price}</span>
-              <span className="mt-2 flex items-start gap-2 text-sm text-muted-foreground">
-                <Check className="mt-0.5 size-4 shrink-0 text-brand-accent" />
-                {tier.blurb}
-              </span>
-            </li>
-          ))}
+          {CADENCES.map((cadence) => {
+            const tier = TIERS[cadence];
+            return (
+              <li key={tier.id} className="rounded-md border border-border p-4">
+                <strong className="font-serif text-lg text-foreground">{tier.name}</strong>
+                <span className="mt-1 block text-sm text-muted-foreground">
+                  €{tier.monthly}/month or €{tier.yearly}/year
+                </span>
+                <span className="mt-2 flex items-start gap-2 text-sm text-muted-foreground">
+                  <Check className="mt-0.5 size-4 shrink-0 text-brand-accent" />
+                  {tier.blurb}
+                </span>
+              </li>
+            );
+          })}
         </ul>
 
         <Link
           to="/subscribe"
           search={{
-            topics: filters.topics.length ? filters.topics.join(",") : undefined,
-            cadence: undefined,
-            plan: undefined,
+            ...(filters.topics.length ? { topics: filters.topics.join(",") } : {}),
           }}
           className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-md bg-primary px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-brand-accent"
         >
