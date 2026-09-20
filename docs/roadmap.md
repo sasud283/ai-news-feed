@@ -19,6 +19,7 @@
 - [x] Add podcast and video media displays with safe source-link fallbacks
 - [x] Add a shareable Content Type filter to the filter bar
 - [x] Verify all three card variants on desktop and mobile
+- [x] Add "keeps the AI pipeline / site alive" copy plus coffee-price framing to newsletter CTAs
 
 
 ## Python backend
@@ -29,3 +30,9 @@
 - [x] Phase 3 implementation: persistent state, Supabase mapping, review/publishing handoff
 - [x] Phase 3 live database: private connection, migrations 0000–0004, publication-policy smoke test
 - [ ] Phase 3 activation: confirmed editor/admin account, OpenAI key, real batch, hosted deployment/review check
+
+## Frontend integration
+
+- [x] Merge Lovable through 033f618 with the six impact labels and protected publishing flow
+- [ ] Prevent newsletter confirmation without verified payment before deployment
+- [ ] Configure hosting and scheduled ingestion

@@ -25,6 +25,22 @@ function AboutPage() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-12">
       <h1 className="font-serif text-4xl font-semibold">About TheFullPicture.ai</h1>
+      <div className="mt-8 space-y-6 border-b border-border pb-8 text-base leading-relaxed text-muted-foreground">
+        <p className="font-serif text-lg leading-relaxed text-foreground sm:text-xl">
+          Most AI news is either too narrowly focused on product launches, or heavily skewed toward
+          one region's perspective. If you work in policy, governance, HR, or leadership — or if you
+          simply want to stay across the full AI landscape without the noise — The Full Picture is
+          built for you.
+        </p>
+        <p className="font-serif text-lg leading-relaxed text-foreground sm:text-xl">
+          Unlike the big AI newsletters that chase funding rounds and Silicon Valley news cycles,
+          The Full Picture covers the full spectrum — research, regulation, ethics, business impact,
+          and the future of work — with a genuinely global lens. Because AI doesn't just affect one
+          part of the world, and neither should the conversation about it. We pay particular
+          attention to Europe, where some of the most consequential AI regulation and governance
+          decisions are being made right now.
+        </p>
+      </div>
       <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground">
         <section>
           <h2 className="font-serif text-xl font-semibold text-foreground">
@@ -92,6 +108,11 @@ function AboutPage() {
           </p>
         </section>
       </div>
+      <p className="mt-10 text-xs text-muted-foreground/70">
+        <Link to="/impressum" className="underline underline-offset-2 hover:text-foreground">
+          Legal notice (Impressum)
+        </Link>
+      </p>
     </main>
   );
 }
