@@ -6,6 +6,7 @@ import {
   CONTENT_TYPES,
   GEOGRAPHIES,
   TONES,
+  TONE_DESCRIPTIONS,
   TOPICS,
   topicClass,
   type Filters,
@@ -23,7 +24,9 @@ type Props = {
 
 function outlineChip(active: boolean) {
   return `rounded-full border bg-background px-3 py-1 text-sm text-foreground shadow-none transition-colors hover:border-brand-accent hover:text-brand-accent ${
-    active ? "border-brand-accent bg-accent font-semibold text-accent-foreground ring-1 ring-brand-accent" : "border-border"
+    active
+      ? "border-brand-accent bg-accent font-semibold text-accent-foreground ring-1 ring-brand-accent"
+      : "border-border"
   }`;
 }
 
@@ -77,8 +80,8 @@ export function FilterBar({
                 size="sm"
                 variant="outline"
                 onClick={() => toggleTopic(t)}
-                 className={`rounded-full border-transparent px-3 shadow-none opacity-85 hover:opacity-100 ${topicClass[t]} ${
-                   filters.topics.includes(t) ? "ring-2 ring-brand-accent ring-offset-2" : ""
+                className={`rounded-full border-transparent px-3 shadow-none opacity-85 hover:opacity-100 ${topicClass[t]} ${
+                  filters.topics.includes(t) ? "ring-2 ring-brand-accent ring-offset-2" : ""
                 }`}
               >
                 {filters.topics.includes(t) && <Check />}
@@ -91,12 +94,14 @@ export function FilterBar({
         <div className="grid gap-4 sm:grid-cols-3">
           <div>
             <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
-              Tone
+              Impact
             </p>
             <div className="flex flex-wrap gap-2">
               {TONES.map((tone) => (
                 <Button
                   key={tone}
+                  title={TONE_DESCRIPTIONS[tone]}
+                  aria-pressed={filters.tone === tone}
                   type="button"
                   size="sm"
                   variant="outline"
@@ -108,6 +113,11 @@ export function FilterBar({
                 </Button>
               ))}
             </div>
+            <p className="mt-2 text-xs text-muted-foreground">
+              {filters.tone
+                ? TONE_DESCRIPTIONS[filters.tone]
+                : "Labels describe the development’s impact, not the article’s writing style."}
+            </p>
           </div>
 
           <div>
@@ -137,14 +147,23 @@ export function FilterBar({
             </p>
             <div className="flex flex-wrap gap-2">
               {CONTENT_TYPES.map((contentType) => {
-                const Icon = contentType === "Podcast" ? Headphones : contentType === "Video" ? PlaySquare : FileText;
+                const Icon =
+                  contentType === "Podcast"
+                    ? Headphones
+                    : contentType === "Video"
+                      ? PlaySquare
+                      : FileText;
                 return (
                   <Button
                     key={contentType}
                     type="button"
                     size="sm"
                     variant="outline"
-                    onClick={() => onChange({ contentType: filters.contentType === contentType ? null : contentType })}
+                    onClick={() =>
+                      onChange({
+                        contentType: filters.contentType === contentType ? null : contentType,
+                      })
+                    }
                     className={outlineChip(filters.contentType === contentType)}
                   >
                     {filters.contentType === contentType ? <Check /> : <Icon />}
@@ -154,7 +173,6 @@ export function FilterBar({
               })}
             </div>
           </div>
-
         </div>
 
         <div>

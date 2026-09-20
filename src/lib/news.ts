@@ -1,8 +1,10 @@
+import type { SupabaseClient } from "@supabase/supabase-js";
+import type { StorageDatabase } from "@/lib/storage.types";
 import { supabase } from "@/integrations/supabase/client";
 import type { Database } from "@/integrations/supabase/types";
 
 export type Topic = Database["public"]["Enums"]["story_topic"];
-export type Tone = Database["public"]["Enums"]["story_tone"];
+export type Tone = Database["public"]["Enums"]["story_tone"] | "Cool" | "Neutral";
 export type Access = Database["public"]["Enums"]["story_access"];
 export type Geography = Database["public"]["Enums"]["story_geography"];
 export type ContentType = "Article" | "Podcast" | "Video";
@@ -19,7 +21,7 @@ export const TOPICS: Topic[] = [
   "Tools & Products",
 ];
 
-export const TONES: Tone[] = ["Good", "Useful", "Bad", "Ugly"];
+export const TONES: Tone[] = ["Good", "Useful", "Bad", "Ugly", "Cool", "Neutral"];
 export const ACCESS_OPTIONS: Access[] = ["Free", "Paid"];
 export const CONTENT_TYPES: ContentType[] = ["Article", "Podcast", "Video"];
 export const GEOGRAPHIES: Geography[] = [
@@ -33,11 +35,22 @@ export const GEOGRAPHIES: Geography[] = [
   "Middle East",
 ];
 
+export const TONE_DESCRIPTIONS: Record<Tone, string> = {
+  Good: "Demonstrated benefit for people, society, or scientific understanding.",
+  Useful: "An actionable capability, resource, or guidance.",
+  Cool: "A concrete creative or novel idea with wider impact unproven.",
+  Neutral: "Newsworthy, with no clear positive or negative impact established.",
+  Bad: "A documented failure, setback, or adverse consequence.",
+  Ugly: "Serious harm, abuse, deception, or reckless conduct; requires editorial review.",
+};
+
 export const toneClass: Record<Tone, string> = {
   Good: "bg-tone-good text-tone-contrast border-tone-good",
   Useful: "bg-tone-useful text-tone-contrast border-tone-useful",
   Bad: "bg-tone-bad text-tone-contrast border-tone-bad",
   Ugly: "bg-tone-ugly text-tone-contrast border-tone-ugly",
+  Cool: "bg-tone-cool text-tone-contrast border-tone-cool",
+  Neutral: "bg-tone-neutral text-tone-contrast border-tone-neutral",
 };
 
 export const topicClass: Record<Topic, string> = {
@@ -68,7 +81,7 @@ export type StorySource = {
   id: string;
   source_name: string;
   source_url: string;
-  is_paywalled: boolean;
+  is_paywalled: boolean | null;
 };
 
 export type Story = {
@@ -98,7 +111,7 @@ type RawStory = {
   content_type: string;
   media_url: string | null;
   story_topics: { topic: Topic }[];
-  story_tags: { tone: Tone; access: Access; geography: Geography }[];
+  story_tags: { tone: Tone | null; access: Access | null; geography: Geography | null } | null;
   story_sources: StorySource[];
 };
 
@@ -106,9 +119,11 @@ const SELECT =
   "id, headline, ai_generated_summary, published_at, updated_at, is_correction_of, content_type, media_url, story_topics(topic), story_tags(tone, access, geography), story_sources(id, source_name, source_url, is_paywalled)";
 
 export async function fetchStories(): Promise<Story[]> {
-  const { data, error } = await supabase
+  const db = supabase as unknown as SupabaseClient<StorageDatabase>;
+  const { data, error } = await db
     .from("stories")
     .select(SELECT)
+    .eq("publication_status", "published")
     .order("published_at", { ascending: false })
     .limit(300);
 
@@ -116,7 +131,7 @@ export async function fetchStories(): Promise<Story[]> {
 
   const raw = (data ?? []) as unknown as RawStory[];
   const stories: Story[] = raw.map((s) => {
-    const tags = s.story_tags?.[0];
+    const tags = s.story_tags;
     return {
       id: s.id,
       headline: s.headline,

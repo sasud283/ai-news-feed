@@ -26,4 +26,6 @@
 - [x] Phase 1: RSS ingestion and expanded source registry
 - [x] Phase 2: local deduplication, GPT-4o-mini classification/summaries, review flags
 - [ ] Evaluate model quality against representative editorial examples
-- [ ] Phase 3: persistent state, Supabase mapping, review/publishing handoff
+- [x] Phase 3 implementation: persistent state, Supabase mapping, review/publishing handoff
+- [x] Phase 3 live database: private connection, migrations 0000–0004, publication-policy smoke test
+- [ ] Phase 3 activation: confirmed editor/admin account, OpenAI key, real batch, hosted deployment/review check

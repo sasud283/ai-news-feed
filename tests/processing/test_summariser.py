@@ -21,6 +21,12 @@ async def test_combined_request_uses_required_model(
     body = json.loads(route.calls[0].request.content)
     assert body["model"] == "gpt-4o-mini"
     assert body["store"] is False
+    output = body["response_format"]
+    assert output["type"] == "json_schema"
+    assert output["json_schema"]["strict"] is True
+    schema = output["json_schema"]["schema"]
+    assert set(schema["required"]) == set(payload)
+    assert schema["additionalProperties"] is False
     assert body["max_completion_tokens"] == 400
     assert route.call_count == 1
 
@@ -83,3 +89,25 @@ async def test_missing_excerpt_requires_review(
         StoryGroup((replace(item, raw_summary=""),)), client=client
     )
     assert "headline_only_evidence" in result.review_reasons
+
+
+async def test_non_ai_requires_scores_and_explicit_prompt(
+    item, payload, completion, client, respx_mock
+):
+    payload.update(relevant=False, topics=[], summary="", scores=[0, 0, 0.95])
+    route = respx_mock.post(URL).respond(200, json=completion(payload))
+    result = await summarise_story(StoryGroup((item,)), client=client)
+    assert not result.classification.relevant
+    assert result.classification.relevance_confidence == 0.95
+    body = json.loads(route.calls[0].request.content)
+    assert "len(topics)+3" in body["messages"][0]["content"]
+    assert "scores=[0,0,confidence]" in body["messages"][0]["content"]
+
+
+async def test_missing_non_ai_confidence_is_not_invented(
+    item, payload, completion, client, respx_mock
+):
+    payload.update(relevant=False, topics=[], summary="", scores=[])
+    respx_mock.post(URL).respond(200, json=completion(payload))
+    with pytest.raises(ValueError, match="Require one score"):
+        await summarise_story(StoryGroup((item,)), client=client)

@@ -69,3 +69,15 @@ def test_irrelevant_content_has_no_topic(payload):
     payload.update(relevant=False, topics=[], scores=[0, 0, 0.99])
     result = classify(payload)
     assert result.relevant is False and result.topics == () and result.tone is None
+
+
+def test_ugly_and_mixed_evidence_propagate_review_flags(payload):
+    payload["tone"] = [3]
+    classification = classify(payload)
+    assert classification.tone == "Ugly"
+    assert "ugly_requires_review" in review_reasons(classification)
+    payload["tone"] = [0, 2]
+    classification = classify(payload)
+    assert classification.tone is None
+    assert "mixed_impact" in review_reasons(classification)
+    assert classification.tone_reason

@@ -27,7 +27,9 @@ function AboutPage() {
       <h1 className="font-serif text-4xl font-semibold">About TheFullPicture.ai</h1>
       <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground">
         <section>
-          <h2 className="font-serif text-xl font-semibold text-foreground">One story, many sources</h2>
+          <h2 className="font-serif text-xl font-semibold text-foreground">
+            One story, many sources
+          </h2>
           <p className="mt-2">
             When several outlets cover the same development, we show a single card rather than one
             card per outlet. Every outlet that contributed is listed underneath, with a padlock next
@@ -56,8 +58,11 @@ function AboutPage() {
           <h2 className="font-serif text-xl font-semibold text-foreground">What the tags mean</h2>
           <ul className="mt-2 space-y-2">
             <li>
-              <strong className="text-foreground">Tone</strong> — Good, Useful, Bad or Ugly: a quick
-              read on how the development lands, not a judgement of the reporting.
+              <strong className="text-foreground">Tone</strong> — Good (demonstrated benefit),
+              Useful (practical value), Cool (creative novelty), Neutral (no established positive or
+              negative impact), Bad (adverse consequences), or Ugly (serious harm or abuse). Labels
+              describe the development, not whether the reporting sounds positive or balanced.
+              Uncertain or mixed evidence requires review.
             </li>
             <li>
               <strong className="text-foreground">Topic</strong> — one or more subject areas, from
@@ -78,8 +83,8 @@ function AboutPage() {
           <p className="mt-2">
             Filters combine, and the page address updates as you change them, so any filtered view
             can be shared or bookmarked. Signed-in readers can save a combination as their default
-            view, and readers can subscribe to TheFullPicture.ai's paid email digest built from the filters they have
-            selected, for €25 per year or €3 per month. See the{" "}
+            view, and readers can subscribe to TheFullPicture.ai's paid email digest built from the
+            filters they have selected, for €25 per year or €3 per month. See the{" "}
             <Link to="/privacy" className="underline underline-offset-4">
               privacy policy
             </Link>{" "}

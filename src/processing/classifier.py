@@ -5,6 +5,9 @@ from math import isfinite
 from typing import Any
 
 from src.processing.models import Classification
+from src.processing.tone_rules import TONES, decide_tone
+
+__all__ = ["GEOGRAPHIES", "TONES", "TOPICS", "classify", "review_reasons"]
 
 TOPICS = (
     "Models & Research",
@@ -17,7 +20,6 @@ TOPICS = (
     "AI Equity & Representation",
     "Tools & Products",
 )
-TONES = ("Good", "Useful", "Bad", "Ugly")
 GEOGRAPHIES = (
     "Worldwide",
     "US",
@@ -63,7 +65,6 @@ def classify(payload: Mapping[str, Any]) -> Classification:
         raise ValueError("Relevant stories require a topic")
     if not relevant and topics:
         raise ValueError("Irrelevant stories must have no topics")
-    tone = _label(payload.get("tone"), TONES) if relevant else None
     geography = _label(payload.get("geography"), GEOGRAPHIES) if relevant else None
     scores = payload.get("scores")
     if not isinstance(scores, list) or len(scores) != len(topics) + 3:
@@ -73,16 +74,27 @@ def classify(payload: Mapping[str, Any]) -> Classification:
         for score in scores
     ):
         raise ValueError("Confidence must be finite and between zero and one")
+    decision = (
+        decide_tone(
+            payload.get("tone"),
+            confidence=float(scores[-3]),
+            disagreement=payload["disagreement"],
+        )
+        if relevant
+        else None
+    )
     return Classification(
         relevant,
         topics,
-        tone,
+        decision.label if decision else None,
         geography,
         tuple(float(s) for s in scores[:-3]),
         float(scores[-3]),
         float(scores[-2]),
         float(scores[-1]),
         payload["disagreement"],
+        decision.reason if decision else None,
+        decision.review_flags if decision else (),
     )
 
 
@@ -111,4 +123,4 @@ def review_reasons(
             reasons.append(f"low_{name}_confidence")
     if classification.disagreement:
         reasons.append("source_disagreement")
-    return tuple(reasons)
+    return tuple(dict.fromkeys([*reasons, *classification.tone_flags]))

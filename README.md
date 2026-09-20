@@ -15,10 +15,11 @@ Repository: [sasud283/ai-news-feed](https://github.com/sasud283/ai-news-feed).
 | `docs/roadmap.md` | Frontend progress and planning |
 | `src/ingestion/` | Python RSS poller and source registry |
 | `src/processing/` | Deduplication, classification, summaries, and review flags |
+| `src/storage/` | Persistent processing state and Supabase publication |
 | `src/routes/`, `src/components/`, `src/hooks/` | Frontend pages and UI |
 | `src/lib/`, `src/integrations/` | Frontend helpers and service connections |
 | `src/assets/`, `public/` | Bundled images and publicly served assets |
-| `tests/` | Python ingestion and processing tests |
+| `tests/` | Python ingestion, processing and storage tests |
 | `drizzle/` | Database schema and migrations |
 | `supabase/` | Supabase configuration |
 | `.lovable/` | Lovable project metadata and plans |
@@ -33,12 +34,15 @@ Root configuration and dependency files stay where the existing tools expect the
 - [Original frontend brief](docs/specs/frontend-spec.md)
 - [Ingestion setup and behavior](docs/development/ingestion.md)
 - [Processing setup and behavior](docs/development/processing.md)
+- [Editorial label definitions](docs/development/editorial-labels.md)
+- [Storage setup and activation](docs/development/storage.md)
 - [Source inventory and connection status](docs/sources/README.md)
 - [Roadmap](docs/roadmap.md)
 
 The Python spec describes a broader future architecture. The current frontend
-uses React and Supabase; Phases 1 and 2 provide feed polling and processing; database storage and
-publishing to Supabase remain Phase 3 work.
+uses React and Supabase. Phases 1–3 provide polling, processing, persistence and
+review/publication controls. Phase 3 live activation requires applying the migration
+and configuring the private database connection; see the storage guide.
 
 ## Local development
 
@@ -55,7 +59,7 @@ Python ingestion, after following the [setup guide](docs/development/ingestion.m
 
 ```sh
 source .venv/bin/activate
-ruff check src/ingestion/ src/processing/ && python -m pytest tests/ -v
+ruff check src/ingestion/ src/processing/ src/storage/ && python -m pytest tests/ -v
 ```
 
 ## Lovable

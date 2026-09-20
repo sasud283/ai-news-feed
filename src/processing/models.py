@@ -21,6 +21,8 @@ class Classification:
     geography_confidence: float
     relevance_confidence: float
     disagreement: bool
+    tone_reason: str | None = None
+    tone_flags: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True, slots=True)

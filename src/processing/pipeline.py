@@ -24,6 +24,14 @@ from src.processing.models import (
 )
 from src.processing.summariser import summarise_story
 
+_VALIDATION_REASONS = {
+    "Require one score per topic, then tone, geography, relevance": "score_count_mismatch",
+    "Unexpected model response fields": "response_fields_mismatch",
+    "Model response incomplete or refused": "incomplete_or_refused",
+    "Invalid summary length": "summary_length_invalid",
+    "Unknown classification label": "classification_label_invalid",
+}
+
 
 class _JsonFormatter(logging.Formatter):
     def format(self, record: logging.LogRecord) -> str:
@@ -33,6 +41,7 @@ class _JsonFormatter(logging.Formatter):
                 "level": record.levelname,
                 "url": getattr(record, "story_url", None),
                 "error_type": getattr(record, "error_type", None),
+                "validation_reason": getattr(record, "validation_reason", None),
             }
         )
 
@@ -167,7 +176,15 @@ async def process_items(
                 failures.append(ProcessingFailure(urls, type(exc).__name__))
                 logger.error(
                     "processing_error",
-                    extra={"story_url": urls[0], "error_type": type(exc).__name__},
+                    extra={
+                        "story_url": urls[0],
+                        "error_type": type(exc).__name__,
+                        "validation_reason": (
+                            _VALIDATION_REASONS.get(str(exc), "invalid_model_output")
+                            if isinstance(exc, ValueError)
+                            else None
+                        ),
+                    },
                 )
                 continue
             tags = analysis.classification

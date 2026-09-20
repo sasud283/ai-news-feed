@@ -130,7 +130,7 @@ Copying detection is a heuristic and does not validate every factual claim.
 - One combined classification-and-summary call per new grouped story. No separate
   model call for each topic or source. High-confidence non-AI results are discarded.
 - Locally counted prompt budget: at most 499 tokens, including serialized message
-  and JSON-mode configuration plus a framing allowance. Provider billing may count
+  and the strict output schema plus a framing allowance. Provider billing may count
   framing differently. The instruction is retained; source text is shortened to fit.
 - At most three sources enter the prompt; all sources remain in the returned
   attribution list. Omitted or shortened evidence always triggers review. The input
@@ -145,7 +145,23 @@ Copying detection is a heuristic and does not validate every factual claim.
   never excerpts, generated summaries, keys, or raw API error responses.
 
 The [official OpenAI model documentation](https://developers.openai.com/api/docs/models/gpt-4o-mini)
-confirms the chosen model's API support. JSON mode and validation follow the
+confirms the chosen model's API support. Structured outputs and validation follow the
 [official output-format guidance](https://developers.openai.com/api/docs/guides/structured-outputs).
-This implementation uses JSON mode with strict local validation, not schema-constrained
-generation; malformed output remains possible and is handled as a failure.
+The API enforces a strict JSON schema for the seven required response fields.
+Local validation still checks taxonomy IDs, confidence ranges and score counts,
+summary length, and relevance consistency. Refused, truncated or semantically
+invalid responses remain retryable failures. Confidence scores are required even
+for non-AI items; missing scores are never invented. Structured logs identify
+score-count and field mismatches without exposing model output or publisher text.
+
+The first live diagnosis found missing non-AI confidence scores and omitted fields.
+After clarifying score semantics and enforcing the schema, the remaining two live
+retry requests passed validation. Across the five-item batch, two summarized stories
+and two uncertain items entered review, and one non-AI item was filtered out.
+These are pipeline checks, not an editorial quality evaluation.
+
+## Editorial impact rules
+
+See [the six-label editorial rules](editorial-labels.md). The strict response now
+uses `tone` as an array of evidence signals; deterministic rules assign the final
+label or require review. Cool and Neutral are supported throughout the website.

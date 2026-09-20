@@ -50,3 +50,13 @@
   never convert missing metadata to confident labels just to fit the database.
 - Pass persisted seen URLs and recent metadata to processing when storage is added.
   Keep deferred and failed items retryable. See docs/development/processing.md.
+
+## Storage conventions
+
+- Keep persistence in src/storage/ and tests in tests/storage/.
+- Apply the Phase 3 migration before deploying its frontend changes.
+- Use process_and_store for batches; its database transaction owns the worker lock.
+- Never mark failed/deferred items seen or store publisher excerpts in retry state.
+- Review server functions must use authenticated admin access, never an unrestricted
+  service-role client. Preserve publication RLS on stories and their child tables.
+- See docs/development/storage.md for activation order and verification.

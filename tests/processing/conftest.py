@@ -27,7 +27,7 @@ def payload():
         "relevant": True,
         "summary": "OpenAI has introduced an AI model with reported gains on reasoning tests.",
         "topics": [0],
-        "tone": 0,
+        "tone": [0],
         "geography": 0,
         "scores": [0.95, 0.95, 0.95, 0.95],
         "disagreement": False,
