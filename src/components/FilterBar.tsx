@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { TOPIC_DESCRIPTIONS } from "@/lib/taxonomy";
 import {
   Search,
@@ -8,6 +9,8 @@ import {
   Headphones,
   PlaySquare,
   RotateCcw,
+  SlidersHorizontal,
+  ChevronDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -52,6 +55,15 @@ export function FilterBar({
   onClearDefault,
   hasSavedDefault,
 }: Props) {
+  const activeAdvanced =
+    (filters.tone !== null ? 1 : 0) +
+    (filters.access !== null ? 1 : 0) +
+    (filters.contentType !== null ? 1 : 0) +
+    (filters.geography !== null ? 1 : 0);
+
+  // Open on load when an advanced filter is already active (e.g. a shared URL).
+  const [advancedOpen, setAdvancedOpen] = useState(activeAdvanced > 0);
+
   const toggleTopic = (topic: Topic) => {
     const next = filters.topics.includes(topic)
       ? filters.topics.filter((t) => t !== topic)
@@ -106,110 +118,138 @@ export function FilterBar({
           </div>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-3">
-          <div>
-            <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
-              Impact
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {TONES.map((tone) => (
-                <Button
-                  key={tone}
-                  title={TONE_DESCRIPTIONS[tone]}
-                  aria-pressed={filters.tone === tone}
-                  type="button"
-                  size="sm"
-                  variant="outline"
-                  onClick={() => onChange({ tone: filters.tone === tone ? null : tone })}
-                  className={outlineChip(filters.tone === tone)}
-                >
-                  {filters.tone === tone && <Check />}
-                  {tone}
-                </Button>
-              ))}
-            </div>
-            <p className="mt-2 text-xs text-muted-foreground">
-              {filters.tone
-                ? TONE_DESCRIPTIONS[filters.tone]
-                : "Labels describe the development’s impact, not the article’s writing style."}
-            </p>
-          </div>
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setAdvancedOpen((open) => !open)}
+            aria-expanded={advancedOpen}
+            className={`inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm shadow-none transition-colors ${
+              advancedOpen
+                ? "border-brand-accent bg-accent font-semibold text-accent-foreground ring-1 ring-brand-accent"
+                : "border-border bg-background text-foreground hover:border-brand-accent hover:text-brand-accent"
+            }`}
+          >
+            <SlidersHorizontal className="h-4 w-4" />
+            Advanced search
+            {activeAdvanced > 0 && (
+              <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-brand-accent px-1.5 text-xs font-semibold text-accent-foreground">
+                {activeAdvanced}
+              </span>
+            )}
+            <ChevronDown
+              className={`h-4 w-4 transition-transform ${advancedOpen ? "rotate-180" : ""}`}
+            />
+          </button>
+        </div>
 
-          <div>
-            <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
-              Access
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {ACCESS_OPTIONS.map((a) => (
-                <Button
-                  key={a}
-                  type="button"
-                  size="sm"
-                  variant="outline"
-                  onClick={() => onChange({ access: filters.access === a ? null : a })}
-                  className={outlineChip(filters.access === a)}
-                >
-                  {filters.access === a && <Check />}
-                  {a}
-                </Button>
-              ))}
-            </div>
-          </div>
+        {advancedOpen && (
+          <>
+            <div className="grid gap-4 sm:grid-cols-3">
+              <div>
+                <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+                  Impact
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {TONES.map((tone) => (
+                    <Button
+                      key={tone}
+                      title={TONE_DESCRIPTIONS[tone]}
+                      aria-pressed={filters.tone === tone}
+                      type="button"
+                      size="sm"
+                      variant="outline"
+                      onClick={() => onChange({ tone: filters.tone === tone ? null : tone })}
+                      className={outlineChip(filters.tone === tone)}
+                    >
+                      {filters.tone === tone && <Check />}
+                      {tone}
+                    </Button>
+                  ))}
+                </div>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  {filters.tone
+                    ? TONE_DESCRIPTIONS[filters.tone]
+                    : "Labels describe the development’s impact, not the article’s writing style."}
+                </p>
+              </div>
 
-          <div>
-            <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
-              Content type
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {CONTENT_TYPES.map((contentType) => {
-                const Icon =
-                  contentType === "Podcast"
-                    ? Headphones
-                    : contentType === "Video"
-                      ? PlaySquare
-                      : FileText;
-                return (
+              <div>
+                <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+                  Access
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {ACCESS_OPTIONS.map((a) => (
+                    <Button
+                      key={a}
+                      type="button"
+                      size="sm"
+                      variant="outline"
+                      onClick={() => onChange({ access: filters.access === a ? null : a })}
+                      className={outlineChip(filters.access === a)}
+                    >
+                      {filters.access === a && <Check />}
+                      {a}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+                  Content type
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {CONTENT_TYPES.map((contentType) => {
+                    const Icon =
+                      contentType === "Podcast"
+                        ? Headphones
+                        : contentType === "Video"
+                          ? PlaySquare
+                          : FileText;
+                    return (
+                      <Button
+                        key={contentType}
+                        type="button"
+                        size="sm"
+                        variant="outline"
+                        onClick={() =>
+                          onChange({
+                            contentType: filters.contentType === contentType ? null : contentType,
+                          })
+                        }
+                        className={outlineChip(filters.contentType === contentType)}
+                      >
+                        {filters.contentType === contentType ? <Check /> : <Icon />}
+                        {contentType}
+                      </Button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+                Geography
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {GEOGRAPHIES.map((g) => (
                   <Button
-                    key={contentType}
+                    key={g}
                     type="button"
                     size="sm"
                     variant="outline"
-                    onClick={() =>
-                      onChange({
-                        contentType: filters.contentType === contentType ? null : contentType,
-                      })
-                    }
-                    className={outlineChip(filters.contentType === contentType)}
+                    onClick={() => onChange({ geography: filters.geography === g ? null : g })}
+                    className={outlineChip(filters.geography === g)}
                   >
-                    {filters.contentType === contentType ? <Check /> : <Icon />}
-                    {contentType}
+                    {filters.geography === g && <Check />}
+                    {g}
                   </Button>
-                );
-              })}
+                ))}
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div>
-          <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
-            Geography
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {GEOGRAPHIES.map((g) => (
-              <Button
-                key={g}
-                type="button"
-                size="sm"
-                variant="outline"
-                onClick={() => onChange({ geography: filters.geography === g ? null : g })}
-                className={outlineChip(filters.geography === g)}
-              >
-                {filters.geography === g && <Check />}
-                {g}
-              </Button>
-            ))}
-          </div>
-        </div>
+          </>
+        )}
 
         <div className="space-y-2 pt-1">
           <div className="flex flex-wrap items-center gap-3">
