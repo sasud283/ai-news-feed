@@ -143,6 +143,7 @@ export function FilterBar({
         </div>
 
         {advancedOpen && (
+          <>
           <div className="grid gap-4 sm:grid-cols-3">
           <div>
             <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
