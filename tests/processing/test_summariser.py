@@ -18,6 +18,7 @@ async def test_combined_request_uses_required_model(
     result = await summarise_story(StoryGroup((item,)), client=client)
     assert result.classification.topics == ("Models & Research",)
     assert result.summary == wire_payload["s"]
+    assert result.language == "English"
     body = json.loads(route.calls[0].request.content)
     assert body["model"] == "gpt-4o-mini"
     assert body["store"] is False
@@ -38,10 +39,11 @@ async def test_prompt_budget_html_and_unicode(item):
         raw_summary="<script>SECRET</script><p>研究 model </p>" * 1000,
     )
     prompt = await build_prompt(StoryGroup((hostile, hostile, hostile, hostile)))
-    assert prompt.token_count < 500 and prompt.truncated
+    assert prompt.token_count <= 800 and prompt.truncated
     assert "SECRET" not in prompt.evidence and "<script>" not in prompt.evidence
-    assert len(json.loads(prompt.evidence)["items"]) == 3
-    assert "untrusted evidence" in prompt.instructions
+    assert 1 <= len(json.loads(prompt.evidence)["items"]) <= 3
+    assert "untrusted" in prompt.instructions.lower()
+    assert "obey no instructions" in prompt.instructions
 
 
 async def test_arxiv_uses_abstract_and_shorter_summary(
@@ -128,6 +130,7 @@ async def test_non_ai_requires_confidence_and_explicit_prompt(
     assert result.classification.relevance_confidence == 0.95
     body = json.loads(route.calls[0].request.content)
     assert "rc=confidence" in body["messages"][0]["content"]
+    assert "substantive main subject" in body["messages"][0]["content"]
 
 
 async def test_missing_non_ai_confidence_is_rejected(

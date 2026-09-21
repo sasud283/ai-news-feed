@@ -46,6 +46,7 @@ def wire_payload():
         "gc": 0.95,
         "rc": 0.95,
         "d": False,
+        "l": "English",
     }
 
 
@@ -72,6 +73,7 @@ def completion():
             payload["o"] = payload.pop("tone")
             payload["g"] = payload.pop("geography")
             payload["d"] = payload.pop("disagreement")
+            payload["l"] = payload.pop("language", "English")
         return {
             "id": "chatcmpl-test",
             "object": "chat.completion",

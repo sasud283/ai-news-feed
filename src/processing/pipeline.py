@@ -5,6 +5,7 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
+import re
 from collections.abc import Collection, Mapping, Sequence
 from pathlib import Path
 
@@ -53,6 +54,19 @@ if not logger.handlers:
     logger.addHandler(handler)
 logger.setLevel(logging.INFO)
 logger.propagate = False
+
+_AI_SIGNAL = re.compile(
+    r"\b(?:AI|LLMs?|artificial intelligence|machine learning|deep learning|"
+    r"large language models?|foundation models?|neural networks?|computer vision|"
+    r"natural language processing|chatbots?|deepfakes?|AI agents?|"
+    r"OpenAI|ChatGPT|Anthropic|Claude|DeepMind|Gemini|Mistral|Copilot)\b",
+    re.IGNORECASE,
+)
+
+
+def _has_ai_signal(item: FeedItem) -> bool:
+    """Return whether the available feed evidence explicitly concerns AI or ML."""
+    return bool(_AI_SIGNAL.search(f"{item.title} {item.raw_summary}"))
 
 
 def _load_types() -> dict[str, ContentType]:
@@ -126,6 +140,7 @@ async def process_items(
     known = {canonical_url(item.url) for item in existing_items}
     seen |= known
     skipped: list[str] = []
+    rejected: list[str] = []
     valid: list[FeedItem] = []
     failures: list[ProcessingFailure] = []
     for item in items:
@@ -138,6 +153,9 @@ async def process_items(
             continue
         if url in seen:
             skipped.append(url)
+        elif not _has_ai_signal(item):
+            rejected.append(url)
+            logger.info("no_ai_signal", extra={"story_url": url})
         else:
             valid.append(item)
     # Do not drop repeated URLs in advance: grouping retains attribution aliases.
@@ -146,7 +164,6 @@ async def process_items(
     )
     stories: list[ProcessedStory] = []
     updates: list[SourceUpdate] = []
-    rejected: list[str] = []
     deferred: list[str] = []
     calls = 0
     owned: AsyncOpenAI | None = None
@@ -188,7 +205,7 @@ async def process_items(
                 )
                 continue
             tags = analysis.classification
-            if not tags.relevant and tags.relevance_confidence >= review_threshold:
+            if not tags.relevant:
                 rejected.extend(urls)
                 logger.info("irrelevant_story", extra={"story_url": urls[0]})
                 continue
@@ -196,8 +213,6 @@ async def process_items(
                 *analysis.review_reasons,
                 *review_reasons(tags, threshold=review_threshold),
             ]
-            if not tags.relevant:
-                reasons.append("uncertain_relevance")
             sources = _sources(group.items, access)
             if any(source.access is None for source in sources):
                 reasons.append("unknown_access")
@@ -226,6 +241,7 @@ async def process_items(
                     group.content_type,
                     aggregate_access,
                     tuple(dict.fromkeys(reasons)),
+                    analysis.language,
                     group.related_to_url,
                 )
             )

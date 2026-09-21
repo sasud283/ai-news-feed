@@ -47,6 +47,7 @@ class ProcessedStory:
     content_type: ContentType
     access: Access | None
     review_reasons: tuple[str, ...]
+    language: str
     related_to_url: str | None = None
 
 

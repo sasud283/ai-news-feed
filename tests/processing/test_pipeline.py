@@ -87,14 +87,29 @@ async def test_irrelevant_news_filtered(item, payload, completion, client, respx
     assert not result.stories and result.rejected_urls == (item.url,)
 
 
-async def test_uncertain_relevance_held_for_review(
+async def test_uncertain_non_ai_is_rejected(
     item, payload, completion, client, respx_mock
 ):
     payload.update(relevant=False, topics=[], summary="", scores=[0, 0, 0.5])
     respx_mock.post(URL).respond(200, json=completion(payload))
     result = await process_items([item], seen_urls=set(), client=client)
-    assert not result.rejected_urls
-    assert "uncertain_relevance" in result.stories[0].review_reasons
+    assert result.rejected_urls == (item.url,)
+    assert not result.stories
+
+
+async def test_article_without_explicit_ai_signal_is_rejected_without_model(
+    item, client, respx_mock
+):
+    unrelated = replace(
+        item,
+        title="Google receives a privacy fine over location data",
+        raw_summary="Regulators found problems with the company's location practices.",
+    )
+    route = respx_mock.post(URL)
+    result = await process_items([unrelated], seen_urls=set(), client=client)
+    assert result.rejected_urls == (unrelated.url,)
+    assert not result.stories
+    assert route.call_count == 0
 
 
 async def test_podcast_source_defaults_do_not_merge_episodes(

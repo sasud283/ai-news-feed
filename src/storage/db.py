@@ -249,8 +249,8 @@ async def save_result(connection: asyncpg.Connection, result: ProcessingResult) 
         story_id = await connection.fetchval(
             "INSERT INTO public.stories(headline, ai_generated_summary, published_at, "
             "canonical_url, publication_status, content_type, media_url, "
-            "processing_metadata, related_to_url) "
-            "VALUES ($1,$2,$3,$4,$5,$6,$7,$8::jsonb,$9) "
+            "processing_metadata, related_to_url, language) "
+            "VALUES ($1,$2,$3,$4,$5,$6,$7,$8::jsonb,$9,$10) "
             "ON CONFLICT (canonical_url) DO NOTHING RETURNING id",
             story.headline,
             story.ai_generated_summary,
@@ -265,6 +265,7 @@ async def save_result(connection: asyncpg.Connection, result: ProcessingResult) 
             url if story.content_type != "Article" else None,
             json.dumps({"classification": asdict(tags), "review_reasons": reasons}),
             story.related_to_url,
+            story.language,
         )
         if story_id is None:
             # Idempotent replay must not overwrite an editor's approved changes.

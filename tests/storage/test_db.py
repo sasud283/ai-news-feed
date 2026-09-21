@@ -46,6 +46,7 @@ def story(**kwargs):
         "Article",
         "Free",
         (),
+        "English",
     )
     return replace(value, **kwargs)
 
@@ -98,6 +99,7 @@ async def test_roundtrip_preserves_unknowns_and_no_excerpts(pg):
     ]
     assert row["publication_status"] == "review"
     assert row["published_at"] is None
+    assert row["language"] == "English"
     assert (
         await pg.fetchval(
             "SELECT access FROM public.story_tags WHERE story_id=$1", row["id"]

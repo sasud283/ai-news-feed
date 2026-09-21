@@ -20,6 +20,7 @@ for (const name of [
   "0005_editorial_tones",
   "0006_newsletter",
   "0007_split_work_topics",
+  "0008_add_story_language",
 ]) {
   const sql = await readFile(`drizzle/migrations/${name}.sql`, "utf8");
   await db.transaction(async (tx) => tx.exec(sql));
