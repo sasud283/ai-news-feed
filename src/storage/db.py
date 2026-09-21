@@ -113,9 +113,12 @@ async def _pending_items(
             item.category,
         )
     pending = await connection.fetch(
-        "SELECT url, headline, published_at, source_name, category FROM public.ingestion_urls "
-        "WHERE status IN ('failed', 'deferred') AND headline IS NOT NULL "
-        "ORDER BY updated_at, url LIMIT 500"
+        "SELECT url, headline, published_at, source_name, category FROM ("
+        "SELECT url, headline, published_at, source_name, category, updated_at, "
+        "row_number() OVER (PARTITION BY source_name ORDER BY updated_at, url) AS source_rank "
+        "FROM public.ingestion_urls WHERE status IN ('failed', 'deferred') "
+        "AND headline IS NOT NULL) ranked "
+        "ORDER BY source_rank, updated_at, url LIMIT 500"
     )
     # Prioritize older retries to prevent starvation; refreshed excerpts remain transient.
     combined = []

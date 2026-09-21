@@ -398,6 +398,30 @@ async def test_deferred_items_survive_disappearing_from_feed(connected, monkeypa
     )
 
 
+async def test_pending_items_are_interleaved_across_sources(connected, monkeypatch):
+    items = [
+        FeedItem("A1", "https://a.test/1", DATE, "Source A", "Ethics", ""),
+        FeedItem("A2", "https://a.test/2", DATE, "Source A", "Ethics", ""),
+        FeedItem("A3", "https://a.test/3", DATE, "Source A", "Ethics", ""),
+        FeedItem("B1", "https://b.test/1", DATE, "Source B", "Ethics", ""),
+    ]
+    captured = []
+
+    async def process(batch, **kwargs):
+        captured.extend(batch)
+        return result(deferred_urls=tuple(item.url for item in batch))
+
+    monkeypatch.setattr("src.storage.db.process_items", process)
+    await process_and_store(items, database_url="test", content_types={})
+
+    assert [item.source_name for item in captured] == [
+        "Source A",
+        "Source B",
+        "Source A",
+        "Source A",
+    ]
+
+
 async def test_legacy_source_is_seen_without_creating_retry(connected, monkeypatch):
     model = AsyncMock(side_effect=AssertionError("Model must not run"))
     monkeypatch.setattr("src.processing.pipeline.summarise_story", model)
