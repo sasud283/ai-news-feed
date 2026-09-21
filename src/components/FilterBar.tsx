@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { TOPIC_DESCRIPTIONS } from "@/lib/taxonomy";
 import {
   Search,
@@ -8,6 +9,8 @@ import {
   Headphones,
   PlaySquare,
   RotateCcw,
+  SlidersHorizontal,
+  ChevronDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -52,6 +55,15 @@ export function FilterBar({
   onClearDefault,
   hasSavedDefault,
 }: Props) {
+  const activeAdvanced =
+    (filters.tone !== null ? 1 : 0) +
+    (filters.access !== null ? 1 : 0) +
+    (filters.contentType !== null ? 1 : 0) +
+    (filters.geography !== null ? 1 : 0);
+
+  // Open on load when an advanced filter is already active (e.g. a shared URL).
+  const [advancedOpen, setAdvancedOpen] = useState(activeAdvanced > 0);
+
   const toggleTopic = (topic: Topic) => {
     const next = filters.topics.includes(topic)
       ? filters.topics.filter((t) => t !== topic)
@@ -106,7 +118,33 @@ export function FilterBar({
           </div>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setAdvancedOpen((open) => !open)}
+            aria-expanded={advancedOpen}
+            className={`inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm shadow-none transition-colors ${
+              advancedOpen
+                ? "border-brand-accent bg-accent font-semibold text-accent-foreground ring-1 ring-brand-accent"
+                : "border-border bg-background text-foreground hover:border-brand-accent hover:text-brand-accent"
+            }`}
+          >
+            <SlidersHorizontal className="h-4 w-4" />
+            Advanced search
+            {activeAdvanced > 0 && (
+              <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-brand-accent px-1.5 text-xs font-semibold text-accent-foreground">
+                {activeAdvanced}
+              </span>
+            )}
+            <ChevronDown
+              className={`h-4 w-4 transition-transform ${advancedOpen ? "rotate-180" : ""}`}
+            />
+          </button>
+        </div>
+
+        {advancedOpen && (
+          <>
+          <div className="grid gap-4 sm:grid-cols-3">
           <div>
             <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
               Impact
@@ -210,6 +248,8 @@ export function FilterBar({
             ))}
           </div>
         </div>
+          </>
+        )}
 
         <div className="space-y-2 pt-1">
           <div className="flex flex-wrap items-center gap-3">
