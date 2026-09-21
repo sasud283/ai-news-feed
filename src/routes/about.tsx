@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { TIERS } from "@/lib/subscription";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -100,7 +101,9 @@ function AboutPage() {
             Filters combine, and the page address updates as you change them, so any filtered view
             can be shared or bookmarked. Signed-in readers can save a combination as their default
             view, and readers can subscribe to TheFullPicture.ai's paid email digest built from the
-            filters they have selected, for €25 per year or €3 per month. See the{" "}
+            filters they have selected. The weekly digest costs €{TIERS.weekly.monthly} per month or
+            €{TIERS.weekly.yearly} per year, and the daily briefing costs €{TIERS.daily.monthly} per
+            month or €{TIERS.daily.yearly} per year. See the{" "}
             <Link to="/privacy" className="underline underline-offset-4">
               privacy policy
             </Link>{" "}

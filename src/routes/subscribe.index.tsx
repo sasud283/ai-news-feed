@@ -29,13 +29,12 @@ export const Route = createFileRoute("/subscribe/")({
       { title: "Subscribe — TheFullPicture.ai newsletter" },
       {
         name: "description",
-        content:
-          "Choose the weekly digest (€3/month or €35/year) or the daily briefing (€5/month or €55/year). Subscriptions are coming soon.",
+        content: `Choose the weekly digest (€${TIERS.weekly.monthly}/month or €${TIERS.weekly.yearly}/year) or the daily briefing (€${TIERS.daily.monthly}/month or €${TIERS.daily.yearly}/year). Subscriptions are coming soon.`,
       },
       { property: "og:title", content: "Subscribe — TheFullPicture.ai newsletter" },
       {
         property: "og:description",
-        content: "Two paid tiers: weekly digest from €3/month, daily briefing from €5/month.",
+        content: `Two paid tiers: weekly digest from €${TIERS.weekly.monthly}/month, daily briefing from €${TIERS.daily.monthly}/month.`,
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

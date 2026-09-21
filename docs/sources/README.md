@@ -29,9 +29,10 @@ list did not identify a specific publication or feed; placeholders are not fetch
 Only sources.json should be passed to poll_all_sources. In the pending file,
 connection_type describes the intended method, not an enabled connection.
 
-Each shared feed is fetched once. Its primary category is the first listed category,
-and notes plus the verification inventory retain all cross-listed topics and the
-supplied filter instructions. Safety & Alignment routes to Ethics & Responsible AI.
+Each shared feed is fetched once. Its primary category uses the canonical website
+taxonomy in `src/config.py`. Notes and the verification inventory retain all original
+source-group labels, cross-listed topics, and supplied filter instructions. Safety &
+Alignment routes to Ethics.
 Cross-topic article feeds come first, followed by supplemental feeds and podcasts.
 The current poller runs concurrently; strict priority scheduling and article-level
 classification remain future work. Region is a broad editorial label, not a
@@ -66,36 +67,36 @@ and were not independently verified.
 
 | Source | Primary category | Format |
 | --- | --- | --- |
-| [The Rundown AI](https://rss.beehiiv.com/feeds/2R3C6Bt5wj.xml) | Cross-Topic AI Specialist Sources | article |
-| [MIT Technology Review (AI)](https://www.technologyreview.com/topic/artificial-intelligence/feed/) | Cross-Topic AI Specialist Sources | article |
-| [TechCrunch AI](https://techcrunch.com/category/artificial-intelligence/feed/) | Cross-Topic AI Specialist Sources | article |
-| [Ars Technica AI](https://arstechnica.com/ai/feed/) | Cross-Topic AI Specialist Sources | article |
-| [The Verge AI](https://www.theverge.com/rss/ai-artificial-intelligence/index.xml) | Cross-Topic AI Specialist Sources | article |
-| [WIRED AI](https://www.wired.com/feed/tag/ai/latest/rss) | Cross-Topic AI Specialist Sources | article |
-| [OpenAI News](https://openai.com/news/rss.xml) | Cross-Topic AI Specialist Sources | article |
-| [Google DeepMind Blog](https://deepmind.google/blog/rss.xml) | Cross-Topic AI Specialist Sources | article |
-| [Hugging Face Blog](https://huggingface.co/blog/feed.xml) | Cross-Topic AI Specialist Sources | article |
-| [The Gradient](https://thegradient.pub/rss/) | Cross-Topic AI Specialist Sources | article |
-| [Import AI (Jack Clark)](https://importai.substack.com/feed) | Cross-Topic AI Specialist Sources | article |
-| [Simon Willison's Weblog](https://simonwillison.net/atom/everything/) | Cross-Topic AI Specialist Sources | article |
-| [One Useful Thing (E. Mollick)](https://www.oneusefulthing.org/feed) | Cross-Topic AI Specialist Sources | article |
+| [The Rundown AI](https://rss.beehiiv.com/feeds/2R3C6Bt5wj.xml) | Tools & Products | article |
+| [MIT Technology Review (AI)](https://www.technologyreview.com/topic/artificial-intelligence/feed/) | Models & Research | article |
+| [TechCrunch AI](https://techcrunch.com/category/artificial-intelligence/feed/) | Business & Funding | article |
+| [Ars Technica AI](https://arstechnica.com/ai/feed/) | Models & Research | article |
+| [The Verge AI](https://www.theverge.com/rss/ai-artificial-intelligence/index.xml) | Tools & Products | article |
+| [WIRED AI](https://www.wired.com/feed/tag/ai/latest/rss) | Future of Daily Life | article |
+| [OpenAI News](https://openai.com/news/rss.xml) | Models & Research | article |
+| [Google DeepMind Blog](https://deepmind.google/blog/rss.xml) | Models & Research | article |
+| [Hugging Face Blog](https://huggingface.co/blog/feed.xml) | Models & Research | article |
+| [The Gradient](https://thegradient.pub/rss/) | Models & Research | article |
+| [Import AI (Jack Clark)](https://importai.substack.com/feed) | Models & Research | article |
+| [Simon Willison's Weblog](https://simonwillison.net/atom/everything/) | Tools & Products | article |
+| [One Useful Thing (E. Mollick)](https://www.oneusefulthing.org/feed) | Leadership | article |
 | [arXiv cs.AI](https://rss.arxiv.org/rss/cs.AI) | Models & Research | article |
 | [arXiv cs.LG](https://rss.arxiv.org/rss/cs.LG) | Models & Research | article |
 | [Anthropic News](https://rsshub.bestblogs.dev/anthropic/news) | Models & Research | article |
 | [BAIR Blog](https://bair.berkeley.edu/blog/feed.xml) | Models & Research | article |
 | [Ahead of AI (S. Raschka)](https://magazine.sebastianraschka.com/feed) | Models & Research | article |
 | [Interconnects (N. Lambert)](https://www.interconnects.ai/feed) | Models & Research | article |
-| [AI Now Institute](https://ainowinstitute.org/feed) | Ethics & Responsible AI | article |
-| [The Conversation (AI)](https://theconversation.com/topics/artificial-intelligence-ai-90/articles.atom) | Ethics & Responsible AI | article |
-| [Mozilla Foundation AI](https://www.mozillafoundation.org/en/blog/rss/) | Ethics & Responsible AI | article |
-| [The Guardian (AI/Society)](https://www.theguardian.com/technology/artificialintelligenceai/rss) | Ethics & Responsible AI | article |
-| [AlgorithmWatch (EU)](https://algorithmwatch.org/en/feed/) | Ethics & Responsible AI | article |
-| [Ada Lovelace Institute (UK)](https://www.adalovelaceinstitute.org/feed/) | Ethics & Responsible AI | article |
-| [LessWrong (curated)](https://www.lesswrong.com/feed.xml?view=curated-rss) | Ethics & Responsible AI | article |
-| [AI Alignment Forum](https://www.alignmentforum.org/feed.xml) | Ethics & Responsible AI | article |
-| [Future of Life Institute](https://futureoflife.org/feed/) | Ethics & Responsible AI | article |
-| [MIRI (Machine Intelligence)](https://intelligence.org/feed/) | Ethics & Responsible AI | article |
-| [80,000 Hours](https://80000hours.org/feed/) | Ethics & Responsible AI | article |
+| [AI Now Institute](https://ainowinstitute.org/feed) | Ethics | article |
+| [The Conversation (AI)](https://theconversation.com/topics/artificial-intelligence-ai-90/articles.atom) | Ethics | article |
+| [Mozilla Foundation AI](https://www.mozillafoundation.org/en/blog/rss/) | Ethics | article |
+| [The Guardian (AI/Society)](https://www.theguardian.com/technology/artificialintelligenceai/rss) | Ethics | article |
+| [AlgorithmWatch (EU)](https://algorithmwatch.org/en/feed/) | Ethics | article |
+| [Ada Lovelace Institute (UK)](https://www.adalovelaceinstitute.org/feed/) | Ethics | article |
+| [LessWrong (curated)](https://www.lesswrong.com/feed.xml?view=curated-rss) | Ethics | article |
+| [AI Alignment Forum](https://www.alignmentforum.org/feed.xml) | Ethics | article |
+| [Future of Life Institute](https://futureoflife.org/feed/) | Ethics | article |
+| [MIRI (Machine Intelligence)](https://intelligence.org/feed/) | Ethics | article |
+| [80,000 Hours](https://80000hours.org/feed/) | Ethics | article |
 | [Georgetown CSET](https://cset.georgetown.edu/feed/) | Policy & Regulation | article |
 | [European Commission Digital](https://digital-strategy.ec.europa.eu/en/rss.xml) | Policy & Regulation | article |
 | [NIST AI (US standards)](https://www.nist.gov/blogs/cybersecurity-insights/rss.xml) | Policy & Regulation | article |
@@ -104,25 +105,25 @@ and were not independently verified.
 | [Ben's Bites](https://www.bensbites.com/feed) | Tools & Products | article |
 | [Product Hunt (all)](https://www.producthunt.com/feed) | Tools & Products | article |
 | [TLDR AI](https://tldr.tech/api/rss/ai) | Tools & Products | article |
-| [Crunchbase News (AI)](https://news.crunchbase.com/sections/ai/feed/) | Business & Industry | article |
-| [Financial Times (AI)](https://www.ft.com/artificial-intelligence?format=rss) | Business & Industry | article |
-| [The Economist (AI filter)](https://www.economist.com/science-and-technology/rss.xml) | Business & Industry | article |
-| [Stratechery](https://stratechery.com/feed/) | Business & Industry | article |
-| [AI Weekly (China tracker)](https://aiweekly.co/issues.rss) | Geopolitics of AI | article |
-| [Rest of World](https://restofworld.org/feed/latest/) | Geopolitics of AI | article |
-| [Synced / 机器之心 (China)](https://syncedreview.com/feed/) | Geopolitics of AI | article |
-| [Inc42 Tech (India)](https://inc42.com/feed/) | Geopolitics of AI | article |
+| [Crunchbase News (AI)](https://news.crunchbase.com/sections/ai/feed/) | Business & Funding | article |
+| [Financial Times (AI)](https://www.ft.com/artificial-intelligence?format=rss) | Business & Funding | article |
+| [The Economist (AI filter)](https://www.economist.com/science-and-technology/rss.xml) | Business & Funding | article |
+| [Stratechery](https://stratechery.com/feed/) | Business & Funding | article |
+| [AI Weekly (China tracker)](https://aiweekly.co/issues.rss) | National Initiatives | article |
+| [Rest of World](https://restofworld.org/feed/latest/) | National Initiatives | article |
+| [Synced / 机器之心 (China)](https://syncedreview.com/feed/) | National Initiatives | article |
+| [Inc42 Tech (India)](https://inc42.com/feed/) | National Initiatives | article |
 | [TechCabal](https://techcabal.com/feed/) | AI Equity & Representation | article |
 | [ITU AI for Good](https://aiforgood.itu.int/feed/) | AI Equity & Representation | article |
-| [The Guardian (Technology)](https://www.theguardian.com/uk/technology/rss) | Mainstream / General Press | article |
-| [NYT Technology](https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml) | Mainstream / General Press | article |
-| [BBC Technology (UK)](https://feeds.bbci.co.uk/news/technology/rss.xml) | Mainstream / General Press | article |
-| [Dwarkesh Podcast](https://apple.dwarkesh-podcast.workers.dev/feed.rss) | Cross-Topic AI Specialist Sources | podcast |
-| [Latent Space](https://api.substack.com/feed/podcast/1084089.rss) | Cross-Topic AI Specialist Sources | podcast |
-| [The Cognitive Revolution](https://feeds.megaphone.fm/RINTP3108857801) | Cross-Topic AI Specialist Sources | podcast |
-| [No Priors](https://feeds.megaphone.fm/nopriors) | Cross-Topic AI Specialist Sources | podcast |
-| [The TWIML AI Podcast](https://feeds.megaphone.fm/MLN2155636147) | Cross-Topic AI Specialist Sources | podcast |
-| [NVIDIA AI Podcast](https://feeds.megaphone.fm/nvidiaaipodcast) | Cross-Topic AI Specialist Sources | podcast |
+| [The Guardian (Technology)](https://www.theguardian.com/uk/technology/rss) | Future of Daily Life | article |
+| [NYT Technology](https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml) | Future of Daily Life | article |
+| [BBC Technology (UK)](https://feeds.bbci.co.uk/news/technology/rss.xml) | Future of Daily Life | article |
+| [Dwarkesh Podcast](https://apple.dwarkesh-podcast.workers.dev/feed.rss) | Models & Research | podcast |
+| [Latent Space](https://api.substack.com/feed/podcast/1084089.rss) | Models & Research | podcast |
+| [The Cognitive Revolution](https://feeds.megaphone.fm/RINTP3108857801) | Models & Research | podcast |
+| [No Priors](https://feeds.megaphone.fm/nopriors) | Business & Funding | podcast |
+| [The TWIML AI Podcast](https://feeds.megaphone.fm/MLN2155636147) | Models & Research | podcast |
+| [NVIDIA AI Podcast](https://feeds.megaphone.fm/nvidiaaipodcast) | Tools & Products | podcast |
 
 ## Pending, manual, and excluded
 

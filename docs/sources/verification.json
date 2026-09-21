@@ -28,7 +28,8 @@
           "notes": "All topics",
           "category": "Cross-Topic AI Specialist Sources"
         }
-      ]
+      ],
+      "canonical_category": "Tools & Products"
     },
     {
       "name": "MIT Technology Review (AI)",
@@ -65,7 +66,8 @@
           "notes": "Periodic equity/access pieces; filter by keyword",
           "category": "AI Equity & Representation"
         }
-      ]
+      ],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "TechCrunch AI",
@@ -102,7 +104,8 @@
           "notes": "Startup funding rounds, enterprise deals",
           "category": "Business & Industry"
         }
-      ]
+      ],
+      "canonical_category": "Business & Funding"
     },
     {
       "name": "Ars Technica AI",
@@ -130,7 +133,8 @@
           "notes": "Models, Safety, Ethics",
           "category": "Cross-Topic AI Specialist Sources"
         }
-      ]
+      ],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "The Verge AI",
@@ -158,7 +162,8 @@
           "notes": "Tools, Business, Policy",
           "category": "Cross-Topic AI Specialist Sources"
         }
-      ]
+      ],
+      "canonical_category": "Tools & Products"
     },
     {
       "name": "WIRED AI",
@@ -195,7 +200,8 @@
           "notes": "Filter by ethics/bias keywords after ingestion",
           "category": "Ethics & Responsible AI"
         }
-      ]
+      ],
+      "canonical_category": "Future of Daily Life"
     },
     {
       "name": "OpenAI News",
@@ -232,7 +238,8 @@
           "notes": "Official GPT/o-series announcements",
           "category": "Models & Research"
         }
-      ]
+      ],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "Google DeepMind Blog",
@@ -269,7 +276,8 @@
           "notes": "Gemini, AlphaFold, frontier research",
           "category": "Models & Research"
         }
-      ]
+      ],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "Hugging Face Blog",
@@ -306,7 +314,8 @@
           "notes": "Model releases, open-source ecosystem",
           "category": "Models & Research"
         }
-      ]
+      ],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "The Gradient",
@@ -352,7 +361,8 @@
           "notes": "Ethics essays, alignment overlap",
           "category": "Ethics & Responsible AI"
         }
-      ]
+      ],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "Import AI (Jack Clark)",
@@ -389,7 +399,8 @@
           "notes": "Policy + frontier research weekly synthesis",
           "category": "Policy & Regulation"
         }
-      ]
+      ],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "Simon Willison's Weblog",
@@ -426,7 +437,8 @@
           "notes": "Applied AI tools, LLM experiments, hands-on reviews",
           "category": "Tools & Products"
         }
-      ]
+      ],
+      "canonical_category": "Tools & Products"
     },
     {
       "name": "One Useful Thing (E. Mollick)",
@@ -468,7 +480,8 @@
           "original_category": "Future of Work & Daily Life"
         }
       ],
-      "taxonomy_migration": "work-split-v1"
+      "taxonomy_migration": "work-split-v1",
+      "canonical_category": "Leadership"
     },
     {
       "name": "arXiv cs.AI",
@@ -496,7 +509,8 @@
           "notes": "Primary research; very high volume — use keyword filter",
           "category": "Models & Research"
         }
-      ]
+      ],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "arXiv cs.LG",
@@ -524,7 +538,8 @@
           "notes": "Machine learning papers; filter with classifier",
           "category": "Models & Research"
         }
-      ]
+      ],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "Anthropic News",
@@ -561,7 +576,8 @@
           "notes": "Constitutional AI, interpretability, safety papers",
           "category": "Ethics & Responsible AI"
         }
-      ]
+      ],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "BAIR Blog",
@@ -589,7 +605,8 @@
           "notes": "Academic deep dives, Berkeley AI",
           "category": "Models & Research"
         }
-      ]
+      ],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "Ahead of AI (S. Raschka)",
@@ -617,7 +634,8 @@
           "notes": "LLM architecture, hands-on research",
           "category": "Models & Research"
         }
-      ]
+      ],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "Interconnects (N. Lambert)",
@@ -645,7 +663,8 @@
           "notes": "Post-training, open models, RLHF",
           "category": "Models & Research"
         }
-      ]
+      ],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "AI Now Institute",
@@ -682,7 +701,8 @@
           "notes": "Annual reports + news pages; scraping permitted with 3 s crawl-delay (robots.txt); no public RSS feed",
           "category": "AI Equity & Representation"
         }
-      ]
+      ],
+      "canonical_category": "Ethics"
     },
     {
       "name": "The Conversation (AI)",
@@ -710,7 +730,8 @@
           "notes": "Academic perspective, peer-reviewed angle",
           "category": "Ethics & Responsible AI"
         }
-      ]
+      ],
+      "canonical_category": "Ethics"
     },
     {
       "name": "Algorithmic Justice League",
@@ -743,7 +764,8 @@
           "notes": "Bias research; no public RSS — scraping permitted (robots.txt empty); monitor manually or scrape /media and /news pages",
           "category": "AI Equity & Representation"
         }
-      ]
+      ],
+      "canonical_category": "Ethics"
     },
     {
       "name": "Mozilla Foundation AI",
@@ -771,7 +793,8 @@
           "notes": "Trustworthy AI, privacy, open-source",
           "category": "Ethics & Responsible AI"
         }
-      ]
+      ],
+      "canonical_category": "Ethics"
     },
     {
       "name": "AI Ethics Brief (Montreal AI Ethics)",
@@ -795,7 +818,8 @@
           "notes": "Bi-weekly; contact publisher for feed",
           "category": "Ethics & Responsible AI"
         }
-      ]
+      ],
+      "canonical_category": "Ethics"
     },
     {
       "name": "The Guardian (AI/Society)",
@@ -832,7 +856,8 @@
           "notes": "Equity/diversity angle from non-tech desk",
           "category": "AI Equity & Representation"
         }
-      ]
+      ],
+      "canonical_category": "Ethics"
     },
     {
       "name": "AlgorithmWatch (EU)",
@@ -860,7 +885,8 @@
           "notes": "Berlin-based; EU algorithmic accountability, automated decision-making — essential non-US ethics voice",
           "category": "Ethics & Responsible AI"
         }
-      ]
+      ],
+      "canonical_category": "Ethics"
     },
     {
       "name": "Ada Lovelace Institute (UK)",
@@ -888,7 +914,8 @@
           "notes": "UK think tank; data rights, AI fairness, public interest research",
           "category": "Ethics & Responsible AI"
         }
-      ]
+      ],
+      "canonical_category": "Ethics"
     },
     {
       "name": "LessWrong (curated)",
@@ -916,7 +943,8 @@
           "notes": "Alignment theory and safety research, high-quality filter",
           "category": "Ethics & Responsible AI"
         }
-      ]
+      ],
+      "canonical_category": "Ethics"
     },
     {
       "name": "AI Alignment Forum",
@@ -944,7 +972,8 @@
           "notes": "Technical alignment research; overlaps LessWrong",
           "category": "Ethics & Responsible AI"
         }
-      ]
+      ],
+      "canonical_category": "Ethics"
     },
     {
       "name": "Center for AI Safety (CAIS)",
@@ -969,7 +998,8 @@
           "notes": "Safety research and policy statements",
           "category": "Ethics & Responsible AI"
         }
-      ]
+      ],
+      "canonical_category": "Ethics"
     },
     {
       "name": "Future of Life Institute",
@@ -1006,7 +1036,8 @@
           "notes": "EU AI Act tracker, bi-weekly",
           "category": "Policy & Regulation"
         }
-      ]
+      ],
+      "canonical_category": "Ethics"
     },
     {
       "name": "MIRI (Machine Intelligence)",
@@ -1034,7 +1065,8 @@
           "notes": "Technical AI safety; lower cadence",
           "category": "Ethics & Responsible AI"
         }
-      ]
+      ],
+      "canonical_category": "Ethics"
     },
     {
       "name": "80,000 Hours",
@@ -1062,7 +1094,8 @@
           "notes": "Safety career paths, risk landscape",
           "category": "Ethics & Responsible AI"
         }
-      ]
+      ],
+      "canonical_category": "Ethics"
     },
     {
       "name": "Redwood Research",
@@ -1087,7 +1120,8 @@
           "notes": "Interpretability and robustness research",
           "category": "Ethics & Responsible AI"
         }
-      ]
+      ],
+      "canonical_category": "Ethics"
     },
     {
       "name": "Georgetown CSET",
@@ -1132,7 +1166,8 @@
           "notes": "Already in Policy table — cross-listed here for geopolitical framing of Chinese AI capabilities",
           "category": "Geopolitics of AI"
         }
-      ]
+      ],
+      "canonical_category": "Policy & Regulation"
     },
     {
       "name": "Tech Policy Press",
@@ -1166,7 +1201,8 @@
           "notes": "Export control, AI governance, international competition",
           "category": "Geopolitics of AI"
         }
-      ]
+      ],
+      "canonical_category": "Policy & Regulation"
     },
     {
       "name": "European Commission Digital",
@@ -1194,7 +1230,8 @@
           "notes": "Primary: EU AI Act implementation notices",
           "category": "Policy & Regulation"
         }
-      ]
+      ],
+      "canonical_category": "Policy & Regulation"
     },
     {
       "name": "NIST AI (US standards)",
@@ -1222,7 +1259,8 @@
           "notes": "US standards body, AI RMF updates",
           "category": "Policy & Regulation"
         }
-      ]
+      ],
+      "canonical_category": "Policy & Regulation"
     },
     {
       "name": "Law firm trackers (White & Case, DLA Piper)",
@@ -1246,7 +1284,8 @@
           "notes": "Regulatory-risk angle; check ToS per firm",
           "category": "Policy & Regulation"
         }
-      ]
+      ],
+      "canonical_category": "Policy & Regulation"
     },
     {
       "name": "Reuters Technology",
@@ -1288,7 +1327,8 @@
           "connection": "RSS",
           "category": "Mainstream / General Press"
         }
-      ]
+      ],
+      "canonical_category": "Policy & Regulation"
     },
     {
       "name": "AI in Europe (Substack)",
@@ -1316,7 +1356,8 @@
           "notes": "EU AI Act, policy briefings; free Substack RSS",
           "category": "Policy & Regulation"
         }
-      ]
+      ],
+      "canonical_category": "Policy & Regulation"
     },
     {
       "name": "Euractiv AI (EU)",
@@ -1350,7 +1391,8 @@
           "notes": "EU AI governance from Brussels; third-country AI regulation responses",
           "category": "Geopolitics of AI"
         }
-      ]
+      ],
+      "canonical_category": "Policy & Regulation"
     },
     {
       "name": "Politico EU Tech (EU)",
@@ -1378,7 +1420,8 @@
           "notes": "EU AI Act politics, Commission dynamics; filter by tech/AI tag post-ingestion",
           "category": "Policy & Regulation"
         }
-      ]
+      ],
+      "canonical_category": "Policy & Regulation"
     },
     {
       "name": "The Median (DataCamp)",
@@ -1404,7 +1447,8 @@
           "original_category": "Future of Work & Daily Life"
         }
       ],
-      "taxonomy_migration": "work-split-v1"
+      "taxonomy_migration": "work-split-v1",
+      "canonical_category": "Organisations"
     },
     {
       "name": "Chain of Thought",
@@ -1430,7 +1474,8 @@
           "original_category": "Future of Work & Daily Life"
         }
       ],
-      "taxonomy_migration": "work-split-v1"
+      "taxonomy_migration": "work-split-v1",
+      "canonical_category": "Organisations"
     },
     {
       "name": "SHRM (HR)",
@@ -1474,7 +1519,8 @@
         "supplied_url": "https://www.shrm.org/ResourcesAndTools/hr-topics/technology/rss/Pages/rss.aspx",
         "status": "unverified",
         "error": "Client error '404 Not Found' for url 'https://www.shrm.org/resourcesandtools/hr-topics/technology/rss/pages/rss.aspx'"
-      }
+      },
+      "canonical_category": "Organisations"
     },
     {
       "name": "WEF Future of Jobs",
@@ -1518,7 +1564,8 @@
         "supplied_url": "https://www.weforum.org/rss.xml",
         "status": "unverified",
         "error": "Client error '403 Forbidden' for url 'https://www.weforum.org/rss.xml'"
-      }
+      },
+      "canonical_category": "People & Jobs"
     },
     {
       "name": "McKinsey Global Institute",
@@ -1545,7 +1592,8 @@
           "original_category": "Future of Work & Daily Life"
         }
       ],
-      "taxonomy_migration": "work-split-v1"
+      "taxonomy_migration": "work-split-v1",
+      "canonical_category": "People & Jobs"
     },
     {
       "name": "Work of the Future (MIT)",
@@ -1572,7 +1620,8 @@
           "original_category": "Future of Work & Daily Life"
         }
       ],
-      "taxonomy_migration": "work-split-v1"
+      "taxonomy_migration": "work-split-v1",
+      "canonical_category": "People & Jobs"
     },
     {
       "name": "Fortune (Future of Work)",
@@ -1599,7 +1648,8 @@
           "original_category": "Future of Work & Daily Life"
         }
       ],
-      "taxonomy_migration": "work-split-v1"
+      "taxonomy_migration": "work-split-v1",
+      "canonical_category": "Leadership"
     },
     {
       "name": "LinkedIn Work Change Report",
@@ -1625,7 +1675,8 @@
           "original_category": "Future of Work & Daily Life"
         }
       ],
-      "taxonomy_migration": "work-split-v1"
+      "taxonomy_migration": "work-split-v1",
+      "canonical_category": "People & Jobs"
     },
     {
       "name": "Ben's Bites",
@@ -1653,7 +1704,8 @@
           "notes": "Daily AI tool launches and integrations",
           "category": "Tools & Products"
         }
-      ]
+      ],
+      "canonical_category": "Tools & Products"
     },
     {
       "name": "Product Hunt (all)",
@@ -1681,7 +1733,8 @@
           "notes": "Daily product rankings; filter by AI category",
           "category": "Tools & Products"
         }
-      ]
+      ],
+      "canonical_category": "Tools & Products"
     },
     {
       "name": "TLDR AI",
@@ -1709,7 +1762,8 @@
           "notes": "Tool/product releases alongside research",
           "category": "Tools & Products"
         }
-      ]
+      ],
+      "canonical_category": "Tools & Products"
     },
     {
       "name": "There's An AI For That (TAAFT)",
@@ -1733,7 +1787,8 @@
           "notes": "Largest AI tools directory; no official feed — scraping public /new-tools listing permitted (blocks SEO bots only); contact for API",
           "category": "Tools & Products"
         }
-      ]
+      ],
+      "canonical_category": "Tools & Products"
     },
     {
       "name": "VentureBeat AI",
@@ -1758,7 +1813,8 @@
           "notes": "Enterprise AI adoption, funding, M&A",
           "category": "Business & Industry"
         }
-      ]
+      ],
+      "canonical_category": "Business & Funding"
     },
     {
       "name": "Crunchbase News (AI)",
@@ -1786,7 +1842,8 @@
           "notes": "Investment tracking, fundraising rounds",
           "category": "Business & Industry"
         }
-      ]
+      ],
+      "canonical_category": "Business & Funding"
     },
     {
       "name": "Financial Times (AI)",
@@ -1831,7 +1888,8 @@
           "connection": "RSS (partial)",
           "category": "Mainstream / General Press"
         }
-      ]
+      ],
+      "canonical_category": "Business & Funding"
     },
     {
       "name": "a16z Blog",
@@ -1856,7 +1914,8 @@
           "notes": "VC perspective; AI portfolio and market analysis — declared bias: surfaces what capital is betting on, not neutral journalism",
           "category": "Business & Industry"
         }
-      ]
+      ],
+      "canonical_category": "Business & Funding"
     },
     {
       "name": "The Economist (AI filter)",
@@ -1892,7 +1951,8 @@
           "connection": "RSS",
           "category": "Mainstream / General Press"
         }
-      ]
+      ],
+      "canonical_category": "Business & Funding"
     },
     {
       "name": "Stratechery",
@@ -1920,7 +1980,8 @@
           "notes": "Tech business strategy; subscription but high-value",
           "category": "Business & Industry"
         }
-      ]
+      ],
+      "canonical_category": "Business & Funding"
     },
     {
       "name": "AI Weekly (China tracker)",
@@ -1948,7 +2009,8 @@
           "notes": "Aggregates FT, Bloomberg, Reuters, TechCrunch on Chinese labs",
           "category": "Geopolitics of AI"
         }
-      ]
+      ],
+      "canonical_category": "National Initiatives"
     },
     {
       "name": "South China Morning Post (Tech)",
@@ -1973,7 +2035,8 @@
           "notes": "Direct China regional coverage",
           "category": "Geopolitics of AI"
         }
-      ]
+      ],
+      "canonical_category": "National Initiatives"
     },
     {
       "name": "Nikkei Asia (Tech)",
@@ -1998,7 +2061,8 @@
           "notes": "Japan/Asia AI and semiconductor supply chain",
           "category": "Geopolitics of AI"
         }
-      ]
+      ],
+      "canonical_category": "National Initiatives"
     },
     {
       "name": "Rest of World",
@@ -2035,7 +2099,8 @@
           "notes": "AI impact in Global South; best existing coverage of this topic",
           "category": "AI Equity & Representation"
         }
-      ]
+      ],
+      "canonical_category": "National Initiatives"
     },
     {
       "name": "Synced / 机器之心 (China)",
@@ -2063,7 +2128,8 @@
           "notes": "English-language Chinese AI research coverage; primary source on Baidu, Alibaba DAMO, Tencent AI Lab output",
           "category": "Geopolitics of AI"
         }
-      ]
+      ],
+      "canonical_category": "National Initiatives"
     },
     {
       "name": "Inc42 Tech (India)",
@@ -2091,7 +2157,8 @@
           "notes": "India's leading tech/startup media; covers Indian AI policy, NASSCOM, and domestic AI ecosystem — world's largest AI talent pool",
           "category": "Geopolitics of AI"
         }
-      ]
+      ],
+      "canonical_category": "National Initiatives"
     },
     {
       "name": "Analytics India Magazine (India)",
@@ -2119,7 +2186,8 @@
           "notes": "Indian ML/AI research, interviews with Indian AI leaders, MeitY policy coverage; primary voice on India's AI regulatory stance",
           "category": "Geopolitics of AI"
         }
-      ]
+      ],
+      "canonical_category": "National Initiatives"
     },
     {
       "name": "Harvard Berkman Klein (AI)",
@@ -2147,7 +2215,8 @@
           "notes": "Justice/equity/inclusion in AI systems",
           "category": "AI Equity & Representation"
         }
-      ]
+      ],
+      "canonical_category": "AI Equity & Representation"
     },
     {
       "name": "TechCabal",
@@ -2175,7 +2244,8 @@
           "notes": "Africa tech and AI; supplements Rest of World",
           "category": "AI Equity & Representation"
         }
-      ]
+      ],
+      "canonical_category": "AI Equity & Representation"
     },
     {
       "name": "ITU AI for Good",
@@ -2212,7 +2282,8 @@
           "notes": "UN agency; AI for Good global summit, policy briefings; no public RSS — scrape permitted (robots.txt allows general crawlers)",
           "category": "AI for Good / Tech for Good"
         }
-      ]
+      ],
+      "canonical_category": "AI Equity & Representation"
     },
     {
       "name": "AP Technology",
@@ -2236,7 +2307,8 @@
           "connection": "RSS",
           "category": "Mainstream / General Press"
         }
-      ]
+      ],
+      "canonical_category": "Future of Daily Life"
     },
     {
       "name": "The Guardian (Technology)",
@@ -2263,7 +2335,8 @@
           "connection": "RSS",
           "category": "Mainstream / General Press"
         }
-      ]
+      ],
+      "canonical_category": "Future of Daily Life"
     },
     {
       "name": "NYT Technology",
@@ -2290,7 +2363,8 @@
           "connection": "RSS",
           "category": "Mainstream / General Press"
         }
-      ]
+      ],
+      "canonical_category": "Future of Daily Life"
     },
     {
       "name": "Bloomberg Technology",
@@ -2313,7 +2387,8 @@
           "connection": "Excluded — MVP",
           "category": "Mainstream / General Press"
         }
-      ]
+      ],
+      "canonical_category": "Future of Daily Life"
     },
     {
       "name": "BBC Technology (UK)",
@@ -2340,7 +2415,8 @@
           "connection": "RSS",
           "category": "Mainstream / General Press"
         }
-      ]
+      ],
+      "canonical_category": "Future of Daily Life"
     },
     {
       "name": "GovAI (Centre for the Governance of AI)",
@@ -2365,7 +2441,8 @@
           "notes": "Oxford-based; long-read policy research on AI governance, safety and beneficial AI; essential non-corporate voice",
           "category": "AI for Good / Tech for Good"
         }
-      ]
+      ],
+      "canonical_category": "Policy & Regulation"
     },
     {
       "name": "Alan Turing Institute",
@@ -2390,7 +2467,8 @@
           "notes": "UK national AI institute; public-interest research, data ethics, trustworthy AI",
           "category": "AI for Good / Tech for Good"
         }
-      ]
+      ],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "AI4D Africa",
@@ -2415,7 +2493,8 @@
           "notes": "African AI research and development — rare Global South primary source on inclusive AI",
           "category": "AI for Good / Tech for Good"
         }
-      ]
+      ],
+      "canonical_category": "AI Equity & Representation"
     },
     {
       "name": "UNDP Digital",
@@ -2440,7 +2519,8 @@
           "notes": "UN development programme; digital governance, AI and sustainable development; global-south coverage",
           "category": "AI for Good / Tech for Good"
         }
-      ]
+      ],
+      "canonical_category": "AI Equity & Representation"
     },
     {
       "name": "Apolitical (AI in government)",
@@ -2465,7 +2545,8 @@
           "notes": "Public-sector digital transformation; AI in government worldwide; good cross-geography signal",
           "category": "AI for Good / Tech for Good"
         }
-      ]
+      ],
+      "canonical_category": "Policy & Regulation"
     },
     {
       "name": "Dwarkesh Podcast",
@@ -2484,7 +2565,8 @@
         "items": 141
       },
       "discovery_url": "https://podcasts.apple.com/us/podcast/dwarkesh-podcast/id1516093381?uo=4",
-      "supplied_entries": []
+      "supplied_entries": [],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "Latent Space",
@@ -2503,7 +2585,8 @@
         "items": 223
       },
       "discovery_url": "https://podcasts.apple.com/us/podcast/latent-space-the-ai-engineer-podcast/id1674008350?uo=4",
-      "supplied_entries": []
+      "supplied_entries": [],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "The Cognitive Revolution",
@@ -2522,7 +2605,8 @@
         "items": 375
       },
       "discovery_url": "https://podcasts.apple.com/us/podcast/the-cognitive-revolution/id1669813431?uo=4",
-      "supplied_entries": []
+      "supplied_entries": [],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "No Priors",
@@ -2541,7 +2625,8 @@
         "items": 179
       },
       "discovery_url": "https://podcasts.apple.com/us/podcast/no-priors-artificial-intelligence-technology-startups/id1668002688?uo=4",
-      "supplied_entries": []
+      "supplied_entries": [],
+      "canonical_category": "Business & Funding"
     },
     {
       "name": "The AI Daily Brief",
@@ -2557,7 +2642,8 @@
         "error": "Redirect response '302 ' for url 'https://anchor.fm/robots.txt'"
       },
       "discovery_url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614?uo=4",
-      "supplied_entries": []
+      "supplied_entries": [],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "Machine Learning Street Talk",
@@ -2573,7 +2659,8 @@
         "error": "Redirect response '302 ' for url 'https://anchor.fm/robots.txt'"
       },
       "discovery_url": "https://podcasts.apple.com/us/podcast/machine-learning-street-talk-mlst/id1510472996?uo=4",
-      "supplied_entries": []
+      "supplied_entries": [],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "The TWIML AI Podcast",
@@ -2592,7 +2679,8 @@
         "items": 795
       },
       "discovery_url": "https://podcasts.apple.com/us/podcast/the-twiml-ai-podcast-formerly-this-week-in-machine/id1116303051?uo=4",
-      "supplied_entries": []
+      "supplied_entries": [],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "NVIDIA AI Podcast",
@@ -2611,7 +2699,8 @@
         "items": 306
       },
       "discovery_url": "https://podcasts.apple.com/us/podcast/nvidia-ai-podcast/id1186480811?uo=4",
-      "supplied_entries": []
+      "supplied_entries": [],
+      "canonical_category": "Tools & Products"
     },
     {
       "name": "Two Minute Papers",
@@ -2626,7 +2715,8 @@
         "error": "YouTube /feeds/videos.xml is disallowed by robots.txt for the current poller. Channel ID resolved from channelMetadataRenderer.externalId; feed not fetched."
       },
       "discovery_url": "https://www.youtube.com/@TwoMinutePapers",
-      "supplied_entries": []
+      "supplied_entries": [],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "AI Explained",
@@ -2641,7 +2731,8 @@
         "error": "YouTube /feeds/videos.xml is disallowed by robots.txt for the current poller. Channel ID resolved from channelMetadataRenderer.externalId; feed not fetched."
       },
       "discovery_url": "https://www.youtube.com/@aiexplained-official",
-      "supplied_entries": []
+      "supplied_entries": [],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "Matt Wolfe",
@@ -2656,7 +2747,8 @@
         "error": "YouTube /feeds/videos.xml is disallowed by robots.txt for the current poller. Channel ID resolved from channelMetadataRenderer.externalId; feed not fetched."
       },
       "discovery_url": "https://www.youtube.com/@mreflow",
-      "supplied_entries": []
+      "supplied_entries": [],
+      "canonical_category": "Tools & Products"
     },
     {
       "name": "Wes Roth",
@@ -2671,7 +2763,8 @@
         "error": "YouTube /feeds/videos.xml is disallowed by robots.txt for the current poller. Channel ID resolved from channelMetadataRenderer.externalId; feed not fetched."
       },
       "discovery_url": "https://www.youtube.com/@WesRoth",
-      "supplied_entries": []
+      "supplied_entries": [],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "Fireship",
@@ -2686,7 +2779,8 @@
         "error": "YouTube /feeds/videos.xml is disallowed by robots.txt for the current poller. Channel ID resolved from channelMetadataRenderer.externalId; feed not fetched."
       },
       "discovery_url": "https://www.youtube.com/@Fireship",
-      "supplied_entries": []
+      "supplied_entries": [],
+      "canonical_category": "Tools & Products"
     },
     {
       "name": "Yannic Kilcher",
@@ -2701,7 +2795,8 @@
         "error": "YouTube /feeds/videos.xml is disallowed by robots.txt for the current poller. Channel ID resolved from channelMetadataRenderer.externalId; feed not fetched."
       },
       "discovery_url": "https://www.youtube.com/@YannicKilcher",
-      "supplied_entries": []
+      "supplied_entries": [],
+      "canonical_category": "Models & Research"
     },
     {
       "name": "One-off documentaries",
@@ -2716,7 +2811,8 @@
         "error": "Manual curation, as requested."
       },
       "discovery_url": null,
-      "supplied_entries": []
+      "supplied_entries": [],
+      "canonical_category": "Future of Daily Life"
     },
     {
       "name": "MIT Sloan Management Review",
@@ -2747,7 +2843,8 @@
         "title": "MIT Sloan Management Review",
         "items": 20,
         "status": "verified"
-      }
+      },
+      "canonical_category": "Leadership"
     },
     {
       "name": "Harvard Business Review (AI topics)",
@@ -2780,7 +2877,8 @@
           "url": "https://feeds.harvardbusiness.org/harvardbusiness?format=xml",
           "reason": ""
         }
-      }
+      },
+      "canonical_category": "Leadership"
     },
     {
       "name": "McKinsey Insights",
@@ -2811,7 +2909,8 @@
         "title": "McKinsey Insights & Publications",
         "items": 50,
         "status": "verified"
-      }
+      },
+      "canonical_category": "Leadership"
     },
     {
       "name": "Deloitte Insights",
@@ -2840,7 +2939,8 @@
         "status": "pending",
         "reason": "Redirect response '302 Moved Temporarily' for url 'https://www2.deloitte.com/robots.txt'\nRedirect location: 'https://www.deloitte.com/robots.txt'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/302",
         "feed_url": "https://www2.deloitte.com/rss"
-      }
+      },
+      "canonical_category": "Leadership"
     },
     {
       "name": "BCG Henderson Institute",
@@ -2869,7 +2969,8 @@
         "status": "pending",
         "reason": "Client error '404 Not Found' for url 'https://www.bcg.com/rss'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
         "feed_url": "https://www.bcg.com/rss"
-      }
+      },
+      "canonical_category": "Leadership"
     },
     {
       "name": "Strategy+Business",
@@ -2901,7 +3002,8 @@
         "items": 0,
         "status": "pending",
         "reason": "Response is not a parseable RSS/Atom feed"
-      }
+      },
+      "canonical_category": "Leadership"
     },
     {
       "name": "INSEAD Knowledge",
@@ -2930,7 +3032,8 @@
         "status": "pending",
         "reason": "Client error '403 Forbidden' for url 'https://knowledge.insead.edu/robots.txt'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
         "feed_url": "https://knowledge.insead.edu/rss"
-      }
+      },
+      "canonical_category": "Leadership"
     },
     {
       "name": "Chief Executive Magazine",
@@ -2961,7 +3064,8 @@
         "title": "ChiefExecutive.net",
         "items": 10,
         "status": "verified"
-      }
+      },
+      "canonical_category": "Leadership"
     },
     {
       "name": "Josh Bersin",
@@ -2992,7 +3096,8 @@
         "title": "JOSH BERSIN",
         "items": 832,
         "status": "verified"
-      }
+      },
+      "canonical_category": "Organisations"
     },
     {
       "name": "CIPD",
@@ -3021,7 +3126,8 @@
         "status": "pending",
         "reason": "Client error '404 Not Found' for url 'https://www.cipd.org/en/rss/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
         "feed_url": "https://www.cipd.org/en/rss/"
-      }
+      },
+      "canonical_category": "Organisations"
     },
     {
       "name": "HR Brew",
@@ -3050,7 +3156,8 @@
         "status": "pending",
         "reason": "Client error '403 Forbidden' for url 'https://www.hr-brew.com/robots.txt'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
         "feed_url": "https://www.hr-brew.com/rss"
-      }
+      },
+      "canonical_category": "Organisations"
     },
     {
       "name": "People Management",
@@ -3079,7 +3186,8 @@
         "status": "pending",
         "reason": "Redirect response '301 Moved Permanently' for url 'http://www.peoplemanagement.co.uk/robots.txt'\nRedirect location: 'https://www.peoplemanagement.co.uk/robots.txt'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301",
         "feed_url": "https://www.peoplemanagement.co.uk/rss"
-      }
+      },
+      "canonical_category": "Organisations"
     },
     {
       "name": "Gartner HR",
@@ -3108,7 +3216,8 @@
         "status": "pending",
         "reason": "Client error '403 Forbidden' for url 'https://www.gartner.com/robots.txt'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
         "feed_url": "https://www.gartner.com/en/human-resources/rss"
-      }
+      },
+      "canonical_category": "Organisations"
     },
     {
       "name": "HR Dive",
@@ -3139,7 +3248,8 @@
         "title": "HR Dive - Latest News",
         "items": 10,
         "status": "verified"
-      }
+      },
+      "canonical_category": "Organisations"
     },
     {
       "name": "Mercer Insights",
@@ -3168,7 +3278,8 @@
         "status": "pending",
         "reason": "Client error '404 Not Found' for url 'https://www.mercer.com/rss/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
         "feed_url": "https://www.mercer.com/rss"
-      }
+      },
+      "canonical_category": "Organisations"
     },
     {
       "name": "ILO (International Labour Organization)",
@@ -3197,7 +3308,8 @@
         "status": "pending",
         "reason": "Client error '404 Not Found' for url 'https://www.ilo.org/rss'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
         "feed_url": "https://www.ilo.org/rss"
-      }
+      },
+      "canonical_category": "People & Jobs"
     },
     {
       "name": "Eurofound",
@@ -3226,7 +3338,8 @@
         "status": "pending",
         "reason": "Client error '429 Too Many Requests' for url 'https://www.eurofound.europa.eu/robots.txt'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
         "feed_url": "https://www.eurofound.europa.eu/rss"
-      }
+      },
+      "canonical_category": "People & Jobs"
     },
     {
       "name": "Social Europe",
@@ -3267,7 +3380,8 @@
         "items": 10,
         "title": "Social Europe",
         "http_status": 200
-      }
+      },
+      "canonical_category": "People & Jobs"
     },
     {
       "name": "ETUI (European Trade Union Institute)",
@@ -3296,7 +3410,8 @@
         "status": "pending",
         "reason": "Client error '404 Not Found' for url 'https://www.etui.org/rss'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
         "feed_url": "https://www.etui.org/rss"
-      }
+      },
+      "canonical_category": "People & Jobs"
     },
     {
       "name": "OECD Employment",
@@ -3325,7 +3440,8 @@
         "status": "pending",
         "reason": "Client error '403 Forbidden' for url 'https://www.oecd.org/employment/rss'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
         "feed_url": "https://www.oecd.org/employment/rss"
-      }
+      },
+      "canonical_category": "People & Jobs"
     },
     {
       "name": "Resolution Foundation",
@@ -3356,7 +3472,8 @@
         "title": "Resolution Foundation",
         "items": 10,
         "status": "verified"
-      }
+      },
+      "canonical_category": "People & Jobs"
     },
     {
       "name": "Economic Policy Institute",
@@ -3387,7 +3504,8 @@
         "title": "Economic Policy Institute",
         "items": 1,
         "status": "verified"
-      }
+      },
+      "canonical_category": "People & Jobs"
     },
     {
       "name": "The Guardian (Work)",
@@ -3418,7 +3536,8 @@
         "title": "Work & careers | The Guardian",
         "items": 20,
         "status": "verified"
-      }
+      },
+      "canonical_category": "People & Jobs"
     }
   ],
   "taxonomy_updated_at": "2026-09-21"

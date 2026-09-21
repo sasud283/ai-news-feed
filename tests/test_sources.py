@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 from urllib.parse import urlsplit
 
+from src.config import CATEGORIES
 from src.ingestion.rss_poller import Source
 
 ROOT = Path(__file__).parents[1]
@@ -33,6 +34,7 @@ def test_registry_schema_and_unique_feeds():
     for row in active:
         assert row["connection_type"] in {"rss", "atom"}
         assert row["feed_url"]
+        assert row["category"] in CATEGORIES
 
 
 def test_verification_controls_polling_registry():
@@ -45,6 +47,7 @@ def test_verification_controls_polling_registry():
         assert (row["name"] in active) == verified
         registry = active if verified else pending
         assert registry[row["name"]]["feed_url"] == row["feed_url"]
+        assert registry[row["name"]]["category"] == row["canonical_category"]
         assert row["registry"] == (
             "sources.json" if verified else "sources-pending.json"
         )
@@ -101,7 +104,7 @@ def test_cross_topic_articles_are_listed_first():
     cross_topic_articles = [
         s
         for s in sources
-        if s["category"] == "Cross-Topic AI Specialist Sources"
+        if "Cross-Topic AI Specialist Sources" in audit[s["name"]]["topics"]
         and audit[s["name"]]["content_type"] == "article"
     ]
     assert len(cross_topic_articles) == 13
