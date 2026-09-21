@@ -55,6 +55,15 @@ export function FilterBar({
   onClearDefault,
   hasSavedDefault,
 }: Props) {
+  const activeAdvanced =
+    (filters.tone !== null ? 1 : 0) +
+    (filters.access !== null ? 1 : 0) +
+    (filters.contentType !== null ? 1 : 0) +
+    (filters.geography !== null ? 1 : 0);
+
+  // Open on load when an advanced filter is already active (e.g. a shared URL).
+  const [advancedOpen, setAdvancedOpen] = useState(activeAdvanced > 0);
+
   const toggleTopic = (topic: Topic) => {
     const next = filters.topics.includes(topic)
       ? filters.topics.filter((t) => t !== topic)
