@@ -247,6 +247,7 @@ export function FilterBar({
             ))}
           </div>
         </div>
+        )}
 
         <div className="space-y-2 pt-1">
           <div className="flex flex-wrap items-center gap-3">
