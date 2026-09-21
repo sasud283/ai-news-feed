@@ -35,8 +35,43 @@ def payload():
 
 
 @pytest.fixture
+def wire_payload():
+    return {
+        "r": True,
+        "s": "OpenAI has introduced an AI model with reported gains on reasoning tests.",
+        "t": [{"i": 0, "c": 0.95}],
+        "o": [0],
+        "tc": 0.95,
+        "g": 0,
+        "gc": 0.95,
+        "rc": 0.95,
+        "d": False,
+    }
+
+
+@pytest.fixture
 def completion():
     def make(payload, *, finish="stop", refusal=None):
+        if "scores" in payload:
+            payload = dict(payload)
+            scores = payload.pop("scores")
+            topic_ids = payload.pop("topics")
+            payload["t"] = [
+                {
+                    "i": topic_id,
+                    "c": scores[index] if index < len(scores) else None,
+                }
+                for index, topic_id in enumerate(topic_ids)
+            ]
+            offset = len(topic_ids)
+            payload["tc"] = scores[offset] if offset < len(scores) else None
+            payload["gc"] = scores[offset + 1] if offset + 1 < len(scores) else None
+            payload["rc"] = scores[offset + 2] if offset + 2 < len(scores) else None
+            payload["r"] = payload.pop("relevant")
+            payload["s"] = payload.pop("summary")
+            payload["o"] = payload.pop("tone")
+            payload["g"] = payload.pop("geography")
+            payload["d"] = payload.pop("disagreement")
         return {
             "id": "chatcmpl-test",
             "object": "chat.completion",
