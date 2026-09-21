@@ -87,6 +87,7 @@ export type Story = {
   is_correction_of: string | null;
   content_type: ContentType;
   media_url: string | null;
+  language: string;
   topics: Topic[];
   tone: Tone | null;
   access: Access | null;
@@ -104,13 +105,14 @@ type RawStory = {
   is_correction_of: string | null;
   content_type: string;
   media_url: string | null;
+  language: string | null;
   story_topics: { topic: Topic }[];
   story_tags: { tone: Tone | null; access: Access | null; geography: Geography | null } | null;
   story_sources: StorySource[];
 };
 
 const SELECT =
-  "id, headline, ai_generated_summary, published_at, updated_at, is_correction_of, content_type, media_url, story_topics(topic), story_tags(tone, access, geography), story_sources(id, source_name, source_url, is_paywalled)";
+  "id, headline, ai_generated_summary, published_at, updated_at, is_correction_of, content_type, media_url, language, story_topics(topic), story_tags(tone, access, geography), story_sources(id, source_name, source_url, is_paywalled)";
 
 export async function fetchStories(): Promise<Story[]> {
   const db = supabase as unknown as SupabaseClient<StorageDatabase>;
@@ -137,6 +139,7 @@ export async function fetchStories(): Promise<Story[]> {
         ? (s.content_type as ContentType)
         : "Article",
       media_url: s.media_url,
+      language: s.language ?? "English",
       topics: (s.story_topics ?? []).map((t) => t.topic),
       tone: tags?.tone ?? null,
       access: tags?.access ?? null,

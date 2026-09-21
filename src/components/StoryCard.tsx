@@ -1,6 +1,7 @@
 import {
   ExternalLink,
   Flag,
+  Languages,
   Lock,
   Sparkles,
   ArrowUpRight,
@@ -168,6 +169,11 @@ export function StoryCard({ story }: { story: Story }) {
             <ExternalLink className="h-3 w-3 text-muted-foreground" />
           </a>
         ))}
+        <span className="text-muted-foreground">·</span>
+        <span className="inline-flex items-center gap-1 text-muted-foreground">
+          <Languages className="h-3.5 w-3.5" />
+          {story.language}
+        </span>
         <a
           href={`mailto:corrections@thefullpicture.ai?subject=${encodeURIComponent(`Issue with story: ${story.headline}`)}`}
           className="inline-flex items-center gap-1 text-muted-foreground underline decoration-border underline-offset-4 hover:text-foreground"

@@ -301,6 +301,7 @@ export type Database = {
           headline: string
           id: string
           is_correction_of: string | null
+          language: string | null
           media_url: string | null
           processing_metadata: Json
           publication_status: string
@@ -315,6 +316,7 @@ export type Database = {
           headline: string
           id?: string
           is_correction_of?: string | null
+          language?: string | null
           media_url?: string | null
           processing_metadata?: Json
           publication_status?: string
@@ -329,6 +331,7 @@ export type Database = {
           headline?: string
           id?: string
           is_correction_of?: string | null
+          language?: string | null
           media_url?: string | null
           processing_metadata?: Json
           publication_status?: string
