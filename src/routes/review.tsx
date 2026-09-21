@@ -10,7 +10,9 @@ import {
   approveSpotCheck,
   rejectSpotCheck,
   correctSpotCheck,
+  fetchPublishedForEditing,
   fetchSpotCheckQueue,
+  queuePublishedStoryForEdit,
 } from "@/lib/review.functions";
 import {
   ACCESS_OPTIONS,
@@ -61,7 +63,12 @@ type QueueItem = {
     };
     story_sources: { source_name: string; source_url: string; is_paywalled: boolean | null }[];
     story_topics: { topic: Topic }[];
-    story_tags: { tone: Tone | null; access: Access | null; geography: Geography | null } | null;
+    story_tags: {
+      tone: Tone | null;
+      access: Access | null;
+      geography: Geography | null;
+      secondary_geography: Geography | null;
+    } | null;
   };
 };
 
@@ -74,6 +81,32 @@ function ReviewPage() {
     enabled: !loading && isAdmin,
     queryFn: async () => (await loadQueue()) as unknown as QueueItem[],
   });
+  const loadPublished = useServerFn(fetchPublishedForEditing);
+  const queuePublished = useServerFn(queuePublishedStoryForEdit);
+  const { data: published, isLoading: publishedLoading } = useQuery({
+    queryKey: ["published-for-editing", user?.id],
+    enabled: !loading && isAdmin,
+    queryFn: async () =>
+      (await loadPublished()) as unknown as {
+        id: string;
+        headline: string;
+        published_at: string;
+      }[],
+  });
+  const [queueingId, setQueueingId] = useState<string | null>(null);
+
+  const beginPublishedEdit = async (storyId: string) => {
+    setQueueingId(storyId);
+    try {
+      await queuePublished({ data: { storyId } });
+      await queryClient.invalidateQueries({ queryKey: ["spot-check-queue"] });
+      toast.success("Story added to the editor above.");
+    } catch {
+      toast.error("Could not open this story for editing.");
+    } finally {
+      setQueueingId(null);
+    }
+  };
 
   if (loading) return <main className="p-8">Checking access…</main>;
   if (!user)
@@ -119,6 +152,31 @@ function ReviewPage() {
           />
         ))}
       </div>
+
+      <section className="mt-14 border-t border-border pt-8">
+        <h2 className="font-serif text-3xl font-semibold">Edit a published story</h2>
+        <p className="mt-2 text-muted-foreground">
+          Open a published story in the editor without taking it off the public feed.
+        </p>
+        <div className="mt-5 space-y-3">
+          {publishedLoading && <p className="text-muted-foreground">Loading published stories…</p>}
+          {(published ?? []).map((story) => (
+            <div
+              key={story.id}
+              className="flex items-center justify-between gap-4 rounded border border-border p-3"
+            >
+              <span>{story.headline}</span>
+              <Button
+                variant="outline"
+                onClick={() => beginPublishedEdit(story.id)}
+                disabled={queueingId === story.id}
+              >
+                Edit
+              </Button>
+            </div>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
@@ -131,7 +189,11 @@ function QueueCard({ item, onDone }: { item: QueueItem; onDone: () => void }) {
   const [topics, setTopics] = useState<Topic[]>(item.stories.story_topics.map((t) => t.topic));
   const [tone, setTone] = useState<Tone | null>(tags?.tone ?? null);
   const [access, setAccess] = useState<Access | null>(tags?.access ?? null);
-  const [geography, setGeography] = useState<Geography | null>(tags?.geography ?? null);
+  const [geographies, setGeographies] = useState<Geography[]>(
+    [tags?.geography, tags?.secondary_geography].filter(
+      (value): value is Geography => value !== null && value !== undefined,
+    ),
+  );
 
   const [publishedAt, setPublishedAt] = useState(item.stories.published_at ?? "");
   const missingFields = [
@@ -139,7 +201,7 @@ function QueueCard({ item, onDone }: { item: QueueItem; onDone: () => void }) {
     !topics.length && "at least one topic",
     !tone && "tone",
     !access && "access (Free or Paid)",
-    !geography && "geography",
+    !geographies.length && "at least one geography",
     (!publishedAt || !Number.isFinite(Date.parse(publishedAt))) && "valid publication date",
   ].filter((field): field is string => Boolean(field));
   const complete = missingFields.length === 0;
@@ -183,7 +245,7 @@ function QueueCard({ item, onDone }: { item: QueueItem; onDone: () => void }) {
   };
 
   const correctAndApprove = async () => {
-    if (!complete || !tone || !access || !geography) return;
+    if (!complete || !tone || !access || !geographies.length) return;
     setBusy(true);
     try {
       await runCorrect({
@@ -194,7 +256,7 @@ function QueueCard({ item, onDone }: { item: QueueItem; onDone: () => void }) {
           topics,
           tone,
           access,
-          geography,
+          geographies,
         },
       });
       toast.success("Saved and published.");
@@ -347,15 +409,24 @@ function QueueCard({ item, onDone }: { item: QueueItem; onDone: () => void }) {
           </div>
           <div>
             <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
-              Geography
+              Geography (choose up to two)
             </p>
             <div className="flex flex-wrap gap-2">
               {GEOGRAPHIES.map((g) => (
                 <button
                   key={g}
                   type="button"
-                  className={chip(geography === g)}
-                  onClick={() => setGeography(g)}
+                  className={chip(geographies.includes(g))}
+                  onClick={() =>
+                    setGeographies((current) => {
+                      if (current.includes(g)) return current.filter((value) => value !== g);
+                      if (g === "Worldwide") return [g];
+                      const withoutWorldwide = current.filter((value) => value !== "Worldwide");
+                      return withoutWorldwide.length < 2
+                        ? [...withoutWorldwide, g]
+                        : withoutWorldwide;
+                    })
+                  }
                 >
                   {g}
                 </button>
@@ -395,6 +466,11 @@ function QueueCard({ item, onDone }: { item: QueueItem; onDone: () => void }) {
             {tags?.geography && (
               <span className="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted-foreground">
                 {tags.geography}
+              </span>
+            )}
+            {tags?.secondary_geography && (
+              <span className="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted-foreground">
+                {tags.secondary_geography}
               </span>
             )}
             {tags?.access && (

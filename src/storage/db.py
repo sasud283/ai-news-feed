@@ -275,11 +275,13 @@ async def save_result(connection: asyncpg.Connection, result: ProcessingResult) 
             # Idempotent replay must not overwrite an editor's approved changes.
             continue
         await connection.execute(
-            "INSERT INTO public.story_tags(story_id, tone, access, geography) VALUES ($1,$2,$3,$4)",
+            "INSERT INTO public.story_tags(story_id, tone, access, geography, secondary_geography) "
+            "VALUES ($1,$2,$3,$4,$5)",
             story_id,
             tags.tone,
             story.access,
             tags.geography,
+            tags.secondary_geography,
         )
         for topic in tags.topics:
             await connection.execute(

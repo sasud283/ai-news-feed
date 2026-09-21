@@ -312,7 +312,7 @@ async def test_incomplete_correction_rolls_back_and_valid_correction_publishes(p
         "topics": ["Ethics"],
         "tone": "Useful",
         "access": "Free",
-        "geography": "Europe",
+        "geographies": ["Europe"],
         "published_at": None,
     }
     with pytest.raises(RuntimeError, match="Complete"):
@@ -498,3 +498,40 @@ async def test_first_signup_is_not_automatically_admin(pg):
         await pg.fetchval("SELECT role FROM public.user_roles WHERE user_id = $1", USER)
         == "user"
     )
+
+
+async def test_admin_edits_published_story_with_two_geographies(pg):
+    await store(pg, result(stories=(story(),)))
+    story_id = await pg.fetchval(
+        "SELECT id FROM public.stories WHERE canonical_url=$1", URL
+    )
+    await login(pg, ADMIN)
+    await pg.execute("SELECT public.queue_published_story_for_edit($1)", story_id)
+    assert (
+        await pg.fetchval(
+            "SELECT publication_status FROM public.stories WHERE id=$1", story_id
+        )
+        == "published"
+    )
+    queue_id = await pg.fetchval(
+        "SELECT id FROM public.spot_check_queue WHERE story_id=$1 AND status='pending'",
+        story_id,
+    )
+    correction = {
+        "summary": "Edited bilateral summary.",
+        "topics": ["National Initiatives"],
+        "tone": "Neutral",
+        "access": "Free",
+        "geographies": ["US", "China"],
+        "published_at": DATE.isoformat(),
+    }
+    await pg.execute(
+        "SELECT public.review_story($1, 'correct', $2::jsonb)",
+        queue_id,
+        json.dumps(correction),
+    )
+    tags = await pg.fetch(
+        "SELECT geography::text,secondary_geography::text FROM public.story_tags WHERE story_id=$1",
+        story_id,
+    )
+    assert tags == [{"geography": "US", "secondary_geography": "China"}]

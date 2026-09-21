@@ -1,14 +1,5 @@
 [
   {
-    "name": "The Rundown AI",
-    "url": "https://www.therundown.ai/",
-    "feed_url": "https://rss.beehiiv.com/feeds/2R3C6Bt5wj.xml",
-    "category": "Tools & Products",
-    "region": "Global",
-    "connection_type": "rss",
-    "notes": "Content type: article. Coverage: Cross-Topic AI Specialist Sources. Cross-topic intake; classify individual items after ingestion. Cross-Topic AI Specialist Sources: All topics Popularity supplied by user (not independently verified): High (2M+). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
-  },
-  {
     "name": "MIT Technology Review (AI)",
     "url": "https://www.technologyreview.com/",
     "feed_url": "https://www.technologyreview.com/topic/artificial-intelligence/feed/",
@@ -331,15 +322,6 @@
     "region": "Global",
     "connection_type": "rss",
     "notes": "Content type: article. Coverage: Tools & Products. Tools & Products: Daily product rankings; filter by AI category Popularity supplied by user (not independently verified): High. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
-  },
-  {
-    "name": "TLDR AI",
-    "url": "https://tldr.tech/",
-    "feed_url": "https://tldr.tech/api/rss/ai",
-    "category": "Tools & Products",
-    "region": "Global",
-    "connection_type": "rss",
-    "notes": "Content type: article. Coverage: Tools & Products. Tools & Products: Tool/product releases alongside research Popularity supplied by user (not independently verified): High (1.1M+). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
   },
   {
     "name": "Crunchbase News (AI)",

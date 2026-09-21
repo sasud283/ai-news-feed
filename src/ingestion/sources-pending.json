@@ -475,5 +475,23 @@
     "region": "Global",
     "connection_type": "rss",
     "notes": "Content type: article. Coverage: People & Jobs. General-topic feed: include only AI-relevant items; classify the article, not its publisher. PENDING: Client error '403 Forbidden' for url 'https://www.weforum.org/rss' Retained existing source; earlier supplied URLs remain in verification history."
+  },
+  {
+    "name": "The Rundown AI",
+    "url": "https://www.therundown.ai/",
+    "feed_url": "https://rss.beehiiv.com/feeds/2R3C6Bt5wj.xml",
+    "category": "Tools & Products",
+    "region": "Global",
+    "connection_type": "excluded",
+    "notes": "Content type: article. Coverage: Cross-Topic AI Specialist Sources. Cross-topic intake; classify individual items after ingestion. Cross-Topic AI Specialist Sources: All topics Popularity supplied by user (not independently verified): High (2M+). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller. Excluded 2026-09-21: the feed entry represents a multi-article newsletter edition and cannot be safely treated as one article."
+  },
+  {
+    "name": "TLDR AI",
+    "url": "https://tldr.tech/",
+    "feed_url": "https://tldr.tech/api/rss/ai",
+    "category": "Tools & Products",
+    "region": "Global",
+    "connection_type": "excluded",
+    "notes": "Content type: article. Coverage: Tools & Products. Tools & Products: Tool/product releases alongside research Popularity supplied by user (not independently verified): High (1.1M+). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller. Excluded 2026-09-21: the feed entry represents a multi-article newsletter edition and cannot be safely treated as one article."
   }
 ]

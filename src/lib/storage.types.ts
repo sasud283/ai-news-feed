@@ -25,6 +25,14 @@ export type StorageDatabase = Omit<Database, "public"> & {
         Args: { p_queue_id: string; p_action: string; p_correction: Json | null };
         Returns: undefined;
       };
+      update_published_story: {
+        Args: { p_story_id: string; p_correction: Json };
+        Returns: undefined;
+      };
+      queue_published_story_for_edit: {
+        Args: { p_story_id: string };
+        Returns: undefined;
+      };
     };
   };
 };

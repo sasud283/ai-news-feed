@@ -23,6 +23,7 @@ class Classification:
     disagreement: bool
     tone_reason: str | None = None
     tone_flags: tuple[str, ...] = ()
+    secondary_geography: str | None = None
 
 
 @dataclass(frozen=True, slots=True)

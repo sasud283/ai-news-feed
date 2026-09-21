@@ -39,6 +39,13 @@ def test_multiple_topics_and_per_tag_confidence(payload):
     assert review_reasons(result) == ("low_topic_confidence",)
 
 
+def test_bilateral_story_accepts_two_geographies(payload):
+    payload["geography"] = [1, 2]
+    result = classify(payload)
+    assert result.geography == "US"
+    assert result.secondary_geography == "China"
+
+
 @pytest.mark.parametrize(
     "change",
     [
@@ -52,6 +59,9 @@ def test_multiple_topics_and_per_tag_confidence(payload):
         {"scores": [1]},
         {"tone": "Good"},
         {"geography": -1},
+        {"geography": [1, 1]},
+        {"geography": [0, 2]},
+        {"geography": [1, 2, 3]},
         {"relevant": "true"},
         {"disagreement": "false"},
     ],

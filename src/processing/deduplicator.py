@@ -17,6 +17,41 @@ _TRACKING = {"fbclid", "gclid", "dclid", "msclkid", "mc_cid", "mc_eid"}
 _UPDATES = re.compile(
     r"\b(correction|corrected|update|updated|retracts|retraction)\b", re.IGNORECASE
 )
+_NEGATION = re.compile(
+    r"\b(?:not|no|never|rejects?|denies?|fails?|without)\b", re.IGNORECASE
+)
+_EVENT_ACTIONS = {
+    "announc",
+    "ban",
+    "block",
+    "charg",
+    "delay",
+    "launch",
+    "releas",
+    "settle",
+    "sue",
+    "unveil",
+}
+_STOPWORDS = {
+    "a",
+    "an",
+    "and",
+    "as",
+    "at",
+    "by",
+    "for",
+    "from",
+    "has",
+    "in",
+    "into",
+    "is",
+    "of",
+    "on",
+    "the",
+    "to",
+    "using",
+    "with",
+}
 
 
 @dataclass(frozen=True, slots=True)
@@ -72,6 +107,33 @@ def _date(value: datetime) -> datetime:
     return value.replace(tzinfo=UTC) if value.tzinfo is None else value.astimezone(UTC)
 
 
+def _stem(word: str) -> str:
+    for suffix in ("ing", "ied", "ed", "es", "s"):
+        if len(word) > len(suffix) + 3 and word.endswith(suffix):
+            return word[: -len(suffix)]
+    return word
+
+
+def _terms(text: str) -> set[str]:
+    return {
+        _stem(word)
+        for word in _title(text).split()
+        if word not in _STOPWORDS and len(word) > 1
+    }
+
+
+def _entities(text: str) -> set[str]:
+    return {
+        value.casefold().removesuffix(".com")
+        for value in re.findall(r"\b[A-Z][\w.-]*\b", text)
+        if value.casefold() not in _STOPWORDS
+    }
+
+
+def _overlap(left: set[str], right: set[str]) -> float:
+    return len(left & right) / len(left | right) if left or right else 0.0
+
+
 def _near(a: FeedItem, b: FeedItem) -> bool:
     if a.published_at is None or b.published_at is None:
         return False
@@ -88,6 +150,18 @@ def _same_event(a: FeedItem, b: FeedItem) -> bool:
         return True
     if _UPDATES.search(a.title) or _UPDATES.search(b.title):
         return False
+    # Merge conservative active/passive paraphrases when the named entities,
+    # central event verb and most content words agree. Analysis and opinion
+    # about the same broader setting remain separate.
+    left_terms, right_terms = _terms(a.title), _terms(b.title)
+    shared_actions = left_terms & right_terms & _EVENT_ACTIONS
+    if (
+        shared_actions
+        and bool(_NEGATION.search(a.title)) == bool(_NEGATION.search(b.title))
+        and _overlap(_entities(a.title), _entities(b.title)) >= 0.6
+        and _overlap(left_terms, right_terms) >= 0.45
+    ):
+        return True
     # Require identical words including entities and numbers; only word-order or
     # punctuation variants qualify. Paraphrases stay separate rather than guessing.
     if sorted(left.split()) != sorted(right.split()):

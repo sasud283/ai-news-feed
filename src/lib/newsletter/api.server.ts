@@ -14,6 +14,7 @@ const topics = z.enum([
   "Future of Daily Life",
   "AI Equity & Representation",
   "Tools & Products",
+  "Education",
 ]);
 const inputSchema = z.object({
   email: z
@@ -24,7 +25,7 @@ const inputSchema = z.object({
     .transform((v) => v.toLowerCase()),
   cadence: z.enum(["daily", "weekly"]),
   plan: z.enum(["monthly", "yearly"]),
-  topics: z.array(topics).max(11),
+  topics: z.array(topics).max(12),
   consent: z.literal(true),
 });
 function createDatabase() {

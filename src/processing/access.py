@@ -12,11 +12,11 @@ from src.processing.models import Access
 
 
 @lru_cache(maxsize=1)
-def _registry() -> dict[str, Access]:
+def _registry() -> dict[str, Access | None]:
     path = Path(__file__).with_name("source_access.json")
     values = json.loads(path.read_text())
     if not isinstance(values, dict) or any(
-        not isinstance(name, str) or access not in {"Free", "Paid"}
+        not isinstance(name, str) or access not in {"Free", "Paid", None}
         for name, access in values.items()
     ):
         raise ValueError("Invalid source access registry")
@@ -31,7 +31,8 @@ def infer_access_by_url(items: list[FeedItem]) -> dict[str, Access]:
 
     Returns:
         Access by URL. A confirmed free route wins when duplicate sources disagree;
-        sources absent from the registry remain unknown and require review.
+        mixed-access publishers and sources absent from the registry remain unknown
+        and require review.
     """
     registry = _registry()
     result: dict[str, Access] = {}

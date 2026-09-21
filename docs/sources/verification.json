@@ -4,7 +4,7 @@
   "sources": [
     {
       "name": "The Rundown AI",
-      "registry": "sources.json",
+      "registry": "sources-pending.json",
       "feed_url": "https://rss.beehiiv.com/feeds/2R3C6Bt5wj.xml",
       "content_type": "article",
       "topics": [
@@ -12,11 +12,12 @@
       ],
       "verification": {
         "supplied_url": "https://rss.beehiiv.com/feeds/2R3C6Bt5wj.xml",
-        "status": "verified",
+        "status": "excluded",
         "http_status": 200,
         "feed_url": "https://rss.beehiiv.com/feeds/2R3C6Bt5wj.xml",
         "title": "The Rundown AI",
-        "items": 20
+        "items": 20,
+        "reason": "Feed entries bundle multiple articles into one newsletter edition."
       },
       "discovery_url": null,
       "supplied_entries": [
@@ -1738,7 +1739,7 @@
     },
     {
       "name": "TLDR AI",
-      "registry": "sources.json",
+      "registry": "sources-pending.json",
       "feed_url": "https://tldr.tech/api/rss/ai",
       "content_type": "article",
       "topics": [
@@ -1746,11 +1747,12 @@
       ],
       "verification": {
         "supplied_url": "https://tldr.tech/api/rss/ai",
-        "status": "verified",
+        "status": "excluded",
         "http_status": 200,
         "feed_url": "https://tldr.tech/api/rss/ai",
         "title": "TLDR AI RSS Feed",
-        "items": 20
+        "items": 20,
+        "reason": "Feed entries bundle multiple articles into one newsletter edition."
       },
       "discovery_url": null,
       "supplied_entries": [

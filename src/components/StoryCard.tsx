@@ -53,11 +53,14 @@ export function StoryCard({ story }: { story: Story }) {
             {t}
           </Tag>
         ))}
-        {story.geography && (
-          <Tag className="border-geo-foreground bg-geo-foreground text-tone-contrast">
-            {story.geography}
+        {story.geographies.map((geography) => (
+          <Tag
+            key={geography}
+            className="border-geo-foreground bg-geo-foreground text-tone-contrast"
+          >
+            {geography}
           </Tag>
-        )}
+        ))}
         {story.access && (
           <Tag className="border-access-foreground bg-access-foreground text-tone-contrast">
             {story.access === "Paid" ? <Lock className="mr-1 h-3 w-3" /> : null}

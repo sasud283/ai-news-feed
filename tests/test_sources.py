@@ -107,8 +107,8 @@ def test_cross_topic_articles_are_listed_first():
         if "Cross-Topic AI Specialist Sources" in audit[s["name"]]["topics"]
         and audit[s["name"]]["content_type"] == "article"
     ]
-    assert len(cross_topic_articles) == 13
-    assert sources[:13] == cross_topic_articles
+    assert len(cross_topic_articles) == 12
+    assert sources[:12] == cross_topic_articles
 
 
 def test_manual_and_excluded_sources_are_not_polled():
@@ -116,4 +116,6 @@ def test_manual_and_excluded_sources_are_not_polled():
     assert pending["Bloomberg Technology"]["connection_type"] == "excluded"
     assert pending["AI Ethics Brief (Montreal AI Ethics)"]["connection_type"] == "email"
     assert pending["One-off documentaries"]["connection_type"] == "manual"
+    assert pending["The Rundown AI"]["connection_type"] == "excluded"
+    assert pending["TLDR AI"]["connection_type"] == "excluded"
     assert pending["Chain of Thought"]["feed_url"] == ""

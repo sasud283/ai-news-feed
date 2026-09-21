@@ -56,7 +56,21 @@ def classify(payload: Mapping[str, Any]) -> Classification:
         raise ValueError("Relevant stories require a topic")
     if not relevant and topics:
         raise ValueError("Irrelevant stories must have no topics")
-    geography = _label(payload.get("geography"), GEOGRAPHIES) if relevant else None
+    geography_ids = payload.get("geography")
+    if relevant:
+        if type(geography_ids) is int:
+            geography_ids = [geography_ids]
+        if (
+            not isinstance(geography_ids, list)
+            or not 1 <= len(geography_ids) <= 2
+            or len(set(geography_ids)) != len(geography_ids)
+        ):
+            raise ValueError("Relevant stories require one or two geographies")
+        geographies = tuple(_label(index, GEOGRAPHIES) for index in geography_ids)
+        if "Worldwide" in geographies and len(geographies) > 1:
+            raise ValueError("Worldwide cannot be combined with another geography")
+    else:
+        geographies = ()
     scores = payload.get("scores")
     if not isinstance(scores, list) or len(scores) != len(topics) + 3:
         raise ValueError("Require one score per topic, then tone, geography, relevance")
@@ -78,7 +92,7 @@ def classify(payload: Mapping[str, Any]) -> Classification:
         relevant,
         topics,
         decision.label if decision else None,
-        geography,
+        geographies[0] if geographies else None,
         tuple(float(s) for s in scores[:-3]),
         float(scores[-3]),
         float(scores[-2]),
@@ -86,6 +100,7 @@ def classify(payload: Mapping[str, Any]) -> Classification:
         payload["disagreement"],
         decision.reason if decision else None,
         decision.review_flags if decision else (),
+        geographies[1] if len(geographies) == 2 else None,
     )
 
 

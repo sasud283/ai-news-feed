@@ -29,21 +29,27 @@ const correctionSchema = z.object({
         "Future of Daily Life",
         "AI Equity & Representation",
         "Tools & Products",
+        "Education",
       ]),
     )
     .min(1),
   tone: z.enum(["Good", "Useful", "Bad", "Ugly", "Cool", "Neutral"]),
   access: z.enum(["Free", "Paid"]),
-  geography: z.enum([
-    "Worldwide",
-    "US",
-    "China",
-    "Europe",
-    "Africa",
-    "Latin America",
-    "South & Southeast Asia",
-    "Middle East",
-  ]),
+  geographies: z
+    .array(
+      z.enum([
+        "Worldwide",
+        "US",
+        "China",
+        "Europe",
+        "Africa",
+        "Latin America",
+        "South & Southeast Asia",
+        "Middle East",
+      ]),
+    )
+    .min(1)
+    .max(2),
   publishedAt: z.string().datetime({ offset: true }),
 });
 
@@ -54,12 +60,40 @@ export const fetchSpotCheckQueue = createServerFn({ method: "GET" })
     const { data, error } = await db
       .from("spot_check_queue")
       .select(
-        "id, reason, status, created_at, story_id, stories(id, headline, ai_generated_summary, language, published_at, related_to_url, processing_metadata, story_sources(source_name, source_url, is_paywalled), story_topics(topic), story_tags(tone, access, geography))",
+        "id, reason, status, created_at, story_id, stories(id, headline, ai_generated_summary, language, published_at, related_to_url, processing_metadata, story_sources(source_name, source_url, is_paywalled), story_topics(topic), story_tags(tone, access, geography, secondary_geography))",
       )
       .eq("status", "pending")
       .order("created_at", { ascending: true });
     if (error) throw new Error(error.message);
     return data ?? [];
+  });
+
+export const fetchPublishedForEditing = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const db = await requireAdmin(context.supabase, context.userId);
+    const { data, error } = await db
+      .from("stories")
+      .select(
+        "id, headline, ai_generated_summary, language, published_at, related_to_url, processing_metadata, story_sources(source_name, source_url, is_paywalled), story_topics(topic), story_tags(tone, access, geography, secondary_geography)",
+      )
+      .eq("publication_status", "published")
+      .order("published_at", { ascending: false })
+      .limit(100);
+    if (error) throw new Error(error.message);
+    return data ?? [];
+  });
+
+export const queuePublishedStoryForEdit = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .validator((data) => z.object({ storyId: z.string().uuid() }).parse(data))
+  .handler(async ({ data, context }) => {
+    const db = await requireAdmin(context.supabase, context.userId);
+    const { error } = await db.rpc("queue_published_story_for_edit", {
+      p_story_id: data.storyId,
+    });
+    if (error) throw new Error(error.message);
+    return { ok: true };
   });
 
 export const approveSpotCheck = createServerFn({ method: "POST" })
@@ -103,7 +137,29 @@ export const correctSpotCheck = createServerFn({ method: "POST" })
         topics: data.topics,
         tone: data.tone,
         access: data.access,
-        geography: data.geography,
+        geographies: data.geographies,
+        published_at: data.publishedAt,
+      },
+    });
+    if (error) throw new Error(error.message);
+    return { ok: true };
+  });
+
+export const updatePublishedStory = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .validator((data) =>
+    correctionSchema.omit({ queueId: true }).extend({ storyId: z.string().uuid() }).parse(data),
+  )
+  .handler(async ({ data, context }) => {
+    const db = await requireAdmin(context.supabase, context.userId);
+    const { error } = await db.rpc("update_published_story", {
+      p_story_id: data.storyId,
+      p_correction: {
+        summary: data.summary,
+        topics: data.topics,
+        tone: data.tone,
+        access: data.access,
+        geographies: data.geographies,
         published_at: data.publishedAt,
       },
     });

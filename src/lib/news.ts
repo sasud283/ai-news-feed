@@ -55,6 +55,7 @@ export const topicClass: Record<Topic, string> = {
   "Future of Daily Life": "bg-topic-green text-tone-contrast border-topic-green",
   "AI Equity & Representation": "bg-topic-magenta text-tone-contrast border-topic-magenta",
   "Tools & Products": "bg-topic-cyan text-tone-contrast border-topic-cyan",
+  Education: "bg-topic-green text-tone-contrast border-topic-green",
 };
 
 export const topicOutlineClass: Record<Topic, string> = {
@@ -69,6 +70,7 @@ export const topicOutlineClass: Record<Topic, string> = {
   "Future of Daily Life": "border-topic-green text-topic-green",
   "AI Equity & Representation": "border-topic-magenta text-topic-magenta",
   "Tools & Products": "border-topic-cyan text-topic-dark",
+  Education: "border-topic-green text-topic-green",
 };
 
 export type StorySource = {
@@ -92,6 +94,7 @@ export type Story = {
   tone: Tone | null;
   access: Access | null;
   geography: Geography | null;
+  geographies: Geography[];
   sources: StorySource[];
   followUp?: { id: string; headline: string } | null;
 };
@@ -107,12 +110,17 @@ type RawStory = {
   media_url: string | null;
   language: string | null;
   story_topics: { topic: Topic }[];
-  story_tags: { tone: Tone | null; access: Access | null; geography: Geography | null } | null;
+  story_tags: {
+    tone: Tone | null;
+    access: Access | null;
+    geography: Geography | null;
+    secondary_geography: Geography | null;
+  } | null;
   story_sources: StorySource[];
 };
 
 const SELECT =
-  "id, headline, ai_generated_summary, published_at, updated_at, is_correction_of, content_type, media_url, language, story_topics(topic), story_tags(tone, access, geography), story_sources(id, source_name, source_url, is_paywalled)";
+  "id, headline, ai_generated_summary, published_at, updated_at, is_correction_of, content_type, media_url, language, story_topics(topic), story_tags(tone, access, geography, secondary_geography), story_sources(id, source_name, source_url, is_paywalled)";
 
 export async function fetchStories(): Promise<Story[]> {
   const db = supabase as unknown as SupabaseClient<StorageDatabase>;
@@ -144,6 +152,9 @@ export async function fetchStories(): Promise<Story[]> {
       tone: tags?.tone ?? null,
       access: tags?.access ?? null,
       geography: tags?.geography ?? null,
+      geographies: [tags?.geography, tags?.secondary_geography].filter(
+        (value): value is Geography => value !== null && value !== undefined,
+      ),
       sources: s.story_sources ?? [],
     };
   });
@@ -194,7 +205,7 @@ export function filterStories(stories: Story[], filters: Filters): Story[] {
     if (filters.topics.length && !filters.topics.some((t) => s.topics.includes(t))) return false;
     if (filters.tone && s.tone !== filters.tone) return false;
     if (filters.access && s.access !== filters.access) return false;
-    if (filters.geography && s.geography !== filters.geography) return false;
+    if (filters.geography && !s.geographies.includes(filters.geography)) return false;
     if (filters.contentType && s.content_type !== filters.contentType) return false;
     if (filters.timeRange) {
       const ageDays = (Date.now() - new Date(s.published_at).getTime()) / 86_400_000;

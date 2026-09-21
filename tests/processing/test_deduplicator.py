@@ -108,6 +108,36 @@ def test_entity_roles_not_reversed(item):
     assert len(group_items([left, right])) == 2
 
 
+def test_active_and_passive_same_event_are_merged(item):
+    left = replace(item, title="Amazon blocks Meta's Muse AI agent")
+    right = replace(
+        item,
+        title="Meta's AI agent has been blocked from using Amazon.com",
+        url="https://other.example/report",
+        source_name="Other",
+    )
+    assert len(group_items([left, right])) == 1
+
+
+def test_us_china_news_analysis_and_opinion_remain_separate(item):
+    titles = [
+        "Bessent hails US-China AI dialogue ahead of Trump-Xi meeting",
+        "AI, tariffs, rare minerals: what to expect from Trump's summit with Xi",
+        "Can Trump and Xi cooperate to guide humanity through the AI revolution?",
+    ]
+    assert (
+        len(
+            group_items(
+                [
+                    replace(item, title=title, url=f"https://example.com/{index}")
+                    for index, title in enumerate(titles)
+                ]
+            )
+        )
+        == 3
+    )
+
+
 def test_different_currencies_not_merged(item):
     left = replace(item, title="Acme AI raises $10 million in a new funding round")
     right = replace(
