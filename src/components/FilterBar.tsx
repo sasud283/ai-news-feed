@@ -248,6 +248,7 @@ export function FilterBar({
             ))}
           </div>
         </div>
+          </>
         )}
 
         <div className="space-y-2 pt-1">
