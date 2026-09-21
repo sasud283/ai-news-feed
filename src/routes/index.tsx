@@ -1,3 +1,4 @@
+import { normalizeTopics } from "@/lib/taxonomy";
 import { useEffect, useState } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
@@ -68,10 +69,7 @@ export const Route = createFileRoute("/")({
 });
 
 function searchToFilters(search: FeedSearch): Filters {
-  const topics = (search.topics ?? "")
-    .split(",")
-    .map((t) => t.trim())
-    .filter((t): t is Topic => TOPICS.includes(t as Topic));
+  const topics = normalizeTopics((search.topics ?? "").split(","));
   const timeRange = TIME_RANGES.some((r) => r.value === search.range)
     ? (search.range as TimeRange)
     : null;

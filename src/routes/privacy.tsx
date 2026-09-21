@@ -29,10 +29,11 @@ function PrivacyPage() {
         <section>
           <h2 className="font-serif text-xl font-semibold text-foreground">What we collect</h2>
           <p className="mt-2">
-            If you subscribe to TheFullPicture.ai's paid email digest, we store your email address, the date and time you
-            gave consent, the subscription plan, and the filter combination that was active when you signed up. Payment details are handled by the payment provider and are not stored here. If you
-            create a reader account, we also store your account email and any saved default filter
-            view.
+            If you subscribe to TheFullPicture.ai's paid email digest, we store your email address,
+            the date and time you gave consent, the subscription plan, and the filter combination
+            that was active when you signed up. Payment details are handled by the payment provider
+            and are not stored here. If you create a reader account, we also store your account
+            email and any saved default filter view.
           </p>
         </section>
         <section>

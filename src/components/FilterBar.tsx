@@ -1,3 +1,4 @@
+import { TOPIC_DESCRIPTIONS } from "@/lib/taxonomy";
 import {
   Search,
   X,
@@ -89,6 +90,7 @@ export function FilterBar({
             {TOPICS.map((t) => (
               <Button
                 key={t}
+                title={TOPIC_DESCRIPTIONS[t]}
                 type="button"
                 size="sm"
                 variant="outline"

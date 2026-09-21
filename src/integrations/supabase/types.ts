@@ -279,7 +279,9 @@ export type Database = {
         | "Policy & Regulation"
         | "National Initiatives"
         | "Ethics"
-        | "Future of Work"
+        | "Leadership"
+        | "Organisations"
+        | "People & Jobs"
         | "Future of Daily Life"
         | "AI Equity & Representation"
         | "Tools & Products"
@@ -430,7 +432,9 @@ export const Constants = {
         "Policy & Regulation",
         "National Initiatives",
         "Ethics",
-        "Future of Work",
+        "Leadership",
+        "Organisations",
+        "People & Jobs",
         "Future of Daily Life",
         "AI Equity & Representation",
         "Tools & Products",

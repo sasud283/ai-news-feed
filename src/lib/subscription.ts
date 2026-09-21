@@ -23,7 +23,8 @@ export const TIERS: Record<Cadence, TierInfo> = {
       "Every source linked, paywalls flagged",
       "Filtered to the topics you choose",
     ],
-    firstSend: "Your first digest arrives this Friday at 07:00 CET.",
+    firstSend:
+      "Your first digest arrives within 24 hours of payment, then Fridays at 07:00 Malta time.",
   },
   daily: {
     id: "daily",
@@ -37,7 +38,8 @@ export const TIERS: Record<Cadence, TierInfo> = {
       "Filtered to the topics you choose",
       "Includes the Friday weekly round-up",
     ],
-    firstSend: "Your first briefing arrives tomorrow morning at 07:00 CET.",
+    firstSend:
+      "Your first briefing arrives within 24 hours of payment, then weekdays at 07:00 Malta time.",
   },
 };
 
@@ -55,19 +57,4 @@ export function priceLabel(cadence: Cadence, plan: BillingPlan) {
 
 export function monthlyEquivalent(cadence: Cadence) {
   return (TIERS[cadence].yearly / 12).toFixed(2);
-}
-
-/**
- * Buttondown hosts the paid-subscription checkout and hands billing to Stripe.
- * Each tier/plan combination has its own Buttondown checkout URL, supplied via
- * env. When it isn't configured yet we fall back to the in-app confirmation.
- */
-export function buttondownCheckoutUrl(cadence: Cadence, plan: BillingPlan, email: string) {
-  const env = import.meta.env as Record<string, string | undefined>;
-  const key = `VITE_BUTTONDOWN_CHECKOUT_${cadence.toUpperCase()}_${plan.toUpperCase()}`;
-  const base = env[key];
-  if (!base) return null;
-  const url = new URL(base);
-  if (email) url.searchParams.set("email", email);
-  return url.toString();
 }

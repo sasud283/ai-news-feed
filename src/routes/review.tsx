@@ -93,6 +93,9 @@ function ReviewPage() {
         Administrator review — flagged stories stay private until approved.
       </div>
 
+      <a href="/subscribers" className="mt-4 inline-block underline">
+        Newsletter subscribers
+      </a>
       <h1 className="mt-6 font-serif text-4xl font-semibold">Spot-check queue</h1>
       <p className="mt-2 text-muted-foreground">
         Check the summary and tags, complete any missing details, then publish or reject the story.

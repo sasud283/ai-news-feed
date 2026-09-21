@@ -435,7 +435,10 @@
       "content_type": "article",
       "topics": [
         "Cross-Topic AI Specialist Sources",
-        "Future of Work & Daily Life"
+        "Leadership",
+        "Organisations",
+        "People & Jobs",
+        "Future of Daily Life"
       ],
       "verification": {
         "supplied_url": "https://www.oneusefulthing.org/feed",
@@ -461,9 +464,11 @@
           "popularity": "Medium (367 K)",
           "connection": "RSS",
           "notes": "Closest analog to this vertical; AI + work, school, life",
-          "category": "Future of Work & Daily Life"
+          "category": "Leadership",
+          "original_category": "Future of Work & Daily Life"
         }
-      ]
+      ],
+      "taxonomy_migration": "work-split-v1"
     },
     {
       "name": "arXiv cs.AI",
@@ -1381,7 +1386,7 @@
       "feed_url": "",
       "content_type": "article",
       "topics": [
-        "Future of Work & Daily Life"
+        "Organisations"
       ],
       "verification": {
         "status": "manual",
@@ -1395,9 +1400,11 @@
           "popularity": "Medium",
           "connection": "Scrape ✓",
           "notes": "AI/data skills + upskilling; no public RSS — scraping datacamp.com/blog permitted (robots.txt allows general crawlers)",
-          "category": "Future of Work & Daily Life"
+          "category": "Organisations",
+          "original_category": "Future of Work & Daily Life"
         }
-      ]
+      ],
+      "taxonomy_migration": "work-split-v1"
     },
     {
       "name": "Chain of Thought",
@@ -1405,7 +1412,7 @@
       "feed_url": "",
       "content_type": "article",
       "topics": [
-        "Future of Work & Daily Life"
+        "Organisations"
       ],
       "verification": {
         "status": "manual",
@@ -1419,22 +1426,29 @@
           "popularity": "Niche",
           "connection": "RSS",
           "notes": "AI creativity and agentic AI reshaping work norms",
-          "category": "Future of Work & Daily Life"
+          "category": "Organisations",
+          "original_category": "Future of Work & Daily Life"
         }
-      ]
+      ],
+      "taxonomy_migration": "work-split-v1"
     },
     {
       "name": "SHRM (HR)",
       "registry": "sources-pending.json",
-      "feed_url": "https://www.shrm.org/ResourcesAndTools/hr-topics/technology/rss/Pages/rss.aspx",
+      "feed_url": "https://www.shrm.org/rss",
       "content_type": "article",
       "topics": [
-        "Future of Work & Daily Life"
+        "Organisations"
       ],
       "verification": {
-        "supplied_url": "https://www.shrm.org/ResourcesAndTools/hr-topics/technology/rss/Pages/rss.aspx",
-        "status": "unverified",
-        "error": "Client error '404 Not Found' for url 'https://www.shrm.org/resourcesandtools/hr-topics/technology/rss/pages/rss.aspx'"
+        "name": "SHRM",
+        "supplied_url": "https://www.shrm.org/rss",
+        "category": "Organisations",
+        "region": "US",
+        "checked_at": "2026-09-21T07:23:13.596197+00:00",
+        "status": "pending",
+        "reason": "Client error '404 Not Found' for url 'https://www.shrm.org/rss'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+        "feed_url": "https://www.shrm.org/rss"
       },
       "discovery_url": null,
       "supplied_entries": [
@@ -1444,22 +1458,41 @@
           "popularity": "Medium",
           "connection": "RSS",
           "notes": "Workforce policy, HR technology",
-          "category": "Future of Work & Daily Life"
+          "category": "Organisations",
+          "original_category": "Future of Work & Daily Life"
+        },
+        {
+          "name": "SHRM",
+          "supplied_url": "https://www.shrm.org/rss",
+          "category": "Organisations",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
         }
-      ]
+      ],
+      "taxonomy_migration": "work-split-v1",
+      "previous_verification": {
+        "supplied_url": "https://www.shrm.org/ResourcesAndTools/hr-topics/technology/rss/Pages/rss.aspx",
+        "status": "unverified",
+        "error": "Client error '404 Not Found' for url 'https://www.shrm.org/resourcesandtools/hr-topics/technology/rss/pages/rss.aspx'"
+      }
     },
     {
       "name": "WEF Future of Jobs",
       "registry": "sources-pending.json",
-      "feed_url": "https://www.weforum.org/rss.xml",
+      "feed_url": "https://www.weforum.org/rss",
       "content_type": "article",
       "topics": [
-        "Future of Work & Daily Life"
+        "People & Jobs"
       ],
       "verification": {
-        "supplied_url": "https://www.weforum.org/rss.xml",
-        "status": "unverified",
-        "error": "Client error '403 Forbidden' for url 'https://www.weforum.org/rss.xml'"
+        "name": "World Economic Forum (Future of Work)",
+        "supplied_url": "https://www.weforum.org/rss",
+        "category": "People & Jobs",
+        "region": "Global",
+        "checked_at": "2026-09-21T07:23:13.596212+00:00",
+        "status": "pending",
+        "reason": "Client error '403 Forbidden' for url 'https://www.weforum.org/rss'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+        "feed_url": "https://www.weforum.org/rss"
       },
       "discovery_url": null,
       "supplied_entries": [
@@ -1469,9 +1502,23 @@
           "popularity": "High (institutional)",
           "connection": "RSS",
           "notes": "Filter by jobs/skills/automation; annual flagship reports",
-          "category": "Future of Work & Daily Life"
+          "category": "People & Jobs",
+          "original_category": "Future of Work & Daily Life"
+        },
+        {
+          "name": "World Economic Forum (Future of Work)",
+          "supplied_url": "https://www.weforum.org/rss",
+          "category": "People & Jobs",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
         }
-      ]
+      ],
+      "taxonomy_migration": "work-split-v1",
+      "previous_verification": {
+        "supplied_url": "https://www.weforum.org/rss.xml",
+        "status": "unverified",
+        "error": "Client error '403 Forbidden' for url 'https://www.weforum.org/rss.xml'"
+      }
     },
     {
       "name": "McKinsey Global Institute",
@@ -1479,7 +1526,7 @@
       "feed_url": "https://www.mckinsey.com/rss/insights/article-feed/all.xml",
       "content_type": "article",
       "topics": [
-        "Future of Work & Daily Life"
+        "People & Jobs"
       ],
       "verification": {
         "supplied_url": "https://www.mckinsey.com/rss/insights/article-feed/all.xml",
@@ -1494,9 +1541,11 @@
           "popularity": "High",
           "connection": "RSS",
           "notes": "Workforce trends; filter by automation/AI topics",
-          "category": "Future of Work & Daily Life"
+          "category": "People & Jobs",
+          "original_category": "Future of Work & Daily Life"
         }
-      ]
+      ],
+      "taxonomy_migration": "work-split-v1"
     },
     {
       "name": "Work of the Future (MIT)",
@@ -1504,7 +1553,7 @@
       "feed_url": "https://workofthefuture.mit.edu/feed/",
       "content_type": "article",
       "topics": [
-        "Future of Work & Daily Life"
+        "People & Jobs"
       ],
       "verification": {
         "supplied_url": "https://workofthefuture.mit.edu/feed/",
@@ -1519,9 +1568,11 @@
           "popularity": "Niche",
           "connection": "RSS (check)",
           "notes": "Academic research on labour market impact",
-          "category": "Future of Work & Daily Life"
+          "category": "People & Jobs",
+          "original_category": "Future of Work & Daily Life"
         }
-      ]
+      ],
+      "taxonomy_migration": "work-split-v1"
     },
     {
       "name": "Fortune (Future of Work)",
@@ -1529,7 +1580,7 @@
       "feed_url": "https://fortune.com/tag/the-future-of-work/feed/",
       "content_type": "article",
       "topics": [
-        "Future of Work & Daily Life"
+        "Leadership"
       ],
       "verification": {
         "supplied_url": "https://fortune.com/tag/the-future-of-work/feed/",
@@ -1544,9 +1595,11 @@
           "popularity": "High",
           "connection": "RSS",
           "notes": "Mainstream coverage with management/exec angle",
-          "category": "Future of Work & Daily Life"
+          "category": "Leadership",
+          "original_category": "Future of Work & Daily Life"
         }
-      ]
+      ],
+      "taxonomy_migration": "work-split-v1"
     },
     {
       "name": "LinkedIn Work Change Report",
@@ -1554,7 +1607,7 @@
       "feed_url": "",
       "content_type": "article",
       "topics": [
-        "Future of Work & Daily Life"
+        "People & Jobs"
       ],
       "verification": {
         "status": "manual",
@@ -1568,9 +1621,11 @@
           "popularity": "Niche",
           "connection": "Scrape/Manual",
           "notes": "Annual data release; operator adds manually",
-          "category": "Future of Work & Daily Life"
+          "category": "People & Jobs",
+          "original_category": "Future of Work & Daily Life"
         }
-      ]
+      ],
+      "taxonomy_migration": "work-split-v1"
     },
     {
       "name": "Ben's Bites",
@@ -2662,6 +2717,709 @@
       },
       "discovery_url": null,
       "supplied_entries": []
+    },
+    {
+      "name": "MIT Sloan Management Review",
+      "content_type": "article",
+      "topics": [
+        "Leadership"
+      ],
+      "supplied_entries": [
+        {
+          "name": "MIT Sloan Management Review",
+          "supplied_url": "https://sloanreview.mit.edu/feed/",
+          "category": "Leadership",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources.json",
+      "feed_url": "https://sloanreview.mit.edu/feed/",
+      "verification": {
+        "name": "MIT Sloan Management Review",
+        "supplied_url": "https://sloanreview.mit.edu/feed/",
+        "category": "Leadership",
+        "region": "US",
+        "checked_at": "2026-09-21T07:23:13.584299+00:00",
+        "http_status": 200,
+        "feed_url": "https://sloanreview.mit.edu/feed/",
+        "title": "MIT Sloan Management Review",
+        "items": 20,
+        "status": "verified"
+      }
+    },
+    {
+      "name": "Harvard Business Review (AI topics)",
+      "content_type": "article",
+      "topics": [
+        "Leadership"
+      ],
+      "supplied_entries": [
+        {
+          "name": "Harvard Business Review (AI topics)",
+          "supplied_url": "https://hbr.org/feed",
+          "category": "Leadership",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources-pending.json",
+      "feed_url": "https://hbr.org/feed",
+      "verification": {
+        "name": "Harvard Business Review (AI topics)",
+        "supplied_url": "https://hbr.org/feed",
+        "category": "Leadership",
+        "region": "US",
+        "checked_at": "2026-09-21T07:23:13.595774+00:00",
+        "status": "pending",
+        "reason": "Client error '404 Not Found' for url 'https://hbr.org/feed'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+        "feed_url": "https://hbr.org/feed",
+        "alternative_check": {
+          "url": "https://feeds.harvardbusiness.org/harvardbusiness?format=xml",
+          "reason": ""
+        }
+      }
+    },
+    {
+      "name": "McKinsey Insights",
+      "content_type": "article",
+      "topics": [
+        "Leadership"
+      ],
+      "supplied_entries": [
+        {
+          "name": "McKinsey Insights",
+          "supplied_url": "https://www.mckinsey.com/insights/rss",
+          "category": "Leadership",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources.json",
+      "feed_url": "https://www.mckinsey.com/insights/rss",
+      "verification": {
+        "name": "McKinsey Insights",
+        "supplied_url": "https://www.mckinsey.com/insights/rss",
+        "category": "Leadership",
+        "region": "Global",
+        "checked_at": "2026-09-21T07:23:13.595944+00:00",
+        "http_status": 200,
+        "feed_url": "https://www.mckinsey.com/insights/rss",
+        "title": "McKinsey Insights & Publications",
+        "items": 50,
+        "status": "verified"
+      }
+    },
+    {
+      "name": "Deloitte Insights",
+      "content_type": "article",
+      "topics": [
+        "Leadership"
+      ],
+      "supplied_entries": [
+        {
+          "name": "Deloitte Insights",
+          "supplied_url": "https://www2.deloitte.com/rss",
+          "category": "Leadership",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources-pending.json",
+      "feed_url": "https://www2.deloitte.com/rss",
+      "verification": {
+        "name": "Deloitte Insights",
+        "supplied_url": "https://www2.deloitte.com/rss",
+        "category": "Leadership",
+        "region": "Global",
+        "checked_at": "2026-09-21T07:23:13.596016+00:00",
+        "status": "pending",
+        "reason": "Redirect response '302 Moved Temporarily' for url 'https://www2.deloitte.com/robots.txt'\nRedirect location: 'https://www.deloitte.com/robots.txt'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/302",
+        "feed_url": "https://www2.deloitte.com/rss"
+      }
+    },
+    {
+      "name": "BCG Henderson Institute",
+      "content_type": "article",
+      "topics": [
+        "Leadership"
+      ],
+      "supplied_entries": [
+        {
+          "name": "BCG Henderson Institute",
+          "supplied_url": "https://www.bcg.com/rss",
+          "category": "Leadership",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.bcg.com/rss",
+      "verification": {
+        "name": "BCG Henderson Institute",
+        "supplied_url": "https://www.bcg.com/rss",
+        "category": "Leadership",
+        "region": "Global",
+        "checked_at": "2026-09-21T07:23:13.596075+00:00",
+        "status": "pending",
+        "reason": "Client error '404 Not Found' for url 'https://www.bcg.com/rss'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+        "feed_url": "https://www.bcg.com/rss"
+      }
+    },
+    {
+      "name": "Strategy+Business",
+      "content_type": "article",
+      "topics": [
+        "Leadership"
+      ],
+      "supplied_entries": [
+        {
+          "name": "Strategy+Business",
+          "supplied_url": "https://www.strategy-business.com/rss",
+          "category": "Leadership",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.strategy-business.com/rss",
+      "verification": {
+        "name": "Strategy+Business",
+        "supplied_url": "https://www.strategy-business.com/rss",
+        "category": "Leadership",
+        "region": "US",
+        "checked_at": "2026-09-21T07:23:13.596129+00:00",
+        "http_status": 200,
+        "feed_url": "https://www.strategy-business.com/rss",
+        "title": "",
+        "items": 0,
+        "status": "pending",
+        "reason": "Response is not a parseable RSS/Atom feed"
+      }
+    },
+    {
+      "name": "INSEAD Knowledge",
+      "content_type": "article",
+      "topics": [
+        "Leadership"
+      ],
+      "supplied_entries": [
+        {
+          "name": "INSEAD Knowledge",
+          "supplied_url": "https://knowledge.insead.edu/rss",
+          "category": "Leadership",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources-pending.json",
+      "feed_url": "https://knowledge.insead.edu/rss",
+      "verification": {
+        "name": "INSEAD Knowledge",
+        "supplied_url": "https://knowledge.insead.edu/rss",
+        "category": "Leadership",
+        "region": "Europe",
+        "checked_at": "2026-09-21T07:23:13.596182+00:00",
+        "status": "pending",
+        "reason": "Client error '403 Forbidden' for url 'https://knowledge.insead.edu/robots.txt'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+        "feed_url": "https://knowledge.insead.edu/rss"
+      }
+    },
+    {
+      "name": "Chief Executive Magazine",
+      "content_type": "article",
+      "topics": [
+        "Leadership"
+      ],
+      "supplied_entries": [
+        {
+          "name": "Chief Executive Magazine",
+          "supplied_url": "https://chiefexecutive.net/feed",
+          "category": "Leadership",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources.json",
+      "feed_url": "https://chiefexecutive.net/feed/",
+      "verification": {
+        "name": "Chief Executive Magazine",
+        "supplied_url": "https://chiefexecutive.net/feed",
+        "category": "Leadership",
+        "region": "US",
+        "checked_at": "2026-09-21T07:23:13.596189+00:00",
+        "http_status": 200,
+        "feed_url": "https://chiefexecutive.net/feed/",
+        "title": "ChiefExecutive.net",
+        "items": 10,
+        "status": "verified"
+      }
+    },
+    {
+      "name": "Josh Bersin",
+      "content_type": "article",
+      "topics": [
+        "Organisations"
+      ],
+      "supplied_entries": [
+        {
+          "name": "Josh Bersin",
+          "supplied_url": "https://joshbersin.com/feed/",
+          "category": "Organisations",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources.json",
+      "feed_url": "https://joshbersin.com/feed/",
+      "verification": {
+        "name": "Josh Bersin",
+        "supplied_url": "https://joshbersin.com/feed/",
+        "category": "Organisations",
+        "region": "US",
+        "checked_at": "2026-09-21T07:23:13.596192+00:00",
+        "http_status": 200,
+        "feed_url": "https://joshbersin.com/feed/",
+        "title": "JOSH BERSIN",
+        "items": 832,
+        "status": "verified"
+      }
+    },
+    {
+      "name": "CIPD",
+      "content_type": "article",
+      "topics": [
+        "Organisations"
+      ],
+      "supplied_entries": [
+        {
+          "name": "CIPD",
+          "supplied_url": "https://www.cipd.org/en/rss/",
+          "category": "Organisations",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.cipd.org/en/rss/",
+      "verification": {
+        "name": "CIPD",
+        "supplied_url": "https://www.cipd.org/en/rss/",
+        "category": "Organisations",
+        "region": "UK",
+        "checked_at": "2026-09-21T07:23:13.596194+00:00",
+        "status": "pending",
+        "reason": "Client error '404 Not Found' for url 'https://www.cipd.org/en/rss/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+        "feed_url": "https://www.cipd.org/en/rss/"
+      }
+    },
+    {
+      "name": "HR Brew",
+      "content_type": "article",
+      "topics": [
+        "Organisations"
+      ],
+      "supplied_entries": [
+        {
+          "name": "HR Brew",
+          "supplied_url": "https://www.hr-brew.com/rss",
+          "category": "Organisations",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.hr-brew.com/rss",
+      "verification": {
+        "name": "HR Brew",
+        "supplied_url": "https://www.hr-brew.com/rss",
+        "category": "Organisations",
+        "region": "US",
+        "checked_at": "2026-09-21T07:23:13.596195+00:00",
+        "status": "pending",
+        "reason": "Client error '403 Forbidden' for url 'https://www.hr-brew.com/robots.txt'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+        "feed_url": "https://www.hr-brew.com/rss"
+      }
+    },
+    {
+      "name": "People Management",
+      "content_type": "article",
+      "topics": [
+        "Organisations"
+      ],
+      "supplied_entries": [
+        {
+          "name": "People Management",
+          "supplied_url": "https://www.peoplemanagement.co.uk/rss",
+          "category": "Organisations",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.peoplemanagement.co.uk/rss",
+      "verification": {
+        "name": "People Management",
+        "supplied_url": "https://www.peoplemanagement.co.uk/rss",
+        "category": "Organisations",
+        "region": "UK",
+        "checked_at": "2026-09-21T07:23:13.596196+00:00",
+        "status": "pending",
+        "reason": "Redirect response '301 Moved Permanently' for url 'http://www.peoplemanagement.co.uk/robots.txt'\nRedirect location: 'https://www.peoplemanagement.co.uk/robots.txt'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301",
+        "feed_url": "https://www.peoplemanagement.co.uk/rss"
+      }
+    },
+    {
+      "name": "Gartner HR",
+      "content_type": "article",
+      "topics": [
+        "Organisations"
+      ],
+      "supplied_entries": [
+        {
+          "name": "Gartner HR",
+          "supplied_url": "https://www.gartner.com/en/human-resources/rss",
+          "category": "Organisations",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.gartner.com/en/human-resources/rss",
+      "verification": {
+        "name": "Gartner HR",
+        "supplied_url": "https://www.gartner.com/en/human-resources/rss",
+        "category": "Organisations",
+        "region": "Global",
+        "checked_at": "2026-09-21T07:23:13.596198+00:00",
+        "status": "pending",
+        "reason": "Client error '403 Forbidden' for url 'https://www.gartner.com/robots.txt'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+        "feed_url": "https://www.gartner.com/en/human-resources/rss"
+      }
+    },
+    {
+      "name": "HR Dive",
+      "content_type": "article",
+      "topics": [
+        "Organisations"
+      ],
+      "supplied_entries": [
+        {
+          "name": "HR Dive",
+          "supplied_url": "https://www.hrdive.com/feeds/news/",
+          "category": "Organisations",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources.json",
+      "feed_url": "https://www.hrdive.com/feeds/news/",
+      "verification": {
+        "name": "HR Dive",
+        "supplied_url": "https://www.hrdive.com/feeds/news/",
+        "category": "Organisations",
+        "region": "US",
+        "checked_at": "2026-09-21T07:23:13.596199+00:00",
+        "http_status": 200,
+        "feed_url": "https://www.hrdive.com/feeds/news/",
+        "title": "HR Dive - Latest News",
+        "items": 10,
+        "status": "verified"
+      }
+    },
+    {
+      "name": "Mercer Insights",
+      "content_type": "article",
+      "topics": [
+        "Organisations"
+      ],
+      "supplied_entries": [
+        {
+          "name": "Mercer Insights",
+          "supplied_url": "https://www.mercer.com/rss",
+          "category": "Organisations",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.mercer.com/rss",
+      "verification": {
+        "name": "Mercer Insights",
+        "supplied_url": "https://www.mercer.com/rss",
+        "category": "Organisations",
+        "region": "Global",
+        "checked_at": "2026-09-21T07:23:13.596201+00:00",
+        "status": "pending",
+        "reason": "Client error '404 Not Found' for url 'https://www.mercer.com/rss/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+        "feed_url": "https://www.mercer.com/rss"
+      }
+    },
+    {
+      "name": "ILO (International Labour Organization)",
+      "content_type": "article",
+      "topics": [
+        "People & Jobs"
+      ],
+      "supplied_entries": [
+        {
+          "name": "ILO (International Labour Organization)",
+          "supplied_url": "https://www.ilo.org/rss",
+          "category": "People & Jobs",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.ilo.org/rss",
+      "verification": {
+        "name": "ILO (International Labour Organization)",
+        "supplied_url": "https://www.ilo.org/rss",
+        "category": "People & Jobs",
+        "region": "Global",
+        "checked_at": "2026-09-21T07:23:13.596202+00:00",
+        "status": "pending",
+        "reason": "Client error '404 Not Found' for url 'https://www.ilo.org/rss'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+        "feed_url": "https://www.ilo.org/rss"
+      }
+    },
+    {
+      "name": "Eurofound",
+      "content_type": "article",
+      "topics": [
+        "People & Jobs"
+      ],
+      "supplied_entries": [
+        {
+          "name": "Eurofound",
+          "supplied_url": "https://www.eurofound.europa.eu/rss",
+          "category": "People & Jobs",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.eurofound.europa.eu/rss",
+      "verification": {
+        "name": "Eurofound",
+        "supplied_url": "https://www.eurofound.europa.eu/rss",
+        "category": "People & Jobs",
+        "region": "Europe",
+        "checked_at": "2026-09-21T07:23:13.596203+00:00",
+        "status": "pending",
+        "reason": "Client error '429 Too Many Requests' for url 'https://www.eurofound.europa.eu/robots.txt'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+        "feed_url": "https://www.eurofound.europa.eu/rss"
+      }
+    },
+    {
+      "name": "Social Europe",
+      "content_type": "article",
+      "topics": [
+        "People & Jobs"
+      ],
+      "supplied_entries": [
+        {
+          "name": "Social Europe",
+          "supplied_url": "https://socialeurope.eu/feed",
+          "category": "People & Jobs",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources.json",
+      "feed_url": "https://www.socialeurope.eu/feed",
+      "verification": {
+        "name": "Social Europe",
+        "supplied_url": "https://socialeurope.eu/feed",
+        "category": "People & Jobs",
+        "region": "Europe",
+        "checked_at": "2026-09-21T07:23:13.596206+00:00",
+        "status": "verified",
+        "feed_url": "https://www.socialeurope.eu/feed",
+        "original_check": {
+          "name": "Social Europe",
+          "supplied_url": "https://socialeurope.eu/feed",
+          "category": "People & Jobs",
+          "region": "Europe",
+          "checked_at": "2026-09-21T07:23:13.596206+00:00",
+          "status": "pending",
+          "reason": "Redirect response '301 Moved Permanently' for url 'https://socialeurope.eu/robots.txt'\nRedirect location: 'https://www.socialeurope.eu/robots.txt'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301",
+          "feed_url": "https://socialeurope.eu/feed"
+        },
+        "items": 10,
+        "title": "Social Europe",
+        "http_status": 200
+      }
+    },
+    {
+      "name": "ETUI (European Trade Union Institute)",
+      "content_type": "article",
+      "topics": [
+        "People & Jobs"
+      ],
+      "supplied_entries": [
+        {
+          "name": "ETUI (European Trade Union Institute)",
+          "supplied_url": "https://www.etui.org/rss",
+          "category": "People & Jobs",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.etui.org/rss",
+      "verification": {
+        "name": "ETUI (European Trade Union Institute)",
+        "supplied_url": "https://www.etui.org/rss",
+        "category": "People & Jobs",
+        "region": "Europe",
+        "checked_at": "2026-09-21T07:23:13.596207+00:00",
+        "status": "pending",
+        "reason": "Client error '404 Not Found' for url 'https://www.etui.org/rss'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+        "feed_url": "https://www.etui.org/rss"
+      }
+    },
+    {
+      "name": "OECD Employment",
+      "content_type": "article",
+      "topics": [
+        "People & Jobs"
+      ],
+      "supplied_entries": [
+        {
+          "name": "OECD Employment",
+          "supplied_url": "https://www.oecd.org/employment/rss",
+          "category": "People & Jobs",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources-pending.json",
+      "feed_url": "https://www.oecd.org/employment/rss",
+      "verification": {
+        "name": "OECD Employment",
+        "supplied_url": "https://www.oecd.org/employment/rss",
+        "category": "People & Jobs",
+        "region": "Global",
+        "checked_at": "2026-09-21T07:23:13.596208+00:00",
+        "status": "pending",
+        "reason": "Client error '403 Forbidden' for url 'https://www.oecd.org/employment/rss'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+        "feed_url": "https://www.oecd.org/employment/rss"
+      }
+    },
+    {
+      "name": "Resolution Foundation",
+      "content_type": "article",
+      "topics": [
+        "People & Jobs"
+      ],
+      "supplied_entries": [
+        {
+          "name": "Resolution Foundation",
+          "supplied_url": "https://www.resolutionfoundation.org/feed",
+          "category": "People & Jobs",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources.json",
+      "feed_url": "https://www.resolutionfoundation.org/feed/",
+      "verification": {
+        "name": "Resolution Foundation",
+        "supplied_url": "https://www.resolutionfoundation.org/feed",
+        "category": "People & Jobs",
+        "region": "UK",
+        "checked_at": "2026-09-21T07:23:13.596209+00:00",
+        "http_status": 200,
+        "feed_url": "https://www.resolutionfoundation.org/feed/",
+        "title": "Resolution Foundation",
+        "items": 10,
+        "status": "verified"
+      }
+    },
+    {
+      "name": "Economic Policy Institute",
+      "content_type": "article",
+      "topics": [
+        "People & Jobs"
+      ],
+      "supplied_entries": [
+        {
+          "name": "Economic Policy Institute",
+          "supplied_url": "https://www.epi.org/feed/",
+          "category": "People & Jobs",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources.json",
+      "feed_url": "https://www.epi.org/feed/",
+      "verification": {
+        "name": "Economic Policy Institute",
+        "supplied_url": "https://www.epi.org/feed/",
+        "category": "People & Jobs",
+        "region": "US",
+        "checked_at": "2026-09-21T07:23:13.596211+00:00",
+        "http_status": 200,
+        "feed_url": "https://www.epi.org/feed/",
+        "title": "Economic Policy Institute",
+        "items": 1,
+        "status": "verified"
+      }
+    },
+    {
+      "name": "The Guardian (Work)",
+      "content_type": "article",
+      "topics": [
+        "People & Jobs"
+      ],
+      "supplied_entries": [
+        {
+          "name": "The Guardian (Work)",
+          "supplied_url": "https://www.theguardian.com/money/work-and-careers/rss",
+          "category": "People & Jobs",
+          "connection": "RSS",
+          "notes": "User-requested work taxonomy expansion, 2026-09-21."
+        }
+      ],
+      "discovery_url": null,
+      "registry": "sources.json",
+      "feed_url": "https://www.theguardian.com/money/work-and-careers/rss",
+      "verification": {
+        "name": "The Guardian (Work)",
+        "supplied_url": "https://www.theguardian.com/money/work-and-careers/rss",
+        "category": "People & Jobs",
+        "region": "UK",
+        "checked_at": "2026-09-21T07:23:13.596213+00:00",
+        "http_status": 200,
+        "feed_url": "https://www.theguardian.com/money/work-and-careers/rss",
+        "title": "Work & careers | The Guardian",
+        "items": 20,
+        "status": "verified"
+      }
     }
-  ]
+  ],
+  "taxonomy_updated_at": "2026-09-21"
 }

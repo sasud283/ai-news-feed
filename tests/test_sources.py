@@ -54,13 +54,16 @@ def test_supplied_sources_and_topic_coverage_are_preserved():
     audit = _read("docs/sources/verification.json")["sources"]
     supplied = [s for row in audit for s in row["supplied_entries"]]
     # Includes cross-listings; deduplication must not drop their metadata.
-    assert len(supplied) == 108
+    assert len(supplied) == 133
     assert {topic for row in audit for topic in row["topics"]} == {
         "Cross-Topic AI Specialist Sources",
         "Models & Research",
         "Ethics & Responsible AI",
         "Policy & Regulation",
-        "Future of Work & Daily Life",
+        "Leadership",
+        "Organisations",
+        "People & Jobs",
+        "Future of Daily Life",
         "Tools & Products",
         "Business & Industry",
         "Geopolitics of AI",

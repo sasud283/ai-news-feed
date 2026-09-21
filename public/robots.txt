@@ -1,14 +1,4 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
+# Pre-launch: crawling must remain allowed so engines can read noindex.
+# Indexing is disabled by the robots meta tag and X-Robots-Tag response header.
 User-agent: *
 Allow: /

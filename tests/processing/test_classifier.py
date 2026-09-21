@@ -1,14 +1,14 @@
 """Validate the website taxonomy and independent confidence checks."""
 
-from pathlib import Path
 import re
+from pathlib import Path
 
 import pytest
 
 from src.processing.classifier import (
-    TOPICS,
-    TONES,
     GEOGRAPHIES,
+    TONES,
+    TOPICS,
     classify,
     review_reasons,
 )
@@ -21,14 +21,21 @@ def test_labels_match_frontend():
         ("TONES", TONES),
         ("GEOGRAPHIES", GEOGRAPHIES),
     ]:
-        block = re.search(rf"export const {name}:.*?= \[(.*?)\];", text, re.S).group(1)
+        source = (
+            (Path(__file__).parents[2] / "src/lib/taxonomy.ts").read_text()
+            if name == "TOPICS"
+            else text
+        )
+        block = re.search(
+            rf"export const {name}.*?= \[(.*?)\]", source, re.DOTALL
+        ).group(1)
         assert tuple(re.findall(r'"([^"]+)"', block)) == labels
 
 
 def test_multiple_topics_and_per_tag_confidence(payload):
     payload.update(topics=[3, 5], scores=[0.95, 0.4, 0.95, 0.95, 0.95])
     result = classify(payload)
-    assert result.topics == ("National Initiatives", "Future of Work")
+    assert result.topics == ("National Initiatives", "Leadership")
     assert review_reasons(result) == ("low_topic_confidence",)
 
 

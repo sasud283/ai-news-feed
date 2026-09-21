@@ -1,4 +1,14 @@
-import { ExternalLink, Flag, Lock, Sparkles, ArrowUpRight, FileText, Headphones, Play, Video } from "lucide-react";
+import {
+  ExternalLink,
+  Flag,
+  Lock,
+  Sparkles,
+  ArrowUpRight,
+  FileText,
+  Headphones,
+  Play,
+  Video,
+} from "lucide-react";
 import { formatDate, toneClass, topicClass, type Story } from "@/lib/news";
 
 function Tag({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -13,14 +23,21 @@ function Tag({ children, className = "" }: { children: React.ReactNode; classNam
 
 export function StoryCard({ story }: { story: Story }) {
   const primaryUrl = story.media_url ?? story.sources[0]?.source_url;
-  const youtubeId = story.media_url?.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([\w-]{11})/)?.[1];
+  const youtubeId = story.media_url?.match(
+    /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([\w-]{11})/,
+  )?.[1];
   const vimeoId = story.media_url?.match(/vimeo\.com\/(?:video\/)?(\d+)/)?.[1];
   const videoEmbedUrl = youtubeId
     ? `https://www.youtube-nocookie.com/embed/${youtubeId}`
     : vimeoId
       ? `https://player.vimeo.com/video/${vimeoId}`
       : null;
-  const ContentIcon = story.content_type === "Podcast" ? Headphones : story.content_type === "Video" ? Video : FileText;
+  const ContentIcon =
+    story.content_type === "Podcast"
+      ? Headphones
+      : story.content_type === "Video"
+        ? Video
+        : FileText;
 
   return (
     <article className="group border-b border-border py-10 first:pt-2">
@@ -36,7 +53,9 @@ export function StoryCard({ story }: { story: Story }) {
           </Tag>
         ))}
         {story.geography && (
-          <Tag className="border-geo-foreground bg-geo-foreground text-tone-contrast">{story.geography}</Tag>
+          <Tag className="border-geo-foreground bg-geo-foreground text-tone-contrast">
+            {story.geography}
+          </Tag>
         )}
         {story.access && (
           <Tag className="border-access-foreground bg-access-foreground text-tone-contrast">
@@ -61,13 +80,20 @@ export function StoryCard({ story }: { story: Story }) {
               <Headphones className="h-4 w-4" />
             </span>
             <div className="min-w-0 flex-1">
-              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Listen to this story</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                Listen to this story
+              </p>
               {story.media_url?.match(/\.(mp3|m4a|ogg|wav)(\?.*)?$/i) ? (
                 <audio controls preload="none" className="mt-2 h-9 w-full" src={story.media_url}>
                   <a href={primaryUrl}>Open podcast</a>
                 </audio>
               ) : (
-                <a href={primaryUrl} target="_blank" rel="noopener noreferrer" className="mt-1 inline-flex items-center gap-1 font-medium text-foreground underline decoration-brand-accent underline-offset-4">
+                <a
+                  href={primaryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1 inline-flex items-center gap-1 font-medium text-foreground underline decoration-brand-accent underline-offset-4"
+                >
                   Open podcast episode <ExternalLink className="h-3.5 w-3.5" />
                 </a>
               )}
@@ -80,12 +106,28 @@ export function StoryCard({ story }: { story: Story }) {
         <div className="mt-5">
           {videoEmbedUrl ? (
             <div className="aspect-video overflow-hidden rounded-md border border-border bg-muted">
-              <iframe src={videoEmbedUrl} title={`Video: ${story.headline}`} loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowFullScreen className="h-full w-full" />
+              <iframe
+                src={videoEmbedUrl}
+                title={`Video: ${story.headline}`}
+                loading="lazy"
+                allow="accelerometer; autoplay; encrypted-media; picture-in-picture"
+                allowFullScreen
+                className="h-full w-full"
+              />
             </div>
           ) : (
-            <a href={primaryUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 border-y border-border py-4 font-medium text-foreground">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-accent text-primary-foreground"><Play className="h-4 w-4 fill-current" /></span>
-              <span className="underline decoration-brand-accent underline-offset-4">Watch video</span>
+            <a
+              href={primaryUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 border-y border-border py-4 font-medium text-foreground"
+            >
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-accent text-primary-foreground">
+                <Play className="h-4 w-4 fill-current" />
+              </span>
+              <span className="underline decoration-brand-accent underline-offset-4">
+                Watch video
+              </span>
               <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
             </a>
           )}
@@ -100,7 +142,7 @@ export function StoryCard({ story }: { story: Story }) {
       {story.followUp && (
         <a
           href={`#story-${story.followUp.id}`}
-           className="mt-4 flex items-start gap-2 rounded-md border border-brand-accent/30 bg-accent/60 px-4 py-3 text-sm text-accent-foreground"
+          className="mt-4 flex items-start gap-2 rounded-md border border-brand-accent/30 bg-accent/60 px-4 py-3 text-sm text-accent-foreground"
         >
           <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0" />
           <span>

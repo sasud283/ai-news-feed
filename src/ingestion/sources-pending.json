@@ -75,73 +75,55 @@
     "name": "The Median (DataCamp)",
     "url": "https://www.datacamp.com/blog",
     "feed_url": "",
-    "category": "Future of Work & Daily Life",
+    "category": "Organisations",
     "region": "Global",
     "connection_type": "scrape",
-    "notes": "Content type: article. Coverage: Future of Work & Daily Life. Future of Work & Daily Life: AI/data skills + upskilling; no public RSS — scraping datacamp.com/blog permitted (robots.txt allows general crawlers) Popularity supplied by user (not independently verified): Medium. PENDING: No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
+    "notes": "Content type: article. Coverage: Organisations. Organisations: AI/data skills + upskilling; no public RSS — scraping datacamp.com/blog permitted (robots.txt allows general crawlers) Popularity supplied by user (not independently verified): Medium. PENDING: No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
   },
   {
     "name": "Chain of Thought",
     "url": "",
     "feed_url": "",
-    "category": "Future of Work & Daily Life",
+    "category": "Organisations",
     "region": "Global",
     "connection_type": "pending",
-    "notes": "Content type: article. Coverage: Future of Work & Daily Life. Future of Work & Daily Life: AI creativity and agentic AI reshaping work norms Popularity supplied by user (not independently verified): Niche. PENDING: No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
-  },
-  {
-    "name": "SHRM (HR)",
-    "url": "https://www.shrm.org/",
-    "feed_url": "https://www.shrm.org/ResourcesAndTools/hr-topics/technology/rss/Pages/rss.aspx",
-    "category": "Future of Work & Daily Life",
-    "region": "Global",
-    "connection_type": "rss",
-    "notes": "Content type: article. Coverage: Future of Work & Daily Life. Future of Work & Daily Life: Workforce policy, HR technology Popularity supplied by user (not independently verified): Medium. PENDING: Client error '404 Not Found' for url 'https://www.shrm.org/resourcesandtools/hr-topics/technology/rss/pages/rss.aspx'"
-  },
-  {
-    "name": "WEF Future of Jobs",
-    "url": "https://www.weforum.org/",
-    "feed_url": "https://www.weforum.org/rss.xml",
-    "category": "Future of Work & Daily Life",
-    "region": "Global",
-    "connection_type": "rss",
-    "notes": "Content type: article. Coverage: Future of Work & Daily Life. Future of Work & Daily Life: Filter by jobs/skills/automation; annual flagship reports Popularity supplied by user (not independently verified): High (institutional). PENDING: Client error '403 Forbidden' for url 'https://www.weforum.org/rss.xml'"
+    "notes": "Content type: article. Coverage: Organisations. Organisations: AI creativity and agentic AI reshaping work norms Popularity supplied by user (not independently verified): Niche. PENDING: No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
   },
   {
     "name": "McKinsey Global Institute",
     "url": "https://www.mckinsey.com/",
     "feed_url": "https://www.mckinsey.com/rss/insights/article-feed/all.xml",
-    "category": "Future of Work & Daily Life",
+    "category": "People & Jobs",
     "region": "Global",
     "connection_type": "rss",
-    "notes": "Content type: article. Coverage: Future of Work & Daily Life. Future of Work & Daily Life: Workforce trends; filter by automation/AI topics Popularity supplied by user (not independently verified): High. PENDING: Client error '404 Not Found' for url 'https://www.mckinsey.com/rss/insights/article-feed/all.xml'"
+    "notes": "Content type: article. Coverage: People & Jobs. People & Jobs: Workforce trends; filter by automation/AI topics Popularity supplied by user (not independently verified): High. PENDING: Client error '404 Not Found' for url 'https://www.mckinsey.com/rss/insights/article-feed/all.xml'"
   },
   {
     "name": "Work of the Future (MIT)",
     "url": "https://workofthefuture.mit.edu/",
     "feed_url": "https://workofthefuture.mit.edu/feed/",
-    "category": "Future of Work & Daily Life",
+    "category": "People & Jobs",
     "region": "Global",
     "connection_type": "rss",
-    "notes": "Content type: article. Coverage: Future of Work & Daily Life. Future of Work & Daily Life: Academic research on labour market impact Popularity supplied by user (not independently verified): Niche. PENDING: Redirect response '301 Moved Permanently' for url 'https://workofthefuture.mit.edu/robots.txt'"
+    "notes": "Content type: article. Coverage: People & Jobs. People & Jobs: Academic research on labour market impact Popularity supplied by user (not independently verified): Niche. PENDING: Redirect response '301 Moved Permanently' for url 'https://workofthefuture.mit.edu/robots.txt'"
   },
   {
     "name": "Fortune (Future of Work)",
     "url": "https://fortune.com/",
     "feed_url": "https://fortune.com/tag/the-future-of-work/feed/",
-    "category": "Future of Work & Daily Life",
+    "category": "Leadership",
     "region": "Global",
     "connection_type": "rss",
-    "notes": "Content type: article. Coverage: Future of Work & Daily Life. Future of Work & Daily Life: Mainstream coverage with management/exec angle Popularity supplied by user (not independently verified): High. PENDING: Client error '404 Not Found' for url 'https://fortune.com/tag/the-future-of-work/feed/'"
+    "notes": "Content type: article. Coverage: Leadership. Leadership: Mainstream coverage with management/exec angle Popularity supplied by user (not independently verified): High. PENDING: Client error '404 Not Found' for url 'https://fortune.com/tag/the-future-of-work/feed/'"
   },
   {
     "name": "LinkedIn Work Change Report",
     "url": "https://www.linkedin.com/",
     "feed_url": "",
-    "category": "Future of Work & Daily Life",
+    "category": "People & Jobs",
     "region": "Global",
     "connection_type": "manual",
-    "notes": "Content type: article. Coverage: Future of Work & Daily Life. Future of Work & Daily Life: Annual data release; operator adds manually Popularity supplied by user (not independently verified): Niche. PENDING: No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
+    "notes": "Content type: article. Coverage: People & Jobs. People & Jobs: Annual data release; operator adds manually Popularity supplied by user (not independently verified): Niche. PENDING: No confirmed RSS URL supplied; do not scrape until current robots policy and terms are checked."
   },
   {
     "name": "There's An AI For That (TAAFT)",
@@ -349,5 +331,149 @@
     "region": "Global",
     "connection_type": "manual",
     "notes": "Operator-curated documentaries; monitor Netflix, Bloomberg Originals, PBS Frontline, BBC, and long-form YouTube investigations. Monthly or less; no scheduled feed. Spotify-exclusive shows without open RSS remain outside MVP. Content type: video. Coverage: Cross-Topic AI Specialist Sources. Cross-topic intake; classify individual items after ingestion. PENDING: Manual curation, as requested."
+  },
+  {
+    "name": "Harvard Business Review (AI topics)",
+    "url": "https://hbr.org/",
+    "feed_url": "https://hbr.org/feed",
+    "category": "Leadership",
+    "region": "US",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Leadership. General-topic feed: include only AI-relevant items; classify the article, not its publisher. PENDING: Client error '404 Not Found' for url 'https://hbr.org/feed'"
+  },
+  {
+    "name": "Deloitte Insights",
+    "url": "https://www2.deloitte.com/",
+    "feed_url": "https://www2.deloitte.com/rss",
+    "category": "Leadership",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Leadership. General-topic feed: include only AI-relevant items; classify the article, not its publisher. PENDING: Redirect response '302 Moved Temporarily' for url 'https://www2.deloitte.com/robots.txt'"
+  },
+  {
+    "name": "BCG Henderson Institute",
+    "url": "https://www.bcg.com/",
+    "feed_url": "https://www.bcg.com/rss",
+    "category": "Leadership",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Leadership. General-topic feed: include only AI-relevant items; classify the article, not its publisher. PENDING: Client error '404 Not Found' for url 'https://www.bcg.com/rss'"
+  },
+  {
+    "name": "Strategy+Business",
+    "url": "https://www.strategy-business.com/",
+    "feed_url": "https://www.strategy-business.com/rss",
+    "category": "Leadership",
+    "region": "US",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Leadership. General-topic feed: include only AI-relevant items; classify the article, not its publisher. PENDING: Response is not a parseable RSS/Atom feed"
+  },
+  {
+    "name": "INSEAD Knowledge",
+    "url": "https://knowledge.insead.edu/",
+    "feed_url": "https://knowledge.insead.edu/rss",
+    "category": "Leadership",
+    "region": "Europe",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Leadership. General-topic feed: include only AI-relevant items; classify the article, not its publisher. PENDING: Client error '403 Forbidden' for url 'https://knowledge.insead.edu/robots.txt'"
+  },
+  {
+    "name": "CIPD",
+    "url": "https://www.cipd.org/",
+    "feed_url": "https://www.cipd.org/en/rss/",
+    "category": "Organisations",
+    "region": "UK",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Organisations. General-topic feed: include only AI-relevant items; classify the article, not its publisher. PENDING: Client error '404 Not Found' for url 'https://www.cipd.org/en/rss/'"
+  },
+  {
+    "name": "HR Brew",
+    "url": "https://www.hr-brew.com/",
+    "feed_url": "https://www.hr-brew.com/rss",
+    "category": "Organisations",
+    "region": "US",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Organisations. General-topic feed: include only AI-relevant items; classify the article, not its publisher. PENDING: Client error '403 Forbidden' for url 'https://www.hr-brew.com/robots.txt'"
+  },
+  {
+    "name": "People Management",
+    "url": "https://www.peoplemanagement.co.uk/",
+    "feed_url": "https://www.peoplemanagement.co.uk/rss",
+    "category": "Organisations",
+    "region": "UK",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Organisations. General-topic feed: include only AI-relevant items; classify the article, not its publisher. PENDING: Redirect response '301 Moved Permanently' for url 'http://www.peoplemanagement.co.uk/robots.txt'"
+  },
+  {
+    "name": "SHRM (HR)",
+    "url": "https://www.shrm.org/",
+    "feed_url": "https://www.shrm.org/rss",
+    "category": "Organisations",
+    "region": "US",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Organisations. General-topic feed: include only AI-relevant items; classify the article, not its publisher. PENDING: Client error '404 Not Found' for url 'https://www.shrm.org/rss' Retained existing source; earlier supplied URLs remain in verification history."
+  },
+  {
+    "name": "Gartner HR",
+    "url": "https://www.gartner.com/",
+    "feed_url": "https://www.gartner.com/en/human-resources/rss",
+    "category": "Organisations",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Organisations. General-topic feed: include only AI-relevant items; classify the article, not its publisher. PENDING: Client error '403 Forbidden' for url 'https://www.gartner.com/robots.txt'"
+  },
+  {
+    "name": "Mercer Insights",
+    "url": "https://www.mercer.com/",
+    "feed_url": "https://www.mercer.com/rss",
+    "category": "Organisations",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Organisations. General-topic feed: include only AI-relevant items; classify the article, not its publisher. PENDING: Client error '404 Not Found' for url 'https://www.mercer.com/rss/'"
+  },
+  {
+    "name": "ILO (International Labour Organization)",
+    "url": "https://www.ilo.org/",
+    "feed_url": "https://www.ilo.org/rss",
+    "category": "People & Jobs",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: People & Jobs. General-topic feed: include only AI-relevant items; classify the article, not its publisher. PENDING: Client error '404 Not Found' for url 'https://www.ilo.org/rss'"
+  },
+  {
+    "name": "Eurofound",
+    "url": "https://www.eurofound.europa.eu/",
+    "feed_url": "https://www.eurofound.europa.eu/rss",
+    "category": "People & Jobs",
+    "region": "Europe",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: People & Jobs. General-topic feed: include only AI-relevant items; classify the article, not its publisher. PENDING: Client error '429 Too Many Requests' for url 'https://www.eurofound.europa.eu/robots.txt'"
+  },
+  {
+    "name": "ETUI (European Trade Union Institute)",
+    "url": "https://www.etui.org/",
+    "feed_url": "https://www.etui.org/rss",
+    "category": "People & Jobs",
+    "region": "Europe",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: People & Jobs. General-topic feed: include only AI-relevant items; classify the article, not its publisher. PENDING: Client error '404 Not Found' for url 'https://www.etui.org/rss'"
+  },
+  {
+    "name": "OECD Employment",
+    "url": "https://www.oecd.org/",
+    "feed_url": "https://www.oecd.org/employment/rss",
+    "category": "People & Jobs",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: People & Jobs. General-topic feed: include only AI-relevant items; classify the article, not its publisher. PENDING: Client error '403 Forbidden' for url 'https://www.oecd.org/employment/rss'"
+  },
+  {
+    "name": "WEF Future of Jobs",
+    "url": "https://www.weforum.org/",
+    "feed_url": "https://www.weforum.org/rss",
+    "category": "People & Jobs",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: People & Jobs. General-topic feed: include only AI-relevant items; classify the article, not its publisher. PENDING: Client error '403 Forbidden' for url 'https://www.weforum.org/rss' Retained existing source; earlier supplied URLs remain in verification history."
   }
 ]

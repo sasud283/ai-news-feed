@@ -1,0 +1,3 @@
+# Minimal newsletter worker dependencies; digest assembly makes no model calls.
+httpx>=0.27,<1
+asyncpg>=0.31,<1

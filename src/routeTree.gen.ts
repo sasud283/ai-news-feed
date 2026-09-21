@@ -15,8 +15,10 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ReviewRouteImport } from './routes/review'
+import { Route as SubscribersRouteImport } from './routes/subscribers'
 import { Route as SubscribeIndexRouteImport } from './routes/subscribe.index'
 import { Route as SubscribeConfirmedRouteImport } from './routes/subscribe.confirmed'
+import { Route as ApiNewsletterActionRouteImport } from './routes/api.newsletter.$action'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -48,6 +50,11 @@ const ReviewRoute = ReviewRouteImport.update({
   path: '/review',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SubscribersRoute = SubscribersRouteImport.update({
+  id: '/subscribers',
+  path: '/subscribers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SubscribeIndexRoute = SubscribeIndexRouteImport.update({
   id: '/subscribe/',
   path: '/subscribe/',
@@ -58,6 +65,11 @@ const SubscribeConfirmedRoute = SubscribeConfirmedRouteImport.update({
   path: '/subscribe/confirmed',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiNewsletterActionRoute = ApiNewsletterActionRouteImport.update({
+  id: '/api/newsletter/$action',
+  path: '/api/newsletter/$action',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -66,8 +78,10 @@ export interface FileRoutesByFullPath {
   '/impressum': typeof ImpressumRoute
   '/privacy': typeof PrivacyRoute
   '/review': typeof ReviewRoute
+  '/subscribers': typeof SubscribersRoute
   '/subscribe/confirmed': typeof SubscribeConfirmedRoute
   '/subscribe/': typeof SubscribeIndexRoute
+  '/api/newsletter/$action': typeof ApiNewsletterActionRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -76,8 +90,10 @@ export interface FileRoutesByTo {
   '/impressum': typeof ImpressumRoute
   '/privacy': typeof PrivacyRoute
   '/review': typeof ReviewRoute
+  '/subscribers': typeof SubscribersRoute
   '/subscribe/confirmed': typeof SubscribeConfirmedRoute
   '/subscribe': typeof SubscribeIndexRoute
+  '/api/newsletter/$action': typeof ApiNewsletterActionRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -87,8 +103,10 @@ export interface FileRoutesById {
   '/impressum': typeof ImpressumRoute
   '/privacy': typeof PrivacyRoute
   '/review': typeof ReviewRoute
+  '/subscribers': typeof SubscribersRoute
   '/subscribe/confirmed': typeof SubscribeConfirmedRoute
   '/subscribe/': typeof SubscribeIndexRoute
+  '/api/newsletter/$action': typeof ApiNewsletterActionRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -99,8 +117,10 @@ export interface FileRouteTypes {
     | '/impressum'
     | '/privacy'
     | '/review'
+    | '/subscribers'
     | '/subscribe/confirmed'
     | '/subscribe/'
+    | '/api/newsletter/$action'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -109,8 +129,10 @@ export interface FileRouteTypes {
     | '/impressum'
     | '/privacy'
     | '/review'
+    | '/subscribers'
     | '/subscribe/confirmed'
     | '/subscribe'
+    | '/api/newsletter/$action'
   id:
     | '__root__'
     | '/'
@@ -119,8 +141,10 @@ export interface FileRouteTypes {
     | '/impressum'
     | '/privacy'
     | '/review'
+    | '/subscribers'
     | '/subscribe/confirmed'
     | '/subscribe/'
+    | '/api/newsletter/$action'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -130,8 +154,10 @@ export interface RootRouteChildren {
   ImpressumRoute: typeof ImpressumRoute
   PrivacyRoute: typeof PrivacyRoute
   ReviewRoute: typeof ReviewRoute
+  SubscribersRoute: typeof SubscribersRoute
   SubscribeConfirmedRoute: typeof SubscribeConfirmedRoute
   SubscribeIndexRoute: typeof SubscribeIndexRoute
+  ApiNewsletterActionRoute: typeof ApiNewsletterActionRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -178,6 +204,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReviewRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/subscribers': {
+      id: '/subscribers'
+      path: '/subscribers'
+      fullPath: '/subscribers'
+      preLoaderRoute: typeof SubscribersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/subscribe/': {
       id: '/subscribe/'
       path: '/subscribe'
@@ -192,6 +225,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SubscribeConfirmedRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/newsletter/$action': {
+      id: '/api/newsletter/$action'
+      path: '/api/newsletter/$action'
+      fullPath: '/api/newsletter/$action'
+      preLoaderRoute: typeof ApiNewsletterActionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -202,8 +242,10 @@ const rootRouteChildren: RootRouteChildren = {
   ImpressumRoute: ImpressumRoute,
   PrivacyRoute: PrivacyRoute,
   ReviewRoute: ReviewRoute,
+  SubscribersRoute: SubscribersRoute,
   SubscribeConfirmedRoute: SubscribeConfirmedRoute,
   SubscribeIndexRoute: SubscribeIndexRoute,
+  ApiNewsletterActionRoute: ApiNewsletterActionRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -60,3 +60,11 @@
 - Review server functions must use authenticated admin access, never an unrestricted
   service-role client. Preserve publication RLS on stories and their child tables.
 - See docs/development/storage.md for activation order and verification.
+
+## Newsletter conventions
+
+- Keep Python delivery and billing reconciliation in src/newsletter/.
+- Both daily and weekly are required. Complimentary access is explicit and private.
+- Never activate delivery based on a checkout redirect or browser-provided payment state.
+- Keep checkout disabled until provider tests and reliable scheduling are activated.
+- See docs/development/newsletter.md for paid-through rules and delivery guarantees.

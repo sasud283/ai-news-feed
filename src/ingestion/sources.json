@@ -15,7 +15,7 @@
     "category": "Cross-Topic AI Specialist Sources",
     "region": "Global",
     "connection_type": "rss",
-    "notes": "Content type: article. Coverage: Cross-Topic AI Specialist Sources; AI Equity & Representation. Cross-topic intake; classify individual items after ingestion. Cross-Topic AI Specialist Sources: Models, Ethics, Policy, Future of Work AI Equity & Representation: Periodic equity/access pieces; filter by keyword Popularity supplied by user (not independently verified): High. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+    "notes": "Content type: article. Coverage: Cross-Topic AI Specialist Sources; AI Equity & Representation. Cross-topic intake; classify individual items after ingestion. Cross-Topic AI Specialist Sources: Models, Ethics, Policy, Leadership, Organisations, People & Jobs AI Equity & Representation: Periodic equity/access pieces; filter by keyword Popularity supplied by user (not independently verified): High. Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
   },
   {
     "name": "TechCrunch AI",
@@ -114,7 +114,7 @@
     "category": "Cross-Topic AI Specialist Sources",
     "region": "Global",
     "connection_type": "rss",
-    "notes": "Content type: article. Coverage: Cross-Topic AI Specialist Sources; Future of Work & Daily Life. Cross-topic intake; classify individual items after ingestion. Cross-Topic AI Specialist Sources: Future of Work, Ethics Future of Work & Daily Life: Closest analog to this vertical; AI + work, school, life Popularity supplied by user (not independently verified): Medium (367 K). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+    "notes": "Content type: article. Coverage: Cross-Topic AI Specialist Sources; Leadership; Organisations; People & Jobs; Future of Daily Life. Cross-topic intake; classify individual items after ingestion. Cross-Topic AI Specialist Sources: Leadership, Organisations, People & Jobs, Ethics Leadership; Organisations; People & Jobs; Future of Daily Life: Closest analog to this vertical; AI + work, school, life Popularity supplied by user (not independently verified): Medium (367 K). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
   },
   {
     "name": "arXiv cs.AI",
@@ -457,6 +457,87 @@
     "region": "UK",
     "connection_type": "rss",
     "notes": "Content type: article. Coverage: Mainstream / General Press. Mainstream / General Press: General press; classify AI-related stories after ingestion. Popularity supplied by user (not independently verified): High (global). Verified 2026-09-18: HTTP 200 and parseable RSS/Atom using the current robots-aware poller."
+  },
+  {
+    "name": "MIT Sloan Management Review",
+    "url": "https://sloanreview.mit.edu/",
+    "feed_url": "https://sloanreview.mit.edu/feed/",
+    "category": "Leadership",
+    "region": "US",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Leadership. General-topic feed: include only AI-relevant items; classify the article, not its publisher. Verified 2026-09-21: robots-aware HTTP fetch and parseable RSS/Atom."
+  },
+  {
+    "name": "McKinsey Insights",
+    "url": "https://www.mckinsey.com/",
+    "feed_url": "https://www.mckinsey.com/insights/rss",
+    "category": "Leadership",
+    "region": "Global",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Leadership. General-topic feed: include only AI-relevant items; classify the article, not its publisher. Verified 2026-09-21: robots-aware HTTP fetch and parseable RSS/Atom."
+  },
+  {
+    "name": "Chief Executive Magazine",
+    "url": "https://chiefexecutive.net/",
+    "feed_url": "https://chiefexecutive.net/feed/",
+    "category": "Leadership",
+    "region": "US",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Leadership. General-topic feed: include only AI-relevant items; classify the article, not its publisher. Verified 2026-09-21: robots-aware HTTP fetch and parseable RSS/Atom."
+  },
+  {
+    "name": "Josh Bersin",
+    "url": "https://joshbersin.com/",
+    "feed_url": "https://joshbersin.com/feed/",
+    "category": "Organisations",
+    "region": "US",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Organisations. General-topic feed: include only AI-relevant items; classify the article, not its publisher. Verified 2026-09-21: robots-aware HTTP fetch and parseable RSS/Atom."
+  },
+  {
+    "name": "HR Dive",
+    "url": "https://www.hrdive.com/",
+    "feed_url": "https://www.hrdive.com/feeds/news/",
+    "category": "Organisations",
+    "region": "US",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: Organisations. General-topic feed: include only AI-relevant items; classify the article, not its publisher. Verified 2026-09-21: robots-aware HTTP fetch and parseable RSS/Atom."
+  },
+  {
+    "name": "Social Europe",
+    "url": "https://socialeurope.eu/",
+    "feed_url": "https://www.socialeurope.eu/feed",
+    "category": "People & Jobs",
+    "region": "Europe",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: People & Jobs. General-topic feed: include only AI-relevant items; classify the article, not its publisher. Verified 2026-09-21: robots-aware HTTP fetch and parseable RSS/Atom."
+  },
+  {
+    "name": "Resolution Foundation",
+    "url": "https://www.resolutionfoundation.org/",
+    "feed_url": "https://www.resolutionfoundation.org/feed/",
+    "category": "People & Jobs",
+    "region": "UK",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: People & Jobs. General-topic feed: include only AI-relevant items; classify the article, not its publisher. Verified 2026-09-21: robots-aware HTTP fetch and parseable RSS/Atom."
+  },
+  {
+    "name": "Economic Policy Institute",
+    "url": "https://www.epi.org/",
+    "feed_url": "https://www.epi.org/feed/",
+    "category": "People & Jobs",
+    "region": "US",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: People & Jobs. General-topic feed: include only AI-relevant items; classify the article, not its publisher. Verified 2026-09-21: robots-aware HTTP fetch and parseable RSS/Atom."
+  },
+  {
+    "name": "The Guardian (Work)",
+    "url": "https://www.theguardian.com/",
+    "feed_url": "https://www.theguardian.com/money/work-and-careers/rss",
+    "category": "People & Jobs",
+    "region": "UK",
+    "connection_type": "rss",
+    "notes": "Content type: article. Coverage: People & Jobs. General-topic feed: include only AI-relevant items; classify the article, not its publisher. Verified 2026-09-21: robots-aware HTTP fetch and parseable RSS/Atom."
   },
   {
     "name": "Dwarkesh Podcast",

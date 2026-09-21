@@ -4,22 +4,13 @@ from collections.abc import Mapping
 from math import isfinite
 from typing import Any
 
+from src.config import CATEGORIES
 from src.processing.models import Classification
 from src.processing.tone_rules import TONES, decide_tone
 
 __all__ = ["GEOGRAPHIES", "TONES", "TOPICS", "classify", "review_reasons"]
 
-TOPICS = (
-    "Models & Research",
-    "Business & Funding",
-    "Policy & Regulation",
-    "National Initiatives",
-    "Ethics",
-    "Future of Work",
-    "Future of Daily Life",
-    "AI Equity & Representation",
-    "Tools & Products",
-)
+TOPICS = CATEGORIES
 GEOGRAPHIES = (
     "Worldwide",
     "US",

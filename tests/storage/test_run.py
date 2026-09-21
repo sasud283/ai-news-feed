@@ -24,5 +24,5 @@ async def test_runner_uses_active_registry_and_budget(monkeypatch):
     monkeypatch.setattr("src.storage.run.poll_all_sources", poll)
     monkeypatch.setattr("src.storage.run.process_and_store", persist)
     await run_batch(max_new_stories=0)
-    assert len(poll.call_args.args[0]) == 57
+    assert len(poll.call_args.args[0]) == 66
     persist.assert_awaited_once_with([], max_new_stories=0)

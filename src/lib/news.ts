@@ -3,23 +3,13 @@ import type { StorageDatabase } from "@/lib/storage.types";
 import { supabase } from "@/integrations/supabase/client";
 import type { Database } from "@/integrations/supabase/types";
 
-export type Topic = Database["public"]["Enums"]["story_topic"];
+import { TOPICS, type Topic } from "@/lib/taxonomy";
+export { TOPICS, TOPIC_DESCRIPTIONS, normalizeTopics } from "@/lib/taxonomy";
+export type { Topic } from "@/lib/taxonomy";
 export type Tone = Database["public"]["Enums"]["story_tone"] | "Cool" | "Neutral";
 export type Access = Database["public"]["Enums"]["story_access"];
 export type Geography = Database["public"]["Enums"]["story_geography"];
 export type ContentType = "Article" | "Podcast" | "Video";
-
-export const TOPICS: Topic[] = [
-  "Models & Research",
-  "Business & Funding",
-  "Policy & Regulation",
-  "National Initiatives",
-  "Ethics",
-  "Future of Work",
-  "Future of Daily Life",
-  "AI Equity & Representation",
-  "Tools & Products",
-];
 
 export const TONES: Tone[] = ["Good", "Useful", "Bad", "Ugly", "Cool", "Neutral"];
 export const ACCESS_OPTIONS: Access[] = ["Free", "Paid"];
@@ -59,7 +49,9 @@ export const topicClass: Record<Topic, string> = {
   "Policy & Regulation": "bg-topic-violet text-tone-contrast border-topic-violet",
   "National Initiatives": "bg-topic-coral text-tone-contrast border-topic-coral",
   Ethics: "bg-topic-rose text-tone-contrast border-topic-rose",
-  "Future of Work": "bg-topic-amber text-tone-contrast border-topic-amber",
+  Leadership: "bg-topic-amber text-tone-contrast border-topic-amber",
+  Organisations: "bg-topic-teal text-tone-contrast border-topic-teal",
+  "People & Jobs": "bg-topic-coral text-tone-contrast border-topic-coral",
   "Future of Daily Life": "bg-topic-green text-tone-contrast border-topic-green",
   "AI Equity & Representation": "bg-topic-magenta text-tone-contrast border-topic-magenta",
   "Tools & Products": "bg-topic-cyan text-tone-contrast border-topic-cyan",
@@ -71,7 +63,9 @@ export const topicOutlineClass: Record<Topic, string> = {
   "Policy & Regulation": "border-topic-violet text-topic-violet",
   "National Initiatives": "border-topic-coral text-topic-coral",
   Ethics: "border-topic-rose text-topic-rose",
-  "Future of Work": "border-topic-amber text-topic-dark",
+  Leadership: "border-topic-amber text-topic-dark",
+  Organisations: "border-topic-teal text-topic-teal",
+  "People & Jobs": "border-topic-coral text-topic-coral",
   "Future of Daily Life": "border-topic-green text-topic-green",
   "AI Equity & Representation": "border-topic-magenta text-topic-magenta",
   "Tools & Products": "border-topic-cyan text-topic-dark",

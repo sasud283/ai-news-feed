@@ -1,6 +1,7 @@
 """Storage handoff structures deliberately exclude transient publisher text."""
 
 from dataclasses import fields
+
 from src.processing.models import ProcessedStory, StorySource
 
 

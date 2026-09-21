@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ai-news-feed",
+  "routes": [
+    {
+      "pattern": "thefullpicture-ai.xyz",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.thefullpicture-ai.xyz",
+      "custom_domain": true
+    }
+  ]
+}

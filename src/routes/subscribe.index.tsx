@@ -1,17 +1,16 @@
-import { useState } from "react";
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { normalizeTopics, TOPIC_DESCRIPTIONS } from "@/lib/taxonomy";
+import { useEffect, useState } from "react";
+import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, Check, CreditCard } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
-import { supabase } from "@/integrations/supabase/client";
 import { TOPICS, topicClass, topicOutlineClass, type Topic } from "@/lib/news";
 import {
   CADENCES,
   TIERS,
-  buttondownCheckoutUrl,
   monthlyEquivalent,
   priceLabel,
   type BillingPlan,
@@ -31,7 +30,7 @@ export const Route = createFileRoute("/subscribe/")({
       {
         name: "description",
         content:
-          "Choose the weekly digest (€3/month or €35/year) or the daily briefing (€5/month or €55/year). Paid from day one, billed securely by Stripe.",
+          "Choose the weekly digest (€3/month or €35/year) or the daily briefing (€5/month or €55/year). Subscriptions are coming soon.",
       },
       { property: "og:title", content: "Subscribe — TheFullPicture.ai newsletter" },
       {
@@ -47,13 +46,23 @@ export const Route = createFileRoute("/subscribe/")({
 
 function SubscribePage() {
   const search = Route.useSearch();
-  const navigate = useNavigate();
+  const [available, setAvailable] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/newsletter/availability")
+      .then((r) => r.json())
+      .then((data) => {
+        if (!cancelled) setAvailable(data.enabled === true);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const initialCadence: Cadence = search.cadence === "daily" ? "daily" : "weekly";
-  const initialTopics = (search.topics ?? "")
-    .split(",")
-    .map((t) => t.trim())
-    .filter((t): t is Topic => TOPICS.includes(t as Topic));
+  const initialTopics = normalizeTopics((search.topics ?? "").split(","));
 
   const [cadence, setCadence] = useState<Cadence>(initialCadence);
   const [plan, setPlan] = useState<BillingPlan>("yearly");
@@ -61,7 +70,6 @@ function SubscribePage() {
   const [consent, setConsent] = useState(false);
   const [allTopics, setAllTopics] = useState(initialTopics.length === 0);
   const [selectedTopics, setSelectedTopics] = useState<Topic[]>(initialTopics);
-  const [submitting, setSubmitting] = useState(false);
 
   const toggleTopic = (topic: Topic) => {
     setAllTopics(false);
@@ -72,47 +80,32 @@ function SubscribePage() {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    if (!consent) {
-      toast.error("Please tick the consent box before subscribing.");
+    if (!available || submitting) return;
+    if (!consent || (!allTopics && selectedTopics.length === 0)) {
+      toast.error("Please select your topics and agree to receive the newsletter.");
       return;
     }
-    if (!allTopics && selectedTopics.length === 0) {
-      toast.error("Choose at least one topic, or select Everything.");
-      return;
-    }
-
     setSubmitting(true);
-    const { error } = await supabase.from("digest_subscribers").insert({
-      email,
-      consented_at: new Date().toISOString(),
-      unsubscribed: false,
-      filter_preferences: {
-        all_topics: allTopics,
-        topics: allTopics ? [...TOPICS] : selectedTopics,
-        tier: cadence,
-        cadence,
-        plan,
-        price_eur: plan === "yearly" ? TIERS[cadence].yearly : TIERS[cadence].monthly,
-        billing: "buttondown-stripe",
-      },
-    });
-    setSubmitting(false);
-
-    if (error) {
-      toast.error(
-        error.code === "23505"
-          ? "That email is already subscribed."
-          : "We couldn't start your subscription. Please try again.",
-      );
-      return;
+    try {
+      const response = await fetch("/api/newsletter/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          cadence,
+          plan,
+          topics: allTopics ? [] : selectedTopics,
+          consent,
+        }),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.url) throw new Error(result.error ?? "Checkout is unavailable.");
+      window.location.assign(result.url);
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Checkout is unavailable.");
+    } finally {
+      setSubmitting(false);
     }
-
-    const checkout = buttondownCheckoutUrl(cadence, plan, email);
-    if (checkout) {
-      window.location.href = checkout;
-      return;
-    }
-    navigate({ to: "/subscribe/confirmed", search: { cadence, plan } });
   };
 
   return (
@@ -132,9 +125,9 @@ function SubscribePage() {
           Get it delivered
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-          The site stays free to read. The newsletter is a paid product from day one — no ads inside
-          it, no filler, every story with its sources linked. Billing is handled securely by Stripe
-          through Buttondown.
+          The site stays free to read. The planned newsletter is a paid product — no ads inside it,
+          no filler, every story with its sources linked. Subscriptions will open once payment and
+          email delivery are ready.
         </p>
         <p className="mt-3 text-base leading-relaxed text-foreground/80">
           And it goes further than the brief in your inbox: your subscription is what keeps the AI
@@ -156,10 +149,16 @@ function SubscribePage() {
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
-            {option === "monthly" ? "Monthly" : "Annual · save 2 months"}
+            {option === "monthly" ? "Monthly" : "Annual"}
           </button>
         ))}
       </div>
+
+      <p role="status" className="mt-6 rounded-md border border-border bg-muted/50 p-4 text-sm">
+        {available
+          ? "Your first edition will be sent within 24 hours of confirmed payment, followed by your chosen daily or weekly schedule."
+          : "Newsletter subscriptions are coming soon. You can explore plans and topics, but payments are not open yet."}
+      </p>
 
       <form onSubmit={handleSubmit} className="mt-6 space-y-8">
         <fieldset>
@@ -233,6 +232,7 @@ function SubscribePage() {
               return (
                 <Button
                   key={topic}
+                  title={TOPIC_DESCRIPTIONS[topic]}
                   type="button"
                   size="sm"
                   variant="outline"
@@ -283,16 +283,20 @@ function SubscribePage() {
         <div className="max-w-md">
           <Button
             type="submit"
-            disabled={submitting}
+            disabled={!available || submitting}
             className="h-12 w-full bg-primary text-primary-foreground hover:bg-brand-accent"
           >
             <CreditCard />
             {submitting
-              ? "Starting checkout…"
-              : `Continue to payment — ${TIERS[cadence].name}, ${priceLabel(cadence, plan)}`}
+              ? "Opening checkout…"
+              : available
+                ? "Continue to secure payment"
+                : "Newsletter coming soon"}
           </Button>
           <p className="mt-2 text-center text-xs text-muted-foreground">
-            Secure checkout by Stripe via Buttondown. Cancel any time.
+            {available
+              ? "Secure payment through Stripe. Manage billing from your newsletter."
+              : "Checkout is not open yet."}
           </p>
         </div>
       </form>

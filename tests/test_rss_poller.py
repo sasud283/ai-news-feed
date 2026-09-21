@@ -4,7 +4,8 @@ import asyncio
 import json
 import logging
 from dataclasses import replace
-from datetime import datetime, timezone
+from datetime import UTC, datetime
+from itertools import pairwise
 
 import httpx
 import pytest
@@ -65,7 +66,7 @@ async def test_poll_single_source_returns_items(source, routes, clock):
         poller.FeedItem(
             title="New model",
             url="https://example.org/article",
-            published_at=datetime(2026, 9, 18, 10, tzinfo=timezone.utc),
+            published_at=datetime(2026, 9, 18, 10, tzinfo=UTC),
             source_name="Example",
             category="Models & Research",
             raw_summary="Publisher excerpt",
@@ -82,7 +83,7 @@ async def test_rate_limit_respected(source, routes, clock):
 
     routes.get(source.feed_url).mock(side_effect=respond)
     assert len(await poller.poll_all_sources([source, source, source])) == 3
-    assert all(b - a >= 2.0 for a, b in zip(starts, starts[1:]))
+    assert all(b - a >= 2.0 for a, b in pairwise(starts))
     assert clock["sleeps"] == [2.0, 2.0, 2.0]
 
 

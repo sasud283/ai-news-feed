@@ -1,3 +1,9 @@
+> [Sources — Actions Required Checklist](actions-required.md) includes all 16 unresolved work-category feeds.
+>
+> Updated 2026-09-21: work coverage is now Leadership, Organisations, and People & Jobs.
+> See [current work-source checks](work-category-expansion.md) for the 25 proposed additions,
+> aliases, and active/pending decisions. The older verification summary below is historical.
+
 # Source inventory
 
 Updated 18 September 2026 from the [supplied source list](../specs/source-list.txt).
