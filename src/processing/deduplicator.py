@@ -17,6 +17,7 @@ _TRACKING = {"fbclid", "gclid", "dclid", "msclkid", "mc_cid", "mc_eid"}
 _UPDATES = re.compile(
     r"\b(correction|corrected|update|updated|retracts|retraction)\b", re.IGNORECASE
 )
+_PODCAST = re.compile(r"(?:^podcast\b|\bpodcast\s*$)", re.IGNORECASE)
 _NEGATION = re.compile(
     r"\b(?:not|no|never|rejects?|denies?|fails?|without)\b", re.IGNORECASE
 )
@@ -198,6 +199,10 @@ def group_items(
         if kind not in {"Article", "Podcast", "Video"}:
             raise ValueError("Unknown content type")
         url = canonical_url(item.url)
+        if kind == "Article" and (
+            _PODCAST.search(item.title) or "/audio/" in urlsplit(url).path.casefold()
+        ):
+            kind = "Podcast"
         for index, group in enumerate(groups):
             exact = any(canonical_url(old.url) == url for old in group.items)
             similar = kind == group.content_type == "Article" and all(

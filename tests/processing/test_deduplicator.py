@@ -77,6 +77,16 @@ def test_episodes_with_same_title_remain_separate(item, kind):
     assert len(group_items([item, other], content_types={"News": kind})) == 2
 
 
+def test_podcast_inside_article_feed_is_detected_per_item(item):
+    podcast = replace(
+        item,
+        title="What an AI deal could mean for Australian culture – podcast",
+        url="https://example.com/australia-news/audio/episode",
+    )
+    group = group_items([podcast])[0]
+    assert group.content_type == "Podcast"
+
+
 def test_correction_links_without_merging(item):
     correction = replace(
         item, title="Correction: " + item.title, url="https://example.com/correction"
