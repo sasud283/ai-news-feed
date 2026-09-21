@@ -20,6 +20,7 @@ GEOGRAPHIES = (
     "Latin America",
     "South & Southeast Asia",
     "Middle East",
+    "Oceania",
 )
 
 

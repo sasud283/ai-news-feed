@@ -5,6 +5,7 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import type { Database } from "@/integrations/supabase/types";
 
 import type { StorageDatabase } from "@/lib/storage.types";
+import { TOPICS } from "@/lib/taxonomy";
 
 async function requireAdmin(db: SupabaseClient<Database>, userId: string) {
   const { data, error } = await db.rpc("has_role", { _user_id: userId, _role: "admin" });
@@ -15,24 +16,7 @@ async function requireAdmin(db: SupabaseClient<Database>, userId: string) {
 const correctionSchema = z.object({
   queueId: z.string().uuid(),
   summary: z.string().trim().min(1).max(4000),
-  topics: z
-    .array(
-      z.enum([
-        "Models & Research",
-        "Business & Funding",
-        "Policy & Regulation",
-        "National Initiatives",
-        "Ethics",
-        "Leadership",
-        "Organisations",
-        "People & Jobs",
-        "Future of Daily Life",
-        "AI Equity & Representation",
-        "Tools & Products",
-        "Education",
-      ]),
-    )
-    .min(1),
+  topics: z.array(z.enum(TOPICS)).min(1),
   tone: z.enum(["Good", "Useful", "Bad", "Ugly", "Cool", "Neutral"]),
   access: z.enum(["Free", "Paid"]),
   geographies: z
@@ -46,6 +30,7 @@ const correctionSchema = z.object({
         "Latin America",
         "South & Southeast Asia",
         "Middle East",
+        "Oceania",
       ]),
     )
     .min(1)

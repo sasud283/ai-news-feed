@@ -1,21 +1,9 @@
 import postgres from "postgres";
 import { z } from "zod";
 import { verifyMember, verifyStripe } from "./security.server";
+import { TOPICS } from "@/lib/taxonomy";
 
-const topics = z.enum([
-  "Models & Research",
-  "Business & Funding",
-  "Policy & Regulation",
-  "National Initiatives",
-  "Ethics",
-  "Leadership",
-  "Organisations",
-  "People & Jobs",
-  "Future of Daily Life",
-  "AI Equity & Representation",
-  "Tools & Products",
-  "Education",
-]);
+const topics = z.enum(TOPICS);
 const inputSchema = z.object({
   email: z
     .string()
@@ -25,7 +13,7 @@ const inputSchema = z.object({
     .transform((v) => v.toLowerCase()),
   cadence: z.enum(["daily", "weekly"]),
   plan: z.enum(["monthly", "yearly"]),
-  topics: z.array(topics).max(12),
+  topics: z.array(topics).max(TOPICS.length),
   consent: z.literal(true),
 });
 function createDatabase() {

@@ -498,6 +498,7 @@ export type Database = {
         | "Latin America"
         | "South & Southeast Asia"
         | "Middle East"
+        | "Oceania"
       story_tone: "Good" | "Useful" | "Bad" | "Ugly" | "Cool" | "Neutral"
       story_topic:
         | "Models & Research"
@@ -512,6 +513,7 @@ export type Database = {
         | "AI Equity & Representation"
         | "Tools & Products"
         | "Education"
+        | "Society & Economy"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -651,6 +653,7 @@ export const Constants = {
         "Latin America",
         "South & Southeast Asia",
         "Middle East",
+        "Oceania",
       ],
       story_tone: ["Good", "Useful", "Bad", "Ugly", "Cool", "Neutral"],
       story_topic: [
@@ -666,6 +669,7 @@ export const Constants = {
         "AI Equity & Representation",
         "Tools & Products",
         "Education",
+        "Society & Economy",
       ],
     },
   },

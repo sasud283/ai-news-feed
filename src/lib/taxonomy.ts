@@ -12,6 +12,7 @@ export const TOPICS = [
   "AI Equity & Representation",
   "Tools & Products",
   "Education",
+  "Society & Economy",
 ] as const;
 export type Topic = (typeof TOPICS)[number];
 export const TOPIC_DESCRIPTIONS: Partial<Record<Topic, string>> = {
@@ -20,6 +21,8 @@ export const TOPIC_DESCRIPTIONS: Partial<Record<Topic, string>> = {
   "People & Jobs":
     "Labour markets, worker displacement, reskilling and the societal impact on employment.",
   Education: "AI education, teaching, learning, curricula and skills training.",
+  "Society & Economy":
+    "Macroeconomic change, public services, social structures and economy-wide effects of AI.",
 };
 
 /** Preserve the scope of old bookmarks and saved preferences during migration. */

@@ -23,6 +23,7 @@ export const GEOGRAPHIES: Geography[] = [
   "Latin America",
   "South & Southeast Asia",
   "Middle East",
+  "Oceania",
 ];
 
 export const TONE_DESCRIPTIONS: Record<Tone, string> = {
@@ -56,6 +57,7 @@ export const topicClass: Record<Topic, string> = {
   "AI Equity & Representation": "bg-topic-magenta text-tone-contrast border-topic-magenta",
   "Tools & Products": "bg-topic-cyan text-tone-contrast border-topic-cyan",
   Education: "bg-topic-green text-tone-contrast border-topic-green",
+  "Society & Economy": "bg-topic-violet text-tone-contrast border-topic-violet",
 };
 
 export const topicOutlineClass: Record<Topic, string> = {
@@ -71,6 +73,7 @@ export const topicOutlineClass: Record<Topic, string> = {
   "AI Equity & Representation": "border-topic-magenta text-topic-magenta",
   "Tools & Products": "border-topic-cyan text-topic-dark",
   Education: "border-topic-green text-topic-green",
+  "Society & Economy": "border-topic-violet text-topic-violet",
 };
 
 export type StorySource = {
