@@ -139,6 +139,7 @@ export async function fetchStories(): Promise<Story[]> {
         ? (s.content_type as ContentType)
         : "Article",
       media_url: s.media_url,
+      language: s.language ?? "English",
       topics: (s.story_topics ?? []).map((t) => t.topic),
       tone: tags?.tone ?? null,
       access: tags?.access ?? null,
