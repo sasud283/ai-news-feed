@@ -36,10 +36,10 @@ function AboutPage() {
         <p className="font-serif text-lg leading-relaxed text-foreground sm:text-xl">
           Unlike the big AI newsletters that chase funding rounds and Silicon Valley news cycles,
           The Full Picture covers the full spectrum — research, regulation, ethics, business impact,
-          and the future of work — with a genuinely global lens. Because AI doesn't just affect one
-          part of the world, and neither should the conversation about it. We pay particular
-          attention to Europe, where some of the most consequential AI regulation and governance
-          decisions are being made right now.
+          leadership, organisational change, and jobs — with a genuinely global lens. Because AI
+          doesn't just affect one part of the world, and neither should the conversation about it.
+          We pay particular attention to Europe, where some of the most consequential AI regulation
+          and governance decisions are being made right now.
         </p>
       </div>
       <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground">
@@ -83,7 +83,7 @@ function AboutPage() {
             </li>
             <li>
               <strong className="text-foreground">Topic</strong> — one or more subject areas, from
-              models and research to policy, ethics and the future of work.
+              models and research to policy, ethics, leadership, organisations, and people and jobs.
             </li>
             <li>
               <strong className="text-foreground">Geography</strong> — where the story mainly
