@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { TOPIC_DESCRIPTIONS } from "@/lib/taxonomy";
 import {
   Search,
@@ -8,6 +9,8 @@ import {
   Headphones,
   PlaySquare,
   RotateCcw,
+  SlidersHorizontal,
+  ChevronDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
