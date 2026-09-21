@@ -38,6 +38,202 @@ export type Database = {
         }
         Relationships: []
       }
+      ingestion_urls: {
+        Row: {
+          category: string | null
+          error_type: string | null
+          headline: string | null
+          published_at: string | null
+          source_name: string | null
+          status: string
+          story_id: string | null
+          updated_at: string
+          url: string
+        }
+        Insert: {
+          category?: string | null
+          error_type?: string | null
+          headline?: string | null
+          published_at?: string | null
+          source_name?: string | null
+          status: string
+          story_id?: string | null
+          updated_at?: string
+          url: string
+        }
+        Update: {
+          category?: string | null
+          error_type?: string | null
+          headline?: string | null
+          published_at?: string | null
+          source_name?: string | null
+          status?: string
+          story_id?: string | null
+          updated_at?: string
+          url?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ingestion_urls_story_id_fkey"
+            columns: ["story_id"]
+            isOneToOne: false
+            referencedRelation: "stories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      newsletter_checkouts: {
+        Row: {
+          cadence: string
+          completed: boolean
+          consented_at: string
+          created_at: string
+          email: string
+          id: string
+          plan: string
+          stripe_session_id: string | null
+          topics: string[]
+        }
+        Insert: {
+          cadence: string
+          completed?: boolean
+          consented_at?: string
+          created_at?: string
+          email: string
+          id?: string
+          plan: string
+          stripe_session_id?: string | null
+          topics?: string[]
+        }
+        Update: {
+          cadence?: string
+          completed?: boolean
+          consented_at?: string
+          created_at?: string
+          email?: string
+          id?: string
+          plan?: string
+          stripe_session_id?: string | null
+          topics?: string[]
+        }
+        Relationships: []
+      }
+      newsletter_deliveries: {
+        Row: {
+          accepted_at: string | null
+          attempted_at: string | null
+          created_at: string
+          delivery_status: string
+          due_at: string
+          id: string
+          member_id: string
+          payload: Json
+          provider_id: string | null
+        }
+        Insert: {
+          accepted_at?: string | null
+          attempted_at?: string | null
+          created_at?: string
+          delivery_status?: string
+          due_at: string
+          id?: string
+          member_id: string
+          payload: Json
+          provider_id?: string | null
+        }
+        Update: {
+          accepted_at?: string | null
+          attempted_at?: string | null
+          created_at?: string
+          delivery_status?: string
+          due_at?: string
+          id?: string
+          member_id?: string
+          payload?: Json
+          provider_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "newsletter_deliveries_member_id_fkey"
+            columns: ["member_id"]
+            isOneToOne: false
+            referencedRelation: "newsletter_members"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      newsletter_events: {
+        Row: {
+          event_id: string
+          received_at: string
+        }
+        Insert: {
+          event_id: string
+          received_at?: string
+        }
+        Update: {
+          event_id?: string
+          received_at?: string
+        }
+        Relationships: []
+      }
+      newsletter_members: {
+        Row: {
+          access_kind: string
+          cadence: string
+          comp_reason: string | null
+          created_at: string
+          email: string
+          first_due_at: string
+          first_sent_at: string | null
+          id: string
+          next_send_at: string
+          paid_until: string | null
+          status: string
+          stripe_customer_id: string | null
+          stripe_subscription_id: string | null
+          topics: string[]
+          unsubscribed: boolean
+          verified_at: string | null
+        }
+        Insert: {
+          access_kind: string
+          cadence: string
+          comp_reason?: string | null
+          created_at?: string
+          email: string
+          first_due_at?: string
+          first_sent_at?: string | null
+          id?: string
+          next_send_at?: string
+          paid_until?: string | null
+          status?: string
+          stripe_customer_id?: string | null
+          stripe_subscription_id?: string | null
+          topics?: string[]
+          unsubscribed?: boolean
+          verified_at?: string | null
+        }
+        Update: {
+          access_kind?: string
+          cadence?: string
+          comp_reason?: string | null
+          created_at?: string
+          email?: string
+          first_due_at?: string
+          first_sent_at?: string | null
+          id?: string
+          next_send_at?: string
+          paid_until?: string | null
+          status?: string
+          stripe_customer_id?: string | null
+          stripe_subscription_id?: string | null
+          topics?: string[]
+          unsubscribed?: boolean
+          verified_at?: string | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
@@ -100,32 +296,44 @@ export type Database = {
       stories: {
         Row: {
           ai_generated_summary: string
+          canonical_url: string | null
           content_type: string
           headline: string
           id: string
           is_correction_of: string | null
           media_url: string | null
-          published_at: string
+          processing_metadata: Json
+          publication_status: string
+          published_at: string | null
+          related_to_url: string | null
           updated_at: string
         }
         Insert: {
           ai_generated_summary: string
+          canonical_url?: string | null
           content_type?: string
           headline: string
           id?: string
           is_correction_of?: string | null
           media_url?: string | null
-          published_at?: string
+          processing_metadata?: Json
+          publication_status?: string
+          published_at?: string | null
+          related_to_url?: string | null
           updated_at?: string
         }
         Update: {
           ai_generated_summary?: string
+          canonical_url?: string | null
           content_type?: string
           headline?: string
           id?: string
           is_correction_of?: string | null
           media_url?: string | null
-          published_at?: string
+          processing_metadata?: Json
+          publication_status?: string
+          published_at?: string | null
+          related_to_url?: string | null
           updated_at?: string
         }
         Relationships: [
@@ -141,21 +349,21 @@ export type Database = {
       story_sources: {
         Row: {
           id: string
-          is_paywalled: boolean
+          is_paywalled: boolean | null
           source_name: string
           source_url: string
           story_id: string
         }
         Insert: {
           id?: string
-          is_paywalled?: boolean
+          is_paywalled?: boolean | null
           source_name: string
           source_url: string
           story_id: string
         }
         Update: {
           id?: string
-          is_paywalled?: boolean
+          is_paywalled?: boolean | null
           source_name?: string
           source_url?: string
           story_id?: string
@@ -172,25 +380,25 @@ export type Database = {
       }
       story_tags: {
         Row: {
-          access: Database["public"]["Enums"]["story_access"]
-          geography: Database["public"]["Enums"]["story_geography"]
+          access: Database["public"]["Enums"]["story_access"] | null
+          geography: Database["public"]["Enums"]["story_geography"] | null
           id: string
           story_id: string
-          tone: Database["public"]["Enums"]["story_tone"]
+          tone: Database["public"]["Enums"]["story_tone"] | null
         }
         Insert: {
-          access: Database["public"]["Enums"]["story_access"]
-          geography: Database["public"]["Enums"]["story_geography"]
+          access?: Database["public"]["Enums"]["story_access"] | null
+          geography?: Database["public"]["Enums"]["story_geography"] | null
           id?: string
           story_id: string
-          tone: Database["public"]["Enums"]["story_tone"]
+          tone?: Database["public"]["Enums"]["story_tone"] | null
         }
         Update: {
-          access?: Database["public"]["Enums"]["story_access"]
-          geography?: Database["public"]["Enums"]["story_geography"]
+          access?: Database["public"]["Enums"]["story_access"] | null
+          geography?: Database["public"]["Enums"]["story_geography"] | null
           id?: string
           story_id?: string
-          tone?: Database["public"]["Enums"]["story_tone"]
+          tone?: Database["public"]["Enums"]["story_tone"] | null
         }
         Relationships: [
           {
@@ -258,10 +466,14 @@ export type Database = {
         }
         Returns: boolean
       }
+      review_story: {
+        Args: { p_action: string; p_correction?: Json; p_queue_id: string }
+        Returns: undefined
+      }
     }
     Enums: {
       app_role: "admin" | "user"
-      spot_check_status: "pending" | "approved" | "corrected"
+      spot_check_status: "pending" | "approved" | "corrected" | "rejected"
       story_access: "Free" | "Paid"
       story_geography:
         | "Worldwide"
@@ -272,14 +484,16 @@ export type Database = {
         | "Latin America"
         | "South & Southeast Asia"
         | "Middle East"
-      story_tone: "Good" | "Useful" | "Bad" | "Ugly"
+      story_tone: "Good" | "Useful" | "Bad" | "Ugly" | "Cool" | "Neutral"
       story_topic:
         | "Models & Research"
         | "Business & Funding"
         | "Policy & Regulation"
         | "National Initiatives"
         | "Ethics"
-        | "Future of Work"
+        | "Leadership"
+        | "Organisations"
+        | "People & Jobs"
         | "Future of Daily Life"
         | "AI Equity & Representation"
         | "Tools & Products"
@@ -411,7 +625,7 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "user"],
-      spot_check_status: ["pending", "approved", "corrected"],
+      spot_check_status: ["pending", "approved", "corrected", "rejected"],
       story_access: ["Free", "Paid"],
       story_geography: [
         "Worldwide",
@@ -423,14 +637,16 @@ export const Constants = {
         "South & Southeast Asia",
         "Middle East",
       ],
-      story_tone: ["Good", "Useful", "Bad", "Ugly"],
+      story_tone: ["Good", "Useful", "Bad", "Ugly", "Cool", "Neutral"],
       story_topic: [
         "Models & Research",
         "Business & Funding",
         "Policy & Regulation",
         "National Initiatives",
         "Ethics",
-        "Future of Work",
+        "Leadership",
+        "Organisations",
+        "People & Jobs",
         "Future of Daily Life",
         "AI Equity & Representation",
         "Tools & Products",
