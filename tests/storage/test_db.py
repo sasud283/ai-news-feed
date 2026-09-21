@@ -403,6 +403,9 @@ async def test_pending_items_are_interleaved_across_sources(connected, monkeypat
         FeedItem("A1", "https://a.test/1", DATE, "Source A", "Ethics", ""),
         FeedItem("A2", "https://a.test/2", DATE, "Source A", "Ethics", ""),
         FeedItem("A3", "https://a.test/3", DATE, "Source A", "Ethics", ""),
+        FeedItem("A4", "https://a.test/4", DATE, "Source A", "Ethics", ""),
+        FeedItem("A5", "https://a.test/5", DATE, "Source A", "Ethics", ""),
+        FeedItem("A6", "https://a.test/6", DATE, "Source A", "Ethics", ""),
         FeedItem("B1", "https://b.test/1", DATE, "Source B", "Ethics", ""),
     ]
     captured = []
@@ -417,6 +420,8 @@ async def test_pending_items_are_interleaved_across_sources(connected, monkeypat
     assert [item.source_name for item in captured] == [
         "Source A",
         "Source B",
+        "Source A",
+        "Source A",
         "Source A",
         "Source A",
     ]

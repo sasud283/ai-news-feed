@@ -44,6 +44,20 @@ async def test_prompt_budget_html_and_unicode(item):
     assert "untrusted evidence" in prompt.instructions
 
 
+async def test_arxiv_uses_abstract_and_shorter_summary(
+    item, payload, completion, client, respx_mock
+):
+    arxiv = replace(item, source_name="arXiv cs.AI", raw_summary="Research abstract")
+    prompt = await build_prompt(StoryGroup((arxiv,)))
+    assert "<=35" in prompt.instructions
+    assert "supplied abstract" in prompt.instructions
+
+    payload["summary"] = "word " * 36
+    respx_mock.post(URL).respond(200, json=completion(payload))
+    with pytest.raises(ValueError, match="Invalid summary length"):
+        await summarise_story(StoryGroup((arxiv,)), client=client)
+
+
 @pytest.mark.parametrize(
     "finish,refusal", [("length", None), ("stop", "Cannot comply")]
 )

@@ -118,7 +118,7 @@ async def _pending_items(
         "row_number() OVER (PARTITION BY source_name ORDER BY updated_at, url) AS source_rank "
         "FROM public.ingestion_urls WHERE status IN ('failed', 'deferred') "
         "AND headline IS NOT NULL) ranked "
-        "ORDER BY source_rank, updated_at, url LIMIT 500"
+        "WHERE source_rank <= 5 ORDER BY source_rank, updated_at, url LIMIT 500"
     )
     # Prioritize older retries to prevent starvation; refreshed excerpts remain transient.
     combined = []
@@ -138,7 +138,19 @@ async def _pending_items(
                 ],
             )
         )
-    combined.extend(item for values in incoming.values() for item in values)
+    if incoming:
+        retry_rows = await connection.fetch(
+            "SELECT url FROM public.ingestion_urls WHERE url = ANY($1::text[]) "
+            "AND status IN ('failed', 'deferred')",
+            list(incoming),
+        )
+        retry_urls = {row["url"] for row in retry_rows}
+        combined.extend(
+            item
+            for url, values in incoming.items()
+            if url not in retry_urls
+            for item in values
+        )
     return [*combined, *invalid]
 
 
