@@ -78,3 +78,7 @@ class ProcessingResult:
     rejected_urls: tuple[str, ...]
     deferred_urls: tuple[str, ...]
     failures: tuple[ProcessingFailure, ...]
+    model: str | None = None
+    model_calls: int = 0
+    prompt_tokens: int = 0
+    completion_tokens: int = 0

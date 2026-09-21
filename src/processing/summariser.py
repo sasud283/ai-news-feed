@@ -128,6 +128,8 @@ class Analysis:
     classification: Classification
     review_reasons: tuple[str, ...]
     language: str
+    prompt_tokens: int
+    completion_tokens: int
 
 
 def _build_prompt(group: StoryGroup) -> Prompt:
@@ -313,10 +315,18 @@ async def summarise_story(group: StoryGroup, *, client: AsyncOpenAI) -> Analysis
     if not isinstance(language, str) or not language.strip() or len(language) > 40:
         raise ValueError("Invalid source language")
     flags = []
-    if prompt.truncated:
-        flags.append("truncated_evidence")
+    # Bounded excerpts are normal. The title and leading evidence are retained,
+    # so truncation alone does not require editorial intervention.
     if not any(_plain(item.raw_summary) for item in group.items):
         flags.append("headline_only_evidence")
     if summary_is_copied(summary, group):
         flags.append("summary_too_similar")
-    return Analysis(summary, classification, tuple(flags), language.strip())
+    usage = response.usage
+    return Analysis(
+        summary,
+        classification,
+        tuple(flags),
+        language.strip(),
+        usage.prompt_tokens if usage else 0,
+        usage.completion_tokens if usage else 0,
+    )

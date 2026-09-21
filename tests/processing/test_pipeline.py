@@ -31,6 +31,9 @@ async def test_duplicate_group_costs_one_call_and_retains_sources(
     assert route.call_count == 1 and len(result.stories) == 1
     story = result.stories[0]
     assert len(story.sources) == 2 and story.access == "Free"
+    assert result.model == "gpt-4o-mini"
+    assert result.model_calls == 1
+    assert result.prompt_tokens == 400 and result.completion_tokens == 100
     serialized = json.dumps(asdict(result), default=str)
     assert "raw_summary" not in serialized and item.raw_summary not in serialized
 

@@ -15,13 +15,17 @@ import asyncpg
 from openai import AsyncOpenAI
 
 from src.ingestion.rss_poller import FeedItem
+from src.processing.access import infer_access_by_url
 from src.processing.deduplicator import canonical_url
 from src.processing.models import Access, ContentType, ProcessingResult, StorySource
 from src.processing.pipeline import logger, process_items
+from src.processing.summariser import MODEL
 from src.storage.models import ProcessingHistory, WorkerBusyError
 
 # Shared transaction lock prevents concurrent workers from paying for the same batch.
 _LOCK_ID = 746_320_911
+_INPUT_USD_PER_MILLION = 0.15
+_OUTPUT_USD_PER_MILLION = 0.60
 # Legacy seed/source records may omit a homepage's trailing slash.
 _LEGACY_URL_SQL = (
     "CASE WHEN source_url ~ '^https?://[^/]+$' "
@@ -321,6 +325,55 @@ async def save_result(connection: asyncpg.Connection, result: ProcessingResult) 
             await _record(connection, url, "failed", error_type=failure.error_type)
 
 
+async def _save_run_report(
+    connection: asyncpg.Connection,
+    result: ProcessingResult,
+    started_at: datetime,
+) -> None:
+    estimated_cost = (
+        result.prompt_tokens * _INPUT_USD_PER_MILLION
+        + result.completion_tokens * _OUTPUT_USD_PER_MILLION
+    ) / 1_000_000
+    await connection.execute(
+        "INSERT INTO public.pipeline_runs("
+        "started_at,completed_at,status,model,model_calls,prompt_tokens,completion_tokens,"
+        "estimated_cost_usd,input_usd_per_million,output_usd_per_million,stories_created,"
+        "rejected_count,deferred_count,skipped_count,failure_count) "
+        "VALUES($1,now(),'completed',$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)",
+        started_at,
+        result.model,
+        result.model_calls,
+        result.prompt_tokens,
+        result.completion_tokens,
+        estimated_cost,
+        _INPUT_USD_PER_MILLION,
+        _OUTPUT_USD_PER_MILLION,
+        len(result.stories),
+        len(result.rejected_urls),
+        len(result.deferred_urls),
+        len(result.skipped_urls),
+        len(result.failures),
+    )
+
+
+async def _save_failed_run_report(
+    connection: asyncpg.Connection,
+    started_at: datetime,
+    error_type: str,
+    model: str | None,
+) -> None:
+    await connection.execute(
+        "INSERT INTO public.pipeline_runs("
+        "started_at,completed_at,status,error_type,model,input_usd_per_million,"
+        "output_usd_per_million) VALUES($1,now(),'failed',$2,$3,$4,$5)",
+        started_at,
+        error_type,
+        model,
+        _INPUT_USD_PER_MILLION,
+        _OUTPUT_USD_PER_MILLION,
+    )
+
+
 async def process_and_store(
     items: Sequence[FeedItem],
     *,
@@ -329,6 +382,7 @@ async def process_and_store(
     max_new_stories: int = 100,
     access_by_url: Mapping[str, Access] | None = None,
     content_types: Mapping[str, ContentType] | None = None,
+    started_at: datetime | None = None,
 ) -> ProcessingResult:
     """Deduplicate, process and commit one batch to Supabase Postgres.
 
@@ -348,6 +402,7 @@ async def process_and_store(
         WorkerBusyError: Another worker owns the processing lock; no model calls made.
         asyncpg.PostgresError: Database work failed and the batch was rolled back.
     """
+    started_at = started_at or datetime.now(UTC)
     dsn = database_url or os.environ.get("DATABASE_URL")
     if not dsn:
         raise ValueError("Set DATABASE_URL to the Supabase Postgres connection string")
@@ -359,6 +414,8 @@ async def process_and_store(
             ):
                 raise WorkerBusyError("Another ingestion batch is running")
             items = await _pending_items(connection, items)
+            inferred_access = infer_access_by_url(items)
+            access_by_url = {**inferred_access, **(access_by_url or {})}
             history = await load_history(connection, items)
             if content_types is None:
                 path = Path(__file__).parents[1] / "processing/source_types.json"
@@ -377,7 +434,34 @@ async def process_and_store(
                 content_types=types,
             )
             await save_result(connection, result)
+            await _save_run_report(connection, result, started_at)
         logger.info("storage_committed")
+        estimated_cost = (
+            result.prompt_tokens * _INPUT_USD_PER_MILLION
+            + result.completion_tokens * _OUTPUT_USD_PER_MILLION
+        ) / 1_000_000
+        logger.info(
+            "pipeline_cost_report",
+            extra={
+                "model": result.model,
+                "model_calls": result.model_calls,
+                "prompt_tokens": result.prompt_tokens,
+                "completion_tokens": result.completion_tokens,
+                "total_tokens": result.prompt_tokens + result.completion_tokens,
+                "estimated_cost_usd": estimated_cost,
+            },
+        )
         return result
+    except Exception as exc:
+        try:
+            await _save_failed_run_report(
+                connection,
+                started_at,
+                type(exc).__name__,
+                MODEL if max_new_stories else None,
+            )
+        except asyncpg.PostgresError:
+            pass
+        raise
     finally:
         await connection.close()

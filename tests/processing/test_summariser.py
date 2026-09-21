@@ -19,6 +19,7 @@ async def test_combined_request_uses_required_model(
     assert result.classification.topics == ("Models & Research",)
     assert result.summary == wire_payload["s"]
     assert result.language == "English"
+    assert result.prompt_tokens == 400 and result.completion_tokens == 100
     body = json.loads(route.calls[0].request.content)
     assert body["model"] == "gpt-4o-mini"
     assert body["store"] is False

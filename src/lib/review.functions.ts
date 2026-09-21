@@ -54,7 +54,7 @@ export const fetchSpotCheckQueue = createServerFn({ method: "GET" })
     const { data, error } = await db
       .from("spot_check_queue")
       .select(
-        "id, reason, status, created_at, story_id, stories(id, headline, ai_generated_summary, published_at, related_to_url, processing_metadata, story_sources(source_name, source_url, is_paywalled), story_topics(topic), story_tags(tone, access, geography))",
+        "id, reason, status, created_at, story_id, stories(id, headline, ai_generated_summary, language, published_at, related_to_url, processing_metadata, story_sources(source_name, source_url, is_paywalled), story_topics(topic), story_tags(tone, access, geography))",
       )
       .eq("status", "pending")
       .order("created_at", { ascending: true });

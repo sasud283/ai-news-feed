@@ -23,7 +23,7 @@ from src.processing.models import (
     SourceUpdate,
     StorySource,
 )
-from src.processing.summariser import summarise_story
+from src.processing.summariser import MODEL, summarise_story
 
 _VALIDATION_REASONS = {
     "Require one score per topic, then tone, geography, relevance": "score_count_mismatch",
@@ -43,6 +43,12 @@ class _JsonFormatter(logging.Formatter):
                 "url": getattr(record, "story_url", None),
                 "error_type": getattr(record, "error_type", None),
                 "validation_reason": getattr(record, "validation_reason", None),
+                "model": getattr(record, "model", None),
+                "model_calls": getattr(record, "model_calls", None),
+                "prompt_tokens": getattr(record, "prompt_tokens", None),
+                "completion_tokens": getattr(record, "completion_tokens", None),
+                "total_tokens": getattr(record, "total_tokens", None),
+                "estimated_cost_usd": getattr(record, "estimated_cost_usd", None),
             }
         )
 
@@ -166,6 +172,8 @@ async def process_items(
     updates: list[SourceUpdate] = []
     deferred: list[str] = []
     calls = 0
+    prompt_tokens = 0
+    completion_tokens = 0
     owned: AsyncOpenAI | None = None
     try:
         for group in groups:
@@ -205,6 +213,8 @@ async def process_items(
                 )
                 continue
             tags = analysis.classification
+            prompt_tokens += analysis.prompt_tokens
+            completion_tokens += analysis.completion_tokens
             if not tags.relevant:
                 rejected.extend(urls)
                 logger.info("irrelevant_story", extra={"story_url": urls[0]})
@@ -259,4 +269,8 @@ async def process_items(
         tuple(dict.fromkeys(rejected)),
         tuple(dict.fromkeys(deferred)),
         tuple(failures),
+        MODEL if calls else None,
+        calls,
+        prompt_tokens,
+        completion_tokens,
     )

@@ -52,6 +52,7 @@ async def run_batch(
         ValueError: Credentials are missing or the request limit is negative.
         WorkerBusyError: Another database worker owns the batch lock.
     """
+    started_at = datetime.now(UTC)
     if max_new_stories < 0:
         raise ValueError("max_new_stories must be nonnegative")
     if not os.environ.get("DATABASE_URL"):
@@ -65,7 +66,11 @@ async def run_batch(
     items = await poll_all_sources(sources)
     cutoff = published_since or datetime.now(UTC) - timedelta(hours=48)
     items = _published_since(items, cutoff)
-    return await process_and_store(items, max_new_stories=max_new_stories)
+    return await process_and_store(
+        items,
+        max_new_stories=max_new_stories,
+        started_at=started_at,
+    )
 
 
 def main() -> None:

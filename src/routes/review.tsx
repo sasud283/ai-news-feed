@@ -52,6 +52,7 @@ type QueueItem = {
     id: string;
     headline: string;
     ai_generated_summary: string;
+    language: string;
     published_at: string | null;
     related_to_url: string | null;
     processing_metadata?: {
@@ -225,6 +226,7 @@ function QueueCard({ item, onDone }: { item: QueueItem; onDone: () => void }) {
           ? `Published ${formatDate(item.stories.published_at)}`
           : "Publication date needs verification"}
       </p>
+      <p className="mt-1 text-xs text-muted-foreground">Language: {item.stories.language}</p>
 
       <ul className="mt-3 space-y-1 text-sm">
         {item.stories.story_sources.map((source, index) => (

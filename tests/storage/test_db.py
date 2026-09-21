@@ -400,6 +400,25 @@ async def test_deferred_items_survive_disappearing_from_feed(connected, monkeypa
     )
 
 
+async def test_pipeline_run_report_is_stored(connected, monkeypatch):
+    async def process(*args, **kwargs):
+        return result(
+            model="gpt-4o-mini",
+            model_calls=2,
+            prompt_tokens=800,
+            completion_tokens=200,
+        )
+
+    monkeypatch.setattr("src.storage.db.process_items", process)
+    await process_and_store([], database_url="test", content_types={})
+    row = (await connected.fetch("SELECT * FROM public.pipeline_runs"))[0]
+    assert row["model"] == "gpt-4o-mini"
+    assert row["model_calls"] == 2
+    assert row["prompt_tokens"] == 800
+    assert row["completion_tokens"] == 200
+    assert row["total_tokens"] == 1000
+
+
 async def test_pending_items_are_interleaved_across_sources(connected, monkeypatch):
     items = [
         FeedItem("A1", "https://a.test/1", DATE, "Source A", "Ethics", ""),
