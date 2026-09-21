@@ -6,7 +6,7 @@ import asyncio
 import json
 import os
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from difflib import SequenceMatcher
 from functools import lru_cache
 from html.parser import HTMLParser
@@ -25,6 +25,10 @@ MAX_OUTPUT_TOKENS = 400
 ARXIV_SUMMARY_WORDS = 35
 DEFAULT_SUMMARY_WORDS = 70
 _ROOT = Path(__file__).resolve().parents[2]
+_UAE = re.compile(
+    r"\b(?:UAE|United Arab Emirates|Emirati|Dubai|Abu Dhabi)\b", re.IGNORECASE
+)
+_US = re.compile(r"\b(?:U\.?S\.?|United States|American)\b", re.IGNORECASE)
 _RESPONSE_FORMAT = {
     "type": "json_schema",
     "json_schema": {
@@ -106,6 +110,24 @@ def _plain(text: str) -> str:
     parser = _PlainText()
     parser.feed(text[:50_000])
     return " ".join(" ".join(parser.parts).split())
+
+
+def _apply_geography_hints(
+    classification: Classification, group: StoryGroup
+) -> Classification:
+    """Correct explicit UAE geography while preserving a bilateral US label."""
+    if not classification.relevant:
+        return classification
+    evidence = " ".join(
+        f"{item.title} {_plain(item.raw_summary)}" for item in group.items
+    )
+    if not _UAE.search(evidence):
+        return classification
+    return replace(
+        classification,
+        geography="Middle East",
+        secondary_geography="US" if _US.search(evidence) else None,
+    )
 
 
 @lru_cache(maxsize=1)
@@ -305,6 +327,7 @@ async def summarise_story(group: StoryGroup, *, client: AsyncOpenAI) -> Analysis
             "disagreement": payload["d"],
         }
     )
+    classification = _apply_geography_hints(classification, group)
     summary = payload["s"]
     language = payload["l"]
     word_limit, _ = _summary_rules(group)

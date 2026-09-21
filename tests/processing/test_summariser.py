@@ -63,6 +63,21 @@ async def test_arxiv_uses_abstract_and_shorter_summary(
         await summarise_story(StoryGroup((arxiv,)), client=client)
 
 
+async def test_uae_story_gets_middle_east_and_us_geographies(
+    item, wire_payload, completion, client, respx_mock
+):
+    bilateral = replace(
+        item,
+        title="UAE and U.S. announce an AI partnership",
+        raw_summary="The United Arab Emirates and United States will cooperate.",
+    )
+    wire_payload["g"] = [1]
+    respx_mock.post(URL).respond(200, json=completion(wire_payload))
+    result = await summarise_story(StoryGroup((bilateral,)), client=client)
+    assert result.classification.geography == "Middle East"
+    assert result.classification.secondary_geography == "US"
+
+
 @pytest.mark.parametrize(
     "finish,refusal", [("length", None), ("stop", "Cannot comply")]
 )
