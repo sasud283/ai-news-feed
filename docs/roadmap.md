@@ -28,7 +28,7 @@
 - [x] Phase 2: local deduplication, GPT-4o-mini classification/summaries, review flags
 - [ ] Evaluate model quality against representative editorial examples
 - [x] Phase 3 implementation: persistent state, Supabase mapping, review/publishing handoff
-- [x] Phase 3 live database: private connection, migrations 0000–0004, publication-policy smoke test
+- [x] Phase 3 live database: private connection, migrations 0000–0007 applied (2026-09-25: 0003–0007 reapplied after database reset; feed verified, review queue at 4 pending)
 - [x] Phase 3 local activation: confirmed editor/admin account, OpenAI key, real batch and editorial review
 - [ ] Phase 3 hosted deployment/review check
 
