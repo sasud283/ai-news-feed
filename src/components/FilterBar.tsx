@@ -118,7 +118,32 @@ export function FilterBar({
           </div>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setAdvancedOpen((open) => !open)}
+            aria-expanded={advancedOpen}
+            className={`inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm shadow-none transition-colors ${
+              advancedOpen
+                ? "border-brand-accent bg-accent font-semibold text-accent-foreground ring-1 ring-brand-accent"
+                : "border-border bg-background text-foreground hover:border-brand-accent hover:text-brand-accent"
+            }`}
+          >
+            <SlidersHorizontal className="h-4 w-4" />
+            Advanced search
+            {activeAdvanced > 0 && (
+              <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-brand-accent px-1.5 text-xs font-semibold text-accent-foreground">
+                {activeAdvanced}
+              </span>
+            )}
+            <ChevronDown
+              className={`h-4 w-4 transition-transform ${advancedOpen ? "rotate-180" : ""}`}
+            />
+          </button>
+        </div>
+
+        {advancedOpen && (
+          <div className="grid gap-4 sm:grid-cols-3">
           <div>
             <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
               Impact
