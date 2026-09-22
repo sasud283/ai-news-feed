@@ -21,6 +21,7 @@ _PODCAST = re.compile(r"(?:^podcast\b|\bpodcast\s*$)", re.IGNORECASE)
 _NEGATION = re.compile(
     r"\b(?:not|no|never|rejects?|denies?|fails?|without)\b", re.IGNORECASE
 )
+_LAUNCH_ACTIONS = {"announc", "launch", "releas", "unveil"}
 _EVENT_ACTIONS = {
     "announc",
     "ban",
@@ -156,11 +157,34 @@ def _same_event(a: FeedItem, b: FeedItem) -> bool:
     # about the same broader setting remain separate.
     left_terms, right_terms = _terms(a.title), _terms(b.title)
     shared_actions = left_terms & right_terms & _EVENT_ACTIONS
+    left_entities, right_entities = _entities(a.title), _entities(b.title)
+    versioned_names = {
+        (name.casefold(), version)
+        for name, version in re.findall(
+            r"\b([A-Za-z][\w-]*)\s+(\d+(?:\.\d+)+)\b", a.title
+        )
+    } & {
+        (name.casefold(), version)
+        for name, version in re.findall(
+            r"\b([A-Za-z][\w-]*)\s+(\d+(?:\.\d+)+)\b", b.title
+        )
+    }
+    same_product_launch = (
+        bool(left_terms & _LAUNCH_ACTIONS)
+        and bool(right_terms & _LAUNCH_ACTIONS)
+        and bool(versioned_names)
+        and len(left_entities & right_entities) >= 2
+    )
     if (
-        shared_actions
+        (shared_actions or same_product_launch)
         and bool(_NEGATION.search(a.title)) == bool(_NEGATION.search(b.title))
-        and _overlap(_entities(a.title), _entities(b.title)) >= 0.6
-        and _overlap(left_terms, right_terms) >= 0.45
+        and (
+            same_product_launch
+            or (
+                _overlap(left_entities, right_entities) >= 0.6
+                and _overlap(left_terms, right_terms) >= 0.45
+            )
+        )
     ):
         return True
     # Require identical words including entities and numbers; only word-order or

@@ -156,3 +156,35 @@ def test_different_currencies_not_merged(item):
         url="https://other.example/funding",
     )
     assert len(group_items([left, right])) == 2
+
+
+def test_same_named_version_launch_merges_different_reporting_angles(item):
+    titles = [
+        "Anthropic launches Claude Opus 5.5 with stricter safeguards",
+        "Anthropic releases Opus 5.5 with lower prices and strong performance",
+        "Anthropic Releases a New AI Model, Opus 5.5, Amid Safety Debate",
+    ]
+    groups = group_items(
+        [
+            replace(
+                item,
+                title=title,
+                url=f"https://publisher{index}.example/story",
+                source_name=f"Publisher {index}",
+            )
+            for index, title in enumerate(titles)
+        ]
+    )
+    assert len(groups) == 1
+    assert len(groups[0].items) == 3
+
+
+def test_different_named_products_with_same_version_do_not_merge(item):
+    left = replace(item, title="Anthropic launches Claude Opus 5.5")
+    right = replace(
+        item,
+        title="Anthropic releases Claude Sonnet 5.5",
+        url="https://other.example/sonnet",
+        source_name="Other",
+    )
+    assert len(group_items([left, right])) == 2
