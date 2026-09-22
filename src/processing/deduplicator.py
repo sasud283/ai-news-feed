@@ -220,6 +220,10 @@ def group_items(
     groups: list[StoryGroup] = []
     for item in items:
         kind = types.get(item.source_name, "Article")
+        if item.enclosure_type and item.enclosure_type.startswith("audio/"):
+            kind = "Podcast"
+        elif item.enclosure_type and item.enclosure_type.startswith("video/"):
+            kind = "Video"
         if kind not in {"Article", "Podcast", "Video"}:
             raise ValueError("Unknown content type")
         url = canonical_url(item.url)

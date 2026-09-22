@@ -19,6 +19,12 @@ RSS = """<?xml version="1.0"?>
 <link>https://example.org/article</link>
 <pubDate>Fri, 18 Sep 2026 10:00:00 GMT</pubDate>
 <description>Publisher excerpt</description></item></channel></rss>"""
+PODCAST_RSS = RSS.replace(
+    "<description>Publisher excerpt</description>",
+    "<description>Podcast #19</description>"
+    "<enclosure url=\"https://cdn.example.org/episode.mp3\" type=\"audio/mpeg\" />",
+)
+
 ATOM = """<feed xmlns="http://www.w3.org/2005/Atom"><title>News</title>
 <id>urn:news</id><updated>2026-09-18T10:00:00Z</updated><entry>
 <title>Atom story</title><id>urn:story</id><link href="https://example.org/atom"/>
@@ -72,6 +78,12 @@ async def test_poll_single_source_returns_items(source, routes, clock):
             raw_summary="Publisher excerpt",
         )
     ]
+
+
+async def test_audio_enclosure_is_preserved(source, routes, clock):
+    routes.get(source.feed_url).respond(200, text=PODCAST_RSS)
+    item = (await poller.poll_all_sources([source]))[0]
+    assert item.enclosure_type == "audio/mpeg"
 
 
 async def test_rate_limit_respected(source, routes, clock):

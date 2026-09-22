@@ -54,6 +54,7 @@ class FeedItem:
     source_name: str
     category: str
     raw_summary: str
+    enclosure_type: str | None = None
 
 
 class JsonFormatter(logging.Formatter):
@@ -198,6 +199,7 @@ class _Poller:
                         source_name=source.name,
                         category=source.category,
                         raw_summary=_summary(entry),
+                        enclosure_type=_enclosure_type(entry),
                     )
                 )
             logger.info("feed_success", extra={**extra, "item_count": len(items)})
@@ -213,6 +215,16 @@ class _Poller:
                 "feed_error", extra={**extra, "error_type": type(exc).__name__}
             )
             return []
+
+
+def _enclosure_type(entry: dict[str, Any]) -> str | None:
+    """Return the first declared audio or video enclosure MIME type."""
+    enclosures = [*entry.get("enclosures", []), *entry.get("media_content", [])]
+    for enclosure in enclosures:
+        media_type = str(enclosure.get("type", "")).strip().casefold()
+        if media_type.startswith(("audio/", "video/")):
+            return media_type
+    return None
 
 
 def _summary(entry: dict[str, Any]) -> str:

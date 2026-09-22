@@ -77,6 +77,11 @@ def test_episodes_with_same_title_remain_separate(item, kind):
     assert len(group_items([item, other], content_types={"News": kind})) == 2
 
 
+def test_audio_enclosure_inside_article_feed_is_detected_per_item(item):
+    podcast = replace(item, enclosure_type="audio/mpeg")
+    assert group_items([podcast])[0].content_type == "Podcast"
+
+
 def test_podcast_inside_article_feed_is_detected_per_item(item):
     podcast = replace(
         item,
