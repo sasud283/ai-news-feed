@@ -83,7 +83,8 @@ function AboutPage() {
             </li>
             <li>
               <strong className="text-foreground">Topic</strong> — one or more subject areas, from
-              models and research to policy, ethics, leadership, organisations, and people and jobs.
+              models and research to policy, ethics, cyber security, leadership, organisations, and
+              people and jobs.
             </li>
             <li>
               <strong className="text-foreground">Geography</strong> — where the story mainly

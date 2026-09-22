@@ -39,6 +39,11 @@ def test_multiple_topics_and_per_tag_confidence(payload):
     assert review_reasons(result) == ("low_topic_confidence",)
 
 
+def test_cyber_security_label_is_available_to_classifier(payload):
+    payload.update(topics=[13], scores=[0.95, 0.95, 0.95, 0.95])
+    assert classify(payload).topics == ("Cyber Security",)
+
+
 def test_bilateral_story_accepts_two_geographies(payload):
     payload["geography"] = [1, 2]
     result = classify(payload)

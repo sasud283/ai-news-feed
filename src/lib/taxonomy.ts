@@ -13,6 +13,7 @@ export const TOPICS = [
   "Tools & Products",
   "Education",
   "Society & Economy",
+  "Cyber Security",
 ] as const;
 export type Topic = (typeof TOPICS)[number];
 export const TOPIC_DESCRIPTIONS: Partial<Record<Topic, string>> = {
@@ -23,6 +24,7 @@ export const TOPIC_DESCRIPTIONS: Partial<Record<Topic, string>> = {
   Education: "AI education, teaching, learning, curricula and skills training.",
   "Society & Economy":
     "Macroeconomic change, public services, social structures and economy-wide effects of AI.",
+  "Cyber Security": "AI-enabled attacks, malware, fraud, vulnerabilities and defensive tools.",
 };
 
 /** Preserve the scope of old bookmarks and saved preferences during migration. */

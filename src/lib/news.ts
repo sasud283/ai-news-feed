@@ -58,6 +58,7 @@ export const topicClass: Record<Topic, string> = {
   "Tools & Products": "bg-topic-cyan text-tone-contrast border-topic-cyan",
   Education: "bg-topic-green text-tone-contrast border-topic-green",
   "Society & Economy": "bg-topic-violet text-tone-contrast border-topic-violet",
+  "Cyber Security": "bg-topic-blue text-tone-contrast border-topic-blue",
 };
 
 export const topicOutlineClass: Record<Topic, string> = {
@@ -74,6 +75,7 @@ export const topicOutlineClass: Record<Topic, string> = {
   "Tools & Products": "border-topic-cyan text-topic-dark",
   Education: "border-topic-green text-topic-green",
   "Society & Economy": "border-topic-violet text-topic-violet",
+  "Cyber Security": "border-topic-blue text-topic-blue",
 };
 
 export type StorySource = {

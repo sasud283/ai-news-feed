@@ -14,6 +14,7 @@ CATEGORIES = (
     "Tools & Products",
     "Education",
     "Society & Economy",
+    "Cyber Security",
 )
 
 CATEGORY_DESCRIPTIONS = {
@@ -22,4 +23,5 @@ CATEGORY_DESCRIPTIONS = {
     "People & Jobs": "Workers’ experience with AI coworkers, job impact, displacement, reskilling and labour markets; prioritise regional and institutional evidence.",
     "Education": "AI education, teaching, learning, curricula, academic adoption and skills training.",
     "Society & Economy": "Macroeconomic change, public services, social structures, inequality and economy-wide effects of AI.",
+    "Cyber Security": "AI-enabled attacks, malware, fraud, vulnerabilities and defensive security tools.",
 }
