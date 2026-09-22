@@ -58,7 +58,6 @@ _RESPONSE_FORMAT = {
                     "items": {"type": "integer"},
                     "minItems": 0,
                     "maxItems": 2,
-                    "uniqueItems": True,
                 },
                 "gc": {"type": "number"},
                 "rc": {"type": "number"},
