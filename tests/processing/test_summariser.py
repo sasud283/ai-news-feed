@@ -48,6 +48,7 @@ async def test_prompt_budget_html_and_unicode(item):
     assert "Choose only central topics" in prompt.instructions
     assert "a company mention alone is insufficient" in prompt.instructions
     assert "Healthcare impact or hype belongs in daily life" in prompt.instructions
+    assert "leadership pipelines even when HR is the reporting lens" in prompt.instructions
     assert "Synthetic-media misinformation or deepfakes" in prompt.instructions
     assert "customer-service harm is not ethics or equity" in prompt.instructions
 
