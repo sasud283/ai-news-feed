@@ -311,6 +311,7 @@ async def test_incomplete_correction_rolls_back_and_valid_correction_publishes(p
         "summary": "Edited summary",
         "topics": ["Ethics"],
         "tone": "Useful",
+        "content_type": "Article",
         "access": "Free",
         "geographies": ["Europe"],
         "published_at": None,
@@ -521,6 +522,7 @@ async def test_admin_edits_published_story_with_two_geographies(pg):
         "summary": "Edited bilateral summary.",
         "topics": ["National Initiatives"],
         "tone": "Neutral",
+        "content_type": "Podcast",
         "access": "Free",
         "geographies": ["US", "China"],
         "published_at": DATE.isoformat(),
@@ -535,3 +537,7 @@ async def test_admin_edits_published_story_with_two_geographies(pg):
         story_id,
     )
     assert tags == [{"geography": "US", "secondary_geography": "China"}]
+    edited = await pg.fetch(
+        "SELECT content_type,media_url FROM public.stories WHERE id=$1", story_id
+    )
+    assert edited == [{"content_type": "Podcast", "media_url": URL}]

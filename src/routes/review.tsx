@@ -16,6 +16,7 @@ import {
 } from "@/lib/review.functions";
 import {
   ACCESS_OPTIONS,
+  CONTENT_TYPES,
   GEOGRAPHIES,
   TONES,
   TONE_DESCRIPTIONS,
@@ -23,6 +24,7 @@ import {
   formatDate,
   toneClass,
   type Access,
+  type ContentType,
   type Geography,
   type Tone,
   type Topic,
@@ -55,6 +57,8 @@ type QueueItem = {
     headline: string;
     ai_generated_summary: string;
     language: string;
+    content_type: ContentType;
+    media_url: string | null;
     published_at: string | null;
     related_to_url: string | null;
     processing_metadata?: {
@@ -188,6 +192,7 @@ function QueueCard({ item, onDone }: { item: QueueItem; onDone: () => void }) {
   const [summary, setSummary] = useState(item.stories.ai_generated_summary);
   const [topics, setTopics] = useState<Topic[]>(item.stories.story_topics.map((t) => t.topic));
   const [tone, setTone] = useState<Tone | null>(tags?.tone ?? null);
+  const [contentType, setContentType] = useState<ContentType>(item.stories.content_type);
   const [access, setAccess] = useState<Access | null>(tags?.access ?? null);
   const [geographies, setGeographies] = useState<Geography[]>(
     [tags?.geography, tags?.secondary_geography].filter(
@@ -255,6 +260,7 @@ function QueueCard({ item, onDone }: { item: QueueItem; onDone: () => void }) {
           summary,
           topics,
           tone,
+          contentType,
           access,
           geographies,
         },
@@ -355,6 +361,23 @@ function QueueCard({ item, onDone }: { item: QueueItem; onDone: () => void }) {
           </div>
           <div>
             <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+              Content type
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {CONTENT_TYPES.map((type) => (
+                <button
+                  key={type}
+                  type="button"
+                  className={chip(contentType === type)}
+                  onClick={() => setContentType(type)}
+                >
+                  {type}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div>
+            <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
               Topics
             </p>
             <div className="flex flex-wrap gap-2">
@@ -448,6 +471,9 @@ function QueueCard({ item, onDone }: { item: QueueItem; onDone: () => void }) {
             {item.stories.ai_generated_summary}
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
+            <span className="rounded-full border border-border bg-secondary px-2.5 py-0.5 text-xs">
+              {item.stories.content_type}
+            </span>
             {tags?.tone && (
               <span
                 className={`rounded-full border px-2.5 py-0.5 text-xs font-medium ${toneClass[tags.tone]}`}

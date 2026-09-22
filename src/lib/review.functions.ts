@@ -18,6 +18,7 @@ const correctionSchema = z.object({
   summary: z.string().trim().min(1).max(4000),
   topics: z.array(z.enum(TOPICS)).min(1),
   tone: z.enum(["Good", "Useful", "Bad", "Ugly", "Cool", "Neutral"]),
+  contentType: z.enum(["Article", "Podcast", "Video"]),
   access: z.enum(["Free", "Paid"]),
   geographies: z
     .array(
@@ -45,7 +46,7 @@ export const fetchSpotCheckQueue = createServerFn({ method: "GET" })
     const { data, error } = await db
       .from("spot_check_queue")
       .select(
-        "id, reason, status, created_at, story_id, stories(id, headline, ai_generated_summary, language, published_at, related_to_url, processing_metadata, story_sources(source_name, source_url, is_paywalled), story_topics(topic), story_tags(tone, access, geography, secondary_geography))",
+        "id, reason, status, created_at, story_id, stories(id, headline, ai_generated_summary, language, content_type, media_url, published_at, related_to_url, processing_metadata, story_sources(source_name, source_url, is_paywalled), story_topics(topic), story_tags(tone, access, geography, secondary_geography))",
       )
       .eq("status", "pending")
       .order("created_at", { ascending: true });
@@ -60,7 +61,7 @@ export const fetchPublishedForEditing = createServerFn({ method: "GET" })
     const { data, error } = await db
       .from("stories")
       .select(
-        "id, headline, ai_generated_summary, language, published_at, related_to_url, processing_metadata, story_sources(source_name, source_url, is_paywalled), story_topics(topic), story_tags(tone, access, geography, secondary_geography)",
+        "id, headline, ai_generated_summary, language, content_type, media_url, published_at, related_to_url, processing_metadata, story_sources(source_name, source_url, is_paywalled), story_topics(topic), story_tags(tone, access, geography, secondary_geography)",
       )
       .eq("publication_status", "published")
       .order("published_at", { ascending: false })
@@ -121,6 +122,7 @@ export const correctSpotCheck = createServerFn({ method: "POST" })
         summary: data.summary,
         topics: data.topics,
         tone: data.tone,
+        content_type: data.contentType,
         access: data.access,
         geographies: data.geographies,
         published_at: data.publishedAt,
@@ -143,6 +145,7 @@ export const updatePublishedStory = createServerFn({ method: "POST" })
         summary: data.summary,
         topics: data.topics,
         tone: data.tone,
+        content_type: data.contentType,
         access: data.access,
         geographies: data.geographies,
         published_at: data.publishedAt,
