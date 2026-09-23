@@ -39,6 +39,13 @@ _EDUCATION_CONTEXT = re.compile(
     r"workforce training)\b",
     re.IGNORECASE,
 )
+_SAFETY_LITIGATION = re.compile(
+    r"\b(?:su(?:e|ed|ing)|lawsuit|litigation|legal action)\b.*"
+    r"\b(?:shooting|death|fatal|violence|abuse|safety|harm)\b"
+    r"|\b(?:shooting|death|fatal|violence|abuse|safety|harm)\b.*"
+    r"\b(?:su(?:e|ed|ing)|lawsuit|litigation|legal action)\b",
+    re.IGNORECASE,
+)
 _RESPONSE_FORMAT = {
     "type": "json_schema",
     "json_schema": {
@@ -178,6 +185,40 @@ def _remove_unsupported_education(
         index
         for index, topic in enumerate(classification.topics)
         if topic != "Education"
+    ]
+    return replace(
+        classification,
+        topics=tuple(classification.topics[index] for index in keep),
+        topic_confidence=tuple(
+            classification.topic_confidence[index] for index in keep
+        ),
+    )
+
+
+def _remove_business_from_safety_litigation(
+    classification: Classification, group: StoryGroup
+) -> Classification:
+    """Exclude Business & Funding from lawsuits about safety harms.
+
+    Args:
+        classification: Model-selected categories.
+        group: Feed headlines describing the reported event.
+
+    Returns:
+        Categories and scores without an unsupported business tag.
+    """
+    if (
+        "Business & Funding" not in classification.topics
+        or len(classification.topics) == 1
+    ):
+        return classification
+    titles = " ".join(item.title for item in group.items)
+    if not _SAFETY_LITIGATION.search(titles):
+        return classification
+    keep = [
+        index
+        for index, topic in enumerate(classification.topics)
+        if topic != "Business & Funding"
     ]
     return replace(
         classification,
@@ -387,6 +428,7 @@ async def summarise_story(group: StoryGroup, *, client: AsyncOpenAI) -> Analysis
     )
     classification = _apply_geography_hints(classification, group)
     classification = _remove_unsupported_education(classification, group)
+    classification = _remove_business_from_safety_litigation(classification, group)
     summary = payload["s"]
     language = payload["l"]
     word_limit, _ = _summary_rules(group)

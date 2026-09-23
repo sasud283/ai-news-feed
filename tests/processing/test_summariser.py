@@ -102,6 +102,32 @@ async def test_education_requires_human_learning_context(
     )
 
 
+@pytest.mark.parametrize(
+    "title,expected",
+    [
+        (
+            "OpenAI sued by Canadian province over role in mass shooting",
+            ("Ethics",),
+        ),
+        (
+            "AI company sued over acquisition financing",
+            ("Business & Funding", "Ethics"),
+        ),
+    ],
+)
+async def test_safety_litigation_is_not_business_news(
+    item, wire_payload, completion, client, respx_mock, title, expected
+):
+    source = replace(item, title=title)
+    wire_payload["t"] = [{"i": 1, "c": 0.9}, {"i": 4, "c": 0.8}]
+    respx_mock.post(URL).respond(200, json=completion(wire_payload))
+    result = await summarise_story(StoryGroup((source,)), client=client)
+    assert result.classification.topics == expected
+    assert result.classification.topic_confidence == (
+        (0.8,) if len(expected) == 1 else (0.9, 0.8)
+    )
+
+
 async def test_uae_story_gets_middle_east_and_us_geographies(
     item, wire_payload, completion, client, respx_mock
 ):
