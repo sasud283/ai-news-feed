@@ -71,10 +71,13 @@ async def test_email_test_does_not_run_pipeline(monkeypatch):
     monkeypatch.setenv("PIPELINE_REVIEW_URL", REVIEW)
     runner = AsyncMock()
     sender = AsyncMock()
+    database = AsyncMock()
     monkeypatch.setattr("src.storage.daily.run_batch", runner)
     monkeypatch.setattr("src.storage.daily._send_report", sender)
+    monkeypatch.setattr("src.storage.daily._check_database", database)
 
     await run_daily(test_email=True)
 
     runner.assert_not_awaited()
+    database.assert_awaited_once()
     assert "No news batch was run" in sender.await_args.args[0]

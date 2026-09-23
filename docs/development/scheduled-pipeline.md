@@ -4,7 +4,8 @@
 `Europe/Malta` time, including daylight-saving changes. GitHub Actions may start a
 scheduled run late under load; check the Actions history if an expected email is
 missing. The workflow also supports a manual email-only test that does not ingest
-stories or use the OpenAI API.
+stories or use the OpenAI API. The test checks the hosted database connection
+before sending the email.
 
 The worker uses a rolling 48-hour publication window. Deferred/failed items older
 than that window remain in the database for an explicit historical run but do not

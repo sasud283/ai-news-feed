@@ -9,6 +9,7 @@ import os
 from datetime import UTC, datetime
 from zoneinfo import ZoneInfo
 
+import asyncpg
 import httpx
 
 from src.processing.models import ProcessedStory, ProcessingResult
@@ -117,6 +118,16 @@ async def _send_report(
     logger.info("pipeline_report_email_accepted")
 
 
+async def _check_database() -> None:
+    connection = await asyncpg.connect(
+        os.environ["DATABASE_URL"], statement_cache_size=0, timeout=30
+    )
+    try:
+        await connection.fetchval("SELECT 1")
+    finally:
+        await connection.close()
+
+
 async def run_daily(*, max_new_stories: int = 100, test_email: bool = False) -> None:
     """Run one bounded news batch and email its outcome to the editor.
 
@@ -130,6 +141,7 @@ async def run_daily(*, max_new_stories: int = 100, test_email: bool = False) -> 
     started_at = datetime.now(UTC)
     review_url = os.environ["PIPELINE_REVIEW_URL"]
     if test_email:
+        await _check_database()
         body = _report_text(
             None, started_at=started_at, review_url=review_url, test_only=True
         )
