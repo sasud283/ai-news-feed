@@ -29,6 +29,7 @@ _UAE = re.compile(
     r"\b(?:UAE|United Arab Emirates|Emirati|Dubai|Abu Dhabi)\b", re.IGNORECASE
 )
 _US = re.compile(r"\b(?:U\.?S\.?|United States|American)\b", re.IGNORECASE)
+_OCEANIA = re.compile(r"\b(?:Australia|Australian|New Zealand|New Zealander)\b", re.IGNORECASE)
 _RESPONSE_FORMAT = {
     "type": "json_schema",
     "json_schema": {
@@ -114,9 +115,25 @@ def _plain(text: str) -> str:
 def _apply_geography_hints(
     classification: Classification, group: StoryGroup
 ) -> Classification:
-    """Correct explicit UAE geography while preserving a bilateral US label."""
+    """Correct explicit headline geography before using excerpt mentions.
+
+    Args:
+        classification: Model-selected region labels.
+        group: Feed evidence for one story.
+
+    Returns:
+        Labels with explicit Oceania or UAE focus corrected. A second US region
+        is retained only when the headline itself makes the story bilateral.
+    """
     if not classification.relevant:
         return classification
+    titles = " ".join(item.title for item in group.items)
+    if _OCEANIA.search(titles):
+        return replace(
+            classification,
+            geography="Oceania",
+            secondary_geography="US" if _US.search(titles) else None,
+        )
     evidence = " ".join(
         f"{item.title} {_plain(item.raw_summary)}" for item in group.items
     )

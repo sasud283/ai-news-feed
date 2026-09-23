@@ -83,6 +83,32 @@ async def test_uae_story_gets_middle_east_and_us_geographies(
 
 
 @pytest.mark.parametrize(
+    "title,secondary",
+    [
+        (
+            "AI is not yet making Australia more productive, RBA governor says",
+            None,
+        ),
+        ("Australia and US agree on AI policy", "US"),
+        ("New Zealand researchers adopt AI tools", None),
+    ],
+)
+async def test_oceania_headline_overrides_us_model_label(
+    item, wire_payload, completion, client, respx_mock, title, secondary
+):
+    story = replace(
+        item,
+        title=title,
+        raw_summary="The article also mentions US technology stocks.",
+    )
+    wire_payload["g"] = [1]
+    respx_mock.post(URL).respond(200, json=completion(wire_payload))
+    result = await summarise_story(StoryGroup((story,)), client=client)
+    assert result.classification.geography == "Oceania"
+    assert result.classification.secondary_geography == secondary
+
+
+@pytest.mark.parametrize(
     "finish,refusal", [("length", None), ("stop", "Cannot comply")]
 )
 async def test_refusal_or_truncation_rejected(
