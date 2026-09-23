@@ -22,7 +22,7 @@ RSS = """<?xml version="1.0"?>
 PODCAST_RSS = RSS.replace(
     "<description>Publisher excerpt</description>",
     "<description>Podcast #19</description>"
-    "<enclosure url=\"https://cdn.example.org/episode.mp3\" type=\"audio/mpeg\" />",
+    '<enclosure url="https://cdn.example.org/episode.mp3" type="audio/mpeg" />',
 )
 
 ATOM = """<feed xmlns="http://www.w3.org/2005/Atom"><title>News</title>
@@ -78,6 +78,18 @@ async def test_poll_single_source_returns_items(source, routes, clock):
             raw_summary="Publisher excerpt",
         )
     ]
+
+
+async def test_html_entities_in_title_are_decoded(source, routes, clock):
+    routes.get(source.feed_url).respond(
+        200,
+        text=RSS.replace(
+            "<title>New model</title>",
+            "<title>Anthropic&amp;#8217;s model</title>",
+        ),
+    )
+    item = (await poller.poll_all_sources([source]))[0]
+    assert item.title == "Anthropic’s model"
 
 
 async def test_audio_enclosure_is_preserved(source, routes, clock):

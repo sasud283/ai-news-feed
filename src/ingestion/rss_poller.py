@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import asyncio
 import calendar
+import html
 import json
 import logging
 import time
@@ -184,7 +185,7 @@ class _Poller:
                     raise ValueError("Response could not be parsed as RSS or Atom")
             items = []
             for entry in parsed.get("entries", []):
-                title = str(entry.get("title", "")).strip()
+                title = html.unescape(str(entry.get("title", ""))).strip()
                 link = str(entry.get("link", "")).strip()
                 if not title or not link:
                     continue
