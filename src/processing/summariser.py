@@ -29,7 +29,16 @@ _UAE = re.compile(
     r"\b(?:UAE|United Arab Emirates|Emirati|Dubai|Abu Dhabi)\b", re.IGNORECASE
 )
 _US = re.compile(r"\b(?:U\.?S\.?|United States|American)\b", re.IGNORECASE)
-_OCEANIA = re.compile(r"\b(?:Australia|Australian|New Zealand|New Zealander)\b", re.IGNORECASE)
+_OCEANIA = re.compile(
+    r"\b(?:Australia|Australian|New Zealand|New Zealander)\b", re.IGNORECASE
+)
+_EDUCATION_CONTEXT = re.compile(
+    r"\b(?:educat\w*|student\w*|pupil\w*|classroom\w*|school\w*|"
+    r"teacher\w*|tutor\w*|curricul\w*|pedagog\w*|course\w*|"
+    r"reskill\w*|upskill\w*|instructional|learning paths?|"
+    r"workforce training)\b",
+    re.IGNORECASE,
+)
 _RESPONSE_FORMAT = {
     "type": "json_schema",
     "json_schema": {
@@ -143,6 +152,39 @@ def _apply_geography_hints(
         classification,
         geography="Middle East",
         secondary_geography="US" if _US.search(evidence) else None,
+    )
+
+
+def _remove_unsupported_education(
+    classification: Classification, group: StoryGroup
+) -> Classification:
+    """Drop a secondary Education tag without evidence of human learning.
+
+    Args:
+        classification: Model-selected categories.
+        group: Feed titles and abstracts available during classification.
+
+    Returns:
+        Categories and confidence scores without an unsupported Education tag.
+    """
+    if "Education" not in classification.topics or len(classification.topics) == 1:
+        return classification
+    evidence = " ".join(
+        f"{item.title} {_plain(item.raw_summary)}" for item in group.items
+    )
+    if _EDUCATION_CONTEXT.search(evidence):
+        return classification
+    keep = [
+        index
+        for index, topic in enumerate(classification.topics)
+        if topic != "Education"
+    ]
+    return replace(
+        classification,
+        topics=tuple(classification.topics[index] for index in keep),
+        topic_confidence=tuple(
+            classification.topic_confidence[index] for index in keep
+        ),
     )
 
 
@@ -344,6 +386,7 @@ async def summarise_story(group: StoryGroup, *, client: AsyncOpenAI) -> Analysis
         }
     )
     classification = _apply_geography_hints(classification, group)
+    classification = _remove_unsupported_education(classification, group)
     summary = payload["s"]
     language = payload["l"]
     word_limit, _ = _summary_rules(group)

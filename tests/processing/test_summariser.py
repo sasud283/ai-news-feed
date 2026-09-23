@@ -48,7 +48,9 @@ async def test_prompt_budget_html_and_unicode(item):
     assert "Choose only central topics" in prompt.instructions
     assert "a company mention alone is insufficient" in prompt.instructions
     assert "Healthcare impact or hype belongs in daily life" in prompt.instructions
-    assert "leadership pipelines even when HR is the reporting lens" in prompt.instructions
+    assert (
+        "leadership pipelines even when HR is the reporting lens" in prompt.instructions
+    )
     assert "Synthetic-media misinformation or deepfakes" in prompt.instructions
     assert "customer-service harm is not ethics or equity" in prompt.instructions
 
@@ -65,6 +67,39 @@ async def test_arxiv_uses_abstract_and_shorter_summary(
     respx_mock.post(URL).respond(200, json=completion(wire_payload))
     with pytest.raises(ValueError, match="Invalid summary length"):
         await summarise_story(StoryGroup((arxiv,)), client=client)
+
+
+@pytest.mark.parametrize(
+    "title,abstract,expected",
+    [
+        (
+            "Modeling Human Behavior with Type Vectors Using AI",
+            "A language model uses type vectors to predict human choices.",
+            ("Models & Research",),
+        ),
+        (
+            "Multi-turn Conversational AI from Text to Multimodal Interaction",
+            "A survey of conversational AI datasets, model training, and evaluation.",
+            ("Models & Research",),
+        ),
+        (
+            "Self-Explanation Tutor for Active Study of CS1 Worked Examples",
+            "Students using the tutor revise explanations in a programming course.",
+            ("Models & Research", "Education"),
+        ),
+    ],
+)
+async def test_education_requires_human_learning_context(
+    item, wire_payload, completion, client, respx_mock, title, abstract, expected
+):
+    source = replace(item, source_name="arXiv cs.AI", title=title, raw_summary=abstract)
+    wire_payload["t"] = [{"i": 0, "c": 0.9}, {"i": 11, "c": 0.8}]
+    respx_mock.post(URL).respond(200, json=completion(wire_payload))
+    result = await summarise_story(StoryGroup((source,)), client=client)
+    assert result.classification.topics == expected
+    assert result.classification.topic_confidence == (
+        (0.9, 0.8) if len(expected) == 2 else (0.9,)
+    )
 
 
 async def test_uae_story_gets_middle_east_and_us_geographies(
