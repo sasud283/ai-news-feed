@@ -70,6 +70,7 @@ async def run_batch(
         items,
         max_new_stories=max_new_stories,
         started_at=started_at,
+        published_since=cutoff,
     )
 
 

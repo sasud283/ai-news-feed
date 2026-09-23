@@ -50,7 +50,8 @@ The worker reads environment variables; it does not automatically load `.env`.
 Do not put private credentials into the repository's existing tracked `.env`.
 A zero request budget records/defer new items without spending on model calls;
 it can still attach sources to existing stories and require a new review.
-Scheduling and worker hosting remain later operations work.
+Daily scheduling and editor email reporting are described in
+[`scheduled-pipeline.md`](scheduled-pipeline.md).
 
 ## Data and publication behavior
 

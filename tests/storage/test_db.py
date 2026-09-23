@@ -449,6 +449,40 @@ async def test_pending_items_are_interleaved_across_sources(connected, monkeypat
     ]
 
 
+async def test_old_deferred_items_do_not_displace_daily_news(connected, monkeypatch):
+    await connected.execute(
+        "INSERT INTO public.ingestion_urls(url,status,headline,published_at,source_name,category) "
+        "VALUES($1,'deferred',$2,$3,$4,$5)",
+        "https://old.test/story",
+        "Old AI story",
+        DATE,
+        "Old Source",
+        "Models & Research",
+    )
+    captured = []
+
+    async def process(batch, **kwargs):
+        captured.extend(batch)
+        return result()
+
+    monkeypatch.setattr("src.storage.db.process_items", process)
+    await process_and_store(
+        [],
+        database_url="test",
+        content_types={},
+        published_since=datetime(2026, 9, 22, tzinfo=UTC),
+    )
+
+    assert captured == []
+    assert (
+        await connected.fetchval(
+            "SELECT status FROM public.ingestion_urls WHERE url=$1",
+            "https://old.test/story",
+        )
+        == "deferred"
+    )
+
+
 async def test_legacy_source_is_seen_without_creating_retry(connected, monkeypatch):
     model = AsyncMock(side_effect=AssertionError("Model must not run"))
     monkeypatch.setattr("src.processing.pipeline.summarise_story", model)

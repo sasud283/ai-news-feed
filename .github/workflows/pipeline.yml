@@ -1,0 +1,44 @@
+name: Daily AI news pipeline
+on:
+  workflow_dispatch:
+    inputs:
+      test_email:
+        description: Send a test report without ingesting news
+        type: boolean
+        default: false
+  schedule:
+    - cron: '5 13 * * *'
+      timezone: Europe/Malta
+
+permissions:
+  contents: read
+concurrency:
+  group: daily-ai-news-pipeline
+  cancel-in-progress: false
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      NEWSLETTER_FROM: ${{ vars.NEWSLETTER_FROM }}
+      PIPELINE_REPORT_TO: ${{ vars.PIPELINE_REPORT_TO }}
+      PIPELINE_REVIEW_URL: ${{ vars.PIPELINE_REVIEW_URL }}
+      PIP_CACHE_DIR: ${{ github.workspace }}/.cache/pip
+      TMPDIR: ${{ github.workspace }}/.tmp
+    steps:
+      - uses: actions/checkout@v4
+      - run: mkdir -p .tmp .cache
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r requirements.txt
+      - name: Run pipeline and email report
+        if: github.event_name == 'schedule' || inputs.test_email != true
+        run: python -m src.storage.daily
+      - name: Test report email
+        if: github.event_name == 'workflow_dispatch' && inputs.test_email == true
+        run: python -m src.storage.daily --test-email

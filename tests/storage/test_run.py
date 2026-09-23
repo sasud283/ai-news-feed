@@ -27,7 +27,9 @@ async def test_runner_uses_active_registry_and_budget(monkeypatch):
     monkeypatch.setattr("src.storage.run.process_and_store", persist)
     await run_batch(max_new_stories=0)
     assert len(poll.call_args.args[0]) == 64
-    persist.assert_awaited_once_with([], max_new_stories=0, started_at=ANY)
+    persist.assert_awaited_once_with(
+        [], max_new_stories=0, started_at=ANY, published_since=ANY
+    )
 
 
 async def test_runner_filters_old_and_undated_feed_entries(monkeypatch):
@@ -57,4 +59,6 @@ async def test_runner_filters_old_and_undated_feed_entries(monkeypatch):
 
     await run_batch(max_new_stories=0, published_since=cutoff)
 
-    persist.assert_awaited_once_with([recent], max_new_stories=0, started_at=ANY)
+    persist.assert_awaited_once_with(
+        [recent], max_new_stories=0, started_at=ANY, published_since=cutoff
+    )

@@ -88,7 +88,10 @@ async def load_history(
 
 
 async def _pending_items(
-    connection: asyncpg.Connection, items: Sequence[FeedItem]
+    connection: asyncpg.Connection,
+    items: Sequence[FeedItem],
+    *,
+    published_since: datetime | None = None,
 ) -> list[FeedItem]:
     incoming = {}
     invalid = []
@@ -121,8 +124,9 @@ async def _pending_items(
         "SELECT url, headline, published_at, source_name, category, updated_at, "
         "row_number() OVER (PARTITION BY source_name ORDER BY updated_at, url) AS source_rank "
         "FROM public.ingestion_urls WHERE status IN ('failed', 'deferred') "
-        "AND headline IS NOT NULL) ranked "
-        "WHERE source_rank <= 5 ORDER BY source_rank, updated_at, url LIMIT 500"
+        "AND headline IS NOT NULL AND ($1::timestamptz IS NULL OR published_at >= $1)) ranked "
+        "WHERE source_rank <= 5 ORDER BY source_rank, updated_at, url LIMIT 500",
+        published_since,
     )
     # Prioritize older retries to prevent starvation; refreshed excerpts remain transient.
     combined = []
@@ -385,6 +389,7 @@ async def process_and_store(
     access_by_url: Mapping[str, Access] | None = None,
     content_types: Mapping[str, ContentType] | None = None,
     started_at: datetime | None = None,
+    published_since: datetime | None = None,
 ) -> ProcessingResult:
     """Deduplicate, process and commit one batch to Supabase Postgres.
 
@@ -393,6 +398,8 @@ async def process_and_store(
         database_url: Postgres DSN; otherwise DATABASE_URL from the environment.
         client: Optional caller-owned model client for testing or connection reuse.
         max_new_stories: Model request budget per batch.
+        published_since: Earliest publication time for pending retries. Older
+            deferred items remain retryable for a historical/manual run.
         access_by_url: Verified per-article access, never inferred from a publisher.
         content_types: Optional source-type map; defaults to the Phase 2 registry.
 
@@ -415,7 +422,9 @@ async def process_and_store(
                 "SELECT pg_try_advisory_xact_lock($1)", _LOCK_ID
             ):
                 raise WorkerBusyError("Another ingestion batch is running")
-            items = await _pending_items(connection, items)
+            items = await _pending_items(
+                connection, items, published_since=published_since
+            )
             inferred_access = infer_access_by_url(items)
             access_by_url = {**inferred_access, **(access_by_url or {})}
             history = await load_history(connection, items)
