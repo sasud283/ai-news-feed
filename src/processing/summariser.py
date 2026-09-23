@@ -46,6 +46,10 @@ _SAFETY_LITIGATION = re.compile(
     r"\b(?:su(?:e|ed|ing)|lawsuit|litigation|legal action)\b",
     re.IGNORECASE,
 )
+_AI_TITLE = re.compile(r"\b(?:AI|LLM|artificial intelligence)\b", re.IGNORECASE)
+_CYBER_INCIDENT = re.compile(
+    r"\b(?:0-day|zero-day|vulnerabilit(?:y|ies)|exploit)\b", re.IGNORECASE
+)
 _RESPONSE_FORMAT = {
     "type": "json_schema",
     "json_schema": {
@@ -226,6 +230,39 @@ def _remove_business_from_safety_litigation(
         topic_confidence=tuple(
             classification.topic_confidence[index] for index in keep
         ),
+    )
+
+
+def _apply_cybersecurity_hint(
+    classification: Classification, group: StoryGroup
+) -> Classification:
+    """Use a clear AI vulnerability headline to correct generic topic tags.
+
+    Args:
+        classification: Model-selected categories.
+        group: Feed headlines describing the reported event.
+
+    Returns:
+        Cyber Security and any other specific topics, with their scores.
+    """
+    if not classification.relevant:
+        return classification
+    titles = " ".join(item.title for item in group.items)
+    if not (_AI_TITLE.search(titles) and _CYBER_INCIDENT.search(titles)):
+        return classification
+    topics_and_scores = [
+        (topic, score)
+        for topic, score in zip(
+            classification.topics, classification.topic_confidence, strict=True
+        )
+        if topic not in {"Models & Research", "Business & Funding"}
+    ]
+    if "Cyber Security" not in {topic for topic, _ in topics_and_scores}:
+        topics_and_scores.insert(0, ("Cyber Security", 0.8))
+    return replace(
+        classification,
+        topics=tuple(topic for topic, _ in topics_and_scores),
+        topic_confidence=tuple(score for _, score in topics_and_scores),
     )
 
 
@@ -429,6 +466,7 @@ async def summarise_story(group: StoryGroup, *, client: AsyncOpenAI) -> Analysis
     classification = _apply_geography_hints(classification, group)
     classification = _remove_unsupported_education(classification, group)
     classification = _remove_business_from_safety_litigation(classification, group)
+    classification = _apply_cybersecurity_hint(classification, group)
     summary = payload["s"]
     language = payload["l"]
     word_limit, _ = _summary_rules(group)

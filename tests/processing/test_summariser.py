@@ -128,6 +128,39 @@ async def test_safety_litigation_is_not_business_news(
     )
 
 
+@pytest.mark.parametrize(
+    "title,expected_topics,expected_scores",
+    [
+        (
+            "Muse, Meta's extraordinarily privileged AI assistant, has a serious 0-day",
+            ("Cyber Security",),
+            (0.8,),
+        ),
+        (
+            "AI assistant launches new shopping service",
+            ("Models & Research", "Business & Funding"),
+            (0.9, 0.8),
+        ),
+    ],
+)
+async def test_ai_vulnerability_headline_gets_cyber_security(
+    item,
+    wire_payload,
+    completion,
+    client,
+    respx_mock,
+    title,
+    expected_topics,
+    expected_scores,
+):
+    source = replace(item, title=title)
+    wire_payload["t"] = [{"i": 0, "c": 0.9}, {"i": 1, "c": 0.8}]
+    respx_mock.post(URL).respond(200, json=completion(wire_payload))
+    result = await summarise_story(StoryGroup((source,)), client=client)
+    assert result.classification.topics == expected_topics
+    assert result.classification.topic_confidence == expected_scores
+
+
 async def test_uae_story_gets_middle_east_and_us_geographies(
     item, wire_payload, completion, client, respx_mock
 ):
