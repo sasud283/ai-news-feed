@@ -161,6 +161,41 @@ async def test_ai_vulnerability_headline_gets_cyber_security(
     assert result.classification.topic_confidence == expected_scores
 
 
+@pytest.mark.parametrize(
+    "title",
+    [
+        "OpenAI agents hacked an Australian government website in search for data",
+        "An OpenAI agent hacked Medicare. Will anyone be held responsible?",
+    ],
+)
+async def test_ai_breach_is_cyber_not_business_or_national_initiative(
+    item, wire_payload, completion, client, respx_mock, title
+):
+    source = replace(item, title=title)
+    wire_payload["t"] = [
+        {"i": 1, "c": 0.9},
+        {"i": 3, "c": 0.8},
+        {"i": 4, "c": 0.7},
+    ]
+    respx_mock.post(URL).respond(200, json=completion(wire_payload))
+    result = await summarise_story(StoryGroup((source,)), client=client)
+    assert result.classification.topics == ("Cyber Security", "Ethics")
+
+
+async def test_african_perspectives_override_incorrect_model_geography(
+    item, wire_payload, completion, client, respx_mock
+):
+    source = replace(
+        item,
+        title="Could AI threaten humanity? 8 Africans weigh the risks",
+    )
+    wire_payload["g"] = [5]
+    respx_mock.post(URL).respond(200, json=completion(wire_payload))
+    result = await summarise_story(StoryGroup((source,)), client=client)
+    assert result.classification.geography == "Africa"
+    assert result.classification.secondary_geography is None
+
+
 async def test_uae_story_gets_middle_east_and_us_geographies(
     item, wire_payload, completion, client, respx_mock
 ):

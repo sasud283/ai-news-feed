@@ -32,6 +32,7 @@ _US = re.compile(r"\b(?:U\.?S\.?|United States|American)\b", re.IGNORECASE)
 _OCEANIA = re.compile(
     r"\b(?:Australia|Australian|New Zealand|New Zealander)\b", re.IGNORECASE
 )
+_AFRICA = re.compile(r"\b(?:Africa|African|Africans)\b", re.IGNORECASE)
 _EDUCATION_CONTEXT = re.compile(
     r"\b(?:educat\w*|student\w*|pupil\w*|classroom\w*|school\w*|"
     r"teacher\w*|tutor\w*|curricul\w*|pedagog\w*|course\w*|"
@@ -46,9 +47,16 @@ _SAFETY_LITIGATION = re.compile(
     r"\b(?:su(?:e|ed|ing)|lawsuit|litigation|legal action)\b",
     re.IGNORECASE,
 )
-_AI_TITLE = re.compile(r"\b(?:AI|LLM|artificial intelligence)\b", re.IGNORECASE)
+_AI_TITLE = re.compile(r"\b(?:AI|OpenAI|LLM|artificial intelligence)\b", re.IGNORECASE)
 _CYBER_INCIDENT = re.compile(
-    r"\b(?:0-day|zero-day|vulnerabilit(?:y|ies)|exploit)\b", re.IGNORECASE
+    r"\b(?:0-day|zero-day|vulnerabilit(?:y|ies)|exploit|"
+    r"hack(?:ed|ing)?|breach(?:ed)?|cyberattacks?)\b",
+    re.IGNORECASE,
+)
+_PUBLIC_SECTOR_BREACH = re.compile(
+    r"\b(?:hack(?:ed|ing)?|breach(?:ed)?)\b.*"
+    r"\b(?:government (?:website|site)|public (?:agency|service)|Medicare)\b",
+    re.IGNORECASE,
 )
 _RESPONSE_FORMAT = {
     "type": "json_schema",
@@ -94,7 +102,7 @@ _INSTRUCTIONS = """Write an English summary in <={word_limit} original words.{so
 Relevant iff AI/ML is a substantive main subject. Reject general tech, business, jobs or politics where AI is absent/incidental.
 Title-only AI/ML main subject is relevant; summarize only title facts.
 Topics:0 research,1 business,2 policy,3 nations,4 ethics,5 leadership,6 workforce,7 jobs,8 daily life,9 equity,10 tools,11 education/training,12 society/economy,13 cyber security.
-Choose only central topics. Business: funding, deals, markets, results or strategy; a company mention alone is insufficient. Research: model or scientific findings, not downstream effects alone. Cyber: AI malware, attacks, fraud and defenses; not generic model research. Healthcare impact or hype belongs in daily life and society/economy. AI data-center siting disputes: society/economy; residents’ impacts: daily life. Leadership includes managerial capability and leadership pipelines even when HR is the reporting lens. AI coworkers: people/jobs for worker experience, job impact or replacement; organisations for internal adoption and workforce change. Education applies when a training, learning or reskilling programme is central. Synthetic-media misinformation or deepfakes belong in ethics and daily life; a politician alone does not make a national initiative. General product or customer-service harm is not ethics or equity unless moral governance or disparate impact/representation is a main reported issue.
+Choose only central topics. Business: funding, deals, markets, results or strategy; a company mention alone is insufficient. Workforce redesign: organisations/jobs; public-service access: society/economy. Cyber: attacks, breaches, malware, fraud, defenses; a government victim alone is not a national initiative. Research: models and scientific findings, not downstream effects. Healthcare impact or hype belongs in daily life and society/economy. Data-center siting disputes: society/economy. Leadership includes leadership pipelines even when HR is the reporting lens. AI coworkers: people/jobs for worker experience; organisations for internal adoption. Education requires human learning or training. Synthetic-media misinformation or deepfakes: ethics and daily life. General product or customer-service harm is not ethics or equity without governance or disparate impact.
 Tone:0 benefit,1 useful,2 bad,3 severe harm/abuse,4 novel,5 neutral,6 unclear,7 mixed. Deceptive synthetic media, unsupported medical hype, government rejection of documented safety concerns or safeguards, and research finding cultural misalignment or systematic failure are adverse (2), not neutral or beneficial. Hype proves no benefit; judge the main event.
 Geo:0 world,1 US,2 China,3 Europe,4 Africa,5 Latin America,6 South/SE Asia,7 Middle East,8 Oceania.
 Keys:r relevant,s summary,t [{{i topic,c confidence}}],o tone IDs,tc/gc/rc confidences,g 1-2 geo IDs,d disagreement,l source language name. Use two geo IDs for bilateral stories; never combine world with another. Confidences 0..1. Describe current office-holders as current; do not infer former/current beyond the evidence.
@@ -154,6 +162,8 @@ def _apply_geography_hints(
             geography="Oceania",
             secondary_geography="US" if _US.search(titles) else None,
         )
+    if _AFRICA.search(titles):
+        return replace(classification, geography="Africa", secondary_geography=None)
     evidence = " ".join(
         f"{item.title} {_plain(item.raw_summary)}" for item in group.items
     )
@@ -250,12 +260,15 @@ def _apply_cybersecurity_hint(
     titles = " ".join(item.title for item in group.items)
     if not (_AI_TITLE.search(titles) and _CYBER_INCIDENT.search(titles)):
         return classification
+    excluded = {"Models & Research", "Business & Funding"}
+    if _PUBLIC_SECTOR_BREACH.search(titles):
+        excluded.add("National Initiatives")
     topics_and_scores = [
         (topic, score)
         for topic, score in zip(
             classification.topics, classification.topic_confidence, strict=True
         )
-        if topic not in {"Models & Research", "Business & Funding"}
+        if topic not in excluded
     ]
     if "Cyber Security" not in {topic for topic, _ in topics_and_scores}:
         topics_and_scores.insert(0, ("Cyber Security", 0.8))
