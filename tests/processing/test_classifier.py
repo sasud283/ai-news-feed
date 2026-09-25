@@ -44,6 +44,11 @@ def test_cyber_security_label_is_available_to_classifier(payload):
     assert classify(payload).topics == ("Cyber Security",)
 
 
+def test_science_healthcare_label_is_available_to_classifier(payload):
+    payload.update(topics=[14], scores=[0.95, 0.95, 0.95, 0.95])
+    assert classify(payload).topics == ("Science & Healthcare",)
+
+
 def test_bilateral_story_accepts_two_geographies(payload):
     payload["geography"] = [1, 2]
     result = classify(payload)

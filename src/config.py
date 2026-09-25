@@ -15,6 +15,7 @@ CATEGORIES = (
     "Education",
     "Society & Economy",
     "Cyber Security",
+    "Science & Healthcare",
 )
 
 CATEGORY_DESCRIPTIONS = {
@@ -24,4 +25,5 @@ CATEGORY_DESCRIPTIONS = {
     "Education": "AI education, teaching, learning, curricula, academic adoption and skills training.",
     "Society & Economy": "Macroeconomic change, public services, social structures, inequality and economy-wide effects of AI.",
     "Cyber Security": "AI-enabled attacks, malware, fraud, vulnerabilities and defensive security tools.",
+    "Science & Healthcare": "AI applications and impacts in healthcare, medicine, scientific discovery and space; not AI model or methods research.",
 }

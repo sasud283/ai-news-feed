@@ -14,6 +14,7 @@ export const TOPICS = [
   "Education",
   "Society & Economy",
   "Cyber Security",
+  "Science & Healthcare",
 ] as const;
 export type Topic = (typeof TOPICS)[number];
 export const TOPIC_DESCRIPTIONS: Partial<Record<Topic, string>> = {
@@ -25,6 +26,8 @@ export const TOPIC_DESCRIPTIONS: Partial<Record<Topic, string>> = {
   "Society & Economy":
     "Macroeconomic change, public services, social structures and economy-wide effects of AI.",
   "Cyber Security": "AI-enabled attacks, malware, fraud, vulnerabilities and defensive tools.",
+  "Science & Healthcare":
+    "AI applications and impacts in healthcare, medicine, scientific discovery and space.",
 };
 
 /** Preserve the scope of old bookmarks and saved preferences during migration. */

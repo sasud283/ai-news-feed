@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ai-news-pipeline-scheduler",
+  "main": "src/scheduler/pipeline_dispatcher.mjs",
+  "compatibility_date": "2026-09-25",
+  "triggers": {
+    "crons": []
+  }
+}
