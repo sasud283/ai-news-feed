@@ -62,6 +62,13 @@ def test_weekly_and_daily_skip_to_correct_day():
     assert next_send("weekly", NOW).isoformat() == "2026-09-25T07:00:00+02:00"
 
 
+def test_daily_sends_on_saturday_and_sunday():
+    friday = datetime(2026, 9, 25, 8, tzinfo=UTC)
+    saturday = datetime(2026, 9, 26, 8, tzinfo=UTC)
+    assert next_send("daily", friday).isoformat() == "2026-09-26T07:00:00+02:00"
+    assert next_send("daily", saturday).isoformat() == "2026-09-27T07:00:00+02:00"
+
+
 def test_schedule_handles_dst():
     now = datetime(2026, 10, 23, 8, tzinfo=UTC)
     assert next_send("weekly", now).isoformat() == "2026-10-30T07:00:00+01:00"

@@ -30,7 +30,7 @@ def eligible(member: dict, now: datetime) -> bool:
 
 
 def next_send(cadence: str, now: datetime) -> datetime:
-    """Return the next weekday daily or Friday weekly send at 07:00 Malta time.
+    """Return the next daily or Friday weekly send at 07:00 Malta time.
 
     Args:
         cadence: Daily or weekly delivery.
@@ -43,9 +43,7 @@ def next_send(cadence: str, now: datetime) -> datetime:
         raise ValueError("Unknown cadence")
     local = now.astimezone(ZoneInfo("Europe/Malta"))
     target = local.replace(hour=7, minute=0, second=0, microsecond=0)
-    while target <= local or (
-        target.weekday() != 4 if cadence == "weekly" else target.weekday() > 4
-    ):
+    while target <= local or (cadence == "weekly" and target.weekday() != 4):
         target += timedelta(days=1)
     return target
 

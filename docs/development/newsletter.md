@@ -21,7 +21,7 @@ model call is made for a digest: it uses already reviewed, published summaries.
   No browser request can create complimentary or paid entitlement.
 - New readers are due immediately, for either cadence, including weekends. They
   receive an initial edition even if no matching stories are currently available.
-  Thereafter daily editions run weekdays at 07:00 Europe/Malta; Friday includes
+  Thereafter daily editions run every day at 07:00 Europe/Malta; Friday includes
   the weekly round-up. Weekly editions run Friday at 07:00 Europe/Malta. DST is
   handled by the timezone database. Up to 30 matching stories are included.
 - Each email has an unsubscribe link and RFC 8058 one-click unsubscribe headers.
