@@ -44,13 +44,16 @@ Failures and first editions outstanding after 22 hours fail the worker and log
 safe identifiers. Logs never include emails, tokens or provider response bodies.
 
 The included GitHub Actions workflow is disabled unless the repository variable
-`NEWSLETTER_ENABLED=true`. It requests hourly runs at seven minutes past the hour.
-The workflow is restricted to complimentary test readers. GitHub schedules
+`NEWSLETTER_ENABLED=true`. It requests one run per day at 07:07 Europe/Malta.
+Each run reads the current subscriber and entitlement records before sending;
+there is no midnight snapshot. The workflow is restricted to complimentary test
+readers. GitHub schedules
 can be delayed or dropped. It is useful for initial testing, **not a hard 24-hour
 SLA**. Before paid launch, configure a reliable hosted scheduler plus an external
 missed-run alert, enable failure notifications, and test recovery. Inbox placement
 cannot be guaranteed by an API acceptance response. Keep checkout disabled until
-this activation work is complete.
+this activation work is complete. Paid signup also needs a prompt first-send
+trigger so a reader joining just after 07:07 does not wait more than 24 hours.
 
 The worker is designed for the initial small subscriber base. It polls Stripe and
 Resend conservatively; measure duration before growing beyond the 12-minute job
