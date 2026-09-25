@@ -64,8 +64,8 @@ Phase 5 remains scheduled ingestion and operational monitoring. See
 - [x] First edition due immediately for both cadences; scheduled daily/weekly editions
 - [x] Resend delivery ledger, idempotent retries, unsubscribe and billing portal links
 - [x] Scheduled worker definition (disabled until configured)
-- [ ] Save Resend credentials and verify the temporary sending domain
-- [ ] Verify real test deliveries to both complimentary readers
+- [x] Save Resend credentials and verify the temporary sending domain
+- [x] Verify real test deliveries to both complimentary readers
 - [ ] Configure Stripe products, test payments, hosted scheduler and missed-run alerts
 
 See [newsletter implementation and activation](development/newsletter.md).

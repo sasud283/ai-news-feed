@@ -39,9 +39,10 @@ function PrivacyPage() {
         <section>
           <h2 className="font-serif text-xl font-semibold text-foreground">How we use it</h2>
           <p className="mt-2">
-            Your email address is used only to send the digest you asked for. Filter preferences are
-            used to decide which stories appear in that digest. We do not sell or share this
-            information with advertisers.
+            Your email address is used to send the digest you asked for and manage your
+            subscription. Topic preferences decide which stories appear in that digest. Stripe
+            processes payments, Resend delivers email, and Supabase stores subscription records. We
+            do not sell your information or share it with advertisers.
           </p>
         </section>
         <section>
@@ -61,10 +62,7 @@ function PrivacyPage() {
         </section>
         <section>
           <h2 className="font-serif text-xl font-semibold text-foreground">Contact</h2>
-          <p className="mt-2">
-            Questions or deletion requests: privacy@thefullpicture.ai. This is a demonstration
-            contact address.
-          </p>
+          <p className="mt-2">Questions or deletion requests: thefullpictureai@gmail.com.</p>
         </section>
       </div>
     </main>

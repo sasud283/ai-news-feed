@@ -31,8 +31,8 @@ const SECTIONS: { heading: string; paragraphs: React.ReactNode[] }[] = [
   {
     heading: "Contact",
     paragraphs: [
-      <a href="mailto:hello@thefullpicture.ai" className="text-brand-accent hover:underline">
-        hello@thefullpicture.ai
+      <a href="mailto:thefullpictureai@gmail.com" className="text-brand-accent hover:underline">
+        thefullpictureai@gmail.com
       </a>,
     ],
   },
@@ -45,7 +45,7 @@ const SECTIONS: { heading: string; paragraphs: React.ReactNode[] }[] = [
   {
     heading: "Newsletter & Subscriptions",
     paragraphs: [
-      "Paid newsletter subscriptions are processed via Stripe and delivered via Buttondown. Subscribers may cancel at any time. For billing queries, contact hello@thefullpicture.ai.",
+      "Paid newsletter subscriptions will be processed by Stripe and delivered through Resend when subscriptions open. For questions, contact thefullpictureai@gmail.com.",
     ],
   },
   {

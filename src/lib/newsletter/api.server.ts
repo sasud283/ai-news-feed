@@ -1,4 +1,5 @@
 import postgres from "postgres";
+import { env } from "cloudflare:workers";
 import { z } from "zod";
 import { verifyMember, verifyStripe } from "./security.server";
 import { TOPICS } from "@/lib/taxonomy";
@@ -17,11 +18,12 @@ const inputSchema = z.object({
   consent: z.literal(true),
 });
 function createDatabase() {
-  const url = process.env["DATABASE_URL"];
+  const url = env.HYPERDRIVE?.connectionString ?? process.env["DATABASE_URL"];
   if (!url) throw new Error("Database not configured");
   return postgres(url, {
     max: 1,
     prepare: false,
+    fetch_types: false,
     connect_timeout: 10,
     idle_timeout: 20,
   });
@@ -85,6 +87,7 @@ function page(message: string, content = "") {
 /** Handle checkout, signed webhook hints and signed subscriber management. */
 export async function newsletterRequest(request: Request, action: string): Promise<Response> {
   let connection: ReturnType<typeof postgres> | undefined;
+  let stage = "route";
   const db = () => (connection ??= createDatabase());
   try {
     const url = new URL(request.url);
@@ -176,6 +179,7 @@ export async function newsletterRequest(request: Request, action: string): Promi
       const token = url.searchParams.get("token") ?? "";
       if (!verifyMember(id, token, config("NEWSLETTER_LINK_SECRET")))
         return json({ error: "Invalid subscriber link" }, 403);
+      stage = "member_lookup";
       const rows = await db()`SELECT * FROM newsletter_members WHERE id=${id}`;
       const member = rows[0];
       if (!member) return json({ error: "Subscriber not found" }, 404);
@@ -218,7 +222,16 @@ export async function newsletterRequest(request: Request, action: string): Promi
       JSON.stringify({
         event: "newsletter_api_failed",
         action,
+        stage,
         error_type: error instanceof Error ? error.name : "unknown",
+        error_code:
+          error &&
+          typeof error === "object" &&
+          "code" in error &&
+          typeof error.code === "string" &&
+          /^[A-Z0-9_]+$/.test(error.code)
+            ? error.code
+            : undefined,
       }),
     );
     return json({ error: "Newsletter service is temporarily unavailable." }, 503);

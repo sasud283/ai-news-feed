@@ -271,7 +271,7 @@ function SubscribePage() {
             className="mt-0.5"
           />
           <span>
-            I agree to receive the TheFullPicture.ai newsletter and to the{" "}
+            I agree to receive TheFullPicture.ai's newsletter and to the{" "}
             <Link to="/privacy" className="underline underline-offset-4">
               privacy policy
             </Link>

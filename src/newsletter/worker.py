@@ -1,11 +1,9 @@
-"""Reconcile billing and deliver due digests; run every 15 minutes."""
+"""Reconcile billing and deliver due digests on the configured schedule."""
 
 import asyncio
-import html
 import json
 import os
 from datetime import UTC, datetime, timedelta
-from urllib.parse import urlsplit
 from zoneinfo import ZoneInfo
 
 import asyncpg
@@ -14,6 +12,7 @@ import httpx
 from src.newsletter.logging import logger
 from src.newsletter.models import eligible, next_send, subscriber_token
 from src.newsletter.providers import payment_state, stripe_get
+from src.newsletter.template import render_digest
 
 
 def utcnow() -> datetime:
@@ -135,12 +134,17 @@ async def compose(db: asyncpg.Connection, member: dict) -> dict:
     )
     stories = await db.fetch(
         """
-        SELECT s.headline,s.ai_generated_summary,
-            (SELECT source_url FROM story_sources WHERE story_id=s.id ORDER BY id LIMIT 1) AS url
-        FROM stories s WHERE publication_status='published' AND published_at >= $1
+        SELECT s.headline,s.ai_generated_summary,s.published_at,s.content_type,
+            source.source_name,source.source_url AS url
+        FROM stories s
+        LEFT JOIN LATERAL (
+            SELECT source_name,source_url FROM story_sources
+            WHERE story_id=s.id ORDER BY id LIMIT 1
+        ) source ON true
+        WHERE s.publication_status='published' AND s.published_at >= $1
         AND (cardinality($2::text[])=0 OR EXISTS (
             SELECT 1 FROM story_topics t WHERE t.story_id=s.id AND t.topic::text=ANY($2::text[])))
-        ORDER BY published_at DESC LIMIT 30
+        ORDER BY s.published_at DESC LIMIT 30
     """,
         since,
         member["topics"],
@@ -148,51 +152,27 @@ async def compose(db: asyncpg.Connection, member: dict) -> dict:
     base = os.environ["NEWSLETTER_SITE_URL"].rstrip("/")
     token = subscriber_token(str(member["id"]), os.environ["NEWSLETTER_LINK_SECRET"])
     manage = f"{base}/api/newsletter/manage?id={member['id']}&token={token}"
-    title = (
-        "Your daily AI briefing"
-        if member["cadence"] == "daily"
-        else "Your weekly AI digest"
-    )
-    pieces = [f"<h1>{title}</h1>"]
-    text = [title]
-    if not member["first_sent_at"]:
-        pieces.append(
-            "<p>Welcome to TheFullPicture.ai. Here is your first edition.</p>"
-        )
-        text.append("Welcome to TheFullPicture.ai. Here is your first edition.")
-    for story in stories:
-        headline = html.escape(story["headline"])
-        summary = html.escape(story["ai_generated_summary"])
-        url = story["url"] or base
-        if urlsplit(url).scheme not in ("http", "https"):
-            url = base
-        pieces.append(
-            f'<h2>{headline}</h2><p>{summary}</p><p><a href="{html.escape(url, quote=True)}">Read source</a></p>'
-        )
-        text.append(f"{story['headline']}\n{story['ai_generated_summary']}\n{url}")
-    if not stories:
-        pieces.append(
-            "<p>No new reviewed stories match your topics in this edition. You can browse the latest stories on the website.</p>"
-        )
-        text.append("No new reviewed stories match your topics in this edition.")
-    pieces.append(
-        f'<p><a href="{html.escape(manage, quote=True)}">Manage subscription or unsubscribe</a></p>'
-    )
-    text.append(f"Manage subscription or unsubscribe: {manage}")
     address = os.environ.get("NEWSLETTER_POSTAL_ADDRESS", "")
     if not address and member["access_kind"] != "complimentary":
         raise ValueError("Public newsletter footer is not configured")
     if not address:
         address = "Private test edition — not a public subscription."
-    pieces.append(f"<p>{html.escape(address)}</p>")
-    text.append(address)
+    subject, html_body, text_body = render_digest(
+        [dict(story) for story in stories],
+        cadence=member["cadence"],
+        issued_at=utcnow(),
+        first_edition=not member["first_sent_at"],
+        site_url=base,
+        manage_url=manage,
+        postal_address=address,
+    )
     return {
         "reply_to": os.environ.get("NEWSLETTER_REPLY_TO", "thefullpictureai@gmail.com"),
         "from": os.environ["NEWSLETTER_FROM"],
         "to": [member["email"]],
-        "subject": title,
-        "html": "\n".join(pieces),
-        "text": "\n\n".join(text),
+        "subject": subject,
+        "html": html_body,
+        "text": text_body,
         "headers": {
             "List-Unsubscribe": f'<{base}/api/newsletter/unsubscribe?id={member["id"]}&token={token}>',
             "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
@@ -349,15 +329,13 @@ async def run() -> None:
         async with httpx.AsyncClient(
             timeout=30, event_hooks={"response": [pace]}
         ) as client:
-            failed = await reconcile_checkouts(db, client)
+            test_only = os.environ.get("NEWSLETTER_TEST_ONLY") == "true"
+            failed = False if test_only else await reconcile_checkouts(db, client)
             rows = await db.fetch(
                 "SELECT * FROM newsletter_members WHERE NOT unsubscribed ORDER BY next_send_at"
             )
             for row in rows:
-                if (
-                    os.environ.get("NEWSLETTER_TEST_ONLY") == "true"
-                    and row["access_kind"] != "complimentary"
-                ):
+                if test_only and row["access_kind"] != "complimentary":
                     continue
                 try:
                     member = await refresh_member(db, client, dict(row))
@@ -372,7 +350,9 @@ async def run() -> None:
                 """SELECT count(*) FROM newsletter_members
                 WHERE NOT unsubscribed AND first_sent_at IS NULL
                 AND first_due_at < now()-interval '22 hours'
-                AND ((access_kind='complimentary' AND status='active') OR paid_until > now())"""
+                AND ((access_kind='complimentary' AND status='active') OR paid_until > now())
+                AND ($1::boolean=false OR access_kind='complimentary')""",
+                test_only,
             )
             if failed or overdue:
                 raise ValueError("Newsletter worker needs attention")

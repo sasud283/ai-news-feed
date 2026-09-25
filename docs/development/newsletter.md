@@ -44,7 +44,8 @@ Failures and first editions outstanding after 22 hours fail the worker and log
 safe identifiers. Logs never include emails, tokens or provider response bodies.
 
 The included GitHub Actions workflow is disabled unless the repository variable
-`NEWSLETTER_ENABLED=true`. It requests runs every 15 minutes, but GitHub schedules
+`NEWSLETTER_ENABLED=true`. It requests hourly runs at seven minutes past the hour.
+The workflow is restricted to complimentary test readers. GitHub schedules
 can be delayed or dropped. It is useful for initial testing, **not a hard 24-hour
 SLA**. Before paid launch, configure a reliable hosted scheduler plus an external
 missed-run alert, enable failure notifications, and test recovery. Inbox placement
@@ -65,7 +66,9 @@ anonymous `digest_subscribers` insert permission. The latter table is not a paid
 subscriber authority. The migration journal must be updated when applied.
 
 Migration 0006 and the two owner-authorised complimentary subscriptions were applied
-to the live Supabase project on 2026-09-21. Sending and public checkout remain disabled.
+to the live Supabase project on 2026-09-21. Both received first editions on
+2026-09-24. Public checkout remains disabled pending Stripe setup and validation.
+The site uses a Cloudflare Hyperdrive binding for its Supabase connection.
 
 Read-only administrator overview: `/subscribers`, also linked from `/review`.
 It distinguishes complimentary readers, paid-through dates, last verification and
