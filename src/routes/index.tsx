@@ -180,14 +180,14 @@ function FeedPage() {
           height={960}
           className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 -z-10 bg-background/50" aria-hidden="true" />
+        <div className="absolute inset-0 -z-10 bg-background/80" aria-hidden="true" />
         <div
           className="absolute inset-x-0 bottom-0 -z-10 h-2/3 bg-gradient-to-b from-background/20 to-background"
           aria-hidden="true"
         />
 
         <header className="mx-auto max-w-6xl px-4 pt-16 pb-12 sm:pt-24 sm:pb-16">
-          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-brand-accent">
+          <p className="mb-5 font-mono text-xs font-semibold uppercase tracking-widest text-brand-accent">
             Today’s full picture
           </p>
           <h1 className="max-w-3xl font-serif text-4xl leading-[1.08] font-semibold tracking-normal text-foreground sm:text-6xl">

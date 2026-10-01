@@ -103,7 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
@@ -130,9 +130,9 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function SiteHeader() {
   return (
-    <header className="border-b border-border bg-card/60">
+    <header className="border-b border-border bg-card">
       <div className="mx-auto max-w-6xl px-4">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border/70 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border/70 py-3 font-mono text-[0.68rem] font-semibold uppercase tracking-widest text-muted-foreground">
           <span>AI news briefing</span>
           <div className="flex flex-wrap items-center gap-4">
             <Link to="/about" className="transition-colors hover:text-foreground">
@@ -149,7 +149,7 @@ function SiteHeader() {
         <div className="py-5">
           <Link
             to="/"
-            className="font-serif text-2xl font-semibold tracking-normal text-foreground sm:text-3xl"
+            className="font-serif text-2xl font-semibold text-foreground sm:text-3xl"
           >
             TheFullPicture<span className="text-brand-accent">.ai</span>
           </Link>

@@ -117,7 +117,7 @@ function SubscribePage() {
       </Link>
 
       <header className="mt-6 max-w-2xl">
-        <p className="text-xs font-semibold tracking-widest text-brand-accent uppercase">
+         <p className="font-mono text-xs font-semibold tracking-widest text-brand-accent uppercase">
           Newsletter
         </p>
         <h1 className="mt-2 font-serif text-4xl font-semibold text-foreground sm:text-5xl">
@@ -138,7 +138,8 @@ function SubscribePage() {
 
       <div className="mt-8 inline-flex rounded-md border border-border p-1">
         {(["monthly", "yearly"] as const).map((option) => (
-          <button
+           <Button
+             variant="ghost"
             key={option}
             type="button"
             onClick={() => setPlan(option)}
@@ -149,7 +150,7 @@ function SubscribePage() {
             }`}
           >
             {option === "monthly" ? "Monthly" : "Annual"}
-          </button>
+           </Button>
         ))}
       </div>
 
@@ -167,13 +168,14 @@ function SubscribePage() {
               const tier = TIERS[option];
               const active = cadence === option;
               return (
-                <button
+                 <Button
+                   variant="outline"
                   key={option}
                   type="button"
                   onClick={() => setCadence(option)}
-                  className={`rounded-md border p-6 text-left transition-colors ${
+                   className={`h-auto w-full flex-col items-stretch whitespace-normal rounded-md border bg-card p-6 text-left transition-colors ${
                     active
-                      ? "border-foreground ring-1 ring-foreground"
+                       ? "border-brand-accent ring-1 ring-brand-accent"
                       : "border-border hover:bg-muted/50"
                   }`}
                 >
@@ -200,14 +202,14 @@ function SubscribePage() {
                       </span>
                     ))}
                   </span>
-                </button>
+                 </Button>
               );
             })}
           </div>
         </fieldset>
 
         <fieldset>
-          <legend className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+           <legend className="font-mono text-xs font-semibold tracking-widest text-muted-foreground uppercase">
             Topics in your brief
           </legend>
           <div className="mt-3 flex flex-wrap gap-2">
@@ -249,7 +251,7 @@ function SubscribePage() {
         <div className="max-w-md">
           <label
             htmlFor="subscribe-email"
-            className="text-xs font-semibold tracking-widest text-muted-foreground uppercase"
+             className="font-mono text-xs font-semibold tracking-widest text-muted-foreground uppercase"
           >
             Email address
           </label>
