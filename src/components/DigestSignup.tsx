@@ -9,9 +9,9 @@ import { CADENCES, TIERS } from "@/lib/subscription";
  */
 export function DigestSignup({ filters }: { filters: Filters }) {
   return (
-    <section className="overflow-hidden rounded-md border border-border bg-card/60">
+    <section className="overflow-hidden rounded-md border border-border bg-card">
       <div className="border-b border-border px-6 py-6 sm:px-8">
-        <p className="text-xs font-semibold tracking-widest text-digest-foreground uppercase">
+        <p className="font-mono text-xs font-semibold tracking-widest text-digest-foreground uppercase">
           TheFullPicture.ai newsletter
         </p>
         <h2 className="mt-2 font-serif text-3xl font-semibold text-foreground">
@@ -33,7 +33,7 @@ export function DigestSignup({ filters }: { filters: Filters }) {
           {CADENCES.map((cadence) => {
             const tier = TIERS[cadence];
             return (
-              <li key={tier.id} className="rounded-md border border-border p-4">
+               <li key={tier.id} className="rounded-md border border-border bg-background/50 p-4">
                 <strong className="font-serif text-lg text-foreground">{tier.name}</strong>
                 <span className="mt-1 block text-sm text-muted-foreground">
                   €{tier.monthly}/month or €{tier.yearly}/year

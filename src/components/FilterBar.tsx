@@ -38,7 +38,7 @@ type Props = {
 };
 
 function outlineChip(active: boolean) {
-  return `rounded-full border bg-background px-3 py-1 text-sm text-foreground shadow-none transition-colors hover:border-brand-accent hover:text-brand-accent ${
+  return `rounded-md border bg-card px-3 py-1 text-sm text-foreground shadow-none transition-colors hover:border-brand-accent hover:text-brand-accent ${
     active
       ? "border-brand-accent bg-accent font-semibold text-accent-foreground ring-1 ring-brand-accent"
       : "border-border"
@@ -81,7 +81,7 @@ export function FilterBar({
     filters.q !== "";
 
   return (
-    <section className="bg-background/85 py-7 backdrop-blur-xl">
+    <section className="border-t border-border bg-card/95 py-7">
       <div className="mx-auto max-w-3xl space-y-5 px-4">
         <div className="relative">
           <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -89,13 +89,13 @@ export function FilterBar({
             value={filters.q}
             onChange={(e) => onChange({ q: e.target.value })}
             placeholder="Search headlines and summaries"
-            className="h-11 border-border bg-background pl-9 shadow-none focus-visible:border-brand-accent focus-visible:ring-brand-accent/20"
+            className="h-11 border-border bg-card pl-9 shadow-none focus-visible:border-brand-accent focus-visible:ring-brand-accent/20"
             aria-label="Search stories"
           />
         </div>
 
         <div>
-          <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+          <p className="mb-2 font-mono text-xs font-semibold tracking-widest text-muted-foreground uppercase">
             Topics
           </p>
           <div className="flex flex-wrap gap-2">
@@ -107,7 +107,7 @@ export function FilterBar({
                 size="sm"
                 variant="outline"
                 onClick={() => toggleTopic(t)}
-                className={`rounded-full border-transparent px-3 shadow-none opacity-85 hover:opacity-100 ${topicClass[t]} ${
+                 className={`rounded-md border-transparent px-3 shadow-none opacity-85 hover:opacity-100 ${topicClass[t]} ${
                   filters.topics.includes(t) ? "ring-2 ring-brand-accent ring-offset-2" : ""
                 }`}
               >
@@ -119,34 +119,35 @@ export function FilterBar({
         </div>
 
         <div className="flex items-center gap-3">
-          <button
+           <Button
+             variant="outline"
             type="button"
             onClick={() => setAdvancedOpen((open) => !open)}
             aria-expanded={advancedOpen}
-            className={`inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm shadow-none transition-colors ${
+             className={`inline-flex h-9 items-center gap-2 rounded-md border px-4 text-sm shadow-none transition-colors ${
               advancedOpen
                 ? "border-brand-accent bg-accent font-semibold text-accent-foreground ring-1 ring-brand-accent"
-                : "border-border bg-background text-foreground hover:border-brand-accent hover:text-brand-accent"
+                 : "border-border bg-card text-foreground hover:border-brand-accent hover:text-brand-accent"
             }`}
           >
             <SlidersHorizontal className="h-4 w-4" />
             Advanced search
             {activeAdvanced > 0 && (
-              <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-brand-accent px-1.5 text-xs font-semibold text-accent-foreground">
+               <span className="flex h-5 min-w-5 items-center justify-center rounded-md bg-brand-accent px-1.5 text-xs font-semibold text-primary-foreground">
                 {activeAdvanced}
               </span>
             )}
             <ChevronDown
               className={`h-4 w-4 transition-transform ${advancedOpen ? "rotate-180" : ""}`}
             />
-          </button>
+           </Button>
         </div>
 
         {advancedOpen && (
           <>
             <div className="grid gap-4 sm:grid-cols-3">
               <div>
-                <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+                 <p className="mb-2 font-mono text-xs font-semibold tracking-widest text-muted-foreground uppercase">
                   Impact
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -174,7 +175,7 @@ export function FilterBar({
               </div>
 
               <div>
-                <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+                 <p className="mb-2 font-mono text-xs font-semibold tracking-widest text-muted-foreground uppercase">
                   Access
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -195,7 +196,7 @@ export function FilterBar({
               </div>
 
               <div>
-                <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+                 <p className="mb-2 font-mono text-xs font-semibold tracking-widest text-muted-foreground uppercase">
                   Content type
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -229,7 +230,7 @@ export function FilterBar({
             </div>
 
             <div>
-              <p className="mb-2 text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+               <p className="mb-2 font-mono text-xs font-semibold tracking-widest text-muted-foreground uppercase">
                 Geography
               </p>
               <div className="flex flex-wrap gap-2">

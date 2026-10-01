@@ -15,7 +15,7 @@ import { formatDate, toneClass, topicClass, type Story } from "@/lib/news";
 function Tag({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
     <span
-      className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[0.7rem] font-semibold ${className}`}
+      className={`inline-flex items-center rounded-md border px-2.5 py-1 text-[0.7rem] font-semibold ${className}`}
     >
       {children}
     </span>
@@ -41,7 +41,7 @@ export function StoryCard({ story }: { story: Story }) {
         : FileText;
 
   return (
-    <article className="group border-b border-border py-10 first:pt-2">
+    <article className="group border-b border-border py-9 first:pt-2">
       <div className="flex flex-wrap items-center gap-2">
         <Tag className="border-brand-accent bg-background text-brand-accent">
           <ContentIcon className="mr-1 h-3 w-3" />
@@ -56,13 +56,13 @@ export function StoryCard({ story }: { story: Story }) {
         {story.geographies.map((geography) => (
           <Tag
             key={geography}
-            className="border-geo-foreground bg-geo-foreground text-tone-contrast"
+            className="border-geo-border bg-geo-surface text-geo-foreground"
           >
             {geography}
           </Tag>
         ))}
         {story.access && (
-          <Tag className="border-access-foreground bg-access-foreground text-tone-contrast">
+          <Tag className="border-access-border bg-access-surface text-access-foreground">
             {story.access === "Paid" ? <Lock className="mr-1 h-3 w-3" /> : null}
             {story.access}
           </Tag>

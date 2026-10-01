@@ -14,6 +14,8 @@
 - [x] Verify the new hero on desktop and mobile
 
 ## Current
+- [x] Align the existing frontend with the uploaded case-builder reference: ivory surfaces, sage/forest accents, restrained labels, and refined controls without changing the page layout or content
+- [x] Verify the refreshed feed and subscription page on desktop and mobile
 - [x] Feed recency tabs (Latest / This week / This month / Older) on the feed itself; switching re-filters the list via the range URL param (verified below)
 - [x] Add Article / Podcast / Video content types to stories and cards
 - [x] Add podcast and video media displays with safe source-link fallbacks
