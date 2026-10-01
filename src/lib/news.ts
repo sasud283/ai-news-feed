@@ -57,10 +57,10 @@ export const topicClass: Record<Topic, string> = {
   "Future of Daily Life": "bg-topic-green text-tone-contrast border-topic-green",
   "AI Equity & Representation": "bg-topic-magenta text-tone-contrast border-topic-magenta",
   "Tools & Products": "bg-topic-cyan text-tone-contrast border-topic-cyan",
-  Education: "bg-topic-green text-tone-contrast border-topic-green",
+  Education: "bg-topic-coral text-tone-contrast border-topic-coral",
   "Society & Economy": "bg-topic-violet text-tone-contrast border-topic-violet",
-  "Cyber Security": "bg-topic-blue text-tone-contrast border-topic-blue",
-  "Science & Healthcare": "bg-topic-green text-tone-contrast border-topic-green",
+  "Cyber Security": "bg-topic-dark text-tone-contrast border-topic-dark",
+  "Science & Healthcare": "bg-topic-blue text-tone-contrast border-topic-blue",
 };
 
 export const topicOutlineClass: Record<Topic, string> = {
@@ -75,10 +75,10 @@ export const topicOutlineClass: Record<Topic, string> = {
   "Future of Daily Life": "border-topic-green text-topic-green",
   "AI Equity & Representation": "border-topic-magenta text-topic-magenta",
   "Tools & Products": "border-topic-cyan text-topic-dark",
-  Education: "border-topic-green text-topic-green",
+  Education: "border-topic-coral text-topic-coral",
   "Society & Economy": "border-topic-violet text-topic-violet",
-  "Cyber Security": "border-topic-blue text-topic-blue",
-  "Science & Healthcare": "border-topic-green text-topic-green",
+  "Cyber Security": "border-topic-dark text-topic-dark",
+  "Science & Healthcare": "border-topic-blue text-topic-blue",
 };
 
 export type StorySource = {
