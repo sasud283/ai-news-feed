@@ -190,7 +190,7 @@ function FeedPage() {
           <p className="mb-5 font-mono text-xs font-semibold uppercase tracking-widest text-brand-accent">
             Today’s full picture
           </p>
-          <h1 className="max-w-3xl font-serif text-4xl leading-[1.08] font-semibold tracking-normal text-foreground sm:text-6xl">
+          <h1 className="max-w-3xl font-serif text-4xl leading-[1.08] font-semibold tracking-normal text-foreground sm:text-5xl">
             AI news, one story at a time
           </h1>
           <p className="mt-5 max-w-2xl font-serif text-lg leading-relaxed text-foreground/75 sm:text-xl">
