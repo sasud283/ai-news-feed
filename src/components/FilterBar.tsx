@@ -107,7 +107,7 @@ export function FilterBar({
                 size="sm"
                 variant="outline"
                 onClick={() => toggleTopic(t)}
-                 className={`rounded-md border-transparent px-3 shadow-none opacity-85 hover:opacity-100 ${topicClass[t]} ${
+                className={`rounded-md border-transparent px-3 shadow-none ${topicClass[t]} ${
                   filters.topics.includes(t) ? "ring-2 ring-brand-accent ring-offset-2" : ""
                 }`}
               >
