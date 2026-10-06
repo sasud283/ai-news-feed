@@ -27,10 +27,7 @@ export function AdSlot({ format }: AdSlotProps) {
 
   if (format === "leaderboard") {
     return (
-      <aside
-        aria-label="Advertisement"
-        className="border-y border-ad-border/70 bg-card/80"
-      >
+      <aside aria-label="Advertisement" className="border-y border-ad-border/70 bg-card/80">
         <div className="mx-auto flex min-h-24 max-w-6xl items-center justify-between gap-5 px-4 py-5">
           <div>
             <p className="text-[0.65rem] font-semibold tracking-widest text-ad-foreground uppercase">
@@ -49,7 +46,7 @@ export function AdSlot({ format }: AdSlotProps) {
   return (
     <aside
       aria-label={format === "sidebar" ? "Sponsor advertisement" : "Sponsored placement"}
-       className={`rounded-md border border-ad-border/70 bg-card ${format === "sidebar" ? "p-5" : "my-10 p-6"}`}
+      className={`rounded-md border border-ad-border/70 bg-card ${format === "sidebar" ? "p-5" : "my-10 p-6"}`}
     >
       <p className="text-[0.65rem] font-semibold tracking-widest text-ad-foreground uppercase">
         {content.label}

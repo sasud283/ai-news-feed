@@ -385,6 +385,7 @@ export type Database = {
         Row: {
           access: Database["public"]["Enums"]["story_access"] | null
           geography: Database["public"]["Enums"]["story_geography"] | null
+          secondary_geography: Database["public"]["Enums"]["story_geography"] | null
           id: string
           story_id: string
           tone: Database["public"]["Enums"]["story_tone"] | null
@@ -392,6 +393,7 @@ export type Database = {
         Insert: {
           access?: Database["public"]["Enums"]["story_access"] | null
           geography?: Database["public"]["Enums"]["story_geography"] | null
+          secondary_geography?: Database["public"]["Enums"]["story_geography"] | null
           id?: string
           story_id: string
           tone?: Database["public"]["Enums"]["story_tone"] | null
@@ -399,6 +401,7 @@ export type Database = {
         Update: {
           access?: Database["public"]["Enums"]["story_access"] | null
           geography?: Database["public"]["Enums"]["story_geography"] | null
+          secondary_geography?: Database["public"]["Enums"]["story_geography"] | null
           id?: string
           story_id?: string
           tone?: Database["public"]["Enums"]["story_tone"] | null
@@ -473,6 +476,14 @@ export type Database = {
         Args: { p_action: string; p_correction?: Json; p_queue_id: string }
         Returns: undefined
       }
+      queue_published_story_for_edit: {
+        Args: { p_story_id: string }
+        Returns: undefined
+      }
+      update_published_story: {
+        Args: { p_correction: Json; p_story_id: string }
+        Returns: undefined
+      }
     }
     Enums: {
       app_role: "admin" | "user"
@@ -487,6 +498,7 @@ export type Database = {
         | "Latin America"
         | "South & Southeast Asia"
         | "Middle East"
+        | "Oceania"
       story_tone: "Good" | "Useful" | "Bad" | "Ugly" | "Cool" | "Neutral"
       story_topic:
         | "Models & Research"
@@ -500,6 +512,10 @@ export type Database = {
         | "Future of Daily Life"
         | "AI Equity & Representation"
         | "Tools & Products"
+        | "Education"
+        | "Society & Economy"
+        | "Cyber Security"
+        | "Science & Healthcare"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -639,6 +655,7 @@ export const Constants = {
         "Latin America",
         "South & Southeast Asia",
         "Middle East",
+        "Oceania",
       ],
       story_tone: ["Good", "Useful", "Bad", "Ugly", "Cool", "Neutral"],
       story_topic: [
@@ -653,6 +670,10 @@ export const Constants = {
         "Future of Daily Life",
         "AI Equity & Representation",
         "Tools & Products",
+        "Education",
+        "Society & Economy",
+        "Cyber Security",
+        "Science & Healthcare",
       ],
     },
   },

@@ -119,35 +119,35 @@ export function FilterBar({
         </div>
 
         <div className="flex items-center gap-3">
-           <Button
-             variant="outline"
+          <Button
+            variant="outline"
             type="button"
             onClick={() => setAdvancedOpen((open) => !open)}
             aria-expanded={advancedOpen}
-             className={`inline-flex h-9 items-center gap-2 rounded-md border px-4 text-sm shadow-none transition-colors ${
+            className={`inline-flex h-9 items-center gap-2 rounded-md border px-4 text-sm shadow-none transition-colors ${
               advancedOpen
                 ? "border-brand-accent bg-accent font-semibold text-accent-foreground ring-1 ring-brand-accent"
-                 : "border-border bg-card text-foreground hover:border-brand-accent hover:text-brand-accent"
+                : "border-border bg-card text-foreground hover:border-brand-accent hover:text-brand-accent"
             }`}
           >
             <SlidersHorizontal className="h-4 w-4" />
             Advanced search
             {activeAdvanced > 0 && (
-               <span className="flex h-5 min-w-5 items-center justify-center rounded-md bg-brand-accent px-1.5 text-xs font-semibold text-primary-foreground">
+              <span className="flex h-5 min-w-5 items-center justify-center rounded-md bg-brand-accent px-1.5 text-xs font-semibold text-primary-foreground">
                 {activeAdvanced}
               </span>
             )}
             <ChevronDown
               className={`h-4 w-4 transition-transform ${advancedOpen ? "rotate-180" : ""}`}
             />
-           </Button>
+          </Button>
         </div>
 
         {advancedOpen && (
           <>
             <div className="grid gap-4 sm:grid-cols-3">
               <div>
-                 <p className="mb-2 font-mono text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+                <p className="mb-2 font-mono text-xs font-semibold tracking-widest text-muted-foreground uppercase">
                   Impact
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -175,7 +175,7 @@ export function FilterBar({
               </div>
 
               <div>
-                 <p className="mb-2 font-mono text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+                <p className="mb-2 font-mono text-xs font-semibold tracking-widest text-muted-foreground uppercase">
                   Access
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -196,7 +196,7 @@ export function FilterBar({
               </div>
 
               <div>
-                 <p className="mb-2 font-mono text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+                <p className="mb-2 font-mono text-xs font-semibold tracking-widest text-muted-foreground uppercase">
                   Content type
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -230,7 +230,7 @@ export function FilterBar({
             </div>
 
             <div>
-               <p className="mb-2 font-mono text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+              <p className="mb-2 font-mono text-xs font-semibold tracking-widest text-muted-foreground uppercase">
                 Geography
               </p>
               <div className="flex flex-wrap gap-2">

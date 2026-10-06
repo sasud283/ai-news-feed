@@ -42,7 +42,9 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error instanceof Error ? error : new Error(String(error)), { boundary: "tanstack_root_error_component" });
+    reportLovableError(error instanceof Error ? error : new Error(String(error)), {
+      boundary: "tanstack_root_error_component",
+    });
   }, [error]);
 
   return (
@@ -148,10 +150,7 @@ function SiteHeader() {
           </div>
         </div>
         <div className="py-5">
-          <Link
-            to="/"
-            className="font-serif text-2xl font-semibold text-foreground sm:text-3xl"
-          >
+          <Link to="/" className="font-serif text-2xl font-semibold text-foreground sm:text-3xl">
             TheFullPicture<span className="text-brand-accent">.ai</span>
           </Link>
         </div>

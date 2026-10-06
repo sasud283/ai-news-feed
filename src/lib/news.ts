@@ -8,8 +8,7 @@ export { TOPICS, TOPIC_DESCRIPTIONS, normalizeTopics } from "@/lib/taxonomy";
 export type { Topic } from "@/lib/taxonomy";
 export type Tone = Database["public"]["Enums"]["story_tone"] | "Cool" | "Neutral";
 export type Access = Database["public"]["Enums"]["story_access"];
-// Migration 0011 adds Oceania; the generated Cloud types may lag the migration.
-export type Geography = Database["public"]["Enums"]["story_geography"] | "Oceania";
+export type Geography = Database["public"]["Enums"]["story_geography"];
 export type ContentType = "Article" | "Podcast" | "Video";
 
 export const TONES: Tone[] = ["Good", "Useful", "Bad", "Ugly", "Cool", "Neutral"];

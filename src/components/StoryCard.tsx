@@ -54,10 +54,7 @@ export function StoryCard({ story }: { story: Story }) {
           </Tag>
         ))}
         {story.geographies.map((geography) => (
-          <Tag
-            key={geography}
-            className="border-geo-border bg-geo-surface text-geo-foreground"
-          >
+          <Tag key={geography} className="border-geo-border bg-geo-surface text-geo-foreground">
             {geography}
           </Tag>
         ))}

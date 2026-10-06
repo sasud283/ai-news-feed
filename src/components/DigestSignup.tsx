@@ -33,7 +33,7 @@ export function DigestSignup({ filters }: { filters: Filters }) {
           {CADENCES.map((cadence) => {
             const tier = TIERS[cadence];
             return (
-               <li key={tier.id} className="rounded-md border border-border bg-background/50 p-4">
+              <li key={tier.id} className="rounded-md border border-border bg-background/50 p-4">
                 <strong className="font-serif text-lg text-foreground">{tier.name}</strong>
                 <span className="mt-1 block text-sm text-muted-foreground">
                   €{tier.monthly}/month or €{tier.yearly}/year
